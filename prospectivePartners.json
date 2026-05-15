@@ -1,0 +1,146 @@
+﻿[
+    {
+        "partnerId":  "PRT-001",
+        "name":  "Ava Chen",
+        "skill":  "Computer Vision",
+        "project":  "Building a real-time sign-language translator for video calls.",
+        "tags":  [
+                     "Computer Vision",
+                     "Accessibility",
+                     "On-Device ML"
+                 ],
+        "region":  "Seattle, United States"
+    },
+    {
+        "partnerId":  "PRT-002",
+        "name":  "TomÃ¡s Reyes",
+        "skill":  "Energy Systems",
+        "project":  "Designing a micro-grid controller for rooftop solar and EV charging.",
+        "tags":  [
+                     "Energy Systems",
+                     "IoT",
+                     "Control Theory"
+                 ],
+        "region":  "Madrid, Spain"
+    },
+    {
+        "partnerId":  "PRT-003",
+        "name":  "Fatima Al-Rashid",
+        "skill":  "Remote Sensing",
+        "project":  "Training a soil-health model from hyperspectral drone imagery.",
+        "tags":  [
+                     "Remote Sensing",
+                     "Agriculture",
+                     "Foundation Models"
+                 ],
+        "region":  "Doha, Qatar"
+    },
+    {
+        "partnerId":  "PRT-004",
+        "name":  "Jonas Eriksson",
+        "skill":  "Wearables",
+        "project":  "Prototyping a haptic vest that converts LiDAR depth into tactile cues.",
+        "tags":  [
+                     "Wearables",
+                     "LiDAR",
+                     "Haptics"
+                 ],
+        "region":  "Gothenburg, Sweden"
+    },
+    {
+        "partnerId":  "PRT-005",
+        "name":  "Priya Nair",
+        "skill":  "Biomedical NLP",
+        "project":  "Creating an open-source drug-interaction checker via knowledge graphs.",
+        "tags":  [
+                     "Biomedical NLP",
+                     "Knowledge Graphs",
+                     "Open Source"
+                 ],
+        "region":  "Pune, India"
+    },
+    {
+        "partnerId":  "PRT-006",
+        "name":  "Lucas Moreau",
+        "skill":  "Privacy",
+        "project":  "Building a browser extension that rewrites cookie dialogs into plain language.",
+        "tags":  [
+                     "Privacy",
+                     "Browser Extensions",
+                     "NLP"
+                 ],
+        "region":  "Montreal, Canada"
+    },
+    {
+        "partnerId":  "PRT-007",
+        "name":  "Mei Tanaka",
+        "skill":  "Federated Learning",
+        "project":  "Architecting federated learning for hospital radiology without sharing scans.",
+        "tags":  [
+                     "Federated Learning",
+                     "Radiology",
+                     "Privacy"
+                 ],
+        "region":  "Taipei, Taiwan"
+    },
+    {
+        "partnerId":  "PRT-008",
+        "name":  "David Okonkwo",
+        "skill":  "Assistive Tech",
+        "project":  "Building a low-latency speech-to-Braille device for classrooms.",
+        "tags":  [
+                     "Assistive Tech",
+                     "Embedded Systems",
+                     "Speech"
+                 ],
+        "region":  "Lagos, Nigeria"
+    },
+    {
+        "partnerId":  "PRT-009",
+        "name":  "Sofia Petrov",
+        "skill":  "Compilers",
+        "project":  "Writing a compiler pass that auto-inserts energy-profiling hooks into firmware.",
+        "tags":  [
+                     "Compilers",
+                     "Embedded C",
+                     "Energy Profiling"
+                 ],
+        "region":  "Prague, Czechia"
+    },
+    {
+        "partnerId":  "PRT-010",
+        "name":  "Raj Malhotra",
+        "skill":  "Satellite Imagery",
+        "project":  "Launching satellite change-detection for illegal deforestation alerts.",
+        "tags":  [
+                     "Satellite Imagery",
+                     "Change Detection",
+                     "Conservation"
+                 ],
+        "region":  "Santiago, Chile"
+    },
+    {
+        "partnerId":  "PRT-011",
+        "name":  "Elena Voss",
+        "skill":  "Digital Twins",
+        "project":  "Designing a digital twin of urban water networks to predict pipe failures.",
+        "tags":  [
+                     "Digital Twins",
+                     "Civil Engineering",
+                     "Predictive Maintenance"
+                 ],
+        "region":  "Rotterdam, Netherlands"
+    },
+    {
+        "partnerId":  "PRT-012",
+        "name":  "Carlos Medina",
+        "skill":  "EdTech",
+        "project":  "Developing an AI writing tutor that gives structural feedback only.",
+        "tags":  [
+                     "EdTech",
+                     "NLP",
+                     "Writing Analytics"
+                 ],
+        "region":  "Auckland, New Zealand"
+    }
+]

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Defense Day — Skilf</title>
+  <style>
+    :root { color-scheme:light; --ink:#11233b; --ink-soft:#3f5877; --gold:#9d7b35; --line:#d7dde6; --panel:#fff; }
+    body { margin:0; font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif;
+      background:radial-gradient(circle at 12% 18%,#f8f3df 0%,#f8f3df 15%,transparent 50%),radial-gradient(circle at 88% 84%,#e6eef8 0%,#e6eef8 20%,transparent 56%),linear-gradient(165deg,#f7fafc 0%,#eef3f8 100%);
+      color:var(--ink); }
+    main { width:min(780px,92vw); margin:40px auto 80px; }
+    a.back { font-size:0.88rem; color:var(--ink-soft); text-decoration:none; }
+    a.back:hover { text-decoration:underline; }
+    h1 { margin:24px 0 8px; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:0.02em; }
+    .subtitle { margin:0 0 32px; color:var(--ink-soft); font-size:1rem; }
+    h2 { margin:36px 0 10px; font-size:1.2rem; color:var(--gold); }
+    h3 { margin:24px 0 8px; font-size:1.05rem; }
+    p, li { font-size:0.95rem; line-height:1.65; color:var(--ink); }
+    ul, ol { padding-left:20px; }
+    .callout { border:1px solid var(--line); border-radius:16px; background:linear-gradient(160deg,var(--panel),#f8fbff); padding:20px 22px; box-shadow:0 10px 22px rgb(17 35 59/8%); margin:24px 0; }
+    .callout-title { font-weight:700; font-size:1rem; margin:0 0 6px; color:var(--gold); }
+    .callout p { margin:4px 0 0; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">← Back to Skilf</a>
+    <h1>Defense Day</h1>
+    <p class="subtitle">The adversarial demo defense that proves you can build, explain, and defend real work under pressure.</p>
+
+    <p>A Skilf is not a certificate you download after watching videos. It is earned in a live, adversarial defense session where you present a working project to a panel of domain experts who will challenge every claim, probe every design decision, and stress-test your understanding in real time. Defense Day is the day that happens.</p>
+
+    <h2>What happens on Defense Day</h2>
+    <p>You join a 60-minute video session with two or three expert panelists. The first 15 minutes are yours: you demo your project, walk through the architecture, and explain the decisions you made. The remaining 45 minutes belong to the panel. They will ask you to modify something live, explain why you rejected an alternative approach, trace a failure mode end-to-end, or defend a trade-off under a new constraint you have never seen before.</p>
+    <p>There is no script. The panel adapts their questions based on your answers. If you handle the basics easily, they escalate. If you struggle, they probe the edges of what you do know to find the boundary of your competence. The goal is not to trick you — it is to map exactly what you can do.</p>
+
+    <h2>Every student must have an AI mentor</h2>
+    <p>This is a hard requirement, not a suggestion. Before you are eligible to schedule a Defense Day, you must have logged at least 20 hours of documented interaction with an AI mentor. Here is why.</p>
+
+    <div class="callout">
+      <p class="callout-title">Why AI mentorship is mandatory</p>
+      <p>The panel will ask you questions you have never rehearsed. The only way to prepare for that is to practice thinking out loud with a system that can challenge you from unexpected angles, at any hour, without judgment. An AI mentor does exactly that. It can simulate a skeptical reviewer, generate edge-case scenarios for your project, quiz you on fundamentals you thought you knew, and force you to articulate reasoning you have only ever held as intuition.</p>
+    </div>
+
+    <h3>How to work with your AI mentor</h3>
+    <p>Your AI mentor is not a tutor that feeds you answers. Treat it as a sparring partner. Here is a practical framework:</p>
+    <ol>
+      <li><strong>Explain your project from scratch</strong> — Open a fresh session and describe your project as if the AI knows nothing. Every time it asks a clarifying question, that is a gap in your explanation that a panelist will also find.</li>
+      <li><strong>Ask it to attack your design</strong> — Prompt it to act as a hostile reviewer. Tell it to find the three weakest decisions in your architecture. Then defend each one out loud. If you cannot, redesign.</li>
+      <li><strong>Simulate live modifications</strong> — Ask the AI to propose a constraint change ("What if your latency budget dropped from 200ms to 50ms?") and then work through the redesign in conversation. This mirrors what the panel will do.</li>
+      <li><strong>Quiz yourself on fundamentals</strong> — Ask it to generate 10 questions a first-year PhD student in your field should be able to answer. If you stumble on any, that is a study target.</li>
+      <li><strong>Practice failure-mode tracing</strong> — Describe a hypothetical failure in your system and walk the AI through your debugging process step by step. The panel loves this exercise.</li>
+      <li><strong>Record your sessions</strong> — Keep a log of the questions that surprised you. Review them the week before your defense. Patterns will emerge.</li>
+    </ol>
+
+    <h3>Choosing the right AI mentor</h3>
+    <p>Any capable large language model works. What matters is how you use it, not which one you pick. Some candidates prefer a single model for continuity; others use multiple models to get diverse perspectives. Both approaches are valid. The 20-hour minimum is tracked via self-reported logs that you submit when you schedule your defense.</p>
+
+    <h2>Practical advice for preparing</h2>
+
+    <h3>Four weeks before</h3>
+    <ul>
+      <li>Your project should be functional, not perfect. The panel wants to see something that works end-to-end, even if rough. A polished slide deck with no working demo is an automatic fail.</li>
+      <li>Identify the three strongest and three weakest aspects of your project. The panel will find the weak ones regardless — you are better off knowing them first.</li>
+      <li>Start daily 30-minute AI mentor sessions focused on adversarial questioning.</li>
+    </ul>
+
+    <h3>Two weeks before</h3>
+    <ul>
+      <li>Do a full dry run with a friend or colleague acting as a panelist. Give them permission to be harsh. Time it strictly to 60 minutes.</li>
+      <li>Prepare a 15-minute demo script, then throw it away and do the demo from memory. You need to be able to present fluidly without notes because the panel will interrupt you.</li>
+      <li>Review your AI mentor logs. Identify the five questions that made you most uncomfortable. Prepare clear, honest answers for each — including "I don't know, but here is how I would find out."</li>
+    </ul>
+
+    <h3>One week before</h3>
+    <ul>
+      <li>Freeze your codebase. No new features. Only bug fixes that affect the demo path.</li>
+      <li>Test your demo environment on the exact machine and network you will use on Defense Day. Screen-sharing glitches and environment issues eat into your 15 minutes and rattle your confidence.</li>
+      <li>Sleep well. Seriously. Cognitive performance under adversarial questioning degrades sharply with sleep debt. This is not the week to pull late nights.</li>
+    </ul>
+
+    <h3>The day of</h3>
+    <ul>
+      <li>Join the session five minutes early. Have your demo environment open and ready.</li>
+      <li>When a panelist asks a question you do not know the answer to, say so immediately. Then explain how you would investigate. The panel respects intellectual honesty far more than confident bluffing.</li>
+      <li>If asked to modify something live, talk through your thought process as you work. The panel is evaluating your reasoning, not your typing speed.</li>
+      <li>Take a breath before answering hard questions. Two seconds of silence is better than a rambling answer that loses the thread.</li>
+    </ul>
+
+    <div class="callout">
+      <p class="callout-title">What the panel is actually looking for</p>
+      <p>They are not checking whether you memorized a textbook. They want to see three things: (1) that you built something real and can explain every piece of it, (2) that you can reason about trade-offs under pressure and adapt when constraints change, and (3) that you know the boundaries of your own knowledge and can navigate them honestly. If you can do those three things, you will pass.</p>
+    </div>
+
+    <h2>After Defense Day</h2>
+    <p>Results are delivered within 24 hours. If you pass, your Skilf credential is minted and you appear in the expert directory on the main page. If you do not pass, you receive detailed written feedback from each panelist explaining exactly where you fell short and what to work on. You can reattempt after a 30-day preparation period. There is no limit on attempts.</p>
+    <p>Many candidates who fail on their first attempt say the feedback alone was worth the experience. The panel is not trying to gatekeep — they are trying to help you reach the bar.</p>
+
+    <h2>Ready?</h2>
+    <p>Head back to the <a href="index.html">main page</a> and click <strong>Begin your own Skilf adventure</strong> to start the process.</p>
+  </main>
+</body>
+</html>

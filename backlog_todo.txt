@@ -1,0 +1,39 @@
+# Shared backlog.
+# The first non-comment item is the only active item.
+# Lower items are queued and must not start until the active item passes
+# testing or the human explicitly reprioritizes the list.
+# Use [open-bug] for automation-actionable bug fixes.
+# Use [human-feature], [human-usability], or [human-cosmetic] for changes
+# that only the human may add or prioritize.
+# Automations should only act on clearly labeled bug-fix items unless the
+# human explicitly redirects them.
+#
+# Suggested format:
+# [active-open-bug] Short bug title - reproduction notes, expected behavior, constraints
+# [queued-open-bug] Short bug title - evidence, risk, and smallest corrective direction
+# [active-human-feature] Short request - desired outcome and constraints
+# [queued-human-feature] Short request - desired outcome and constraints
+#
+# Items:
+[done] Add search and filter controls above the expert cards - let the user search by expert name, region, or `skilfId`, and extend `experts.json` to add a unique `skilfId` field for every expert.
+[done] Add a `Schedule a skilf` CTA above or near the expert results - link it to Calendly at `https://calendly.com/richkingsford/30m` and present it as the next step for booking a real skilf defense.
+[done] Add a `Post a skilf` CTA button - link it to `https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog` so users can submit their own skilf ideas or projects.
+[done] Build a `Find a partner` experience using a new `prospectivePartners.json` file with exactly 12 dummy people - show 6 of them in a separate grid titled `Find a partner`, give every card a distinct project and an editable message input plus a `Send` button, and use random starter placeholder text such as `Can you tell me more?`, `Are you still working on this?`, and `Can I join you as a 1-hour/week partner?`.
+[done] Message dropdown selector with attached send button and pre-filled editable value instead of disappearing placeholder.
+[done] Single short paragraph per card, with tags from data source shown beneath.
+[done] Message widget appears in both card grids.
+[done] More space between grids.
+[done] Top grid titled "Hire someone with a skilf" with tagline about adversarial demo defense.
+[done] Rename "Schedule a skilf" to "Begin your own Skilf adventure", link to Google Form, remove "Post a skilf", move button to top-right at 40% larger size.
+[done] Add a subpage called monetize your expertise - describe how experts can increase their fee for defense days.
+[done] Build a sub page called defense day - lots of text about how every student must also have an AI mentor and practical advice on preparing for defense day.
+[blocked] 2026-04-22: No actionable backlog item; all entries are `[done]`. Add one `[active-open-bug]` (or explicitly reprioritize) to continue.
+[done] Architecture: restore one canonical data contract for listings - replaced random in-browser listing generation with fixture-driven rendering from `experts.json` and `prospectivePartners.json`, normalized both fixtures to shared keys (`name`,`skill`,`project`,`tags`,`region`), and updated regression checks to assert the shared contract.
+[done] Architecture: unify the regression runtime around one served app path - replaced `python -m http.server` in `tests/ensure-regression-gallery-server.ps1` with Node `serve` from workspace root, made `tests/run-regression.ps1` bootstrap that same server and load app preview via `http://127.0.0.1:3999/index.html`, and aligned Playwright to shared `npm run serve:workspace` command.
+[blocked] 2026-04-23: No [active-open-bug] item at top of backlog; add one actionable bug-fix item to proceed.
+[done] Architecture: use one browser runtime for regression artifacts - switched screenshot capture to a shared Playwright helper script (`tests/capture-regression-screenshot.js`) and made screenshot capture failures non-fatal with per-shot manifest/gallery warnings so regression artifacts still publish fresh evidence.
+[blocked] 2026-04-23: Automation run blocked; backlog has no active actionable open-bug item.
+[blocked] 2026-04-23T12:48:39-06:00: No actionable [active-open-bug] item at top of backlog_todo; add one to proceed.
+[blocked] 2026-04-23T13:51:15-06:00: No actionable [active-open-bug] at top of backlog_todo.txt; add one to proceed.
+[blocked] 2026-04-23T14:52:22-06:00: No actionable [active-open-bug] item at top of backlog_todo.txt; add one to proceed.
+[blocked] 2026-04-23T14:52:38-06:00: No actionable [active-open-bug] item at top of backlog_todo.txt; add one to proceed.

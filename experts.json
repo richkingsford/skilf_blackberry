@@ -1,0 +1,80 @@
+﻿[
+    {
+        "skilfId":  "SKL-001",
+        "name":  "Dr. Lila Rowe",
+        "skill":  "Computational Biology",
+        "project":  "Designs CRISPR repair copilots that map perturbation readouts to guide-RNA rescue strategies in under 30 minutes.",
+        "tags":  [
+                     "CRISPR",
+                     "Single-Cell",
+                     "Gene Editing"
+                 ],
+        "region":  "Boston, United States",
+        "yearsExpert":  3
+    },
+    {
+        "skilfId":  "SKL-002",
+        "name":  "Prof. Mateo Ibarra",
+        "skill":  "Power Systems Engineering",
+        "project":  "Builds graph neural dispatch models that fuse PMU telemetry and weather nowcasts to preempt substation oscillation cascades.",
+        "tags":  [
+                     "Grid Stability",
+                     "GNN",
+                     "Weather Nowcasting"
+                 ],
+        "region":  "Austin, United States",
+        "yearsExpert":  5
+    },
+    {
+        "skilfId":  "SKL-003",
+        "name":  "Eng. Noor Haddad",
+        "skill":  "Robotics",
+        "project":  "Implements vision-language failure forensics for autonomous manipulators by replaying torque traces against contact hypotheses.",
+        "tags":  [
+                     "Manipulation",
+                     "Vision-Language",
+                     "Torque Analysis"
+                 ],
+        "region":  "Pittsburgh, United States",
+        "yearsExpert":  4
+    },
+    {
+        "skilfId":  "SKL-004",
+        "name":  "Dr. Kenji Sato",
+        "skill":  "Materials Science",
+        "project":  "Runs diffusion-model inverse design loops that generate printable battery electrolyte chemistries constrained by synthesis priors.",
+        "tags":  [
+                     "Battery Design",
+                     "Diffusion Models",
+                     "Electrolytes"
+                 ],
+        "region":  "Zurich, Switzerland",
+        "yearsExpert":  7
+    },
+    {
+        "skilfId":  "SKL-005",
+        "name":  "Ms. Anika Verma",
+        "skill":  "Climate Informatics",
+        "project":  "Authors geospatial foundation-model adapters that downscale flood risk from satellite streams into parcel-level emergency signals.",
+        "tags":  [
+                     "Flood Risk",
+                     "Geospatial AI",
+                     "Downscaling"
+                 ],
+        "region":  "Dublin, Ireland",
+        "yearsExpert":  2
+    },
+    {
+        "skilfId":  "SKL-006",
+        "name":  "Dr. Elias Mbaye",
+        "skill":  "Quantum Hardware",
+        "project":  "Optimizes cryogenic control stacks with RL that jointly tunes pulse sequences and refrigerator duty cycles for error suppression.",
+        "tags":  [
+                     "Cryogenics",
+                     "Reinforcement Learning",
+                     "Qubit Calibration"
+                 ],
+        "region":  "Luxembourg",
+        "yearsExpert":  6
+    }
+]

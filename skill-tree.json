@@ -1,0 +1,48 @@
+{
+  "Artificial Intelligence": {
+    "Machine Learning": ["ML", "Deep Learning", "RL", "Foundation Models", "Adaptive Learning", "On-Device ML", "Mobile ML"],
+    "Language & Vision": ["NLP", "Computer Vision", "Medical NLP", "Biomedical NLP", "Computational Linguistics", "Plain Language"],
+    "Applied AI": ["AI", "Analytics", "Optimization", "Predictive Maintenance", "Drug Discovery", "Knowledge Graphs"]
+  },
+  "Engineering": {
+    "Electrical & Computer": ["FPGA", "Embedded", "Semiconductor Design", "Signal Processing", "Edge Computing", "Photonics"],
+    "Mechanical & Civil": ["Control Systems", "Mechatronics", "Structural Engineering", "Geotechnical Engineering", "3D Printing"],
+    "Aerospace & Ocean": ["Aerospace Engineering", "Ocean Engineering", "Drones", "Autonomous"],
+    "Energy & Power": ["Power Systems Engineering", "Renewable Energy Systems", "Renewable", "Nuclear", "Energy Systems"]
+  },
+  "Computing & Security": {
+    "Infrastructure": ["Cloud", "HPC", "Blockchain", "Real-Time", "Mesh Networks"],
+    "Security & Privacy": ["Security", "Privacy", "Cryptography", "Data Privacy Law"],
+    "Simulation & Data": ["Simulation", "Telemetry", "Digital Twins", "IoT"]
+  },
+  "Life Sciences & Medicine": {
+    "Biology & Genomics": ["Genomics", "Proteomics", "Synthetic Biology", "Computational Biology", "Marine Biology"],
+    "Medical & Clinical": ["Anesthesiology", "Dentistry", "Neurosurgery", "Palliative Medicine", "Immunotherapy", "Veterinary Oncology"],
+    "Biomedical Engineering": ["Biomedical Imaging", "Imaging", "Tissue Engineering", "Neuroprosthetics", "Prosthetics", "EMG"],
+    "Pharma & Health": ["Pharmacogenomics", "Drug Discovery", "Health Monitoring", "Rural Health", "Elder Care"]
+  },
+  "Earth & Environment": {
+    "Climate & Weather": ["Climate Informatics", "Air Quality", "Sustainability", "Carbon Markets", "Climate Finance"],
+    "Agriculture & Ecology": ["Agriculture", "Crop Science", "Agricultural Robotics", "Ecology", "Reforestation", "Remote Sensing"],
+    "Earth Science": ["Volcanology", "Environmental Toxicology", "Water Quality", "Sensors"]
+  },
+  "Physical Sciences": {
+    "Physics": ["Nuclear Physics", "Plasma Physics", "Astrophysics", "Quantum", "Quantum Chemistry", "Quantum Hardware"],
+    "Materials & Nano": ["Materials Science", "Nanotech", "Photonics"]
+  },
+  "Robotics & Hardware": {
+    "Robotics": ["Robotics", "Autonomous", "Control Theory", "Agricultural Robotics"],
+    "Sensors & Wearables": ["Sensors", "Wearables", "LiDAR", "Haptics", "IoT"],
+    "AR/VR & Interfaces": ["AR/VR", "AR", "Color Science", "Voice UI"]
+  },
+  "Social Impact & Humanities": {
+    "Economics & Law": ["Behavioral Economics", "Forensic Accounting", "Data Privacy Law"],
+    "Education & Accessibility": ["Education", "Accessibility", "Adaptive Learning", "Inclusion"],
+    "Community & Social": ["Social Impact", "Refugee Tech", "Community", "Disaster Response", "Urban Planning"],
+    "Health & Wellness": ["Physical Therapy", "Gamification", "UX", "Elder Care"]
+  },
+  "Software & Web": {
+    "Web & Browser": ["Browser Extensions", "Open Source", "Plain Language"],
+    "Ethics & Safety": ["Ethics", "Safety"]
+  }
+}
