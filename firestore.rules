@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /people/{personId} {
+      allow create: if isSignedIn()
+        && request.resource.data.authUid == request.auth.uid
+        && request.resource.data.email is string
+        && request.resource.data.role in ["student", "panelist", "sponsor"];
+      allow read, update, delete: if false;
+    }
+  }
+}

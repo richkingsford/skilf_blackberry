@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply - Skilf</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #e8edf3;
+      --ink-soft: #8fa3ba;
+      --gold: #d4a94b;
+      --line: #2a3a4e;
+      --bg: #0b1117;
+      --card-bg: #161f2c;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 600px 500px at 8% 12%, rgba(212,169,75,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 600px at 92% 85%, rgba(80,130,200,0.06) 0%, transparent 70%);
+    }
+    main { position: relative; width: min(760px, 92vw); margin: 36px auto 64px; }
+    a { color: var(--gold); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .brand { color: var(--gold); font-size: 2rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; }
+    .auth-strip { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-height: 36px; }
+    .auth-status { color: var(--ink-soft); font-size: 0.84rem; }
+    .auth-btn, .submit-btn {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--card-bg);
+      color: var(--ink);
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .auth-btn { padding: 8px 12px; font-size: 0.84rem; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3rem); color: var(--gold); }
+    .lead { margin: 0 0 24px; color: var(--ink-soft); line-height: 1.5; }
+    form {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(160deg, var(--card-bg), #1a2636);
+      padding: 22px;
+      box-shadow: 0 8px 18px rgb(0 0 0 / 30%);
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: grid; gap: 6px; color: var(--ink-soft); font-size: 0.86rem; }
+    input, select, textarea {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      font: inherit;
+      padding: 10px 12px;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #4a6a8a; }
+    textarea { min-height: 120px; resize: vertical; }
+    .wide { grid-column: 1 / -1; }
+    .hidden { display: none; }
+    .submit-row { display: flex; justify-content: flex-end; gap: 12px; align-items: center; margin-top: 18px; }
+    .submit-btn {
+      border: none;
+      background: var(--gold);
+      color: var(--bg);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+    .note { margin: 0; color: var(--ink-soft); font-size: 0.82rem; }
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .auth-strip { justify-content: flex-start; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <a class="brand" href="index.html">Skilf</a>
+      <div class="auth-strip" data-auth-ui>
+        <span class="auth-status" data-auth-status>Sign in to save student and panelist data.</span>
+        <button class="auth-btn" type="button" data-auth-action="sign-in">Sign in with Google</button>
+        <button class="auth-btn" type="button" data-auth-action="sign-out" hidden>Sign out</button>
+      </div>
+    </div>
+
+    <h1>Begin your Skilf adventure</h1>
+    <p class="lead">Tell us what you are building, evaluating, or sponsoring. This replaces the old Google Form and is ready for Netlify form capture.</p>
+
+    <form name="skilf-application" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-skilf-application-form>
+      <input type="hidden" name="form-name" value="skilf-application">
+      <input type="hidden" name="recipient" value="richkingsford@gmail.com">
+      <label class="hidden">Do not fill this out <input name="bot-field"></label>
+
+      <div class="grid">
+        <label>
+          I am applying as
+          <select name="role" required>
+            <option value="student">Student / candidate</option>
+            <option value="panelist">Panelist / expert reviewer</option>
+            <option value="sponsor">Sponsor / organization</option>
+          </select>
+        </label>
+        <label>
+          Application type
+          <select name="kind" data-kind-select required>
+            <option value="demo-day">Demo Day</option>
+            <option value="scholarship">Scholarship</option>
+            <option value="panelist">Panelist</option>
+            <option value="sponsor">Sponsor</option>
+          </select>
+        </label>
+        <label>
+          Name
+          <input name="name" autocomplete="name" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>
+          Phone
+          <input name="phone" autocomplete="tel">
+        </label>
+        <label>
+          Organization
+          <input name="organization" autocomplete="organization">
+        </label>
+        <label class="wide">
+          Skilf area or expertise
+          <input name="skilf_interest" placeholder="Example: robotics, dentistry, computational biology" required>
+        </label>
+        <label class="wide">
+          Project, credential, or review panel fit
+          <textarea name="project" required></textarea>
+        </label>
+        <label class="wide">
+          Anything else we should know?
+          <textarea name="message"></textarea>
+        </label>
+      </div>
+
+      <div class="submit-row">
+        <p class="note">Submissions are captured by Netlify and can also be saved to Firebase once configured.</p>
+        <button class="submit-btn" type="submit">Send</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const kind = new URLSearchParams(location.search).get("kind");
+    const kindSelect = document.querySelector("[data-kind-select]");
+    if (kind && kindSelect && [...kindSelect.options].some((option) => option.value === kind)) {
+      kindSelect.value = kind;
+    }
+  </script>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-$expertsPath = 'C:/dev/skilf/experts.json'
-$partnersPath = 'C:/dev/skilf/prospectivePartners.json'
+$root = Split-Path $PSScriptRoot -Parent
+$expertsPath = Join-Path $root 'experts.json'
+$partnersPath = Join-Path $root 'prospectivePartners.json'
 if (-not (Test-Path $expertsPath)) { throw "Missing experts.json at $expertsPath" }
 if (-not (Test-Path $partnersPath)) { throw "Missing prospectivePartners.json at $partnersPath" }
 

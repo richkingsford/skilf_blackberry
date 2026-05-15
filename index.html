@@ -136,18 +136,30 @@
     .tree-drop details details summary { color: var(--ink); font-weight: 500; font-size: 0.84rem; }
     .tree-leaf { padding: 3px 14px 3px 28px; font-size: 0.82rem; color: var(--ink-soft); cursor: pointer; }
     .tree-leaf:hover { background: rgba(255,255,255,0.06); color: var(--ink); }
+    .auth-strip { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin: -12px 0 20px; min-height: 36px; }
+    .auth-status { color: var(--ink-soft); font-size: 0.84rem; }
+    .auth-btn {
+      padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--card-bg); color: var(--ink); font-family: inherit; font-size: 0.84rem; cursor: pointer;
+    }
+    .auth-btn:hover { border-color: #4a6a8a; }
   </style>
 </head>
 <body>
   <main>
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <h1 class="app-title">Skilf</h1>
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
+      <a class="cta" href="apply.html">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
+    </div>
+    <div class="auth-strip" data-auth-ui>
+      <span class="auth-status" data-auth-status>Sign in to save student and panelist data.</span>
+      <button class="auth-btn" type="button" data-auth-action="sign-in">Sign in with Google</button>
+      <button class="auth-btn" type="button" data-auth-action="sign-out" hidden>Sign out</button>
     </div>
     <p class="subtitle">My skilf says I'm the world's foremost expert on
       <span class="ticker-wrap"><span class="ticker-track" id="ticker"></span></span></p>
     <h2 class="section-title">Hire someone with a skilf</h2>
-    <p class="tagline">A skilf is awarded only after you survive <a href="defense-day.html">Demo Day</a> ($100 each) — an adversarial demo defense with an expert review panel.</p>
+    <p class="tagline">A skilf is awarded only after you survive <a href="defense-day.html">Demo Day</a> — an adversarial demo defense with an expert review panel.</p>
     <div class="toolbar" id="expert-toolbar">
       <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or skilf ID…" autocomplete="off">
       <button class="tree-btn" data-tree="expert-tree">Skill tree ▾</button>
@@ -369,7 +381,7 @@
       }
     </script>
     <div style="text-align:center;margin:48px 0;">
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform" target="_blank" rel="noopener" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Apply for a scholarship</a>
+      <a class="cta" href="apply.html?kind=scholarship" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Apply for a scholarship</a>
     </div>
     <h2 class="section-title">Find a partner</h2>
     <p style="margin:0 0 16px;color:var(--ink-soft);font-size:0.92rem;">These people are still working on their first skilf. They're hungry for employers, mentors, and partners (in that order 😉)</p>
@@ -420,11 +432,12 @@
       }
     </script>
     <div style="text-align:center;margin:56px 0 24px;">
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
+      <a class="cta" href="apply.html">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
     </div>
   </main>
+  <script type="module" src="skilf-firebase.js"></script>
   <footer style="position:relative;z-index:1;border-top:1px solid var(--line);padding:24px 0;text-align:center;">
-    <a href="defense-day.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Prepare for Demo Day ($100 each)</a>
+    <a href="defense-day.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Prepare for Demo Day</a>
     <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Monetize Your Expertise</a>
     <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Become a board member</a>
     <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Volunteer/Donate. Change a life.</a>
