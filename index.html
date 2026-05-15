@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -20,31 +20,27 @@
       font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
       background: var(--bg);
       color: var(--ink);
+      position: relative;
       min-height: 100vh;
       overflow-x: hidden;
     }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 600px 500px at 8% 12%, rgba(212,169,75,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 600px at 92% 85%, rgba(80,130,200,0.06) 0%, transparent 70%),
+        radial-gradient(circle 300px at 50% 40%, rgba(100,160,220,0.04) 0%, transparent 60%);
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='340' cy='60' r='120' fill='none' stroke='%23d4a94b' stroke-width='0.5' opacity='0.08'/%3E%3Ccircle cx='60' cy='340' r='80' fill='none' stroke='%235082c8' stroke-width='0.5' opacity='0.07'/%3E%3Cpath d='M200 0 L210 400' stroke='%23ffffff' stroke-width='0.3' opacity='0.03'/%3E%3Cpath d='M0 200 L400 190' stroke='%23ffffff' stroke-width='0.3' opacity='0.03'/%3E%3C/svg%3E") repeat;
+    }
+    main, main ~ * { position: relative; z-index: 1; }
     main { width: min(1100px, 94vw); margin: 36px auto; }
-    .hero-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .app-title { margin: 0 0 4px; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: 0.04em; color: var(--gold); }
-    .subtitle { margin: 0 0 18px; font-size: 1.1rem; color: var(--ink-soft); }
-    .hero-actions { display: flex; justify-content: flex-end; align-items: stretch; flex-wrap: wrap; gap: 12px; }
-    .cta {
-      display: inline-block; padding: 14px 28px; border-radius: 14px; background: var(--gold); color: var(--bg);
-      font-size: 1.29rem; font-weight: 600; text-decoration: none; white-space: nowrap; text-align: center;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-    }
-    .cta-sponsor { background: linear-gradient(135deg, #6eb7d6, #4f7fb8); color: #071018; }
-    .cta-subline { font-size: 0.72em; font-weight: 400; }
-    .section-title { margin: 72px 0 16px; font-size: 1.3rem; letter-spacing: 0.02em; }
+    h1 { margin: 0; font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: 0.03em; }
+    .lead { margin: 4px 0 4px; color: var(--ink-soft); font-size: 1rem; }
     .tagline { margin: 0 0 24px; color: var(--ink-soft); font-size: 0.88rem; }
-    .tagline a { color: var(--gold); }
-    .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; position: relative; }
-    .search-input {
-      flex: 1 1 260px; padding: 10px 14px; border: 1px solid var(--line);
-      border-radius: 10px; font-size: 0.95rem; font-family: inherit; outline: none;
-      background: var(--bg); color: var(--ink);
-    }
-    .tree-btn { padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--card-bg); color: var(--ink-soft); font-size: 0.88rem; }
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .card {
       border: 1px solid var(--line); border-radius: 13px;
@@ -66,18 +62,23 @@
       background: rgba(255,255,255,0.05); padding: 4px 9px; color: var(--ink-soft); font-size: 0.72rem; font-weight: 600;
     }
     .region { margin-top: 10px; display: inline-block; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.05); padding: 5px 10px; color: var(--ink-soft); font-size: 0.76rem; font-weight: 600; }
-    .msg-row { position: relative; display: flex; margin-top: auto; padding-top: 12px; }
+    .msg-row { position: relative; display: flex; flex-wrap: wrap; margin-top: auto; padding-top: 12px; }
+    .msg-row.expanded { }
+    .msg-row.expanded .msg-input { order: -1; width: 100%; flex: 0 0 100%; border-right: 1px solid var(--line); border-radius: 8px 8px 0 0; min-height: 4.4em; }
+    .msg-row.expanded .msg-arrow { border-radius: 0 0 0 8px; border-left: 1px solid var(--line); }
+    .msg-row.expanded .send-btn { border-radius: 0 0 8px 0; }
     .msg-input {
       flex: 1; padding: 5px 10px;
       border: 1px solid var(--line); border-right: none;
       border-radius: 8px 0 0 8px;
       font-size: 0.82rem; font-family: inherit; outline: none;
       background: var(--bg); color: var(--ink);
-      resize: vertical; line-height: 1.1; min-height: 2.1em;
+      resize: none; line-height: 1.1; overflow: hidden;
     }
+    .msg-input:focus { border-color: #4a6a8a; }
     .msg-arrow {
       width: 34px; border: 1px solid var(--line); border-left: none; border-right: none;
-      background: #1a2636; cursor: pointer;
+      border-radius: 0; background: #1a2636; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
     }
     .send-btn {
@@ -86,6 +87,7 @@
       background: var(--gold); color: var(--bg); font-size: 0.82rem; font-weight: 600;
       cursor: pointer; font-family: inherit; white-space: nowrap;
     }
+    .send-btn:hover { opacity: 0.88; }
     .msg-menu {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
       margin: 4px 0 0; padding: 4px 0; list-style: none;
@@ -94,209 +96,333 @@
     }
     .msg-menu li { padding: 8px 14px; cursor: pointer; font-size: 0.82rem; color: var(--ink); }
     .msg-menu li:hover { background: rgba(255,255,255,0.06); }
-    @media (max-width: 760px) {
-      .hero-actions { width: 100%; }
-      .hero-actions .cta { flex: 1 1 240px; white-space: normal; }
-      .cards { grid-template-columns: 1fr; }
+    .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .search-input {
+      flex: 1 1 260px; padding: 10px 14px; border: 1px solid var(--line);
+      border-radius: 10px; font-size: 0.95rem; font-family: inherit; outline: none;
+      background: var(--bg); color: var(--ink);
     }
+    .search-input:focus { border-color: #4a6a8a; }
+    .cta { display: inline-block; padding: 14px 28px; border-radius: 14px; background: var(--gold); color: var(--bg); font-size: 1.29rem; font-weight: 600; text-decoration: none; white-space: nowrap; text-align: center; }
+    .cta:hover { opacity: 0.88; }
+    .tagline a { color: var(--gold); }
+    .section-title { margin: 72px 0 16px; font-size: 1.3rem; letter-spacing: 0.02em; }
+    .app-title { margin: 0 0 4px; font-size: clamp(2.4rem, 5vw, 3.2rem); letter-spacing: 0.04em; color: var(--gold); }
+    .subtitle { margin: 0 0 18px; font-size: 1.1rem; color: var(--ink-soft); display: flex; align-items: center; flex-wrap: wrap; gap: 0 6px; }
+    .ticker-wrap {
+      display: inline-block; height: calc(1.4em * 3); overflow: hidden; position: relative; vertical-align: middle; line-height: 1.4em; margin-left: 3px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.35) 25%, black 40%, black 60%, rgba(0,0,0,0.35) 75%, transparent 95%);
+      mask-image: linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.35) 25%, black 40%, black 60%, rgba(0,0,0,0.35) 75%, transparent 95%);
+    }
+    .ticker-track { display: block; will-change: transform; }
+    .ticker-track span { display: block; height: 1.4em; line-height: 1.4em; color: var(--ink); font-weight: 600; white-space: nowrap; }
+    .toolbar { position: relative; }
+    .autocomplete { display: none; position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; padding: 4px 0; list-style: none; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 14px rgb(0 0 0/30%); z-index: 20; max-height: 220px; overflow-y: auto; }
+    .autocomplete li { padding: 8px 14px; cursor: pointer; font-size: 0.88rem; color: var(--ink); }
+    .autocomplete li:hover { background: rgba(255,255,255,0.06); }
+    .autocomplete li .ac-path { font-size: 0.72rem; color: var(--ink-soft); margin-left: 8px; }
+    .tree-btn { padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--card-bg); color: var(--ink-soft); font-size: 0.88rem; font-family: inherit; cursor: pointer; white-space: nowrap; }
+    .tree-btn:hover { border-color: #4a6a8a; }
+    .tree-drop { display: none; position: absolute; top: 100%; right: 0; margin: 4px 0 0; padding: 0; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 14px rgb(0 0 0/30%); z-index: 20; min-width: 320px; max-height: 420px; overflow: hidden; display: none; flex-direction: column; }
+    .tree-drop.open { display: flex; }
+    .tree-search { width: 100%; padding: 10px 14px; border: none; border-bottom: 1px solid var(--line); font-size: 0.88rem; font-family: inherit; outline: none; background: var(--card-bg); color: var(--ink); box-sizing: border-box; border-radius: 10px 10px 0 0; }
+    .tree-body { overflow-y: auto; padding: 8px 0; flex: 1; }
+    .tree-drop summary { cursor: pointer; padding: 4px 14px; font-size: 0.88rem; color: var(--gold); font-weight: 600; list-style: none; }
+    .tree-drop summary::-webkit-details-marker { display: none; }
+    .tree-drop summary::before { content: '▸ '; font-size: 0.8em; }
+    .tree-drop details[open] > summary::before { content: '▾ '; }
+    .tree-drop summary:hover { background: rgba(255,255,255,0.04); }
+    .tree-drop details details { margin-left: 14px; }
+    .tree-drop details details summary { color: var(--ink); font-weight: 500; font-size: 0.84rem; }
+    .tree-leaf { padding: 3px 14px 3px 28px; font-size: 0.82rem; color: var(--ink-soft); cursor: pointer; }
+    .tree-leaf:hover { background: rgba(255,255,255,0.06); color: var(--ink); }
   </style>
 </head>
 <body>
   <main>
-    <div class="hero-bar">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <h1 class="app-title">Skilf</h1>
-      <div class="hero-actions">
-        <a class="cta hero-primary-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Begin your own Skilf adventure<br><span class="cta-subline">$100/Demo Day</span></a>
-        <a class="cta cta-sponsor hero-sponsor-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Sponsor a Skilf for your organization<br><span class="cta-subline">Fund a candidate through the same form</span></a>
-      </div>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
     </div>
-    <p class="subtitle">My skilf says I'm the world's foremost expert on real work.</p>
-
+    <p class="subtitle">My skilf says I'm the world's foremost expert on
+      <span class="ticker-wrap"><span class="ticker-track" id="ticker"></span></span></p>
     <h2 class="section-title">Hire someone with a skilf</h2>
-    <p class="tagline">A skilf is awarded only after you survive <a href="defense-day.html">Demo Day</a> ($100 each) - an adversarial demo defense with an expert review panel.</p>
+    <p class="tagline">A skilf is awarded only after you survive <a href="defense-day.html">Demo Day</a> ($100 each) — an adversarial demo defense with an expert review panel.</p>
     <div class="toolbar" id="expert-toolbar">
-      <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or skilf ID..." autocomplete="off">
-      <button class="tree-btn" type="button">Skill tree</button>
+      <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or skilf ID…" autocomplete="off">
+      <button class="tree-btn" data-tree="expert-tree">Skill tree ▾</button>
+      <ul class="autocomplete" id="expert-ac"></ul>
+      <div class="tree-drop" id="expert-tree"></div>
     </div>
     <section class="cards" id="experts" aria-label="experts"></section>
+    <script>
+      {
+        const subjects=["Anesthesiology","Dentistry","Materials Science","Computational Biology","Power Systems Engineering","Robotics","Climate Informatics","Quantum Hardware"];
+        const track=document.getElementById('ticker');
+        const total=subjects.length;
+        const items=[subjects[1],subjects[0],...subjects.slice().reverse(),subjects[total-1],subjects[total-2]];
+        track.innerHTML=items.map(s=>`<span>${s}</span>`).join('');
+        const rowH=track.children[0].offsetHeight;
+        let idx=total+1;
+        track.style.transform=`translateY(-${idx*rowH}px)`;
+        setInterval(()=>{
+          idx--;
+          track.style.transition='transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+          track.style.transform=`translateY(-${idx*rowH}px)`;
+          if(idx<=1){
+            setTimeout(()=>{
+              track.style.transition='none';
+              idx=total+1;
+              track.style.transform=`translateY(-${idx*rowH}px)`;
+            },650);
+          }
+        },3000);
+      }
+    </script>
+    <script>
+      const msgOptions=["Would you be interested in paid-work on my project?","Would you be interested in working on my project as a sweat-equity cofounder?","Are you open to experienced collaborators joining you in this effort?","Are you open to inexperienced collaborators joining you in this effort?"];
+      function msgWidget(defaultIdx){
+        const idx=defaultIdx%msgOptions.length;
+        return `<div class="msg-row">
+          <ul class="msg-menu">${msgOptions.map(m=>`<li>${m}</li>`).join('')}</ul>
+          <textarea class="msg-input" rows="1">${msgOptions[idx]}</textarea>
+          <button class="msg-arrow" aria-label="Pick a message"><svg width="10" height="6"><path d="M0 0l5 6 5-6z" fill="#8fa3ba"/></svg></button>
+          <button class="send-btn">Send</button>
+        </div>`;
+      }
+      document.addEventListener('focusin',e=>{
+        if(e.target.classList.contains('msg-input')){
+          const row=e.target.closest('.msg-row');
+          row.classList.add('expanded');
+          e.target.rows=2;
+        }
+      });
+      document.addEventListener('focusout',e=>{
+        if(e.target.classList.contains('msg-input')){
+          const row=e.target.closest('.msg-row');
+          if(!row.querySelector('.msg-menu').style.display||row.querySelector('.msg-menu').style.display==='none'){
+            row.classList.remove('expanded');
+            e.target.rows=1;
+          }
+        }
+      });
+      document.addEventListener('click',e=>{
+        const arrow=e.target.closest('.msg-arrow');
+        if(arrow){
+          const menu=arrow.closest('.msg-row').querySelector('.msg-menu');
+          document.querySelectorAll('.msg-menu').forEach(m=>{if(m!==menu)m.style.display='none';});
+          menu.style.display=menu.style.display==='block'?'none':'block';
+          return;
+        }
+        const li=e.target.closest('.msg-menu li');
+        if(li){
+          const row=li.closest('.msg-row');
+          row.querySelector('.msg-input').value=li.textContent;
+          row.querySelector('.msg-input').style.height='auto';
+          row.querySelector('.msg-menu').style.display='none';
+          return;
+        }
+        document.querySelectorAll('.msg-menu').forEach(m=>m.style.display='none');
+      });
+      function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
 
+      const skillTree={"Artificial Intelligence":{"Machine Learning":["ML","Deep Learning","RL","Foundation Models","Adaptive Learning","On-Device ML","Mobile ML"],"Language & Vision":["NLP","Computer Vision","Medical NLP","Biomedical NLP","Computational Linguistics","Plain Language"],"Applied AI":["AI","Analytics","Optimization","Predictive Maintenance","Drug Discovery","Knowledge Graphs"]},"Engineering":{"Electrical & Computer":["FPGA","Embedded","Semiconductor Design","Signal Processing","Edge Computing","Photonics"],"Mechanical & Civil":["Control Systems","Mechatronics","Structural Engineering","Geotechnical Engineering","3D Printing"],"Aerospace & Ocean":["Aerospace Engineering","Ocean Engineering","Drones","Autonomous"],"Energy & Power":["Power Systems Engineering","Renewable Energy Systems","Renewable","Nuclear","Energy Systems"]},"Computing & Security":{"Infrastructure":["Cloud","HPC","Blockchain","Real-Time","Mesh Networks"],"Security & Privacy":["Security","Privacy","Cryptography","Data Privacy Law"],"Simulation & Data":["Simulation","Telemetry","IoT"]},"Life Sciences & Medicine":{"Biology & Genomics":["Genomics","Proteomics","Synthetic Biology","Computational Biology","Marine Biology"],"Medical & Clinical":["Anesthesiology","Dentistry","Neurosurgery","Palliative Medicine","Immunotherapy","Veterinary Oncology"],"Biomedical Engineering":["Biomedical Imaging","Imaging","Tissue Engineering","Neuroprosthetics","Prosthetics","EMG"],"Pharma & Health":["Pharmacogenomics","Health Monitoring","Rural Health","Elder Care"]},"Earth & Environment":{"Climate & Weather":["Climate Informatics","Air Quality","Sustainability","Carbon Markets","Climate Finance"],"Agriculture & Ecology":["Agriculture","Crop Science","Agricultural Robotics","Ecology","Reforestation","Remote Sensing"],"Earth Science":["Volcanology","Environmental Toxicology","Water Quality","Sensors"]},"Physical Sciences":{"Physics":["Nuclear Physics","Plasma Physics","Astrophysics","Quantum","Quantum Chemistry","Quantum Hardware"],"Materials & Nano":["Materials Science","Nanotech"]},"Robotics & Hardware":{"Robotics":["Robotics","Control Theory","Agricultural Robotics"],"Sensors & Wearables":["Wearables","LiDAR","Haptics"],"AR/VR & Interfaces":["AR/VR","AR","Color Science","Voice UI"]},"Social Impact & Humanities":{"Economics & Law":["Behavioral Economics","Forensic Accounting"],"Education & Accessibility":["Education","Accessibility","Inclusion"],"Community & Social":["Social Impact","Refugee Tech","Community","Disaster Response","Urban Planning"],"Health & Wellness":["Physical Therapy","Gamification","UX"]},"Software & Web":{"Web & Browser":["Browser Extensions","Open Source"],"Ethics & Safety":["Ethics","Safety"]}};
+
+      // flatten all leaf skills with their path for autocomplete
+      const allSkills=[];
+      for(const[l1,subs]of Object.entries(skillTree))for(const[l2,leaves]of Object.entries(subs))for(const leaf of leaves)allSkills.push({name:leaf,path:l1+' › '+l2});
+
+      // build tree HTML for a given dropdown
+      function buildTreeHTML(){
+        let h='<input class="tree-search" type="text" placeholder="Search skills…">';
+        h+='<div class="tree-body">';
+        for(const[l1,subs]of Object.entries(skillTree)){
+          h+='<details><summary>'+l1+'</summary>';
+          for(const[l2,leaves]of Object.entries(subs)){
+            h+='<details><summary>'+l2+'</summary>';
+            for(const leaf of leaves) h+='<div class="tree-leaf" data-skill="'+leaf+'">'+leaf+'</div>';
+            h+='</details>';
+          }
+          h+='</details>';
+        }
+        h+='</div>';
+        return h;
+      }
+      document.getElementById('expert-tree').innerHTML=buildTreeHTML();
+
+      // autocomplete wiring
+      function wireAutocomplete(inputId,acId,onPick){
+        const input=document.getElementById(inputId),ac=document.getElementById(acId);
+        input.addEventListener('input',()=>{
+          const q=input.value.toLowerCase();
+          if(q.length<1){ac.style.display='none';return;}
+          const hits=allSkills.filter(s=>s.name.toLowerCase().includes(q)).slice(0,8);
+          if(!hits.length){ac.style.display='none';return;}
+          ac.innerHTML=hits.map(s=>'<li data-skill="'+s.name+'">'+s.name+'<span class="ac-path">'+s.path+'</span></li>').join('');
+          ac.style.display='block';
+        });
+        ac.addEventListener('click',e=>{
+          const li=e.target.closest('li');
+          if(!li)return;
+          input.value=li.dataset.skill;
+          ac.style.display='none';
+          input.dispatchEvent(new Event('input'));
+        });
+      }
+
+      // wire tree search filtering
+      document.querySelectorAll('.tree-search').forEach(input=>{
+        input.addEventListener('input',()=>{
+          const q=input.value.toLowerCase();
+          const body=input.nextElementSibling;
+          body.querySelectorAll('.tree-leaf').forEach(leaf=>{
+            leaf.style.display=(!q||leaf.dataset.skill.toLowerCase().includes(q))?'':'none';
+          });
+          body.querySelectorAll('details').forEach(d=>{
+            if(!q){d.style.display='';d.open=false;return;}
+            const hasVisible=[...d.querySelectorAll('.tree-leaf')].some(l=>l.style.display!=='none');
+            const summaryMatch=d.querySelector(':scope > summary').textContent.toLowerCase().includes(q);
+            if(summaryMatch){d.style.display='';d.open=true;d.querySelectorAll('.tree-leaf').forEach(l=>l.style.display='');return;}
+            d.style.display=hasVisible?'':'none';
+            if(hasVisible)d.open=true;
+          });
+        });
+        input.addEventListener('click',e=>e.stopPropagation());
+      });
+
+      // tree-btn toggle + leaf click wiring
+      document.addEventListener('click',e=>{
+        const tb=e.target.closest('.tree-btn');
+        if(tb){
+          const d=document.getElementById(tb.dataset.tree);
+          const opening=!d.classList.contains('open');
+          document.querySelectorAll('.tree-drop').forEach(dd=>dd.classList.remove('open'));
+          if(opening)d.classList.add('open');
+          return;
+        }
+        const leaf=e.target.closest('.tree-leaf');
+        if(leaf){
+          const toolbar=leaf.closest('.toolbar');
+          const input=toolbar.querySelector('.search-input');
+          input.value=leaf.dataset.skill;
+          leaf.closest('.tree-drop').classList.remove('open');
+          input.dispatchEvent(new Event('input'));
+          return;
+        }
+        if(!e.target.closest('.tree-drop')&&!e.target.closest('.tree-btn'))document.querySelectorAll('.tree-drop').forEach(d=>d.classList.remove('open'));
+        if(!e.target.closest('.autocomplete')&&!e.target.closest('.search-input'))document.querySelectorAll('.autocomplete').forEach(a=>a.style.display='none');
+      });
+
+      function wireSearch(inputId,acId){
+        const input=document.getElementById(inputId),ac=document.getElementById(acId);
+        input.addEventListener('focus',()=>{
+          if(input.value)return;
+          const picks=shuffle(allSkills.slice()).slice(0,5);
+          ac.innerHTML=picks.map(s=>'<li data-skill="'+s.name+'">'+s.name+'<span class="ac-path">'+s.path+'</span></li>').join('');
+          ac.style.display='block';
+        });
+      }
+      wireAutocomplete('search','expert-ac');
+      wireSearch('search','expert-ac');
+      function genExperts(){
+        const fn=['Lila','Mateo','Noor','Kenji','Anika','Elias','Sofia','Raj','Yuki','Omar','Clara','Dmitri','Amara','Chen','Ingrid','Kofi','Marta','Tariq','Freya','Javier','Hana','Viktor','Zara','Luca','Priya','Sven','Fatima','Hugo','Mei','Andrei','Leila','Tomás','Nia','Felix','Sakura','Idris','Eva','Ravi','Astrid','Kwame','Isla','Marco','Yara','Finn','Adaeze','Leo','Sana','Erik','Dalia','Jin','Rosa','Oleg','Amina','Theo','Kira','Dante','Layla','Axel','Chiara','Samir','Elin','Renzo','Naomi','Piotr','Aisha','Lukas','Mira','Hassan','Greta','Emeka','Vera','Arjun','Selma','Nico','Zuri','Alec','Dina','Oskar','Lina','Tao'];
+        const ln=['Rowe','Ibarra','Haddad','Sato','Verma','Mbaye','Petrov','Nakamura','Chen','Al-Farsi','Johansson','Okafor','Torres','Kim','Müller','Asante','Rossi','Farouk','Lindqvist','Morales','Tanaka','Volkov','Osei','Da Silva','Sharma','Berg','Al-Rashid','Dubois','Zhang','Ionescu','Hassan','Reyes','Adeyemi','Fischer','Yamamoto','Diallo','Kovacs','Singh','Larsson','Mensah','Costa','Popov','Nair','Eriksson','Bello','Laurent','Takahashi','Kovalenko','Andersen','Owusu'];
+        const ti=['Dr.','Prof.','Eng.','Ms.','Dr.','Prof.','Eng.','Dr.'];
+        const fi=['Computational Biology','Power Systems Engineering','Robotics','Materials Science','Climate Informatics','Quantum Hardware','Anesthesiology','Dentistry','Neurosurgery','Aerospace Engineering','Cryptography','Synthetic Biology','Ocean Engineering','Nuclear Physics','Biomedical Imaging','Pharmacogenomics','Structural Engineering','Plasma Physics','Geotechnical Engineering','Veterinary Oncology','Forensic Accounting','Palliative Medicine','Semiconductor Design','Renewable Energy Systems','Computational Linguistics','Epidemiology','Astrophysics','Tissue Engineering','Environmental Toxicology','Mechatronics','Behavioral Economics','Quantum Chemistry','Marine Biology','Neuroprosthetics','Agricultural Robotics','Photonics','Immunotherapy','Urban Planning','Data Privacy Law','Volcanology'];
+        const bi=['Designs novel algorithms for real-time analysis of complex biological systems.','Builds predictive models that optimize large-scale infrastructure performance.','Develops autonomous systems that adapt to unpredictable environments.','Engineers advanced materials with programmable molecular properties.','Creates climate models that integrate satellite and ground-truth data streams.','Optimizes quantum control stacks for next-generation computing platforms.','Pioneers minimally invasive techniques using AI-guided surgical planning.','Develops diagnostic tools that combine imaging with machine learning.','Architects secure communication protocols for distributed networks.','Builds simulation frameworks for extreme-environment testing.','Designs biosensors that detect pathogens at femtomolar concentrations.','Creates energy harvesting systems from ambient environmental sources.','Develops neural interfaces that restore motor function in paralysis patients.','Engineers self-healing concrete formulations for seismic zones.','Builds recommendation engines for personalized therapeutic interventions.','Designs robotic platforms for deep-sea exploration and sampling.','Creates privacy-preserving analytics for sensitive healthcare datasets.','Develops high-throughput screening pipelines for drug discovery.','Architects fault-tolerant systems for safety-critical applications.','Builds digital twins for predictive maintenance of industrial equipment.'];
+        const tp=['ML','AI','Deep Learning','NLP','Computer Vision','RL','Optimization','Simulation','Sensors','IoT','Blockchain','Edge Computing','Cloud','HPC','FPGA','Genomics','Proteomics','Drug Discovery','Imaging','Signal Processing','Control Systems','Embedded','Real-Time','Safety','Security','Privacy','Ethics','Sustainability','Renewable','Nuclear','Quantum','Photonics','Nanotech','3D Printing','Wearables','AR/VR','Drones','Autonomous','Telemetry','Analytics'];
+        const rg=['Boston, United States','Austin, United States','Pittsburgh, United States','Zurich, Switzerland','Dublin, Ireland','Luxembourg','San Francisco, United States','London, United Kingdom','Berlin, Germany','Tokyo, Japan','Seoul, South Korea','Singapore','Sydney, Australia','Toronto, Canada','Stockholm, Sweden','Amsterdam, Netherlands','Paris, France','Tel Aviv, Israel','Bangalore, India','São Paulo, Brazil','Cape Town, South Africa','Dubai, UAE','Helsinki, Finland','Oslo, Norway','Copenhagen, Denmark','Vienna, Austria','Barcelona, Spain','Milan, Italy','Taipei, Taiwan','Shanghai, China'];
+        const out=[];
+        for(let i=0;i<200;i++){out.push({skilfId:'SKL-'+String(i+1).padStart(3,'0'),name:ti[i%ti.length]+' '+fn[i%fn.length]+' '+ln[i%ln.length],field:fi[i%fi.length],bio:bi[i%bi.length],tags:[tp[(i*3)%tp.length],tp[(i*3+1)%tp.length],tp[(i*3+2)%tp.length]],region:rg[i%rg.length],topRank:[5,10,20,50,100][(Math.random()*5)|0]});}
+        return out;
+      }
+      const experts=genExperts();
+      {
+        const cards=document.getElementById('experts');
+        const search=document.getElementById('search');
+        const random6=shuffle(experts.slice()).slice(0,6);
+        function renderExperts(list){
+          cards.innerHTML=list.map((e,i)=>`
+            <article class="card expert-card">
+              <header class="card-header">
+                <div class="name-row"><div class="profile-icon" style="background-position:0 -${(i%7)*32.18}px"></div><h2 class="name">${e.name}</h2></div>
+                <p class="field">${e.field}</p>
+              </header>
+              <p class="bio">${e.bio}</p>
+              <div class="tags">${e.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+              <p class="region">Top ${e.topRank} skilfs in ${e.region}</p>
+              ${msgWidget(i)}
+            </article>`).join('');
+        }
+        renderExperts(random6);
+        search.addEventListener('input',()=>{
+          const q=search.value.toLowerCase();
+          if(!q){renderExperts(random6);return;}
+          renderExperts(experts.filter(e=>
+            e.name.toLowerCase().includes(q)||
+            e.region.toLowerCase().includes(q)||
+            e.field.toLowerCase().includes(q)||
+            e.skilfId.toLowerCase().includes(q)||
+            e.tags.some(t=>t.toLowerCase().includes(q))
+          ));
+        });
+      }
+    </script>
     <div style="text-align:center;margin:48px 0;">
       <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform" target="_blank" rel="noopener" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Apply for a scholarship</a>
     </div>
-
     <h2 class="section-title">Find a partner</h2>
-    <p style="margin:0 0 16px;color:var(--ink-soft);font-size:0.92rem;">These people are still working on their first skilf. They're hungry for employers, mentors, and partners.</p>
+    <p style="margin:0 0 16px;color:var(--ink-soft);font-size:0.92rem;">These people are still working on their first skilf. They're hungry for employers, mentors, and partners (in that order 😉)</p>
     <div class="toolbar" id="partner-toolbar">
-      <input class="search-input" id="partner-search" type="text" placeholder="Search partners by name, project, or skill..." autocomplete="off">
-      <button class="tree-btn" type="button">Skill tree</button>
+      <input class="search-input" id="partner-search" type="text" placeholder="Search partners by name, project, or skill…" autocomplete="off">
+      <button class="tree-btn" data-tree="partner-tree">Skill tree ▾</button>
+      <ul class="autocomplete" id="partner-ac"></ul>
+      <div class="tree-drop" id="partner-tree"></div>
     </div>
     <section class="cards" id="partners" aria-label="partners"></section>
-
+    <script>
+      document.getElementById('partner-tree').innerHTML=buildTreeHTML();
+      wireAutocomplete('partner-search','partner-ac');
+      wireSearch('partner-search','partner-ac');
+      {
+        function genPartners(){
+          const fn=['Ava','Tomás','Fatima','Jonas','Priya','Lucas','Zoe','Kai','Amara','Soren','Ines','Ravi','Mila','Obi','Lena','Tariq','Iris','Dante','Yuki','Kwame','Elsa','Marco','Nadia','Finn','Adaeze','Leo','Sana','Erik','Dalia','Jin','Rosa','Oleg','Amina','Theo','Kira','Axel','Chiara','Samir','Elin','Renzo','Naomi','Piotr','Aisha','Lukas','Mira','Hassan','Greta','Emeka','Vera','Arjun','Selma','Nico','Zuri','Alec','Dina','Oskar','Lina','Tao','Clara','Hugo','Mei','Andrei','Leila','Felix','Sakura','Idris','Eva','Astrid','Isla','Yara','Hana','Viktor','Zara','Luca','Sven','Ingrid','Kofi','Marta','Freya','Javier'];
+          const ln=['Chen','Reyes','Al-Rashid','Eriksson','Nair','Moreau','Park','Okafor','Silva','Lindgren','Dubois','Sharma','Novak','Mensah','Weber','Farouk','Rossi','Diallo','Tanaka','Asante','Berg','Torres','Hassan','Andersen','Bello','Laurent','Kim','Kovalenko','Costa','Popov','Yamamoto','Singh','Larsson','Owusu','Fischer','Volkov','Takahashi','Kovacs','Johansson','Petrov','Müller','Zhang','Ionescu','Adeyemi','Nakamura','Ibarra','Haddad','Sato','Verma','Mbaye'];
+          const pr=['Building a real-time sign-language translator for video calls.','Designing a micro-grid controller for rooftop solar and EV charging.','Training a soil-health model from hyperspectral drone imagery.','Prototyping a haptic vest that converts LiDAR depth into tactile cues.','Creating an open-source drug-interaction checker via knowledge graphs.','Building a browser extension that rewrites cookie dialogs into plain language.','Developing an AI tutor that adapts to individual learning disabilities.','Creating a wearable that predicts asthma attacks from air-quality data.','Building a platform that matches refugee skills to local job openings.','Designing a low-cost prosthetic hand controlled by muscle signals.','Training a model to detect early-stage crop disease from phone photos.','Building a community mesh network for disaster-resilient communication.','Creating a tool that translates medical jargon into plain language.','Developing a drone swarm for reforestation of burned landscapes.','Building an app that gamifies physical therapy exercises.','Designing a portable water quality tester using smartphone sensors.','Creating a marketplace for carbon credits from small-scale farmers.','Building a voice assistant for elderly users with limited tech literacy.','Developing a system that predicts equipment failure in rural clinics.','Creating an AR overlay that helps colorblind users distinguish colors.'];
+          const tp=['Computer Vision','Accessibility','On-Device ML','Energy Systems','IoT','Control Theory','Remote Sensing','Agriculture','Foundation Models','Wearables','LiDAR','Haptics','Biomedical NLP','Knowledge Graphs','Open Source','Privacy','Browser Extensions','NLP','Education','Adaptive Learning','Air Quality','Health Monitoring','Refugee Tech','Social Impact','Prosthetics','EMG','Crop Science','Mobile ML','Mesh Networks','Disaster Response','Medical NLP','Plain Language','Drones','Reforestation','Ecology','Gamification','Physical Therapy','UX','Water Quality','Sensors','Carbon Markets','Climate Finance','Voice UI','Elder Care','Predictive Maintenance','Rural Health','AR','Color Science','Inclusion','Community'];
+          const out=[];
+          for(let i=0;i<200;i++){out.push({name:fn[i%fn.length]+' '+ln[i%ln.length],project:pr[i%pr.length],tags:[tp[(i*3)%tp.length],tp[(i*3+1)%tp.length],tp[(i*3+2)%tp.length]]});}
+          return out;
+        }
+        const partners=genPartners();
+        const pcards=document.getElementById('partners');
+        const psearch=document.getElementById('partner-search');
+        const prandom6=shuffle(partners.slice()).slice(0,6);
+        function renderPartners(list){
+          pcards.innerHTML=list.map((p,i)=>`
+            <article class="card partner-card">
+              <div class="name-row"><div class="profile-icon" style="background-position:0 -${((i+3)%7)*32.18}px"></div><h2 class="name">${p.name}</h2></div>
+              <p class="bio">${p.project}</p>
+              <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+              ${msgWidget(i+3)}
+            </article>`).join('');
+        }
+        renderPartners(prandom6);
+        psearch.addEventListener('input',()=>{
+          const q=psearch.value.toLowerCase();
+          if(!q){renderPartners(prandom6);return;}
+          renderPartners(partners.filter(p=>
+            p.name.toLowerCase().includes(q)||
+            p.project.toLowerCase().includes(q)||
+            p.tags.some(t=>t.toLowerCase().includes(q))
+          ));
+        });
+      }
+    </script>
     <div style="text-align:center;margin:56px 0 24px;">
       <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe72WWOdyRt9OVymM4nG_6jWN2MQFhFoUNuXHjwLDTIcDgzpg/viewform?usp=dialog" target="_blank" rel="noopener">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$100/Demo Day</span></a>
     </div>
   </main>
-  <script>
-    const msgOptions=[
-      "Would you be interested in paid-work on my project?",
-      "Would you be interested in working on my project as a sweat-equity cofounder?",
-      "Are you open to experienced collaborators joining you in this effort?",
-      "Are you open to inexperienced collaborators joining you in this effort?"
-    ];
-
-    function msgWidget(defaultIdx){
-      const idx=defaultIdx%msgOptions.length;
-      return `<div class="msg-row">
-        <ul class="msg-menu">${msgOptions.map(m=>`<li>${m}</li>`).join('')}</ul>
-        <textarea class="msg-input" rows="1">${msgOptions[idx]}</textarea>
-        <button class="msg-arrow" aria-label="Pick a message"><svg width="10" height="6"><path d="M0 0l5 6 5-6z" fill="#8fa3ba"/></svg></button>
-        <button class="send-btn">Send</button>
-      </div>`;
-    }
-
-    document.addEventListener('click',e=>{
-      const arrow=e.target.closest('.msg-arrow');
-      if(arrow){
-        const menu=arrow.closest('.msg-row').querySelector('.msg-menu');
-        document.querySelectorAll('.msg-menu').forEach(m=>{ if(m!==menu)m.style.display='none'; });
-        menu.style.display=menu.style.display==='block'?'none':'block';
-        return;
-      }
-      const li=e.target.closest('.msg-menu li');
-      if(li){
-        const row=li.closest('.msg-row');
-        row.querySelector('.msg-input').value=li.textContent;
-        row.querySelector('.msg-menu').style.display='none';
-        return;
-      }
-      document.querySelectorAll('.msg-menu').forEach(m=>m.style.display='none');
-    });
-
-    async function loadJsonFixture(path){
-      const response=await fetch(path,{cache:'no-store'});
-      if(!response.ok){
-        throw new Error(`Failed to load fixture ${path} (${response.status})`);
-      }
-      return response.json();
-    }
-
-    function normalizeListing(source,kind,index){
-      const tags=Array.isArray(source.tags)?source.tags.filter(Boolean).map(String):[];
-      if(kind==='expert'){
-        const skill=String(source.skill||source.field||'').trim();
-        const project=String(source.project||source.bio||'').trim();
-        const region=String(source.region||'').trim();
-        const years=Number(source.yearsExpert);
-        return {
-          kind,
-          name:String(source.name||''),
-          headline:skill,
-          description:project,
-          region:Number.isFinite(years)&&years>0?`${years} year expert in ${region}`:region,
-          skilfId:String(source.skilfId||''),
-          tags,
-          msgOffset:index
-        };
-      }
-      const project=String(source.project||source.bio||'').trim();
-      const skill=String(source.skill||'').trim();
-      return {
-        kind,
-        name:String(source.name||''),
-        headline:skill||project,
-        description:project,
-        region:'',
-        skilfId:'',
-        tags,
-        msgOffset:index+3
-      };
-    }
-
-    function isValidListing(listing){
-      return Boolean(listing.name && listing.headline && listing.description && Array.isArray(listing.tags) && listing.tags.length>0);
-    }
-
-    function renderExperts(list){
-      const cards=document.getElementById('experts');
-      cards.innerHTML=list.map((e,i)=>`
-        <article class="card expert-card">
-          <header class="card-header">
-            <div class="name-row"><div class="profile-icon" style="background-position:0 -${(i%7)*32.18}px"></div><h2 class="name">${e.name}</h2></div>
-            <p class="field">${e.headline}</p>
-          </header>
-          <p class="bio">${e.description}</p>
-          <div class="tags">${e.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-          <p class="region">${e.region}</p>
-          ${msgWidget(e.msgOffset)}
-        </article>`).join('');
-    }
-
-    function renderPartners(list){
-      const cards=document.getElementById('partners');
-      cards.innerHTML=list.map((p,i)=>`
-        <article class="card partner-card">
-          <div class="name-row"><div class="profile-icon" style="background-position:0 -${((i+3)%7)*32.18}px"></div><h2 class="name">${p.name}</h2></div>
-          <p class="bio">${p.description}</p>
-          <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-          ${msgWidget(p.msgOffset)}
-        </article>`).join('');
-    }
-
-    async function init(){
-      const [expertData,partnerData]=await Promise.all([
-        loadJsonFixture('experts.json'),
-        loadJsonFixture('prospectivePartners.json')
-      ]);
-
-      const experts=(Array.isArray(expertData)?expertData:[])
-        .map((entry,idx)=>normalizeListing(entry,'expert',idx))
-        .filter(isValidListing);
-      const partners=(Array.isArray(partnerData)?partnerData:[])
-        .map((entry,idx)=>normalizeListing(entry,'partner',idx))
-        .filter(isValidListing);
-
-      const initialExperts=experts.slice(0,6);
-      const initialPartners=partners.slice(0,6);
-      renderExperts(initialExperts);
-      renderPartners(initialPartners);
-
-      const search=document.getElementById('search');
-      search.addEventListener('input',()=>{
-        const q=search.value.toLowerCase();
-        if(!q){
-          renderExperts(initialExperts);
-          return;
-        }
-        renderExperts(experts.filter(e=>
-          e.name.toLowerCase().includes(q)||
-          e.region.toLowerCase().includes(q)||
-          e.headline.toLowerCase().includes(q)||
-          e.skilfId.toLowerCase().includes(q)||
-          e.tags.some(t=>t.toLowerCase().includes(q))
-        ));
-      });
-
-      const psearch=document.getElementById('partner-search');
-      psearch.addEventListener('input',()=>{
-        const q=psearch.value.toLowerCase();
-        if(!q){
-          renderPartners(initialPartners);
-          return;
-        }
-        renderPartners(partners.filter(p=>
-          p.name.toLowerCase().includes(q)||
-          p.headline.toLowerCase().includes(q)||
-          p.tags.some(t=>t.toLowerCase().includes(q))
-        ));
-      });
-    }
-
-    init().catch(err=>{
-      console.error(err);
-      document.getElementById('experts').innerHTML='';
-      document.getElementById('partners').innerHTML='';
-    });
-  </script>
   <footer style="position:relative;z-index:1;border-top:1px solid var(--line);padding:24px 0;text-align:center;">
     <a href="defense-day.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Prepare for Demo Day ($100 each)</a>
     <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Monetize Your Expertise</a>
