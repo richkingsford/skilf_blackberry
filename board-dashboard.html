@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Board Dashboard - Skilf</title>
+  <style>
+    :root { color-scheme: dark; --ink:#e8edf3; --ink-soft:#8fa3ba; --gold:#d4a94b; --line:#2a3a4e; --bg:#0b1117; --panel:#151f2d; --mint:#7be0b1; --coral:#ff8c73; --blue:#73b8ff; }
+    body { margin:0; font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif; background:radial-gradient(circle at 12% 12%,rgba(123,224,177,0.12),transparent 30%),radial-gradient(circle at 86% 18%,rgba(255,140,115,0.10),transparent 34%),var(--bg); color:var(--ink); }
+    main { width:min(1180px,94vw); margin:30px auto 70px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+    .brand { color:var(--gold); text-decoration:none; font-size:1.7rem; font-weight:800; letter-spacing:0.04em; }
+    .nav { display:flex; gap:10px; flex-wrap:wrap; }
+    .nav a, .auth-btn { color:var(--ink); text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:8px 11px; background:var(--panel); font:inherit; cursor:pointer; }
+    .auth-strip { display:flex; gap:10px; align-items:center; justify-content:flex-end; margin:18px 0; color:var(--ink-soft); font-size:0.84rem; }
+    .hero { display:grid; grid-template-columns:0.9fr 1.1fr; gap:24px; align-items:center; margin-top:18px; }
+    h1 { margin:0 0 10px; font-size:clamp(2.2rem,5vw,4.2rem); color:var(--gold); }
+    .lead { color:var(--ink-soft); line-height:1.5; font-size:1.05rem; }
+    .hero img, .visual img { width:100%; display:block; border-radius:8px; border:1px solid var(--line); box-shadow:0 18px 38px rgb(0 0 0/30%); }
+    .columns { display:grid; grid-template-columns:1.15fr 0.85fr; gap:18px; margin-top:28px; }
+    .card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#1b2a3d); padding:18px; }
+    h2 { margin:0 0 12px; color:var(--gold); font-size:1.25rem; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:11px 8px; border-bottom:1px solid var(--line); text-align:left; font-size:0.92rem; }
+    th { color:var(--ink-soft); font-weight:600; }
+    .pill { display:inline-block; border-radius:999px; padding:4px 8px; background:#22344a; color:var(--ink); font-size:0.78rem; }
+    .pill.ready { background:rgba(123,224,177,0.18); color:var(--mint); }
+    .pill.watch { background:rgba(255,140,115,0.16); color:var(--coral); }
+    .events { display:grid; gap:10px; }
+    .event { padding:12px; border:1px solid var(--line); border-radius:8px; background:#102338; }
+    .event strong { display:block; }
+    .event span { color:var(--ink-soft); font-size:0.86rem; }
+    .visual { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; align-items:center; }
+    .hints { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
+    .hint { background:#102338; border:1px solid var(--line); border-radius:8px; padding:14px; }
+    .hint strong { display:block; color:var(--ink); margin-bottom:6px; }
+    .hint p { margin:0; color:var(--ink-soft); line-height:1.45; font-size:0.9rem; }
+    @media (max-width:900px){ .hero,.columns,.visual{grid-template-columns:1fr;} .hints{grid-template-columns:1fr;} .auth-strip{justify-content:flex-start;flex-wrap:wrap;} }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <a class="brand" href="index.html">Skilf</a>
+      <nav class="nav" aria-label="Dashboard navigation">
+        <a href="student-dashboard.html">Student view</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="apply.html?kind=panelist">Join panel</a>
+      </nav>
+    </div>
+    <div class="auth-strip" data-auth-ui>
+      <span data-auth-status>Sign in to save student and panelist data.</span>
+      <button class="auth-btn" type="button" data-auth-action="sign-in">Sign in with Google</button>
+      <button class="auth-btn" type="button" data-auth-action="sign-out" hidden>Sign out</button>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Board Dashboard</h1>
+        <p class="lead">A fast board-member view of apprentices, readiness signals, and upcoming Demo Days.</p>
+      </div>
+      <img src="assets/board-mentee-map.png" alt="Board member dashboard showing apprentices and upcoming Demo Days">
+    </section>
+
+    <section class="columns">
+      <article class="card">
+        <h2>Mentees And Apprentices</h2>
+        <table>
+          <thead><tr><th>Name</th><th>Skilf Area</th><th>Status</th><th>Next Move</th></tr></thead>
+          <tbody>
+            <tr><td>Ava Chen</td><td>Computer Vision</td><td><span class="pill ready">Ready</span></td><td>Mock panel</td></tr>
+            <tr><td>Jonas Eriksson</td><td>Energy Systems</td><td><span class="pill">Building</span></td><td>Scope demo</td></tr>
+            <tr><td>Priya Nair</td><td>Biomedical NLP</td><td><span class="pill watch">Stuck</span></td><td>Debug story</td></tr>
+            <tr><td>Lucas Moreau</td><td>Robotics</td><td><span class="pill">Practicing</span></td><td>AI mentor log</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <aside class="card">
+        <h2>Upcoming Demo Days</h2>
+        <div class="events">
+          <div class="event"><strong>Friday, 10:30 AM</strong><span>Ava Chen - Computer Vision</span></div>
+          <div class="event"><strong>May 24, 2:00 PM</strong><span>Lucas Moreau - Robotics</span></div>
+          <div class="event"><strong>June 3, 11:00 AM</strong><span>Open panel slot</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="visual">
+      <img src="assets/advisor-skill-growth.png" alt="Advisor helping an apprentice build marketable skills">
+      <div class="card">
+        <h2>Good Advisor Hints</h2>
+        <div class="hints">
+          <div class="hint"><strong>Make it smaller</strong><p>Inexperienced learners need a shippable slice, not a giant dream.</p></div>
+          <div class="hint"><strong>Ask for evidence</strong><p>Push every claim toward a demo, log, user, test, or artifact.</p></div>
+          <div class="hint"><strong>Name the market</strong><p>Connect each skill to jobs, clients, workflows, and buying pain.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>
