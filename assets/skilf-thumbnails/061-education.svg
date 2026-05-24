@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Education thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Education in Social Impact &amp; Design.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#6ee7b7" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#60a5fa" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 145c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#f59e0b" opacity="0.2"/>
+    <path d="M0 189c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#6ee7b7" opacity="0.08"/>
+    <circle cx="291" cy="65" r="37" fill="#fb7185" opacity="0.12"/>
+    <circle cx="75" cy="157" r="29" fill="#60a5fa" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(122 98) rotate(6) scale(0.92)"><path d="M-72-46c34-16 60-6 72 12 12-18 38-28 72-12v104c-34-16-60-6-72 12-12-18-38-28-72-12z" fill="#f59e0b" stroke="#6ee7b7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M0-34v104" fill="none" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/><path d="M54-60l7 16 16 7-16 7-7 16-7-16-16-7 16-7z" fill="#fb7185" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(252 122) rotate(-7) scale(0.92)"><path d="M-76 36c32-50 52 24 82-18 19-26 31-45 74-50" fill="none" stroke="#6ee7b7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-38 -30h68M-18 -30v68M-50 38h68" fill="none" stroke="#60a5fa" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-76" cy="36" r="9" fill="#6ee7b7" opacity="0.95"/><circle cx="6" cy="18" r="9" fill="#60a5fa" opacity="0.95"/><circle cx="80" cy="-32" r="9" fill="#f59e0b" opacity="0.95"/><circle cx="-18" cy="-30" r="9" fill="#fb7185" opacity="0.95"/><circle cx="-50" cy="38" r="9" fill="#6ee7b7" opacity="0.95"/></g><g transform="translate(184 154) rotate(0) scale(0.52)"><rect x="-60" y="-62" width="120" height="124" rx="12" fill="#e8edf3" opacity="0.92"/><line x1="-36" y1="-26" x2="36" y2="-26" stroke="#6ee7b7" stroke-width="6" stroke-linecap="round" opacity="0.92"/><line x1="-36" y1="0" x2="20" y2="0" stroke="#60a5fa" stroke-width="6" stroke-linecap="round" opacity="0.92"/><line x1="-36" y1="26" x2="42" y2="26" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity="0.92"/><path d="M52-54l28 28-28 28" fill="none" stroke="#fb7185" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-44" cy="48" r="8" fill="#6ee7b7" opacity="1"/></g>
+  </g>
+</svg>

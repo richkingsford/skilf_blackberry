@@ -1,146 +1,6602 @@
-﻿[
-    {
-        "partnerId":  "PRT-001",
-        "name":  "Ava Chen",
-        "skill":  "Computer Vision",
-        "project":  "Building a real-time sign-language translator for video calls.",
-        "tags":  [
-                     "Computer Vision",
-                     "Accessibility",
-                     "On-Device ML"
-                 ],
-        "region":  "Seattle, United States"
-    },
-    {
-        "partnerId":  "PRT-002",
-        "name":  "TomÃ¡s Reyes",
-        "skill":  "Energy Systems",
-        "project":  "Designing a micro-grid controller for rooftop solar and EV charging.",
-        "tags":  [
-                     "Energy Systems",
-                     "IoT",
-                     "Control Theory"
-                 ],
-        "region":  "Madrid, Spain"
-    },
-    {
-        "partnerId":  "PRT-003",
-        "name":  "Fatima Al-Rashid",
-        "skill":  "Remote Sensing",
-        "project":  "Training a soil-health model from hyperspectral drone imagery.",
-        "tags":  [
-                     "Remote Sensing",
-                     "Agriculture",
-                     "Foundation Models"
-                 ],
-        "region":  "Doha, Qatar"
-    },
-    {
-        "partnerId":  "PRT-004",
-        "name":  "Jonas Eriksson",
-        "skill":  "Wearables",
-        "project":  "Prototyping a haptic vest that converts LiDAR depth into tactile cues.",
-        "tags":  [
-                     "Wearables",
-                     "LiDAR",
-                     "Haptics"
-                 ],
-        "region":  "Gothenburg, Sweden"
-    },
-    {
-        "partnerId":  "PRT-005",
-        "name":  "Priya Nair",
-        "skill":  "Biomedical NLP",
-        "project":  "Creating an open-source drug-interaction checker via knowledge graphs.",
-        "tags":  [
-                     "Biomedical NLP",
-                     "Knowledge Graphs",
-                     "Open Source"
-                 ],
-        "region":  "Pune, India"
-    },
-    {
-        "partnerId":  "PRT-006",
-        "name":  "Lucas Moreau",
-        "skill":  "Privacy",
-        "project":  "Building a browser extension that rewrites cookie dialogs into plain language.",
-        "tags":  [
-                     "Privacy",
-                     "Browser Extensions",
-                     "NLP"
-                 ],
-        "region":  "Montreal, Canada"
-    },
-    {
-        "partnerId":  "PRT-007",
-        "name":  "Mei Tanaka",
-        "skill":  "Federated Learning",
-        "project":  "Architecting federated learning for hospital radiology without sharing scans.",
-        "tags":  [
-                     "Federated Learning",
-                     "Radiology",
-                     "Privacy"
-                 ],
-        "region":  "Taipei, Taiwan"
-    },
-    {
-        "partnerId":  "PRT-008",
-        "name":  "David Okonkwo",
-        "skill":  "Assistive Tech",
-        "project":  "Building a low-latency speech-to-Braille device for classrooms.",
-        "tags":  [
-                     "Assistive Tech",
-                     "Embedded Systems",
-                     "Speech"
-                 ],
-        "region":  "Lagos, Nigeria"
-    },
-    {
-        "partnerId":  "PRT-009",
-        "name":  "Sofia Petrov",
-        "skill":  "Compilers",
-        "project":  "Writing a compiler pass that auto-inserts energy-profiling hooks into firmware.",
-        "tags":  [
-                     "Compilers",
-                     "Embedded C",
-                     "Energy Profiling"
-                 ],
-        "region":  "Prague, Czechia"
-    },
-    {
-        "partnerId":  "PRT-010",
-        "name":  "Raj Malhotra",
-        "skill":  "Satellite Imagery",
-        "project":  "Launching satellite change-detection for illegal deforestation alerts.",
-        "tags":  [
-                     "Satellite Imagery",
-                     "Change Detection",
-                     "Conservation"
-                 ],
-        "region":  "Santiago, Chile"
-    },
-    {
-        "partnerId":  "PRT-011",
-        "name":  "Elena Voss",
-        "skill":  "Digital Twins",
-        "project":  "Designing a digital twin of urban water networks to predict pipe failures.",
-        "tags":  [
-                     "Digital Twins",
-                     "Civil Engineering",
-                     "Predictive Maintenance"
-                 ],
-        "region":  "Rotterdam, Netherlands"
-    },
-    {
-        "partnerId":  "PRT-012",
-        "name":  "Carlos Medina",
-        "skill":  "EdTech",
-        "project":  "Developing an AI writing tutor that gives structural feedback only.",
-        "tags":  [
-                     "EdTech",
-                     "NLP",
-                     "Writing Analytics"
-                 ],
-        "region":  "Auckland, New Zealand"
-    }
+[
+  {
+    "partnerId": "PRT-001",
+    "internId": "INT-001",
+    "name": "Ava Chen",
+    "skill": "Computer Vision",
+    "project": "Building a Computer Vision project for clinics, using live telemetry to turn Edge Computing signals into clear readiness signals.",
+    "tags": [
+      "Computer Vision",
+      "Edge Computing",
+      "Embedded"
+    ],
+    "searchTags": [
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Edge Computing",
+      "Embedded",
+      "clinics",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-002",
+    "internId": "INT-002",
+    "name": "Milo Nair",
+    "skill": "Medical NLP",
+    "project": "Designing a Medical NLP project for field teams, using failure reports to turn Real-Time signals into faster mentor feedback.",
+    "tags": [
+      "Medical NLP",
+      "Real-Time",
+      "FPGA"
+    ],
+    "searchTags": [
+      "Medical NLP",
+      "Artificial Intelligence",
+      "Real-Time",
+      "FPGA",
+      "field teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-003",
+    "internId": "INT-003",
+    "name": "Nia Silva",
+    "skill": "Biomedical NLP",
+    "project": "Prototyping a Biomedical NLP project for city planners, using user interviews to turn Browser Extensions signals into safer deployment decisions.",
+    "tags": [
+      "Biomedical NLP",
+      "Browser Extensions",
+      "Semiconductor Design"
+    ],
+    "searchTags": [
+      "Biomedical NLP",
+      "Artificial Intelligence",
+      "Browser Extensions",
+      "Semiconductor Design",
+      "city planners",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-004",
+    "internId": "INT-004",
+    "name": "Theo Garcia",
+    "skill": "Knowledge Graphs",
+    "project": "Testing a Knowledge Graphs project for school labs, using expert challenges to turn Open Source signals into measurable prototype evidence.",
+    "tags": [
+      "Knowledge Graphs",
+      "Open Source",
+      "Signal Processing"
+    ],
+    "searchTags": [
+      "Knowledge Graphs",
+      "Artificial Intelligence",
+      "Open Source",
+      "Signal Processing",
+      "school labs",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-005",
+    "internId": "INT-005",
+    "name": "Maya Sato",
+    "skill": "Analytics",
+    "project": "Launching a Analytics project for small manufacturers, using design reviews to turn Robotics signals into trustworthy field data.",
+    "tags": [
+      "Analytics",
+      "Robotics",
+      "Photonics"
+    ],
+    "searchTags": [
+      "Analytics",
+      "Software & Data",
+      "Robotics",
+      "Photonics",
+      "small manufacturers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-006",
+    "internId": "INT-006",
+    "name": "Leo Anders",
+    "skill": "Optimization",
+    "project": "Modeling a Optimization project for research groups, using simulation logs to turn Autonomous signals into stronger user validation.",
+    "tags": [
+      "Optimization",
+      "Autonomous",
+      "Sensors"
+    ],
+    "searchTags": [
+      "Optimization",
+      "Software & Data",
+      "Autonomous",
+      "Sensors",
+      "research groups",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-007",
+    "internId": "INT-007",
+    "name": "Iris Rossi",
+    "skill": "Cloud",
+    "project": "Instrumenting a Cloud project for disaster crews, using benchmark runs to turn Control Systems signals into a sharper Demo Day defense.",
+    "tags": [
+      "Cloud",
+      "Control Systems",
+      "Wearables"
+    ],
+    "searchTags": [
+      "Cloud",
+      "Software & Data",
+      "Control Systems",
+      "Wearables",
+      "disaster crews",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-008",
+    "internId": "INT-008",
+    "name": "Kai Larsen",
+    "skill": "Edge Computing",
+    "project": "Hardening a Edge Computing project for public libraries, using sensor traces to turn Mechatronics signals into a repeatable test bench.",
+    "tags": [
+      "Edge Computing",
+      "Mechatronics",
+      "Power Systems Engineering"
+    ],
+    "searchTags": [
+      "Edge Computing",
+      "Software & Data",
+      "Mechatronics",
+      "Power Systems Engineering",
+      "public libraries",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-009",
+    "internId": "INT-009",
+    "name": "Zara Morgan",
+    "skill": "Real-Time",
+    "project": "Building a Real-Time project for energy co-ops, using live telemetry to turn Drones signals into clear readiness signals.",
+    "tags": [
+      "Real-Time",
+      "Drones",
+      "Renewable Energy Systems"
+    ],
+    "searchTags": [
+      "Real-Time",
+      "Software & Data",
+      "Drones",
+      "Renewable Energy Systems",
+      "energy co-ops",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-010",
+    "internId": "INT-010",
+    "name": "Noah Tanaka",
+    "skill": "Browser Extensions",
+    "project": "Designing a Browser Extensions project for mobility teams, using failure reports to turn Aerospace Engineering signals into faster mentor feedback.",
+    "tags": [
+      "Browser Extensions",
+      "Aerospace Engineering",
+      "Nuclear"
+    ],
+    "searchTags": [
+      "Browser Extensions",
+      "Software & Data",
+      "Aerospace Engineering",
+      "Nuclear",
+      "mobility teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-011",
+    "internId": "INT-011",
+    "name": "Lena Singh",
+    "skill": "Open Source",
+    "project": "Prototyping a Open Source project for farm operators, using user interviews to turn Structural Engineering signals into safer deployment decisions.",
+    "tags": [
+      "Open Source",
+      "Structural Engineering",
+      "Climate Informatics"
+    ],
+    "searchTags": [
+      "Open Source",
+      "Software & Data",
+      "Structural Engineering",
+      "Climate Informatics",
+      "farm operators",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-012",
+    "internId": "INT-012",
+    "name": "Owen Rahman",
+    "skill": "Robotics",
+    "project": "Testing a Robotics project for accessibility teams, using expert challenges to turn 3D Printing signals into measurable prototype evidence.",
+    "tags": [
+      "Robotics",
+      "3D Printing",
+      "Air Quality"
+    ],
+    "searchTags": [
+      "Robotics",
+      "Engineering & Robotics",
+      "3D Printing",
+      "Air Quality",
+      "accessibility teams",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-013",
+    "internId": "INT-013",
+    "name": "Sofia Park",
+    "skill": "Autonomous",
+    "project": "Launching a Autonomous project for community health workers, using design reviews to turn Embedded signals into trustworthy field data.",
+    "tags": [
+      "Autonomous",
+      "Embedded",
+      "Water Quality"
+    ],
+    "searchTags": [
+      "Autonomous",
+      "Engineering & Robotics",
+      "Embedded",
+      "Water Quality",
+      "community health workers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-014",
+    "internId": "INT-014",
+    "name": "Eli Nguyen",
+    "skill": "Control Systems",
+    "project": "Modeling a Control Systems project for privacy reviewers, using simulation logs to turn FPGA signals into stronger user validation.",
+    "tags": [
+      "Control Systems",
+      "FPGA",
+      "Remote Sensing"
+    ],
+    "searchTags": [
+      "Control Systems",
+      "Engineering & Robotics",
+      "FPGA",
+      "Remote Sensing",
+      "privacy reviewers",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-015",
+    "internId": "INT-015",
+    "name": "Mina Das",
+    "skill": "Mechatronics",
+    "project": "Instrumenting a Mechatronics project for makerspaces, using benchmark runs to turn Semiconductor Design signals into a sharper Demo Day defense.",
+    "tags": [
+      "Mechatronics",
+      "Semiconductor Design",
+      "Agriculture"
+    ],
+    "searchTags": [
+      "Mechatronics",
+      "Engineering & Robotics",
+      "Semiconductor Design",
+      "Agriculture",
+      "makerspaces",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-016",
+    "internId": "INT-016",
+    "name": "Ravi Patel",
+    "skill": "Drones",
+    "project": "Hardening a Drones project for local nonprofits, using sensor traces to turn Signal Processing signals into a repeatable test bench.",
+    "tags": [
+      "Drones",
+      "Signal Processing",
+      "Reforestation"
+    ],
+    "searchTags": [
+      "Drones",
+      "Engineering & Robotics",
+      "Signal Processing",
+      "Reforestation",
+      "local nonprofits",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-017",
+    "internId": "INT-017",
+    "name": "Jules Voss",
+    "skill": "Aerospace Engineering",
+    "project": "Building a Aerospace Engineering project for clinics, using live telemetry to turn Photonics signals into clear readiness signals.",
+    "tags": [
+      "Aerospace Engineering",
+      "Photonics",
+      "Computational Biology"
+    ],
+    "searchTags": [
+      "Aerospace Engineering",
+      "Engineering & Robotics",
+      "Photonics",
+      "Computational Biology",
+      "clinics",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-018",
+    "internId": "INT-018",
+    "name": "Amara Novak",
+    "skill": "Structural Engineering",
+    "project": "Designing a Structural Engineering project for field teams, using failure reports to turn Sensors signals into faster mentor feedback.",
+    "tags": [
+      "Structural Engineering",
+      "Sensors",
+      "Genomics"
+    ],
+    "searchTags": [
+      "Structural Engineering",
+      "Engineering & Robotics",
+      "Sensors",
+      "Genomics",
+      "field teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-019",
+    "internId": "INT-019",
+    "name": "Jonas Kowalski",
+    "skill": "3D Printing",
+    "project": "Prototyping a 3D Printing project for city planners, using user interviews to turn Wearables signals into safer deployment decisions.",
+    "tags": [
+      "3D Printing",
+      "Wearables",
+      "Synthetic Biology"
+    ],
+    "searchTags": [
+      "3D Printing",
+      "Engineering & Robotics",
+      "Wearables",
+      "Synthetic Biology",
+      "city planners",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-020",
+    "internId": "INT-020",
+    "name": "Priya Ndlovu",
+    "skill": "Embedded",
+    "project": "Testing a Embedded project for school labs, using expert challenges to turn Power Systems Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "Embedded",
+      "Power Systems Engineering",
+      "Drug Discovery"
+    ],
+    "searchTags": [
+      "Embedded",
+      "Hardware & Sensors",
+      "Power Systems Engineering",
+      "Drug Discovery",
+      "school labs",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-021",
+    "internId": "INT-021",
+    "name": "Mateo Costa",
+    "skill": "FPGA",
+    "project": "Launching a FPGA project for small manufacturers, using design reviews to turn Renewable Energy Systems signals into trustworthy field data.",
+    "tags": [
+      "FPGA",
+      "Renewable Energy Systems",
+      "Health Monitoring"
+    ],
+    "searchTags": [
+      "FPGA",
+      "Hardware & Sensors",
+      "Renewable Energy Systems",
+      "Health Monitoring",
+      "small manufacturers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-022",
+    "internId": "INT-022",
+    "name": "Selah Brooks",
+    "skill": "Semiconductor Design",
+    "project": "Modeling a Semiconductor Design project for research groups, using simulation logs to turn Nuclear signals into stronger user validation.",
+    "tags": [
+      "Semiconductor Design",
+      "Nuclear",
+      "Dentistry"
+    ],
+    "searchTags": [
+      "Semiconductor Design",
+      "Hardware & Sensors",
+      "Nuclear",
+      "Dentistry",
+      "research groups",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-023",
+    "internId": "INT-023",
+    "name": "Nico Okafor",
+    "skill": "Signal Processing",
+    "project": "Instrumenting a Signal Processing project for disaster crews, using benchmark runs to turn Climate Informatics signals into a sharper Demo Day defense.",
+    "tags": [
+      "Signal Processing",
+      "Climate Informatics",
+      "Neurosurgery"
+    ],
+    "searchTags": [
+      "Signal Processing",
+      "Hardware & Sensors",
+      "Climate Informatics",
+      "Neurosurgery",
+      "disaster crews",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-024",
+    "internId": "INT-024",
+    "name": "Yara Haddad",
+    "skill": "Photonics",
+    "project": "Hardening a Photonics project for public libraries, using sensor traces to turn Air Quality signals into a repeatable test bench.",
+    "tags": [
+      "Photonics",
+      "Air Quality",
+      "Immunotherapy"
+    ],
+    "searchTags": [
+      "Photonics",
+      "Hardware & Sensors",
+      "Air Quality",
+      "Immunotherapy",
+      "public libraries",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-025",
+    "internId": "INT-025",
+    "name": "Talia Ibrahim",
+    "skill": "Sensors",
+    "project": "Building a Sensors project for energy co-ops, using live telemetry to turn Water Quality signals into clear readiness signals.",
+    "tags": [
+      "Sensors",
+      "Water Quality",
+      "Prosthetics"
+    ],
+    "searchTags": [
+      "Sensors",
+      "Hardware & Sensors",
+      "Water Quality",
+      "Prosthetics",
+      "energy co-ops",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-026",
+    "internId": "INT-026",
+    "name": "Ezra Bennett",
+    "skill": "Wearables",
+    "project": "Designing a Wearables project for mobility teams, using failure reports to turn Remote Sensing signals into faster mentor feedback.",
+    "tags": [
+      "Wearables",
+      "Remote Sensing",
+      "Elder Care"
+    ],
+    "searchTags": [
+      "Wearables",
+      "Hardware & Sensors",
+      "Remote Sensing",
+      "Elder Care",
+      "mobility teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-027",
+    "internId": "INT-027",
+    "name": "Mei Diaz",
+    "skill": "Power Systems Engineering",
+    "project": "Prototyping a Power Systems Engineering project for farm operators, using user interviews to turn Agriculture signals into safer deployment decisions.",
+    "tags": [
+      "Power Systems Engineering",
+      "Agriculture",
+      "Materials Science"
+    ],
+    "searchTags": [
+      "Power Systems Engineering",
+      "Energy & Environment",
+      "Agriculture",
+      "Materials Science",
+      "farm operators",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-028",
+    "internId": "INT-028",
+    "name": "Omar Fischer",
+    "skill": "Renewable Energy Systems",
+    "project": "Testing a Renewable Energy Systems project for accessibility teams, using expert challenges to turn Reforestation signals into measurable prototype evidence.",
+    "tags": [
+      "Renewable Energy Systems",
+      "Reforestation",
+      "Nanotech"
+    ],
+    "searchTags": [
+      "Renewable Energy Systems",
+      "Energy & Environment",
+      "Reforestation",
+      "Nanotech",
+      "accessibility teams",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-029",
+    "internId": "INT-029",
+    "name": "Anika Yilmaz",
+    "skill": "Nuclear",
+    "project": "Launching a Nuclear project for community health workers, using design reviews to turn Computational Biology signals into trustworthy field data.",
+    "tags": [
+      "Nuclear",
+      "Computational Biology",
+      "Quantum Hardware"
+    ],
+    "searchTags": [
+      "Nuclear",
+      "Energy & Environment",
+      "Computational Biology",
+      "Quantum Hardware",
+      "community health workers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-030",
+    "internId": "INT-030",
+    "name": "Felix Reyes",
+    "skill": "Climate Informatics",
+    "project": "Modeling a Climate Informatics project for privacy reviewers, using simulation logs to turn Genomics signals into stronger user validation.",
+    "tags": [
+      "Climate Informatics",
+      "Genomics",
+      "Astrophysics"
+    ],
+    "searchTags": [
+      "Climate Informatics",
+      "Energy & Environment",
+      "Genomics",
+      "Astrophysics",
+      "privacy reviewers",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-031",
+    "internId": "INT-031",
+    "name": "Rina Kim",
+    "skill": "Air Quality",
+    "project": "Instrumenting a Air Quality project for makerspaces, using benchmark runs to turn Synthetic Biology signals into a sharper Demo Day defense.",
+    "tags": [
+      "Air Quality",
+      "Synthetic Biology",
+      "Plasma Physics"
+    ],
+    "searchTags": [
+      "Air Quality",
+      "Energy & Environment",
+      "Synthetic Biology",
+      "Plasma Physics",
+      "makerspaces",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-032",
+    "internId": "INT-032",
+    "name": "Samir Moreau",
+    "skill": "Water Quality",
+    "project": "Hardening a Water Quality project for local nonprofits, using sensor traces to turn Drug Discovery signals into a repeatable test bench.",
+    "tags": [
+      "Water Quality",
+      "Drug Discovery",
+      "Security"
+    ],
+    "searchTags": [
+      "Water Quality",
+      "Energy & Environment",
+      "Drug Discovery",
+      "Security",
+      "local nonprofits",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-033",
+    "internId": "INT-033",
+    "name": "Elena Khan",
+    "skill": "Remote Sensing",
+    "project": "Building a Remote Sensing project for clinics, using live telemetry to turn Health Monitoring signals into clear readiness signals.",
+    "tags": [
+      "Remote Sensing",
+      "Health Monitoring",
+      "Privacy"
+    ],
+    "searchTags": [
+      "Remote Sensing",
+      "Energy & Environment",
+      "Health Monitoring",
+      "Privacy",
+      "clinics",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-034",
+    "internId": "INT-034",
+    "name": "Dario Walker",
+    "skill": "Agriculture",
+    "project": "Designing a Agriculture project for field teams, using failure reports to turn Dentistry signals into faster mentor feedback.",
+    "tags": [
+      "Agriculture",
+      "Dentistry",
+      "Cryptography"
+    ],
+    "searchTags": [
+      "Agriculture",
+      "Energy & Environment",
+      "Dentistry",
+      "Cryptography",
+      "field teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-035",
+    "internId": "INT-035",
+    "name": "Leah Malik",
+    "skill": "Reforestation",
+    "project": "Prototyping a Reforestation project for city planners, using user interviews to turn Neurosurgery signals into safer deployment decisions.",
+    "tags": [
+      "Reforestation",
+      "Neurosurgery",
+      "Data Privacy Law"
+    ],
+    "searchTags": [
+      "Reforestation",
+      "Energy & Environment",
+      "Neurosurgery",
+      "Data Privacy Law",
+      "city planners",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-036",
+    "internId": "INT-036",
+    "name": "Tomas Mensah",
+    "skill": "Computational Biology",
+    "project": "Testing a Computational Biology project for school labs, using expert challenges to turn Immunotherapy signals into measurable prototype evidence.",
+    "tags": [
+      "Computational Biology",
+      "Immunotherapy",
+      "Ethics"
+    ],
+    "searchTags": [
+      "Computational Biology",
+      "Life Sciences & Health",
+      "Immunotherapy",
+      "Ethics",
+      "school labs",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-037",
+    "internId": "INT-037",
+    "name": "Ava Chen",
+    "skill": "Genomics",
+    "project": "Launching a Genomics project for small manufacturers, using design reviews to turn Prosthetics signals into trustworthy field data.",
+    "tags": [
+      "Genomics",
+      "Prosthetics",
+      "Education"
+    ],
+    "searchTags": [
+      "Genomics",
+      "Life Sciences & Health",
+      "Prosthetics",
+      "Education",
+      "small manufacturers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-038",
+    "internId": "INT-038",
+    "name": "Milo Nair",
+    "skill": "Synthetic Biology",
+    "project": "Modeling a Synthetic Biology project for research groups, using simulation logs to turn Elder Care signals into stronger user validation.",
+    "tags": [
+      "Synthetic Biology",
+      "Elder Care",
+      "Accessibility"
+    ],
+    "searchTags": [
+      "Synthetic Biology",
+      "Life Sciences & Health",
+      "Elder Care",
+      "Accessibility",
+      "research groups",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-039",
+    "internId": "INT-039",
+    "name": "Nia Silva",
+    "skill": "Drug Discovery",
+    "project": "Instrumenting a Drug Discovery project for disaster crews, using benchmark runs to turn Materials Science signals into a sharper Demo Day defense.",
+    "tags": [
+      "Drug Discovery",
+      "Materials Science",
+      "Inclusion"
+    ],
+    "searchTags": [
+      "Drug Discovery",
+      "Life Sciences & Health",
+      "Materials Science",
+      "Inclusion",
+      "disaster crews",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-040",
+    "internId": "INT-040",
+    "name": "Theo Garcia",
+    "skill": "Health Monitoring",
+    "project": "Hardening a Health Monitoring project for public libraries, using sensor traces to turn Nanotech signals into a repeatable test bench.",
+    "tags": [
+      "Health Monitoring",
+      "Nanotech",
+      "Community"
+    ],
+    "searchTags": [
+      "Health Monitoring",
+      "Life Sciences & Health",
+      "Nanotech",
+      "Community",
+      "public libraries",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-041",
+    "internId": "INT-041",
+    "name": "Maya Sato",
+    "skill": "Dentistry",
+    "project": "Building a Dentistry project for energy co-ops, using live telemetry to turn Quantum Hardware signals into clear readiness signals.",
+    "tags": [
+      "Dentistry",
+      "Quantum Hardware",
+      "Disaster Response"
+    ],
+    "searchTags": [
+      "Dentistry",
+      "Life Sciences & Health",
+      "Quantum Hardware",
+      "Disaster Response",
+      "energy co-ops",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-042",
+    "internId": "INT-042",
+    "name": "Leo Anders",
+    "skill": "Neurosurgery",
+    "project": "Designing a Neurosurgery project for mobility teams, using failure reports to turn Astrophysics signals into faster mentor feedback.",
+    "tags": [
+      "Neurosurgery",
+      "Astrophysics",
+      "UX"
+    ],
+    "searchTags": [
+      "Neurosurgery",
+      "Life Sciences & Health",
+      "Astrophysics",
+      "UX",
+      "mobility teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-043",
+    "internId": "INT-043",
+    "name": "Iris Rossi",
+    "skill": "Immunotherapy",
+    "project": "Prototyping a Immunotherapy project for farm operators, using user interviews to turn Plasma Physics signals into safer deployment decisions.",
+    "tags": [
+      "Immunotherapy",
+      "Plasma Physics",
+      "AI"
+    ],
+    "searchTags": [
+      "Immunotherapy",
+      "Life Sciences & Health",
+      "Plasma Physics",
+      "AI",
+      "farm operators",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-044",
+    "internId": "INT-044",
+    "name": "Kai Larsen",
+    "skill": "Prosthetics",
+    "project": "Testing a Prosthetics project for accessibility teams, using expert challenges to turn Security signals into measurable prototype evidence.",
+    "tags": [
+      "Prosthetics",
+      "Security",
+      "ML"
+    ],
+    "searchTags": [
+      "Prosthetics",
+      "Life Sciences & Health",
+      "Security",
+      "ML",
+      "accessibility teams",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-045",
+    "internId": "INT-045",
+    "name": "Zara Morgan",
+    "skill": "Elder Care",
+    "project": "Launching a Elder Care project for community health workers, using design reviews to turn Privacy signals into trustworthy field data.",
+    "tags": [
+      "Elder Care",
+      "Privacy",
+      "Deep Learning"
+    ],
+    "searchTags": [
+      "Elder Care",
+      "Life Sciences & Health",
+      "Privacy",
+      "Deep Learning",
+      "community health workers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-046",
+    "internId": "INT-046",
+    "name": "Noah Tanaka",
+    "skill": "Materials Science",
+    "project": "Modeling a Materials Science project for privacy reviewers, using simulation logs to turn Cryptography signals into stronger user validation.",
+    "tags": [
+      "Materials Science",
+      "Cryptography",
+      "Foundation Models"
+    ],
+    "searchTags": [
+      "Materials Science",
+      "Physical Sciences & Materials",
+      "Cryptography",
+      "Foundation Models",
+      "privacy reviewers",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-047",
+    "internId": "INT-047",
+    "name": "Lena Singh",
+    "skill": "Nanotech",
+    "project": "Instrumenting a Nanotech project for makerspaces, using benchmark runs to turn Data Privacy Law signals into a sharper Demo Day defense.",
+    "tags": [
+      "Nanotech",
+      "Data Privacy Law",
+      "NLP"
+    ],
+    "searchTags": [
+      "Nanotech",
+      "Physical Sciences & Materials",
+      "Data Privacy Law",
+      "NLP",
+      "makerspaces",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-048",
+    "internId": "INT-048",
+    "name": "Owen Rahman",
+    "skill": "Quantum Hardware",
+    "project": "Hardening a Quantum Hardware project for local nonprofits, using sensor traces to turn Ethics signals into a repeatable test bench.",
+    "tags": [
+      "Quantum Hardware",
+      "Ethics",
+      "Computer Vision"
+    ],
+    "searchTags": [
+      "Quantum Hardware",
+      "Physical Sciences & Materials",
+      "Ethics",
+      "Computer Vision",
+      "local nonprofits",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-049",
+    "internId": "INT-049",
+    "name": "Sofia Park",
+    "skill": "Astrophysics",
+    "project": "Building a Astrophysics project for clinics, using live telemetry to turn Education signals into clear readiness signals.",
+    "tags": [
+      "Astrophysics",
+      "Education",
+      "Medical NLP"
+    ],
+    "searchTags": [
+      "Astrophysics",
+      "Physical Sciences & Materials",
+      "Education",
+      "Medical NLP",
+      "clinics",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-050",
+    "internId": "INT-050",
+    "name": "Eli Nguyen",
+    "skill": "Plasma Physics",
+    "project": "Designing a Plasma Physics project for field teams, using failure reports to turn Accessibility signals into faster mentor feedback.",
+    "tags": [
+      "Plasma Physics",
+      "Accessibility",
+      "Biomedical NLP"
+    ],
+    "searchTags": [
+      "Plasma Physics",
+      "Physical Sciences & Materials",
+      "Accessibility",
+      "Biomedical NLP",
+      "field teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-051",
+    "internId": "INT-051",
+    "name": "Mina Das",
+    "skill": "Security",
+    "project": "Prototyping a Security project for city planners, using user interviews to turn Inclusion signals into safer deployment decisions.",
+    "tags": [
+      "Security",
+      "Inclusion",
+      "Knowledge Graphs"
+    ],
+    "searchTags": [
+      "Security",
+      "Security, Law & Ethics",
+      "Inclusion",
+      "Knowledge Graphs",
+      "city planners",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-052",
+    "internId": "INT-052",
+    "name": "Ravi Patel",
+    "skill": "Privacy",
+    "project": "Testing a Privacy project for school labs, using expert challenges to turn Community signals into measurable prototype evidence.",
+    "tags": [
+      "Privacy",
+      "Community",
+      "Analytics"
+    ],
+    "searchTags": [
+      "Privacy",
+      "Security, Law & Ethics",
+      "Community",
+      "Analytics",
+      "school labs",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-053",
+    "internId": "INT-053",
+    "name": "Jules Voss",
+    "skill": "Cryptography",
+    "project": "Launching a Cryptography project for small manufacturers, using design reviews to turn Disaster Response signals into trustworthy field data.",
+    "tags": [
+      "Cryptography",
+      "Disaster Response",
+      "Optimization"
+    ],
+    "searchTags": [
+      "Cryptography",
+      "Security, Law & Ethics",
+      "Disaster Response",
+      "Optimization",
+      "small manufacturers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-054",
+    "internId": "INT-054",
+    "name": "Amara Novak",
+    "skill": "Data Privacy Law",
+    "project": "Modeling a Data Privacy Law project for research groups, using simulation logs to turn UX signals into stronger user validation.",
+    "tags": [
+      "Data Privacy Law",
+      "UX",
+      "Cloud"
+    ],
+    "searchTags": [
+      "Data Privacy Law",
+      "Security, Law & Ethics",
+      "UX",
+      "Cloud",
+      "research groups",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-055",
+    "internId": "INT-055",
+    "name": "Jonas Kowalski",
+    "skill": "Ethics",
+    "project": "Instrumenting a Ethics project for disaster crews, using benchmark runs to turn AI signals into a sharper Demo Day defense.",
+    "tags": [
+      "Ethics",
+      "AI",
+      "Edge Computing"
+    ],
+    "searchTags": [
+      "Ethics",
+      "Security, Law & Ethics",
+      "AI",
+      "Edge Computing",
+      "disaster crews",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-056",
+    "internId": "INT-056",
+    "name": "Priya Ndlovu",
+    "skill": "Education",
+    "project": "Hardening a Education project for public libraries, using sensor traces to turn ML signals into a repeatable test bench.",
+    "tags": [
+      "Education",
+      "ML",
+      "Real-Time"
+    ],
+    "searchTags": [
+      "Education",
+      "Social Impact & Design",
+      "ML",
+      "Real-Time",
+      "public libraries",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-057",
+    "internId": "INT-057",
+    "name": "Mateo Costa",
+    "skill": "Accessibility",
+    "project": "Building a Accessibility project for energy co-ops, using live telemetry to turn Deep Learning signals into clear readiness signals.",
+    "tags": [
+      "Accessibility",
+      "Deep Learning",
+      "Browser Extensions"
+    ],
+    "searchTags": [
+      "Accessibility",
+      "Social Impact & Design",
+      "Deep Learning",
+      "Browser Extensions",
+      "energy co-ops",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-058",
+    "internId": "INT-058",
+    "name": "Selah Brooks",
+    "skill": "Inclusion",
+    "project": "Designing a Inclusion project for mobility teams, using failure reports to turn Foundation Models signals into faster mentor feedback.",
+    "tags": [
+      "Inclusion",
+      "Foundation Models",
+      "Open Source"
+    ],
+    "searchTags": [
+      "Inclusion",
+      "Social Impact & Design",
+      "Foundation Models",
+      "Open Source",
+      "mobility teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-059",
+    "internId": "INT-059",
+    "name": "Nico Okafor",
+    "skill": "Community",
+    "project": "Prototyping a Community project for farm operators, using user interviews to turn NLP signals into safer deployment decisions.",
+    "tags": [
+      "Community",
+      "NLP",
+      "Robotics"
+    ],
+    "searchTags": [
+      "Community",
+      "Social Impact & Design",
+      "NLP",
+      "Robotics",
+      "farm operators",
+      "safer deployment decisions",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-060",
+    "internId": "INT-060",
+    "name": "Yara Haddad",
+    "skill": "Disaster Response",
+    "project": "Testing a Disaster Response project for accessibility teams, using expert challenges to turn Computer Vision signals into measurable prototype evidence.",
+    "tags": [
+      "Disaster Response",
+      "Computer Vision",
+      "Autonomous"
+    ],
+    "searchTags": [
+      "Disaster Response",
+      "Social Impact & Design",
+      "Computer Vision",
+      "Autonomous",
+      "accessibility teams",
+      "measurable prototype evidence",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-061",
+    "internId": "INT-061",
+    "name": "Talia Ibrahim",
+    "skill": "UX",
+    "project": "Launching a UX project for community health workers, using design reviews to turn Medical NLP signals into trustworthy field data.",
+    "tags": [
+      "UX",
+      "Medical NLP",
+      "Control Systems"
+    ],
+    "searchTags": [
+      "UX",
+      "Social Impact & Design",
+      "Medical NLP",
+      "Control Systems",
+      "community health workers",
+      "trustworthy field data",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-062",
+    "internId": "INT-062",
+    "name": "Ezra Bennett",
+    "skill": "AI",
+    "project": "Modeling a AI project for privacy reviewers, using simulation logs to turn Biomedical NLP signals into stronger user validation.",
+    "tags": [
+      "AI",
+      "Biomedical NLP",
+      "Mechatronics"
+    ],
+    "searchTags": [
+      "AI",
+      "Artificial Intelligence",
+      "Biomedical NLP",
+      "Mechatronics",
+      "privacy reviewers",
+      "stronger user validation",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-063",
+    "internId": "INT-063",
+    "name": "Mei Diaz",
+    "skill": "ML",
+    "project": "Instrumenting a ML project for makerspaces, using benchmark runs to turn Knowledge Graphs signals into a sharper Demo Day defense.",
+    "tags": [
+      "ML",
+      "Knowledge Graphs",
+      "Drones"
+    ],
+    "searchTags": [
+      "ML",
+      "Artificial Intelligence",
+      "Knowledge Graphs",
+      "Drones",
+      "makerspaces",
+      "a sharper Demo Day defense",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-064",
+    "internId": "INT-064",
+    "name": "Omar Fischer",
+    "skill": "Deep Learning",
+    "project": "Hardening a Deep Learning project for local nonprofits, using sensor traces to turn Analytics signals into a repeatable test bench.",
+    "tags": [
+      "Deep Learning",
+      "Analytics",
+      "Aerospace Engineering"
+    ],
+    "searchTags": [
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Analytics",
+      "Aerospace Engineering",
+      "local nonprofits",
+      "a repeatable test bench",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-065",
+    "internId": "INT-065",
+    "name": "Anika Yilmaz",
+    "skill": "Foundation Models",
+    "project": "Building a Foundation Models project for clinics, using live telemetry to turn Optimization signals into clear readiness signals.",
+    "tags": [
+      "Foundation Models",
+      "Optimization",
+      "Structural Engineering"
+    ],
+    "searchTags": [
+      "Foundation Models",
+      "Artificial Intelligence",
+      "Optimization",
+      "Structural Engineering",
+      "clinics",
+      "clear readiness signals",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-066",
+    "internId": "INT-066",
+    "name": "Felix Reyes",
+    "skill": "NLP",
+    "project": "Designing a NLP project for field teams, using failure reports to turn Cloud signals into faster mentor feedback.",
+    "tags": [
+      "NLP",
+      "Cloud",
+      "3D Printing"
+    ],
+    "searchTags": [
+      "NLP",
+      "Artificial Intelligence",
+      "Cloud",
+      "3D Printing",
+      "field teams",
+      "faster mentor feedback",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-067",
+    "internId": "INT-067",
+    "name": "Rina Haddad",
+    "skill": "Computer Vision",
+    "project": "Prototyping a Computer Vision project for school labs, using sensor traces to turn Autonomous signals into stronger user validation.",
+    "tags": [
+      "Computer Vision",
+      "Autonomous",
+      "Air Quality"
+    ],
+    "searchTags": [
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Autonomous",
+      "Air Quality",
+      "school labs",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-068",
+    "internId": "INT-068",
+    "name": "Samir Ibrahim",
+    "skill": "Medical NLP",
+    "project": "Testing a Medical NLP project for small manufacturers, using live telemetry to turn Control Systems signals into a sharper Demo Day defense.",
+    "tags": [
+      "Medical NLP",
+      "Control Systems",
+      "Water Quality"
+    ],
+    "searchTags": [
+      "Medical NLP",
+      "Artificial Intelligence",
+      "Control Systems",
+      "Water Quality",
+      "small manufacturers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-069",
+    "internId": "INT-069",
+    "name": "Elena Bennett",
+    "skill": "Biomedical NLP",
+    "project": "Launching a Biomedical NLP project for research groups, using failure reports to turn Mechatronics signals into a repeatable test bench.",
+    "tags": [
+      "Biomedical NLP",
+      "Mechatronics",
+      "Remote Sensing"
+    ],
+    "searchTags": [
+      "Biomedical NLP",
+      "Artificial Intelligence",
+      "Mechatronics",
+      "Remote Sensing",
+      "research groups",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-070",
+    "internId": "INT-070",
+    "name": "Dario Diaz",
+    "skill": "Knowledge Graphs",
+    "project": "Modeling a Knowledge Graphs project for disaster crews, using user interviews to turn Drones signals into clear readiness signals.",
+    "tags": [
+      "Knowledge Graphs",
+      "Drones",
+      "Agriculture"
+    ],
+    "searchTags": [
+      "Knowledge Graphs",
+      "Artificial Intelligence",
+      "Drones",
+      "Agriculture",
+      "disaster crews",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-071",
+    "internId": "INT-071",
+    "name": "Leah Fischer",
+    "skill": "Analytics",
+    "project": "Instrumenting a Analytics project for public libraries, using expert challenges to turn Aerospace Engineering signals into faster mentor feedback.",
+    "tags": [
+      "Analytics",
+      "Aerospace Engineering",
+      "Reforestation"
+    ],
+    "searchTags": [
+      "Analytics",
+      "Software & Data",
+      "Aerospace Engineering",
+      "Reforestation",
+      "public libraries",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-072",
+    "internId": "INT-072",
+    "name": "Tomas Yilmaz",
+    "skill": "Optimization",
+    "project": "Hardening a Optimization project for energy co-ops, using design reviews to turn Structural Engineering signals into safer deployment decisions.",
+    "tags": [
+      "Optimization",
+      "Structural Engineering",
+      "Computational Biology"
+    ],
+    "searchTags": [
+      "Optimization",
+      "Software & Data",
+      "Structural Engineering",
+      "Computational Biology",
+      "energy co-ops",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-073",
+    "internId": "INT-073",
+    "name": "Ava Reyes",
+    "skill": "Cloud",
+    "project": "Building a Cloud project for mobility teams, using simulation logs to turn 3D Printing signals into measurable prototype evidence.",
+    "tags": [
+      "Cloud",
+      "3D Printing",
+      "Genomics"
+    ],
+    "searchTags": [
+      "Cloud",
+      "Software & Data",
+      "3D Printing",
+      "Genomics",
+      "mobility teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-074",
+    "internId": "INT-074",
+    "name": "Milo Kim",
+    "skill": "Edge Computing",
+    "project": "Designing a Edge Computing project for farm operators, using benchmark runs to turn Embedded signals into trustworthy field data.",
+    "tags": [
+      "Edge Computing",
+      "Embedded",
+      "Synthetic Biology"
+    ],
+    "searchTags": [
+      "Edge Computing",
+      "Software & Data",
+      "Embedded",
+      "Synthetic Biology",
+      "farm operators",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-075",
+    "internId": "INT-075",
+    "name": "Nia Moreau",
+    "skill": "Real-Time",
+    "project": "Prototyping a Real-Time project for accessibility teams, using sensor traces to turn FPGA signals into stronger user validation.",
+    "tags": [
+      "Real-Time",
+      "FPGA",
+      "Drug Discovery"
+    ],
+    "searchTags": [
+      "Real-Time",
+      "Software & Data",
+      "FPGA",
+      "Drug Discovery",
+      "accessibility teams",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-076",
+    "internId": "INT-076",
+    "name": "Theo Khan",
+    "skill": "Browser Extensions",
+    "project": "Testing a Browser Extensions project for community health workers, using live telemetry to turn Semiconductor Design signals into a sharper Demo Day defense.",
+    "tags": [
+      "Browser Extensions",
+      "Semiconductor Design",
+      "Health Monitoring"
+    ],
+    "searchTags": [
+      "Browser Extensions",
+      "Software & Data",
+      "Semiconductor Design",
+      "Health Monitoring",
+      "community health workers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-077",
+    "internId": "INT-077",
+    "name": "Maya Walker",
+    "skill": "Open Source",
+    "project": "Launching a Open Source project for privacy reviewers, using failure reports to turn Signal Processing signals into a repeatable test bench.",
+    "tags": [
+      "Open Source",
+      "Signal Processing",
+      "Dentistry"
+    ],
+    "searchTags": [
+      "Open Source",
+      "Software & Data",
+      "Signal Processing",
+      "Dentistry",
+      "privacy reviewers",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-078",
+    "internId": "INT-078",
+    "name": "Leo Malik",
+    "skill": "Robotics",
+    "project": "Modeling a Robotics project for makerspaces, using user interviews to turn Photonics signals into clear readiness signals.",
+    "tags": [
+      "Robotics",
+      "Photonics",
+      "Neurosurgery"
+    ],
+    "searchTags": [
+      "Robotics",
+      "Engineering & Robotics",
+      "Photonics",
+      "Neurosurgery",
+      "makerspaces",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-079",
+    "internId": "INT-079",
+    "name": "Iris Mensah",
+    "skill": "Autonomous",
+    "project": "Instrumenting a Autonomous project for local nonprofits, using expert challenges to turn Sensors signals into faster mentor feedback.",
+    "tags": [
+      "Autonomous",
+      "Sensors",
+      "Immunotherapy"
+    ],
+    "searchTags": [
+      "Autonomous",
+      "Engineering & Robotics",
+      "Sensors",
+      "Immunotherapy",
+      "local nonprofits",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-080",
+    "internId": "INT-080",
+    "name": "Kai Chen",
+    "skill": "Control Systems",
+    "project": "Hardening a Control Systems project for clinics, using design reviews to turn Wearables signals into safer deployment decisions.",
+    "tags": [
+      "Control Systems",
+      "Wearables",
+      "Prosthetics"
+    ],
+    "searchTags": [
+      "Control Systems",
+      "Engineering & Robotics",
+      "Wearables",
+      "Prosthetics",
+      "clinics",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-081",
+    "internId": "INT-081",
+    "name": "Zara Nair",
+    "skill": "Mechatronics",
+    "project": "Building a Mechatronics project for field teams, using simulation logs to turn Power Systems Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "Mechatronics",
+      "Power Systems Engineering",
+      "Elder Care"
+    ],
+    "searchTags": [
+      "Mechatronics",
+      "Engineering & Robotics",
+      "Power Systems Engineering",
+      "Elder Care",
+      "field teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-082",
+    "internId": "INT-082",
+    "name": "Noah Silva",
+    "skill": "Drones",
+    "project": "Designing a Drones project for city planners, using benchmark runs to turn Renewable Energy Systems signals into trustworthy field data.",
+    "tags": [
+      "Drones",
+      "Renewable Energy Systems",
+      "Materials Science"
+    ],
+    "searchTags": [
+      "Drones",
+      "Engineering & Robotics",
+      "Renewable Energy Systems",
+      "Materials Science",
+      "city planners",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-083",
+    "internId": "INT-083",
+    "name": "Lena Garcia",
+    "skill": "Aerospace Engineering",
+    "project": "Prototyping a Aerospace Engineering project for school labs, using sensor traces to turn Nuclear signals into stronger user validation.",
+    "tags": [
+      "Aerospace Engineering",
+      "Nuclear",
+      "Nanotech"
+    ],
+    "searchTags": [
+      "Aerospace Engineering",
+      "Engineering & Robotics",
+      "Nuclear",
+      "Nanotech",
+      "school labs",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-084",
+    "internId": "INT-084",
+    "name": "Owen Sato",
+    "skill": "Structural Engineering",
+    "project": "Testing a Structural Engineering project for small manufacturers, using live telemetry to turn Climate Informatics signals into a sharper Demo Day defense.",
+    "tags": [
+      "Structural Engineering",
+      "Climate Informatics",
+      "Quantum Hardware"
+    ],
+    "searchTags": [
+      "Structural Engineering",
+      "Engineering & Robotics",
+      "Climate Informatics",
+      "Quantum Hardware",
+      "small manufacturers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-085",
+    "internId": "INT-085",
+    "name": "Sofia Anders",
+    "skill": "3D Printing",
+    "project": "Launching a 3D Printing project for research groups, using failure reports to turn Air Quality signals into a repeatable test bench.",
+    "tags": [
+      "3D Printing",
+      "Air Quality",
+      "Astrophysics"
+    ],
+    "searchTags": [
+      "3D Printing",
+      "Engineering & Robotics",
+      "Air Quality",
+      "Astrophysics",
+      "research groups",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-086",
+    "internId": "INT-086",
+    "name": "Eli Rossi",
+    "skill": "Embedded",
+    "project": "Modeling a Embedded project for disaster crews, using user interviews to turn Water Quality signals into clear readiness signals.",
+    "tags": [
+      "Embedded",
+      "Water Quality",
+      "Plasma Physics"
+    ],
+    "searchTags": [
+      "Embedded",
+      "Hardware & Sensors",
+      "Water Quality",
+      "Plasma Physics",
+      "disaster crews",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-087",
+    "internId": "INT-087",
+    "name": "Mina Larsen",
+    "skill": "FPGA",
+    "project": "Instrumenting a FPGA project for public libraries, using expert challenges to turn Remote Sensing signals into faster mentor feedback.",
+    "tags": [
+      "FPGA",
+      "Remote Sensing",
+      "Security"
+    ],
+    "searchTags": [
+      "FPGA",
+      "Hardware & Sensors",
+      "Remote Sensing",
+      "Security",
+      "public libraries",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-088",
+    "internId": "INT-088",
+    "name": "Ravi Morgan",
+    "skill": "Semiconductor Design",
+    "project": "Hardening a Semiconductor Design project for energy co-ops, using design reviews to turn Agriculture signals into safer deployment decisions.",
+    "tags": [
+      "Semiconductor Design",
+      "Agriculture",
+      "Privacy"
+    ],
+    "searchTags": [
+      "Semiconductor Design",
+      "Hardware & Sensors",
+      "Agriculture",
+      "Privacy",
+      "energy co-ops",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-089",
+    "internId": "INT-089",
+    "name": "Jules Tanaka",
+    "skill": "Signal Processing",
+    "project": "Building a Signal Processing project for mobility teams, using simulation logs to turn Reforestation signals into measurable prototype evidence.",
+    "tags": [
+      "Signal Processing",
+      "Reforestation",
+      "Cryptography"
+    ],
+    "searchTags": [
+      "Signal Processing",
+      "Hardware & Sensors",
+      "Reforestation",
+      "Cryptography",
+      "mobility teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-090",
+    "internId": "INT-090",
+    "name": "Amara Singh",
+    "skill": "Photonics",
+    "project": "Designing a Photonics project for farm operators, using benchmark runs to turn Computational Biology signals into trustworthy field data.",
+    "tags": [
+      "Photonics",
+      "Computational Biology",
+      "Data Privacy Law"
+    ],
+    "searchTags": [
+      "Photonics",
+      "Hardware & Sensors",
+      "Computational Biology",
+      "Data Privacy Law",
+      "farm operators",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-091",
+    "internId": "INT-091",
+    "name": "Jonas Rahman",
+    "skill": "Sensors",
+    "project": "Prototyping a Sensors project for accessibility teams, using sensor traces to turn Genomics signals into stronger user validation.",
+    "tags": [
+      "Sensors",
+      "Genomics",
+      "Ethics"
+    ],
+    "searchTags": [
+      "Sensors",
+      "Hardware & Sensors",
+      "Genomics",
+      "Ethics",
+      "accessibility teams",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-092",
+    "internId": "INT-092",
+    "name": "Priya Park",
+    "skill": "Wearables",
+    "project": "Testing a Wearables project for community health workers, using live telemetry to turn Synthetic Biology signals into a sharper Demo Day defense.",
+    "tags": [
+      "Wearables",
+      "Synthetic Biology",
+      "Education"
+    ],
+    "searchTags": [
+      "Wearables",
+      "Hardware & Sensors",
+      "Synthetic Biology",
+      "Education",
+      "community health workers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-093",
+    "internId": "INT-093",
+    "name": "Mateo Nguyen",
+    "skill": "Power Systems Engineering",
+    "project": "Launching a Power Systems Engineering project for privacy reviewers, using failure reports to turn Drug Discovery signals into a repeatable test bench.",
+    "tags": [
+      "Power Systems Engineering",
+      "Drug Discovery",
+      "Accessibility"
+    ],
+    "searchTags": [
+      "Power Systems Engineering",
+      "Energy & Environment",
+      "Drug Discovery",
+      "Accessibility",
+      "privacy reviewers",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-094",
+    "internId": "INT-094",
+    "name": "Selah Das",
+    "skill": "Renewable Energy Systems",
+    "project": "Modeling a Renewable Energy Systems project for makerspaces, using user interviews to turn Health Monitoring signals into clear readiness signals.",
+    "tags": [
+      "Renewable Energy Systems",
+      "Health Monitoring",
+      "Inclusion"
+    ],
+    "searchTags": [
+      "Renewable Energy Systems",
+      "Energy & Environment",
+      "Health Monitoring",
+      "Inclusion",
+      "makerspaces",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-095",
+    "internId": "INT-095",
+    "name": "Nico Patel",
+    "skill": "Nuclear",
+    "project": "Instrumenting a Nuclear project for local nonprofits, using expert challenges to turn Dentistry signals into faster mentor feedback.",
+    "tags": [
+      "Nuclear",
+      "Dentistry",
+      "Community"
+    ],
+    "searchTags": [
+      "Nuclear",
+      "Energy & Environment",
+      "Dentistry",
+      "Community",
+      "local nonprofits",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-096",
+    "internId": "INT-096",
+    "name": "Yara Voss",
+    "skill": "Climate Informatics",
+    "project": "Hardening a Climate Informatics project for clinics, using design reviews to turn Neurosurgery signals into safer deployment decisions.",
+    "tags": [
+      "Climate Informatics",
+      "Neurosurgery",
+      "Disaster Response"
+    ],
+    "searchTags": [
+      "Climate Informatics",
+      "Energy & Environment",
+      "Neurosurgery",
+      "Disaster Response",
+      "clinics",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-097",
+    "internId": "INT-097",
+    "name": "Talia Novak",
+    "skill": "Air Quality",
+    "project": "Building a Air Quality project for field teams, using simulation logs to turn Immunotherapy signals into measurable prototype evidence.",
+    "tags": [
+      "Air Quality",
+      "Immunotherapy",
+      "UX"
+    ],
+    "searchTags": [
+      "Air Quality",
+      "Energy & Environment",
+      "Immunotherapy",
+      "UX",
+      "field teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-098",
+    "internId": "INT-098",
+    "name": "Ezra Kowalski",
+    "skill": "Water Quality",
+    "project": "Designing a Water Quality project for city planners, using benchmark runs to turn Prosthetics signals into trustworthy field data.",
+    "tags": [
+      "Water Quality",
+      "Prosthetics",
+      "AI"
+    ],
+    "searchTags": [
+      "Water Quality",
+      "Energy & Environment",
+      "Prosthetics",
+      "AI",
+      "city planners",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-099",
+    "internId": "INT-099",
+    "name": "Mei Ndlovu",
+    "skill": "Remote Sensing",
+    "project": "Prototyping a Remote Sensing project for school labs, using sensor traces to turn Elder Care signals into stronger user validation.",
+    "tags": [
+      "Remote Sensing",
+      "Elder Care",
+      "ML"
+    ],
+    "searchTags": [
+      "Remote Sensing",
+      "Energy & Environment",
+      "Elder Care",
+      "ML",
+      "school labs",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-100",
+    "internId": "INT-100",
+    "name": "Omar Costa",
+    "skill": "Agriculture",
+    "project": "Testing a Agriculture project for small manufacturers, using live telemetry to turn Materials Science signals into a sharper Demo Day defense.",
+    "tags": [
+      "Agriculture",
+      "Materials Science",
+      "Deep Learning"
+    ],
+    "searchTags": [
+      "Agriculture",
+      "Energy & Environment",
+      "Materials Science",
+      "Deep Learning",
+      "small manufacturers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-101",
+    "internId": "INT-101",
+    "name": "Anika Brooks",
+    "skill": "Reforestation",
+    "project": "Launching a Reforestation project for research groups, using failure reports to turn Nanotech signals into a repeatable test bench.",
+    "tags": [
+      "Reforestation",
+      "Nanotech",
+      "Foundation Models"
+    ],
+    "searchTags": [
+      "Reforestation",
+      "Energy & Environment",
+      "Nanotech",
+      "Foundation Models",
+      "research groups",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-102",
+    "internId": "INT-102",
+    "name": "Felix Okafor",
+    "skill": "Computational Biology",
+    "project": "Modeling a Computational Biology project for disaster crews, using user interviews to turn Quantum Hardware signals into clear readiness signals.",
+    "tags": [
+      "Computational Biology",
+      "Quantum Hardware",
+      "NLP"
+    ],
+    "searchTags": [
+      "Computational Biology",
+      "Life Sciences & Health",
+      "Quantum Hardware",
+      "NLP",
+      "disaster crews",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-103",
+    "internId": "INT-103",
+    "name": "Rina Haddad",
+    "skill": "Genomics",
+    "project": "Instrumenting a Genomics project for public libraries, using expert challenges to turn Astrophysics signals into faster mentor feedback.",
+    "tags": [
+      "Genomics",
+      "Astrophysics",
+      "Computer Vision"
+    ],
+    "searchTags": [
+      "Genomics",
+      "Life Sciences & Health",
+      "Astrophysics",
+      "Computer Vision",
+      "public libraries",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-104",
+    "internId": "INT-104",
+    "name": "Samir Ibrahim",
+    "skill": "Synthetic Biology",
+    "project": "Hardening a Synthetic Biology project for energy co-ops, using design reviews to turn Plasma Physics signals into safer deployment decisions.",
+    "tags": [
+      "Synthetic Biology",
+      "Plasma Physics",
+      "Medical NLP"
+    ],
+    "searchTags": [
+      "Synthetic Biology",
+      "Life Sciences & Health",
+      "Plasma Physics",
+      "Medical NLP",
+      "energy co-ops",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-105",
+    "internId": "INT-105",
+    "name": "Elena Bennett",
+    "skill": "Drug Discovery",
+    "project": "Building a Drug Discovery project for mobility teams, using simulation logs to turn Security signals into measurable prototype evidence.",
+    "tags": [
+      "Drug Discovery",
+      "Security",
+      "Biomedical NLP"
+    ],
+    "searchTags": [
+      "Drug Discovery",
+      "Life Sciences & Health",
+      "Security",
+      "Biomedical NLP",
+      "mobility teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-106",
+    "internId": "INT-106",
+    "name": "Dario Diaz",
+    "skill": "Health Monitoring",
+    "project": "Designing a Health Monitoring project for farm operators, using benchmark runs to turn Privacy signals into trustworthy field data.",
+    "tags": [
+      "Health Monitoring",
+      "Privacy",
+      "Knowledge Graphs"
+    ],
+    "searchTags": [
+      "Health Monitoring",
+      "Life Sciences & Health",
+      "Privacy",
+      "Knowledge Graphs",
+      "farm operators",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-107",
+    "internId": "INT-107",
+    "name": "Leah Fischer",
+    "skill": "Dentistry",
+    "project": "Prototyping a Dentistry project for accessibility teams, using sensor traces to turn Cryptography signals into stronger user validation.",
+    "tags": [
+      "Dentistry",
+      "Cryptography",
+      "Analytics"
+    ],
+    "searchTags": [
+      "Dentistry",
+      "Life Sciences & Health",
+      "Cryptography",
+      "Analytics",
+      "accessibility teams",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-108",
+    "internId": "INT-108",
+    "name": "Tomas Yilmaz",
+    "skill": "Neurosurgery",
+    "project": "Testing a Neurosurgery project for community health workers, using live telemetry to turn Data Privacy Law signals into a sharper Demo Day defense.",
+    "tags": [
+      "Neurosurgery",
+      "Data Privacy Law",
+      "Optimization"
+    ],
+    "searchTags": [
+      "Neurosurgery",
+      "Life Sciences & Health",
+      "Data Privacy Law",
+      "Optimization",
+      "community health workers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-109",
+    "internId": "INT-109",
+    "name": "Ava Reyes",
+    "skill": "Immunotherapy",
+    "project": "Launching a Immunotherapy project for privacy reviewers, using failure reports to turn Ethics signals into a repeatable test bench.",
+    "tags": [
+      "Immunotherapy",
+      "Ethics",
+      "Cloud"
+    ],
+    "searchTags": [
+      "Immunotherapy",
+      "Life Sciences & Health",
+      "Ethics",
+      "Cloud",
+      "privacy reviewers",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-110",
+    "internId": "INT-110",
+    "name": "Milo Kim",
+    "skill": "Prosthetics",
+    "project": "Modeling a Prosthetics project for makerspaces, using user interviews to turn Education signals into clear readiness signals.",
+    "tags": [
+      "Prosthetics",
+      "Education",
+      "Edge Computing"
+    ],
+    "searchTags": [
+      "Prosthetics",
+      "Life Sciences & Health",
+      "Education",
+      "Edge Computing",
+      "makerspaces",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-111",
+    "internId": "INT-111",
+    "name": "Nia Moreau",
+    "skill": "Elder Care",
+    "project": "Instrumenting a Elder Care project for local nonprofits, using expert challenges to turn Accessibility signals into faster mentor feedback.",
+    "tags": [
+      "Elder Care",
+      "Accessibility",
+      "Real-Time"
+    ],
+    "searchTags": [
+      "Elder Care",
+      "Life Sciences & Health",
+      "Accessibility",
+      "Real-Time",
+      "local nonprofits",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-112",
+    "internId": "INT-112",
+    "name": "Theo Khan",
+    "skill": "Materials Science",
+    "project": "Hardening a Materials Science project for clinics, using design reviews to turn Inclusion signals into safer deployment decisions.",
+    "tags": [
+      "Materials Science",
+      "Inclusion",
+      "Browser Extensions"
+    ],
+    "searchTags": [
+      "Materials Science",
+      "Physical Sciences & Materials",
+      "Inclusion",
+      "Browser Extensions",
+      "clinics",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-113",
+    "internId": "INT-113",
+    "name": "Maya Walker",
+    "skill": "Nanotech",
+    "project": "Building a Nanotech project for field teams, using simulation logs to turn Community signals into measurable prototype evidence.",
+    "tags": [
+      "Nanotech",
+      "Community",
+      "Open Source"
+    ],
+    "searchTags": [
+      "Nanotech",
+      "Physical Sciences & Materials",
+      "Community",
+      "Open Source",
+      "field teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-114",
+    "internId": "INT-114",
+    "name": "Leo Malik",
+    "skill": "Quantum Hardware",
+    "project": "Designing a Quantum Hardware project for city planners, using benchmark runs to turn Disaster Response signals into trustworthy field data.",
+    "tags": [
+      "Quantum Hardware",
+      "Disaster Response",
+      "Robotics"
+    ],
+    "searchTags": [
+      "Quantum Hardware",
+      "Physical Sciences & Materials",
+      "Disaster Response",
+      "Robotics",
+      "city planners",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-115",
+    "internId": "INT-115",
+    "name": "Iris Mensah",
+    "skill": "Astrophysics",
+    "project": "Prototyping a Astrophysics project for school labs, using sensor traces to turn UX signals into stronger user validation.",
+    "tags": [
+      "Astrophysics",
+      "UX",
+      "Autonomous"
+    ],
+    "searchTags": [
+      "Astrophysics",
+      "Physical Sciences & Materials",
+      "UX",
+      "Autonomous",
+      "school labs",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-116",
+    "internId": "INT-116",
+    "name": "Kai Chen",
+    "skill": "Plasma Physics",
+    "project": "Testing a Plasma Physics project for small manufacturers, using live telemetry to turn AI signals into a sharper Demo Day defense.",
+    "tags": [
+      "Plasma Physics",
+      "AI",
+      "Control Systems"
+    ],
+    "searchTags": [
+      "Plasma Physics",
+      "Physical Sciences & Materials",
+      "AI",
+      "Control Systems",
+      "small manufacturers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-117",
+    "internId": "INT-117",
+    "name": "Zara Nair",
+    "skill": "Security",
+    "project": "Launching a Security project for research groups, using failure reports to turn ML signals into a repeatable test bench.",
+    "tags": [
+      "Security",
+      "ML",
+      "Mechatronics"
+    ],
+    "searchTags": [
+      "Security",
+      "Security, Law & Ethics",
+      "ML",
+      "Mechatronics",
+      "research groups",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-118",
+    "internId": "INT-118",
+    "name": "Noah Silva",
+    "skill": "Privacy",
+    "project": "Modeling a Privacy project for disaster crews, using user interviews to turn Deep Learning signals into clear readiness signals.",
+    "tags": [
+      "Privacy",
+      "Deep Learning",
+      "Drones"
+    ],
+    "searchTags": [
+      "Privacy",
+      "Security, Law & Ethics",
+      "Deep Learning",
+      "Drones",
+      "disaster crews",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-119",
+    "internId": "INT-119",
+    "name": "Lena Garcia",
+    "skill": "Cryptography",
+    "project": "Instrumenting a Cryptography project for public libraries, using expert challenges to turn Foundation Models signals into faster mentor feedback.",
+    "tags": [
+      "Cryptography",
+      "Foundation Models",
+      "Aerospace Engineering"
+    ],
+    "searchTags": [
+      "Cryptography",
+      "Security, Law & Ethics",
+      "Foundation Models",
+      "Aerospace Engineering",
+      "public libraries",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-120",
+    "internId": "INT-120",
+    "name": "Owen Sato",
+    "skill": "Data Privacy Law",
+    "project": "Hardening a Data Privacy Law project for energy co-ops, using design reviews to turn NLP signals into safer deployment decisions.",
+    "tags": [
+      "Data Privacy Law",
+      "NLP",
+      "Structural Engineering"
+    ],
+    "searchTags": [
+      "Data Privacy Law",
+      "Security, Law & Ethics",
+      "NLP",
+      "Structural Engineering",
+      "energy co-ops",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-121",
+    "internId": "INT-121",
+    "name": "Sofia Anders",
+    "skill": "Ethics",
+    "project": "Building a Ethics project for mobility teams, using simulation logs to turn Computer Vision signals into measurable prototype evidence.",
+    "tags": [
+      "Ethics",
+      "Computer Vision",
+      "3D Printing"
+    ],
+    "searchTags": [
+      "Ethics",
+      "Security, Law & Ethics",
+      "Computer Vision",
+      "3D Printing",
+      "mobility teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-122",
+    "internId": "INT-122",
+    "name": "Eli Rossi",
+    "skill": "Education",
+    "project": "Designing a Education project for farm operators, using benchmark runs to turn Medical NLP signals into trustworthy field data.",
+    "tags": [
+      "Education",
+      "Medical NLP",
+      "Embedded"
+    ],
+    "searchTags": [
+      "Education",
+      "Social Impact & Design",
+      "Medical NLP",
+      "Embedded",
+      "farm operators",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-123",
+    "internId": "INT-123",
+    "name": "Mina Larsen",
+    "skill": "Accessibility",
+    "project": "Prototyping a Accessibility project for accessibility teams, using sensor traces to turn Biomedical NLP signals into stronger user validation.",
+    "tags": [
+      "Accessibility",
+      "Biomedical NLP",
+      "FPGA"
+    ],
+    "searchTags": [
+      "Accessibility",
+      "Social Impact & Design",
+      "Biomedical NLP",
+      "FPGA",
+      "accessibility teams",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-124",
+    "internId": "INT-124",
+    "name": "Ravi Morgan",
+    "skill": "Inclusion",
+    "project": "Testing a Inclusion project for community health workers, using live telemetry to turn Knowledge Graphs signals into a sharper Demo Day defense.",
+    "tags": [
+      "Inclusion",
+      "Knowledge Graphs",
+      "Semiconductor Design"
+    ],
+    "searchTags": [
+      "Inclusion",
+      "Social Impact & Design",
+      "Knowledge Graphs",
+      "Semiconductor Design",
+      "community health workers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-125",
+    "internId": "INT-125",
+    "name": "Jules Tanaka",
+    "skill": "Community",
+    "project": "Launching a Community project for privacy reviewers, using failure reports to turn Analytics signals into a repeatable test bench.",
+    "tags": [
+      "Community",
+      "Analytics",
+      "Signal Processing"
+    ],
+    "searchTags": [
+      "Community",
+      "Social Impact & Design",
+      "Analytics",
+      "Signal Processing",
+      "privacy reviewers",
+      "a repeatable test bench",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-126",
+    "internId": "INT-126",
+    "name": "Amara Singh",
+    "skill": "Disaster Response",
+    "project": "Modeling a Disaster Response project for makerspaces, using user interviews to turn Optimization signals into clear readiness signals.",
+    "tags": [
+      "Disaster Response",
+      "Optimization",
+      "Photonics"
+    ],
+    "searchTags": [
+      "Disaster Response",
+      "Social Impact & Design",
+      "Optimization",
+      "Photonics",
+      "makerspaces",
+      "clear readiness signals",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-127",
+    "internId": "INT-127",
+    "name": "Jonas Rahman",
+    "skill": "UX",
+    "project": "Instrumenting a UX project for local nonprofits, using expert challenges to turn Cloud signals into faster mentor feedback.",
+    "tags": [
+      "UX",
+      "Cloud",
+      "Sensors"
+    ],
+    "searchTags": [
+      "UX",
+      "Social Impact & Design",
+      "Cloud",
+      "Sensors",
+      "local nonprofits",
+      "faster mentor feedback",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-128",
+    "internId": "INT-128",
+    "name": "Priya Park",
+    "skill": "AI",
+    "project": "Hardening a AI project for clinics, using design reviews to turn Edge Computing signals into safer deployment decisions.",
+    "tags": [
+      "AI",
+      "Edge Computing",
+      "Wearables"
+    ],
+    "searchTags": [
+      "AI",
+      "Artificial Intelligence",
+      "Edge Computing",
+      "Wearables",
+      "clinics",
+      "safer deployment decisions",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-129",
+    "internId": "INT-129",
+    "name": "Mateo Nguyen",
+    "skill": "ML",
+    "project": "Building a ML project for field teams, using simulation logs to turn Real-Time signals into measurable prototype evidence.",
+    "tags": [
+      "ML",
+      "Real-Time",
+      "Power Systems Engineering"
+    ],
+    "searchTags": [
+      "ML",
+      "Artificial Intelligence",
+      "Real-Time",
+      "Power Systems Engineering",
+      "field teams",
+      "measurable prototype evidence",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-130",
+    "internId": "INT-130",
+    "name": "Selah Das",
+    "skill": "Deep Learning",
+    "project": "Designing a Deep Learning project for city planners, using benchmark runs to turn Browser Extensions signals into trustworthy field data.",
+    "tags": [
+      "Deep Learning",
+      "Browser Extensions",
+      "Renewable Energy Systems"
+    ],
+    "searchTags": [
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Browser Extensions",
+      "Renewable Energy Systems",
+      "city planners",
+      "trustworthy field data",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-131",
+    "internId": "INT-131",
+    "name": "Nico Patel",
+    "skill": "Foundation Models",
+    "project": "Prototyping a Foundation Models project for school labs, using sensor traces to turn Open Source signals into stronger user validation.",
+    "tags": [
+      "Foundation Models",
+      "Open Source",
+      "Nuclear"
+    ],
+    "searchTags": [
+      "Foundation Models",
+      "Artificial Intelligence",
+      "Open Source",
+      "Nuclear",
+      "school labs",
+      "stronger user validation",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-132",
+    "internId": "INT-132",
+    "name": "Yara Voss",
+    "skill": "NLP",
+    "project": "Testing a NLP project for small manufacturers, using live telemetry to turn Robotics signals into a sharper Demo Day defense.",
+    "tags": [
+      "NLP",
+      "Robotics",
+      "Climate Informatics"
+    ],
+    "searchTags": [
+      "NLP",
+      "Artificial Intelligence",
+      "Robotics",
+      "Climate Informatics",
+      "small manufacturers",
+      "a sharper Demo Day defense",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-133",
+    "internId": "INT-133",
+    "name": "Talia Singh",
+    "skill": "Computer Vision",
+    "project": "Launching a Computer Vision project for disaster crews, using benchmark runs to turn Structural Engineering signals into safer deployment decisions.",
+    "tags": [
+      "Computer Vision",
+      "Structural Engineering",
+      "Neurosurgery"
+    ],
+    "searchTags": [
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Structural Engineering",
+      "Neurosurgery",
+      "disaster crews",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-134",
+    "internId": "INT-134",
+    "name": "Ezra Rahman",
+    "skill": "Medical NLP",
+    "project": "Modeling a Medical NLP project for public libraries, using sensor traces to turn 3D Printing signals into measurable prototype evidence.",
+    "tags": [
+      "Medical NLP",
+      "3D Printing",
+      "Immunotherapy"
+    ],
+    "searchTags": [
+      "Medical NLP",
+      "Artificial Intelligence",
+      "3D Printing",
+      "Immunotherapy",
+      "public libraries",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-135",
+    "internId": "INT-135",
+    "name": "Mei Park",
+    "skill": "Biomedical NLP",
+    "project": "Instrumenting a Biomedical NLP project for energy co-ops, using live telemetry to turn Embedded signals into trustworthy field data.",
+    "tags": [
+      "Biomedical NLP",
+      "Embedded",
+      "Prosthetics"
+    ],
+    "searchTags": [
+      "Biomedical NLP",
+      "Artificial Intelligence",
+      "Embedded",
+      "Prosthetics",
+      "energy co-ops",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-136",
+    "internId": "INT-136",
+    "name": "Omar Nguyen",
+    "skill": "Knowledge Graphs",
+    "project": "Hardening a Knowledge Graphs project for mobility teams, using failure reports to turn FPGA signals into stronger user validation.",
+    "tags": [
+      "Knowledge Graphs",
+      "FPGA",
+      "Elder Care"
+    ],
+    "searchTags": [
+      "Knowledge Graphs",
+      "Artificial Intelligence",
+      "FPGA",
+      "Elder Care",
+      "mobility teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-137",
+    "internId": "INT-137",
+    "name": "Anika Das",
+    "skill": "Analytics",
+    "project": "Building a Analytics project for farm operators, using user interviews to turn Semiconductor Design signals into a sharper Demo Day defense.",
+    "tags": [
+      "Analytics",
+      "Semiconductor Design",
+      "Materials Science"
+    ],
+    "searchTags": [
+      "Analytics",
+      "Software & Data",
+      "Semiconductor Design",
+      "Materials Science",
+      "farm operators",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-138",
+    "internId": "INT-138",
+    "name": "Felix Patel",
+    "skill": "Optimization",
+    "project": "Designing a Optimization project for accessibility teams, using expert challenges to turn Signal Processing signals into a repeatable test bench.",
+    "tags": [
+      "Optimization",
+      "Signal Processing",
+      "Nanotech"
+    ],
+    "searchTags": [
+      "Optimization",
+      "Software & Data",
+      "Signal Processing",
+      "Nanotech",
+      "accessibility teams",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-139",
+    "internId": "INT-139",
+    "name": "Rina Voss",
+    "skill": "Cloud",
+    "project": "Prototyping a Cloud project for community health workers, using design reviews to turn Photonics signals into clear readiness signals.",
+    "tags": [
+      "Cloud",
+      "Photonics",
+      "Quantum Hardware"
+    ],
+    "searchTags": [
+      "Cloud",
+      "Software & Data",
+      "Photonics",
+      "Quantum Hardware",
+      "community health workers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-140",
+    "internId": "INT-140",
+    "name": "Samir Novak",
+    "skill": "Edge Computing",
+    "project": "Testing a Edge Computing project for privacy reviewers, using simulation logs to turn Sensors signals into faster mentor feedback.",
+    "tags": [
+      "Edge Computing",
+      "Sensors",
+      "Astrophysics"
+    ],
+    "searchTags": [
+      "Edge Computing",
+      "Software & Data",
+      "Sensors",
+      "Astrophysics",
+      "privacy reviewers",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-141",
+    "internId": "INT-141",
+    "name": "Elena Kowalski",
+    "skill": "Real-Time",
+    "project": "Launching a Real-Time project for makerspaces, using benchmark runs to turn Wearables signals into safer deployment decisions.",
+    "tags": [
+      "Real-Time",
+      "Wearables",
+      "Plasma Physics"
+    ],
+    "searchTags": [
+      "Real-Time",
+      "Software & Data",
+      "Wearables",
+      "Plasma Physics",
+      "makerspaces",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-142",
+    "internId": "INT-142",
+    "name": "Dario Ndlovu",
+    "skill": "Browser Extensions",
+    "project": "Modeling a Browser Extensions project for local nonprofits, using sensor traces to turn Power Systems Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "Browser Extensions",
+      "Power Systems Engineering",
+      "Security"
+    ],
+    "searchTags": [
+      "Browser Extensions",
+      "Software & Data",
+      "Power Systems Engineering",
+      "Security",
+      "local nonprofits",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-143",
+    "internId": "INT-143",
+    "name": "Leah Costa",
+    "skill": "Open Source",
+    "project": "Instrumenting a Open Source project for clinics, using live telemetry to turn Renewable Energy Systems signals into trustworthy field data.",
+    "tags": [
+      "Open Source",
+      "Renewable Energy Systems",
+      "Privacy"
+    ],
+    "searchTags": [
+      "Open Source",
+      "Software & Data",
+      "Renewable Energy Systems",
+      "Privacy",
+      "clinics",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-144",
+    "internId": "INT-144",
+    "name": "Tomas Brooks",
+    "skill": "Robotics",
+    "project": "Hardening a Robotics project for field teams, using failure reports to turn Nuclear signals into stronger user validation.",
+    "tags": [
+      "Robotics",
+      "Nuclear",
+      "Cryptography"
+    ],
+    "searchTags": [
+      "Robotics",
+      "Engineering & Robotics",
+      "Nuclear",
+      "Cryptography",
+      "field teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-145",
+    "internId": "INT-145",
+    "name": "Ava Okafor",
+    "skill": "Autonomous",
+    "project": "Building a Autonomous project for city planners, using user interviews to turn Climate Informatics signals into a sharper Demo Day defense.",
+    "tags": [
+      "Autonomous",
+      "Climate Informatics",
+      "Data Privacy Law"
+    ],
+    "searchTags": [
+      "Autonomous",
+      "Engineering & Robotics",
+      "Climate Informatics",
+      "Data Privacy Law",
+      "city planners",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-146",
+    "internId": "INT-146",
+    "name": "Milo Haddad",
+    "skill": "Control Systems",
+    "project": "Designing a Control Systems project for school labs, using expert challenges to turn Air Quality signals into a repeatable test bench.",
+    "tags": [
+      "Control Systems",
+      "Air Quality",
+      "Ethics"
+    ],
+    "searchTags": [
+      "Control Systems",
+      "Engineering & Robotics",
+      "Air Quality",
+      "Ethics",
+      "school labs",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-147",
+    "internId": "INT-147",
+    "name": "Nia Ibrahim",
+    "skill": "Mechatronics",
+    "project": "Prototyping a Mechatronics project for small manufacturers, using design reviews to turn Water Quality signals into clear readiness signals.",
+    "tags": [
+      "Mechatronics",
+      "Water Quality",
+      "Education"
+    ],
+    "searchTags": [
+      "Mechatronics",
+      "Engineering & Robotics",
+      "Water Quality",
+      "Education",
+      "small manufacturers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-148",
+    "internId": "INT-148",
+    "name": "Theo Bennett",
+    "skill": "Drones",
+    "project": "Testing a Drones project for research groups, using simulation logs to turn Remote Sensing signals into faster mentor feedback.",
+    "tags": [
+      "Drones",
+      "Remote Sensing",
+      "Accessibility"
+    ],
+    "searchTags": [
+      "Drones",
+      "Engineering & Robotics",
+      "Remote Sensing",
+      "Accessibility",
+      "research groups",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-149",
+    "internId": "INT-149",
+    "name": "Maya Diaz",
+    "skill": "Aerospace Engineering",
+    "project": "Launching a Aerospace Engineering project for disaster crews, using benchmark runs to turn Agriculture signals into safer deployment decisions.",
+    "tags": [
+      "Aerospace Engineering",
+      "Agriculture",
+      "Inclusion"
+    ],
+    "searchTags": [
+      "Aerospace Engineering",
+      "Engineering & Robotics",
+      "Agriculture",
+      "Inclusion",
+      "disaster crews",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-150",
+    "internId": "INT-150",
+    "name": "Leo Fischer",
+    "skill": "Structural Engineering",
+    "project": "Modeling a Structural Engineering project for public libraries, using sensor traces to turn Reforestation signals into measurable prototype evidence.",
+    "tags": [
+      "Structural Engineering",
+      "Reforestation",
+      "Community"
+    ],
+    "searchTags": [
+      "Structural Engineering",
+      "Engineering & Robotics",
+      "Reforestation",
+      "Community",
+      "public libraries",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-151",
+    "internId": "INT-151",
+    "name": "Iris Yilmaz",
+    "skill": "3D Printing",
+    "project": "Instrumenting a 3D Printing project for energy co-ops, using live telemetry to turn Computational Biology signals into trustworthy field data.",
+    "tags": [
+      "3D Printing",
+      "Computational Biology",
+      "Disaster Response"
+    ],
+    "searchTags": [
+      "3D Printing",
+      "Engineering & Robotics",
+      "Computational Biology",
+      "Disaster Response",
+      "energy co-ops",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-152",
+    "internId": "INT-152",
+    "name": "Kai Reyes",
+    "skill": "Embedded",
+    "project": "Hardening a Embedded project for mobility teams, using failure reports to turn Genomics signals into stronger user validation.",
+    "tags": [
+      "Embedded",
+      "Genomics",
+      "UX"
+    ],
+    "searchTags": [
+      "Embedded",
+      "Hardware & Sensors",
+      "Genomics",
+      "UX",
+      "mobility teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-153",
+    "internId": "INT-153",
+    "name": "Zara Kim",
+    "skill": "FPGA",
+    "project": "Building a FPGA project for farm operators, using user interviews to turn Synthetic Biology signals into a sharper Demo Day defense.",
+    "tags": [
+      "FPGA",
+      "Synthetic Biology",
+      "AI"
+    ],
+    "searchTags": [
+      "FPGA",
+      "Hardware & Sensors",
+      "Synthetic Biology",
+      "AI",
+      "farm operators",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-154",
+    "internId": "INT-154",
+    "name": "Noah Moreau",
+    "skill": "Semiconductor Design",
+    "project": "Designing a Semiconductor Design project for accessibility teams, using expert challenges to turn Drug Discovery signals into a repeatable test bench.",
+    "tags": [
+      "Semiconductor Design",
+      "Drug Discovery",
+      "ML"
+    ],
+    "searchTags": [
+      "Semiconductor Design",
+      "Hardware & Sensors",
+      "Drug Discovery",
+      "ML",
+      "accessibility teams",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-155",
+    "internId": "INT-155",
+    "name": "Lena Khan",
+    "skill": "Signal Processing",
+    "project": "Prototyping a Signal Processing project for community health workers, using design reviews to turn Health Monitoring signals into clear readiness signals.",
+    "tags": [
+      "Signal Processing",
+      "Health Monitoring",
+      "Deep Learning"
+    ],
+    "searchTags": [
+      "Signal Processing",
+      "Hardware & Sensors",
+      "Health Monitoring",
+      "Deep Learning",
+      "community health workers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-156",
+    "internId": "INT-156",
+    "name": "Owen Walker",
+    "skill": "Photonics",
+    "project": "Testing a Photonics project for privacy reviewers, using simulation logs to turn Dentistry signals into faster mentor feedback.",
+    "tags": [
+      "Photonics",
+      "Dentistry",
+      "Foundation Models"
+    ],
+    "searchTags": [
+      "Photonics",
+      "Hardware & Sensors",
+      "Dentistry",
+      "Foundation Models",
+      "privacy reviewers",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-157",
+    "internId": "INT-157",
+    "name": "Sofia Malik",
+    "skill": "Sensors",
+    "project": "Launching a Sensors project for makerspaces, using benchmark runs to turn Neurosurgery signals into safer deployment decisions.",
+    "tags": [
+      "Sensors",
+      "Neurosurgery",
+      "NLP"
+    ],
+    "searchTags": [
+      "Sensors",
+      "Hardware & Sensors",
+      "Neurosurgery",
+      "NLP",
+      "makerspaces",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-158",
+    "internId": "INT-158",
+    "name": "Eli Mensah",
+    "skill": "Wearables",
+    "project": "Modeling a Wearables project for local nonprofits, using sensor traces to turn Immunotherapy signals into measurable prototype evidence.",
+    "tags": [
+      "Wearables",
+      "Immunotherapy",
+      "Computer Vision"
+    ],
+    "searchTags": [
+      "Wearables",
+      "Hardware & Sensors",
+      "Immunotherapy",
+      "Computer Vision",
+      "local nonprofits",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-159",
+    "internId": "INT-159",
+    "name": "Mina Chen",
+    "skill": "Power Systems Engineering",
+    "project": "Instrumenting a Power Systems Engineering project for clinics, using live telemetry to turn Prosthetics signals into trustworthy field data.",
+    "tags": [
+      "Power Systems Engineering",
+      "Prosthetics",
+      "Medical NLP"
+    ],
+    "searchTags": [
+      "Power Systems Engineering",
+      "Energy & Environment",
+      "Prosthetics",
+      "Medical NLP",
+      "clinics",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-160",
+    "internId": "INT-160",
+    "name": "Ravi Nair",
+    "skill": "Renewable Energy Systems",
+    "project": "Hardening a Renewable Energy Systems project for field teams, using failure reports to turn Elder Care signals into stronger user validation.",
+    "tags": [
+      "Renewable Energy Systems",
+      "Elder Care",
+      "Biomedical NLP"
+    ],
+    "searchTags": [
+      "Renewable Energy Systems",
+      "Energy & Environment",
+      "Elder Care",
+      "Biomedical NLP",
+      "field teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-161",
+    "internId": "INT-161",
+    "name": "Jules Silva",
+    "skill": "Nuclear",
+    "project": "Building a Nuclear project for city planners, using user interviews to turn Materials Science signals into a sharper Demo Day defense.",
+    "tags": [
+      "Nuclear",
+      "Materials Science",
+      "Knowledge Graphs"
+    ],
+    "searchTags": [
+      "Nuclear",
+      "Energy & Environment",
+      "Materials Science",
+      "Knowledge Graphs",
+      "city planners",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-162",
+    "internId": "INT-162",
+    "name": "Amara Garcia",
+    "skill": "Climate Informatics",
+    "project": "Designing a Climate Informatics project for school labs, using expert challenges to turn Nanotech signals into a repeatable test bench.",
+    "tags": [
+      "Climate Informatics",
+      "Nanotech",
+      "Analytics"
+    ],
+    "searchTags": [
+      "Climate Informatics",
+      "Energy & Environment",
+      "Nanotech",
+      "Analytics",
+      "school labs",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-163",
+    "internId": "INT-163",
+    "name": "Jonas Sato",
+    "skill": "Air Quality",
+    "project": "Prototyping a Air Quality project for small manufacturers, using design reviews to turn Quantum Hardware signals into clear readiness signals.",
+    "tags": [
+      "Air Quality",
+      "Quantum Hardware",
+      "Optimization"
+    ],
+    "searchTags": [
+      "Air Quality",
+      "Energy & Environment",
+      "Quantum Hardware",
+      "Optimization",
+      "small manufacturers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-164",
+    "internId": "INT-164",
+    "name": "Priya Anders",
+    "skill": "Water Quality",
+    "project": "Testing a Water Quality project for research groups, using simulation logs to turn Astrophysics signals into faster mentor feedback.",
+    "tags": [
+      "Water Quality",
+      "Astrophysics",
+      "Cloud"
+    ],
+    "searchTags": [
+      "Water Quality",
+      "Energy & Environment",
+      "Astrophysics",
+      "Cloud",
+      "research groups",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-165",
+    "internId": "INT-165",
+    "name": "Mateo Rossi",
+    "skill": "Remote Sensing",
+    "project": "Launching a Remote Sensing project for disaster crews, using benchmark runs to turn Plasma Physics signals into safer deployment decisions.",
+    "tags": [
+      "Remote Sensing",
+      "Plasma Physics",
+      "Edge Computing"
+    ],
+    "searchTags": [
+      "Remote Sensing",
+      "Energy & Environment",
+      "Plasma Physics",
+      "Edge Computing",
+      "disaster crews",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-166",
+    "internId": "INT-166",
+    "name": "Selah Larsen",
+    "skill": "Agriculture",
+    "project": "Modeling a Agriculture project for public libraries, using sensor traces to turn Security signals into measurable prototype evidence.",
+    "tags": [
+      "Agriculture",
+      "Security",
+      "Real-Time"
+    ],
+    "searchTags": [
+      "Agriculture",
+      "Energy & Environment",
+      "Security",
+      "Real-Time",
+      "public libraries",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-167",
+    "internId": "INT-167",
+    "name": "Nico Morgan",
+    "skill": "Reforestation",
+    "project": "Instrumenting a Reforestation project for energy co-ops, using live telemetry to turn Privacy signals into trustworthy field data.",
+    "tags": [
+      "Reforestation",
+      "Privacy",
+      "Browser Extensions"
+    ],
+    "searchTags": [
+      "Reforestation",
+      "Energy & Environment",
+      "Privacy",
+      "Browser Extensions",
+      "energy co-ops",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-168",
+    "internId": "INT-168",
+    "name": "Yara Tanaka",
+    "skill": "Computational Biology",
+    "project": "Hardening a Computational Biology project for mobility teams, using failure reports to turn Cryptography signals into stronger user validation.",
+    "tags": [
+      "Computational Biology",
+      "Cryptography",
+      "Open Source"
+    ],
+    "searchTags": [
+      "Computational Biology",
+      "Life Sciences & Health",
+      "Cryptography",
+      "Open Source",
+      "mobility teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-169",
+    "internId": "INT-169",
+    "name": "Talia Singh",
+    "skill": "Genomics",
+    "project": "Building a Genomics project for farm operators, using user interviews to turn Data Privacy Law signals into a sharper Demo Day defense.",
+    "tags": [
+      "Genomics",
+      "Data Privacy Law",
+      "Robotics"
+    ],
+    "searchTags": [
+      "Genomics",
+      "Life Sciences & Health",
+      "Data Privacy Law",
+      "Robotics",
+      "farm operators",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-170",
+    "internId": "INT-170",
+    "name": "Ezra Rahman",
+    "skill": "Synthetic Biology",
+    "project": "Designing a Synthetic Biology project for accessibility teams, using expert challenges to turn Ethics signals into a repeatable test bench.",
+    "tags": [
+      "Synthetic Biology",
+      "Ethics",
+      "Autonomous"
+    ],
+    "searchTags": [
+      "Synthetic Biology",
+      "Life Sciences & Health",
+      "Ethics",
+      "Autonomous",
+      "accessibility teams",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-171",
+    "internId": "INT-171",
+    "name": "Mei Park",
+    "skill": "Drug Discovery",
+    "project": "Prototyping a Drug Discovery project for community health workers, using design reviews to turn Education signals into clear readiness signals.",
+    "tags": [
+      "Drug Discovery",
+      "Education",
+      "Control Systems"
+    ],
+    "searchTags": [
+      "Drug Discovery",
+      "Life Sciences & Health",
+      "Education",
+      "Control Systems",
+      "community health workers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-172",
+    "internId": "INT-172",
+    "name": "Omar Nguyen",
+    "skill": "Health Monitoring",
+    "project": "Testing a Health Monitoring project for privacy reviewers, using simulation logs to turn Accessibility signals into faster mentor feedback.",
+    "tags": [
+      "Health Monitoring",
+      "Accessibility",
+      "Mechatronics"
+    ],
+    "searchTags": [
+      "Health Monitoring",
+      "Life Sciences & Health",
+      "Accessibility",
+      "Mechatronics",
+      "privacy reviewers",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-173",
+    "internId": "INT-173",
+    "name": "Anika Das",
+    "skill": "Dentistry",
+    "project": "Launching a Dentistry project for makerspaces, using benchmark runs to turn Inclusion signals into safer deployment decisions.",
+    "tags": [
+      "Dentistry",
+      "Inclusion",
+      "Drones"
+    ],
+    "searchTags": [
+      "Dentistry",
+      "Life Sciences & Health",
+      "Inclusion",
+      "Drones",
+      "makerspaces",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-174",
+    "internId": "INT-174",
+    "name": "Felix Patel",
+    "skill": "Neurosurgery",
+    "project": "Modeling a Neurosurgery project for local nonprofits, using sensor traces to turn Community signals into measurable prototype evidence.",
+    "tags": [
+      "Neurosurgery",
+      "Community",
+      "Aerospace Engineering"
+    ],
+    "searchTags": [
+      "Neurosurgery",
+      "Life Sciences & Health",
+      "Community",
+      "Aerospace Engineering",
+      "local nonprofits",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-175",
+    "internId": "INT-175",
+    "name": "Rina Voss",
+    "skill": "Immunotherapy",
+    "project": "Instrumenting a Immunotherapy project for clinics, using live telemetry to turn Disaster Response signals into trustworthy field data.",
+    "tags": [
+      "Immunotherapy",
+      "Disaster Response",
+      "Structural Engineering"
+    ],
+    "searchTags": [
+      "Immunotherapy",
+      "Life Sciences & Health",
+      "Disaster Response",
+      "Structural Engineering",
+      "clinics",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-176",
+    "internId": "INT-176",
+    "name": "Samir Novak",
+    "skill": "Prosthetics",
+    "project": "Hardening a Prosthetics project for field teams, using failure reports to turn UX signals into stronger user validation.",
+    "tags": [
+      "Prosthetics",
+      "UX",
+      "3D Printing"
+    ],
+    "searchTags": [
+      "Prosthetics",
+      "Life Sciences & Health",
+      "UX",
+      "3D Printing",
+      "field teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-177",
+    "internId": "INT-177",
+    "name": "Elena Kowalski",
+    "skill": "Elder Care",
+    "project": "Building a Elder Care project for city planners, using user interviews to turn AI signals into a sharper Demo Day defense.",
+    "tags": [
+      "Elder Care",
+      "AI",
+      "Embedded"
+    ],
+    "searchTags": [
+      "Elder Care",
+      "Life Sciences & Health",
+      "AI",
+      "Embedded",
+      "city planners",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-178",
+    "internId": "INT-178",
+    "name": "Dario Ndlovu",
+    "skill": "Materials Science",
+    "project": "Designing a Materials Science project for school labs, using expert challenges to turn ML signals into a repeatable test bench.",
+    "tags": [
+      "Materials Science",
+      "ML",
+      "FPGA"
+    ],
+    "searchTags": [
+      "Materials Science",
+      "Physical Sciences & Materials",
+      "ML",
+      "FPGA",
+      "school labs",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-179",
+    "internId": "INT-179",
+    "name": "Leah Costa",
+    "skill": "Nanotech",
+    "project": "Prototyping a Nanotech project for small manufacturers, using design reviews to turn Deep Learning signals into clear readiness signals.",
+    "tags": [
+      "Nanotech",
+      "Deep Learning",
+      "Semiconductor Design"
+    ],
+    "searchTags": [
+      "Nanotech",
+      "Physical Sciences & Materials",
+      "Deep Learning",
+      "Semiconductor Design",
+      "small manufacturers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-180",
+    "internId": "INT-180",
+    "name": "Tomas Brooks",
+    "skill": "Quantum Hardware",
+    "project": "Testing a Quantum Hardware project for research groups, using simulation logs to turn Foundation Models signals into faster mentor feedback.",
+    "tags": [
+      "Quantum Hardware",
+      "Foundation Models",
+      "Signal Processing"
+    ],
+    "searchTags": [
+      "Quantum Hardware",
+      "Physical Sciences & Materials",
+      "Foundation Models",
+      "Signal Processing",
+      "research groups",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-181",
+    "internId": "INT-181",
+    "name": "Ava Okafor",
+    "skill": "Astrophysics",
+    "project": "Launching a Astrophysics project for disaster crews, using benchmark runs to turn NLP signals into safer deployment decisions.",
+    "tags": [
+      "Astrophysics",
+      "NLP",
+      "Photonics"
+    ],
+    "searchTags": [
+      "Astrophysics",
+      "Physical Sciences & Materials",
+      "NLP",
+      "Photonics",
+      "disaster crews",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-182",
+    "internId": "INT-182",
+    "name": "Milo Haddad",
+    "skill": "Plasma Physics",
+    "project": "Modeling a Plasma Physics project for public libraries, using sensor traces to turn Computer Vision signals into measurable prototype evidence.",
+    "tags": [
+      "Plasma Physics",
+      "Computer Vision",
+      "Sensors"
+    ],
+    "searchTags": [
+      "Plasma Physics",
+      "Physical Sciences & Materials",
+      "Computer Vision",
+      "Sensors",
+      "public libraries",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-183",
+    "internId": "INT-183",
+    "name": "Nia Ibrahim",
+    "skill": "Security",
+    "project": "Instrumenting a Security project for energy co-ops, using live telemetry to turn Medical NLP signals into trustworthy field data.",
+    "tags": [
+      "Security",
+      "Medical NLP",
+      "Wearables"
+    ],
+    "searchTags": [
+      "Security",
+      "Security, Law & Ethics",
+      "Medical NLP",
+      "Wearables",
+      "energy co-ops",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-184",
+    "internId": "INT-184",
+    "name": "Theo Bennett",
+    "skill": "Privacy",
+    "project": "Hardening a Privacy project for mobility teams, using failure reports to turn Biomedical NLP signals into stronger user validation.",
+    "tags": [
+      "Privacy",
+      "Biomedical NLP",
+      "Power Systems Engineering"
+    ],
+    "searchTags": [
+      "Privacy",
+      "Security, Law & Ethics",
+      "Biomedical NLP",
+      "Power Systems Engineering",
+      "mobility teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-185",
+    "internId": "INT-185",
+    "name": "Maya Diaz",
+    "skill": "Cryptography",
+    "project": "Building a Cryptography project for farm operators, using user interviews to turn Knowledge Graphs signals into a sharper Demo Day defense.",
+    "tags": [
+      "Cryptography",
+      "Knowledge Graphs",
+      "Renewable Energy Systems"
+    ],
+    "searchTags": [
+      "Cryptography",
+      "Security, Law & Ethics",
+      "Knowledge Graphs",
+      "Renewable Energy Systems",
+      "farm operators",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-186",
+    "internId": "INT-186",
+    "name": "Leo Fischer",
+    "skill": "Data Privacy Law",
+    "project": "Designing a Data Privacy Law project for accessibility teams, using expert challenges to turn Analytics signals into a repeatable test bench.",
+    "tags": [
+      "Data Privacy Law",
+      "Analytics",
+      "Nuclear"
+    ],
+    "searchTags": [
+      "Data Privacy Law",
+      "Security, Law & Ethics",
+      "Analytics",
+      "Nuclear",
+      "accessibility teams",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-187",
+    "internId": "INT-187",
+    "name": "Iris Yilmaz",
+    "skill": "Ethics",
+    "project": "Prototyping a Ethics project for community health workers, using design reviews to turn Optimization signals into clear readiness signals.",
+    "tags": [
+      "Ethics",
+      "Optimization",
+      "Climate Informatics"
+    ],
+    "searchTags": [
+      "Ethics",
+      "Security, Law & Ethics",
+      "Optimization",
+      "Climate Informatics",
+      "community health workers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Nairobi, Kenya"
+  },
+  {
+    "partnerId": "PRT-188",
+    "internId": "INT-188",
+    "name": "Kai Reyes",
+    "skill": "Education",
+    "project": "Testing a Education project for privacy reviewers, using simulation logs to turn Cloud signals into faster mentor feedback.",
+    "tags": [
+      "Education",
+      "Cloud",
+      "Air Quality"
+    ],
+    "searchTags": [
+      "Education",
+      "Social Impact & Design",
+      "Cloud",
+      "Air Quality",
+      "privacy reviewers",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Austin, United States"
+  },
+  {
+    "partnerId": "PRT-189",
+    "internId": "INT-189",
+    "name": "Zara Kim",
+    "skill": "Accessibility",
+    "project": "Launching a Accessibility project for makerspaces, using benchmark runs to turn Edge Computing signals into safer deployment decisions.",
+    "tags": [
+      "Accessibility",
+      "Edge Computing",
+      "Water Quality"
+    ],
+    "searchTags": [
+      "Accessibility",
+      "Social Impact & Design",
+      "Edge Computing",
+      "Water Quality",
+      "makerspaces",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Bangalore, India"
+  },
+  {
+    "partnerId": "PRT-190",
+    "internId": "INT-190",
+    "name": "Noah Moreau",
+    "skill": "Inclusion",
+    "project": "Modeling a Inclusion project for local nonprofits, using sensor traces to turn Real-Time signals into measurable prototype evidence.",
+    "tags": [
+      "Inclusion",
+      "Real-Time",
+      "Remote Sensing"
+    ],
+    "searchTags": [
+      "Inclusion",
+      "Social Impact & Design",
+      "Real-Time",
+      "Remote Sensing",
+      "local nonprofits",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Dublin, Ireland"
+  },
+  {
+    "partnerId": "PRT-191",
+    "internId": "INT-191",
+    "name": "Lena Khan",
+    "skill": "Community",
+    "project": "Instrumenting a Community project for clinics, using live telemetry to turn Browser Extensions signals into trustworthy field data.",
+    "tags": [
+      "Community",
+      "Browser Extensions",
+      "Agriculture"
+    ],
+    "searchTags": [
+      "Community",
+      "Social Impact & Design",
+      "Browser Extensions",
+      "Agriculture",
+      "clinics",
+      "trustworthy field data",
+      "live telemetry",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Oslo, Norway"
+  },
+  {
+    "partnerId": "PRT-192",
+    "internId": "INT-192",
+    "name": "Owen Walker",
+    "skill": "Disaster Response",
+    "project": "Hardening a Disaster Response project for field teams, using failure reports to turn Open Source signals into stronger user validation.",
+    "tags": [
+      "Disaster Response",
+      "Open Source",
+      "Reforestation"
+    ],
+    "searchTags": [
+      "Disaster Response",
+      "Social Impact & Design",
+      "Open Source",
+      "Reforestation",
+      "field teams",
+      "stronger user validation",
+      "failure reports",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Seattle, United States"
+  },
+  {
+    "partnerId": "PRT-193",
+    "internId": "INT-193",
+    "name": "Sofia Malik",
+    "skill": "UX",
+    "project": "Building a UX project for city planners, using user interviews to turn Robotics signals into a sharper Demo Day defense.",
+    "tags": [
+      "UX",
+      "Robotics",
+      "Computational Biology"
+    ],
+    "searchTags": [
+      "UX",
+      "Social Impact & Design",
+      "Robotics",
+      "Computational Biology",
+      "city planners",
+      "a sharper Demo Day defense",
+      "user interviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lagos, Nigeria"
+  },
+  {
+    "partnerId": "PRT-194",
+    "internId": "INT-194",
+    "name": "Eli Mensah",
+    "skill": "AI",
+    "project": "Designing a AI project for school labs, using expert challenges to turn Autonomous signals into a repeatable test bench.",
+    "tags": [
+      "AI",
+      "Autonomous",
+      "Genomics"
+    ],
+    "searchTags": [
+      "AI",
+      "Artificial Intelligence",
+      "Autonomous",
+      "Genomics",
+      "school labs",
+      "a repeatable test bench",
+      "expert challenges",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Montreal, Canada"
+  },
+  {
+    "partnerId": "PRT-195",
+    "internId": "INT-195",
+    "name": "Mina Chen",
+    "skill": "ML",
+    "project": "Prototyping a ML project for small manufacturers, using design reviews to turn Control Systems signals into clear readiness signals.",
+    "tags": [
+      "ML",
+      "Control Systems",
+      "Synthetic Biology"
+    ],
+    "searchTags": [
+      "ML",
+      "Artificial Intelligence",
+      "Control Systems",
+      "Synthetic Biology",
+      "small manufacturers",
+      "clear readiness signals",
+      "design reviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Prague, Czechia"
+  },
+  {
+    "partnerId": "PRT-196",
+    "internId": "INT-196",
+    "name": "Ravi Nair",
+    "skill": "Deep Learning",
+    "project": "Testing a Deep Learning project for research groups, using simulation logs to turn Mechatronics signals into faster mentor feedback.",
+    "tags": [
+      "Deep Learning",
+      "Mechatronics",
+      "Drug Discovery"
+    ],
+    "searchTags": [
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Mechatronics",
+      "Drug Discovery",
+      "research groups",
+      "faster mentor feedback",
+      "simulation logs",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Santiago, Chile"
+  },
+  {
+    "partnerId": "PRT-197",
+    "internId": "INT-197",
+    "name": "Jules Silva",
+    "skill": "Foundation Models",
+    "project": "Launching a Foundation Models project for disaster crews, using benchmark runs to turn Drones signals into safer deployment decisions.",
+    "tags": [
+      "Foundation Models",
+      "Drones",
+      "Health Monitoring"
+    ],
+    "searchTags": [
+      "Foundation Models",
+      "Artificial Intelligence",
+      "Drones",
+      "Health Monitoring",
+      "disaster crews",
+      "safer deployment decisions",
+      "benchmark runs",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Doha, Qatar"
+  },
+  {
+    "partnerId": "PRT-198",
+    "internId": "INT-198",
+    "name": "Amara Garcia",
+    "skill": "NLP",
+    "project": "Modeling a NLP project for public libraries, using sensor traces to turn Aerospace Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "NLP",
+      "Aerospace Engineering",
+      "Dentistry"
+    ],
+    "searchTags": [
+      "NLP",
+      "Artificial Intelligence",
+      "Aerospace Engineering",
+      "Dentistry",
+      "public libraries",
+      "measurable prototype evidence",
+      "sensor traces",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Denver, United States"
+  },
+  {
+    "partnerId": "PRT-199",
+    "internId": "INT-199",
+    "name": "Jonas Walker",
+    "skill": "Computer Vision",
+    "project": "Instrumenting a Computer Vision project for mobility teams, using simulation logs to turn Signal Processing signals into a repeatable test bench.",
+    "tags": [
+      "Computer Vision",
+      "Signal Processing",
+      "Cryptography"
+    ],
+    "searchTags": [
+      "Computer Vision",
+      "Artificial Intelligence",
+      "Signal Processing",
+      "Cryptography",
+      "mobility teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-200",
+    "internId": "INT-200",
+    "name": "Priya Malik",
+    "skill": "Medical NLP",
+    "project": "Hardening a Medical NLP project for farm operators, using benchmark runs to turn Photonics signals into clear readiness signals.",
+    "tags": [
+      "Medical NLP",
+      "Photonics",
+      "Data Privacy Law"
+    ],
+    "searchTags": [
+      "Medical NLP",
+      "Artificial Intelligence",
+      "Photonics",
+      "Data Privacy Law",
+      "farm operators",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-201",
+    "internId": "INT-201",
+    "name": "Mateo Mensah",
+    "skill": "Biomedical NLP",
+    "project": "Building a Biomedical NLP project for accessibility teams, using sensor traces to turn Sensors signals into faster mentor feedback.",
+    "tags": [
+      "Biomedical NLP",
+      "Sensors",
+      "Ethics"
+    ],
+    "searchTags": [
+      "Biomedical NLP",
+      "Artificial Intelligence",
+      "Sensors",
+      "Ethics",
+      "accessibility teams",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-202",
+    "internId": "INT-202",
+    "name": "Selah Chen",
+    "skill": "Knowledge Graphs",
+    "project": "Designing a Knowledge Graphs project for community health workers, using live telemetry to turn Wearables signals into safer deployment decisions.",
+    "tags": [
+      "Knowledge Graphs",
+      "Wearables",
+      "Education"
+    ],
+    "searchTags": [
+      "Knowledge Graphs",
+      "Artificial Intelligence",
+      "Wearables",
+      "Education",
+      "community health workers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-203",
+    "internId": "INT-203",
+    "name": "Nico Nair",
+    "skill": "Analytics",
+    "project": "Prototyping a Analytics project for privacy reviewers, using failure reports to turn Power Systems Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "Analytics",
+      "Power Systems Engineering",
+      "Accessibility"
+    ],
+    "searchTags": [
+      "Analytics",
+      "Software & Data",
+      "Power Systems Engineering",
+      "Accessibility",
+      "privacy reviewers",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-204",
+    "internId": "INT-204",
+    "name": "Yara Silva",
+    "skill": "Optimization",
+    "project": "Testing a Optimization project for makerspaces, using user interviews to turn Renewable Energy Systems signals into trustworthy field data.",
+    "tags": [
+      "Optimization",
+      "Renewable Energy Systems",
+      "Inclusion"
+    ],
+    "searchTags": [
+      "Optimization",
+      "Software & Data",
+      "Renewable Energy Systems",
+      "Inclusion",
+      "makerspaces",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-205",
+    "internId": "INT-205",
+    "name": "Talia Garcia",
+    "skill": "Cloud",
+    "project": "Launching a Cloud project for local nonprofits, using expert challenges to turn Nuclear signals into stronger user validation.",
+    "tags": [
+      "Cloud",
+      "Nuclear",
+      "Community"
+    ],
+    "searchTags": [
+      "Cloud",
+      "Software & Data",
+      "Nuclear",
+      "Community",
+      "local nonprofits",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-206",
+    "internId": "INT-206",
+    "name": "Ezra Sato",
+    "skill": "Edge Computing",
+    "project": "Modeling a Edge Computing project for clinics, using design reviews to turn Climate Informatics signals into a sharper Demo Day defense.",
+    "tags": [
+      "Edge Computing",
+      "Climate Informatics",
+      "Disaster Response"
+    ],
+    "searchTags": [
+      "Edge Computing",
+      "Software & Data",
+      "Climate Informatics",
+      "Disaster Response",
+      "clinics",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-207",
+    "internId": "INT-207",
+    "name": "Mei Anders",
+    "skill": "Real-Time",
+    "project": "Instrumenting a Real-Time project for field teams, using simulation logs to turn Air Quality signals into a repeatable test bench.",
+    "tags": [
+      "Real-Time",
+      "Air Quality",
+      "UX"
+    ],
+    "searchTags": [
+      "Real-Time",
+      "Software & Data",
+      "Air Quality",
+      "UX",
+      "field teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-208",
+    "internId": "INT-208",
+    "name": "Omar Rossi",
+    "skill": "Browser Extensions",
+    "project": "Hardening a Browser Extensions project for city planners, using benchmark runs to turn Water Quality signals into clear readiness signals.",
+    "tags": [
+      "Browser Extensions",
+      "Water Quality",
+      "AI"
+    ],
+    "searchTags": [
+      "Browser Extensions",
+      "Software & Data",
+      "Water Quality",
+      "AI",
+      "city planners",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-209",
+    "internId": "INT-209",
+    "name": "Anika Larsen",
+    "skill": "Open Source",
+    "project": "Building a Open Source project for school labs, using sensor traces to turn Remote Sensing signals into faster mentor feedback.",
+    "tags": [
+      "Open Source",
+      "Remote Sensing",
+      "ML"
+    ],
+    "searchTags": [
+      "Open Source",
+      "Software & Data",
+      "Remote Sensing",
+      "ML",
+      "school labs",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-210",
+    "internId": "INT-210",
+    "name": "Felix Morgan",
+    "skill": "Robotics",
+    "project": "Designing a Robotics project for small manufacturers, using live telemetry to turn Agriculture signals into safer deployment decisions.",
+    "tags": [
+      "Robotics",
+      "Agriculture",
+      "Deep Learning"
+    ],
+    "searchTags": [
+      "Robotics",
+      "Engineering & Robotics",
+      "Agriculture",
+      "Deep Learning",
+      "small manufacturers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-211",
+    "internId": "INT-211",
+    "name": "Rina Tanaka",
+    "skill": "Autonomous",
+    "project": "Prototyping a Autonomous project for research groups, using failure reports to turn Reforestation signals into measurable prototype evidence.",
+    "tags": [
+      "Autonomous",
+      "Reforestation",
+      "Foundation Models"
+    ],
+    "searchTags": [
+      "Autonomous",
+      "Engineering & Robotics",
+      "Reforestation",
+      "Foundation Models",
+      "research groups",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-212",
+    "internId": "INT-212",
+    "name": "Samir Singh",
+    "skill": "Control Systems",
+    "project": "Testing a Control Systems project for disaster crews, using user interviews to turn Computational Biology signals into trustworthy field data.",
+    "tags": [
+      "Control Systems",
+      "Computational Biology",
+      "NLP"
+    ],
+    "searchTags": [
+      "Control Systems",
+      "Engineering & Robotics",
+      "Computational Biology",
+      "NLP",
+      "disaster crews",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-213",
+    "internId": "INT-213",
+    "name": "Elena Rahman",
+    "skill": "Mechatronics",
+    "project": "Launching a Mechatronics project for public libraries, using expert challenges to turn Genomics signals into stronger user validation.",
+    "tags": [
+      "Mechatronics",
+      "Genomics",
+      "Computer Vision"
+    ],
+    "searchTags": [
+      "Mechatronics",
+      "Engineering & Robotics",
+      "Genomics",
+      "Computer Vision",
+      "public libraries",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-214",
+    "internId": "INT-214",
+    "name": "Dario Park",
+    "skill": "Drones",
+    "project": "Modeling a Drones project for energy co-ops, using design reviews to turn Synthetic Biology signals into a sharper Demo Day defense.",
+    "tags": [
+      "Drones",
+      "Synthetic Biology",
+      "Medical NLP"
+    ],
+    "searchTags": [
+      "Drones",
+      "Engineering & Robotics",
+      "Synthetic Biology",
+      "Medical NLP",
+      "energy co-ops",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-215",
+    "internId": "INT-215",
+    "name": "Leah Nguyen",
+    "skill": "Aerospace Engineering",
+    "project": "Instrumenting a Aerospace Engineering project for mobility teams, using simulation logs to turn Drug Discovery signals into a repeatable test bench.",
+    "tags": [
+      "Aerospace Engineering",
+      "Drug Discovery",
+      "Biomedical NLP"
+    ],
+    "searchTags": [
+      "Aerospace Engineering",
+      "Engineering & Robotics",
+      "Drug Discovery",
+      "Biomedical NLP",
+      "mobility teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-216",
+    "internId": "INT-216",
+    "name": "Tomas Das",
+    "skill": "Structural Engineering",
+    "project": "Hardening a Structural Engineering project for farm operators, using benchmark runs to turn Health Monitoring signals into clear readiness signals.",
+    "tags": [
+      "Structural Engineering",
+      "Health Monitoring",
+      "Knowledge Graphs"
+    ],
+    "searchTags": [
+      "Structural Engineering",
+      "Engineering & Robotics",
+      "Health Monitoring",
+      "Knowledge Graphs",
+      "farm operators",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-217",
+    "internId": "INT-217",
+    "name": "Ava Patel",
+    "skill": "3D Printing",
+    "project": "Building a 3D Printing project for accessibility teams, using sensor traces to turn Dentistry signals into faster mentor feedback.",
+    "tags": [
+      "3D Printing",
+      "Dentistry",
+      "Analytics"
+    ],
+    "searchTags": [
+      "3D Printing",
+      "Engineering & Robotics",
+      "Dentistry",
+      "Analytics",
+      "accessibility teams",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-218",
+    "internId": "INT-218",
+    "name": "Milo Voss",
+    "skill": "Embedded",
+    "project": "Designing a Embedded project for community health workers, using live telemetry to turn Neurosurgery signals into safer deployment decisions.",
+    "tags": [
+      "Embedded",
+      "Neurosurgery",
+      "Optimization"
+    ],
+    "searchTags": [
+      "Embedded",
+      "Hardware & Sensors",
+      "Neurosurgery",
+      "Optimization",
+      "community health workers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-219",
+    "internId": "INT-219",
+    "name": "Nia Novak",
+    "skill": "FPGA",
+    "project": "Prototyping a FPGA project for privacy reviewers, using failure reports to turn Immunotherapy signals into measurable prototype evidence.",
+    "tags": [
+      "FPGA",
+      "Immunotherapy",
+      "Cloud"
+    ],
+    "searchTags": [
+      "FPGA",
+      "Hardware & Sensors",
+      "Immunotherapy",
+      "Cloud",
+      "privacy reviewers",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-220",
+    "internId": "INT-220",
+    "name": "Theo Kowalski",
+    "skill": "Semiconductor Design",
+    "project": "Testing a Semiconductor Design project for makerspaces, using user interviews to turn Prosthetics signals into trustworthy field data.",
+    "tags": [
+      "Semiconductor Design",
+      "Prosthetics",
+      "Edge Computing"
+    ],
+    "searchTags": [
+      "Semiconductor Design",
+      "Hardware & Sensors",
+      "Prosthetics",
+      "Edge Computing",
+      "makerspaces",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-221",
+    "internId": "INT-221",
+    "name": "Maya Ndlovu",
+    "skill": "Signal Processing",
+    "project": "Launching a Signal Processing project for local nonprofits, using expert challenges to turn Elder Care signals into stronger user validation.",
+    "tags": [
+      "Signal Processing",
+      "Elder Care",
+      "Real-Time"
+    ],
+    "searchTags": [
+      "Signal Processing",
+      "Hardware & Sensors",
+      "Elder Care",
+      "Real-Time",
+      "local nonprofits",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-222",
+    "internId": "INT-222",
+    "name": "Leo Costa",
+    "skill": "Photonics",
+    "project": "Modeling a Photonics project for clinics, using design reviews to turn Materials Science signals into a sharper Demo Day defense.",
+    "tags": [
+      "Photonics",
+      "Materials Science",
+      "Browser Extensions"
+    ],
+    "searchTags": [
+      "Photonics",
+      "Hardware & Sensors",
+      "Materials Science",
+      "Browser Extensions",
+      "clinics",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-223",
+    "internId": "INT-223",
+    "name": "Iris Brooks",
+    "skill": "Sensors",
+    "project": "Instrumenting a Sensors project for field teams, using simulation logs to turn Nanotech signals into a repeatable test bench.",
+    "tags": [
+      "Sensors",
+      "Nanotech",
+      "Open Source"
+    ],
+    "searchTags": [
+      "Sensors",
+      "Hardware & Sensors",
+      "Nanotech",
+      "Open Source",
+      "field teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-224",
+    "internId": "INT-224",
+    "name": "Kai Okafor",
+    "skill": "Wearables",
+    "project": "Hardening a Wearables project for city planners, using benchmark runs to turn Quantum Hardware signals into clear readiness signals.",
+    "tags": [
+      "Wearables",
+      "Quantum Hardware",
+      "Robotics"
+    ],
+    "searchTags": [
+      "Wearables",
+      "Hardware & Sensors",
+      "Quantum Hardware",
+      "Robotics",
+      "city planners",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-225",
+    "internId": "INT-225",
+    "name": "Zara Haddad",
+    "skill": "Power Systems Engineering",
+    "project": "Building a Power Systems Engineering project for school labs, using sensor traces to turn Astrophysics signals into faster mentor feedback.",
+    "tags": [
+      "Power Systems Engineering",
+      "Astrophysics",
+      "Autonomous"
+    ],
+    "searchTags": [
+      "Power Systems Engineering",
+      "Energy & Environment",
+      "Astrophysics",
+      "Autonomous",
+      "school labs",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-226",
+    "internId": "INT-226",
+    "name": "Noah Ibrahim",
+    "skill": "Renewable Energy Systems",
+    "project": "Designing a Renewable Energy Systems project for small manufacturers, using live telemetry to turn Plasma Physics signals into safer deployment decisions.",
+    "tags": [
+      "Renewable Energy Systems",
+      "Plasma Physics",
+      "Control Systems"
+    ],
+    "searchTags": [
+      "Renewable Energy Systems",
+      "Energy & Environment",
+      "Plasma Physics",
+      "Control Systems",
+      "small manufacturers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-227",
+    "internId": "INT-227",
+    "name": "Lena Bennett",
+    "skill": "Nuclear",
+    "project": "Prototyping a Nuclear project for research groups, using failure reports to turn Security signals into measurable prototype evidence.",
+    "tags": [
+      "Nuclear",
+      "Security",
+      "Mechatronics"
+    ],
+    "searchTags": [
+      "Nuclear",
+      "Energy & Environment",
+      "Security",
+      "Mechatronics",
+      "research groups",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-228",
+    "internId": "INT-228",
+    "name": "Owen Diaz",
+    "skill": "Climate Informatics",
+    "project": "Testing a Climate Informatics project for disaster crews, using user interviews to turn Privacy signals into trustworthy field data.",
+    "tags": [
+      "Climate Informatics",
+      "Privacy",
+      "Drones"
+    ],
+    "searchTags": [
+      "Climate Informatics",
+      "Energy & Environment",
+      "Privacy",
+      "Drones",
+      "disaster crews",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-229",
+    "internId": "INT-229",
+    "name": "Sofia Fischer",
+    "skill": "Air Quality",
+    "project": "Launching a Air Quality project for public libraries, using expert challenges to turn Cryptography signals into stronger user validation.",
+    "tags": [
+      "Air Quality",
+      "Cryptography",
+      "Aerospace Engineering"
+    ],
+    "searchTags": [
+      "Air Quality",
+      "Energy & Environment",
+      "Cryptography",
+      "Aerospace Engineering",
+      "public libraries",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-230",
+    "internId": "INT-230",
+    "name": "Eli Yilmaz",
+    "skill": "Water Quality",
+    "project": "Modeling a Water Quality project for energy co-ops, using design reviews to turn Data Privacy Law signals into a sharper Demo Day defense.",
+    "tags": [
+      "Water Quality",
+      "Data Privacy Law",
+      "Structural Engineering"
+    ],
+    "searchTags": [
+      "Water Quality",
+      "Energy & Environment",
+      "Data Privacy Law",
+      "Structural Engineering",
+      "energy co-ops",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-231",
+    "internId": "INT-231",
+    "name": "Mina Reyes",
+    "skill": "Remote Sensing",
+    "project": "Instrumenting a Remote Sensing project for mobility teams, using simulation logs to turn Ethics signals into a repeatable test bench.",
+    "tags": [
+      "Remote Sensing",
+      "Ethics",
+      "3D Printing"
+    ],
+    "searchTags": [
+      "Remote Sensing",
+      "Energy & Environment",
+      "Ethics",
+      "3D Printing",
+      "mobility teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-232",
+    "internId": "INT-232",
+    "name": "Ravi Kim",
+    "skill": "Agriculture",
+    "project": "Hardening a Agriculture project for farm operators, using benchmark runs to turn Education signals into clear readiness signals.",
+    "tags": [
+      "Agriculture",
+      "Education",
+      "Embedded"
+    ],
+    "searchTags": [
+      "Agriculture",
+      "Energy & Environment",
+      "Education",
+      "Embedded",
+      "farm operators",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-233",
+    "internId": "INT-233",
+    "name": "Jules Moreau",
+    "skill": "Reforestation",
+    "project": "Building a Reforestation project for accessibility teams, using sensor traces to turn Accessibility signals into faster mentor feedback.",
+    "tags": [
+      "Reforestation",
+      "Accessibility",
+      "FPGA"
+    ],
+    "searchTags": [
+      "Reforestation",
+      "Energy & Environment",
+      "Accessibility",
+      "FPGA",
+      "accessibility teams",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-234",
+    "internId": "INT-234",
+    "name": "Amara Khan",
+    "skill": "Computational Biology",
+    "project": "Designing a Computational Biology project for community health workers, using live telemetry to turn Inclusion signals into safer deployment decisions.",
+    "tags": [
+      "Computational Biology",
+      "Inclusion",
+      "Semiconductor Design"
+    ],
+    "searchTags": [
+      "Computational Biology",
+      "Life Sciences & Health",
+      "Inclusion",
+      "Semiconductor Design",
+      "community health workers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-235",
+    "internId": "INT-235",
+    "name": "Jonas Walker",
+    "skill": "Genomics",
+    "project": "Prototyping a Genomics project for privacy reviewers, using failure reports to turn Community signals into measurable prototype evidence.",
+    "tags": [
+      "Genomics",
+      "Community",
+      "Signal Processing"
+    ],
+    "searchTags": [
+      "Genomics",
+      "Life Sciences & Health",
+      "Community",
+      "Signal Processing",
+      "privacy reviewers",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-236",
+    "internId": "INT-236",
+    "name": "Priya Malik",
+    "skill": "Synthetic Biology",
+    "project": "Testing a Synthetic Biology project for makerspaces, using user interviews to turn Disaster Response signals into trustworthy field data.",
+    "tags": [
+      "Synthetic Biology",
+      "Disaster Response",
+      "Photonics"
+    ],
+    "searchTags": [
+      "Synthetic Biology",
+      "Life Sciences & Health",
+      "Disaster Response",
+      "Photonics",
+      "makerspaces",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-237",
+    "internId": "INT-237",
+    "name": "Mateo Mensah",
+    "skill": "Drug Discovery",
+    "project": "Launching a Drug Discovery project for local nonprofits, using expert challenges to turn UX signals into stronger user validation.",
+    "tags": [
+      "Drug Discovery",
+      "UX",
+      "Sensors"
+    ],
+    "searchTags": [
+      "Drug Discovery",
+      "Life Sciences & Health",
+      "UX",
+      "Sensors",
+      "local nonprofits",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-238",
+    "internId": "INT-238",
+    "name": "Selah Chen",
+    "skill": "Health Monitoring",
+    "project": "Modeling a Health Monitoring project for clinics, using design reviews to turn AI signals into a sharper Demo Day defense.",
+    "tags": [
+      "Health Monitoring",
+      "AI",
+      "Wearables"
+    ],
+    "searchTags": [
+      "Health Monitoring",
+      "Life Sciences & Health",
+      "AI",
+      "Wearables",
+      "clinics",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-239",
+    "internId": "INT-239",
+    "name": "Nico Nair",
+    "skill": "Dentistry",
+    "project": "Instrumenting a Dentistry project for field teams, using simulation logs to turn ML signals into a repeatable test bench.",
+    "tags": [
+      "Dentistry",
+      "ML",
+      "Power Systems Engineering"
+    ],
+    "searchTags": [
+      "Dentistry",
+      "Life Sciences & Health",
+      "ML",
+      "Power Systems Engineering",
+      "field teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-240",
+    "internId": "INT-240",
+    "name": "Yara Silva",
+    "skill": "Neurosurgery",
+    "project": "Hardening a Neurosurgery project for city planners, using benchmark runs to turn Deep Learning signals into clear readiness signals.",
+    "tags": [
+      "Neurosurgery",
+      "Deep Learning",
+      "Renewable Energy Systems"
+    ],
+    "searchTags": [
+      "Neurosurgery",
+      "Life Sciences & Health",
+      "Deep Learning",
+      "Renewable Energy Systems",
+      "city planners",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-241",
+    "internId": "INT-241",
+    "name": "Talia Garcia",
+    "skill": "Immunotherapy",
+    "project": "Building a Immunotherapy project for school labs, using sensor traces to turn Foundation Models signals into faster mentor feedback.",
+    "tags": [
+      "Immunotherapy",
+      "Foundation Models",
+      "Nuclear"
+    ],
+    "searchTags": [
+      "Immunotherapy",
+      "Life Sciences & Health",
+      "Foundation Models",
+      "Nuclear",
+      "school labs",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-242",
+    "internId": "INT-242",
+    "name": "Ezra Sato",
+    "skill": "Prosthetics",
+    "project": "Designing a Prosthetics project for small manufacturers, using live telemetry to turn NLP signals into safer deployment decisions.",
+    "tags": [
+      "Prosthetics",
+      "NLP",
+      "Climate Informatics"
+    ],
+    "searchTags": [
+      "Prosthetics",
+      "Life Sciences & Health",
+      "NLP",
+      "Climate Informatics",
+      "small manufacturers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-243",
+    "internId": "INT-243",
+    "name": "Mei Anders",
+    "skill": "Elder Care",
+    "project": "Prototyping a Elder Care project for research groups, using failure reports to turn Computer Vision signals into measurable prototype evidence.",
+    "tags": [
+      "Elder Care",
+      "Computer Vision",
+      "Air Quality"
+    ],
+    "searchTags": [
+      "Elder Care",
+      "Life Sciences & Health",
+      "Computer Vision",
+      "Air Quality",
+      "research groups",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-244",
+    "internId": "INT-244",
+    "name": "Omar Rossi",
+    "skill": "Materials Science",
+    "project": "Testing a Materials Science project for disaster crews, using user interviews to turn Medical NLP signals into trustworthy field data.",
+    "tags": [
+      "Materials Science",
+      "Medical NLP",
+      "Water Quality"
+    ],
+    "searchTags": [
+      "Materials Science",
+      "Physical Sciences & Materials",
+      "Medical NLP",
+      "Water Quality",
+      "disaster crews",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-245",
+    "internId": "INT-245",
+    "name": "Anika Larsen",
+    "skill": "Nanotech",
+    "project": "Launching a Nanotech project for public libraries, using expert challenges to turn Biomedical NLP signals into stronger user validation.",
+    "tags": [
+      "Nanotech",
+      "Biomedical NLP",
+      "Remote Sensing"
+    ],
+    "searchTags": [
+      "Nanotech",
+      "Physical Sciences & Materials",
+      "Biomedical NLP",
+      "Remote Sensing",
+      "public libraries",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-246",
+    "internId": "INT-246",
+    "name": "Felix Morgan",
+    "skill": "Quantum Hardware",
+    "project": "Modeling a Quantum Hardware project for energy co-ops, using design reviews to turn Knowledge Graphs signals into a sharper Demo Day defense.",
+    "tags": [
+      "Quantum Hardware",
+      "Knowledge Graphs",
+      "Agriculture"
+    ],
+    "searchTags": [
+      "Quantum Hardware",
+      "Physical Sciences & Materials",
+      "Knowledge Graphs",
+      "Agriculture",
+      "energy co-ops",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-247",
+    "internId": "INT-247",
+    "name": "Rina Tanaka",
+    "skill": "Astrophysics",
+    "project": "Instrumenting a Astrophysics project for mobility teams, using simulation logs to turn Analytics signals into a repeatable test bench.",
+    "tags": [
+      "Astrophysics",
+      "Analytics",
+      "Reforestation"
+    ],
+    "searchTags": [
+      "Astrophysics",
+      "Physical Sciences & Materials",
+      "Analytics",
+      "Reforestation",
+      "mobility teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-248",
+    "internId": "INT-248",
+    "name": "Samir Singh",
+    "skill": "Plasma Physics",
+    "project": "Hardening a Plasma Physics project for farm operators, using benchmark runs to turn Optimization signals into clear readiness signals.",
+    "tags": [
+      "Plasma Physics",
+      "Optimization",
+      "Computational Biology"
+    ],
+    "searchTags": [
+      "Plasma Physics",
+      "Physical Sciences & Materials",
+      "Optimization",
+      "Computational Biology",
+      "farm operators",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-249",
+    "internId": "INT-249",
+    "name": "Elena Rahman",
+    "skill": "Security",
+    "project": "Building a Security project for accessibility teams, using sensor traces to turn Cloud signals into faster mentor feedback.",
+    "tags": [
+      "Security",
+      "Cloud",
+      "Genomics"
+    ],
+    "searchTags": [
+      "Security",
+      "Security, Law & Ethics",
+      "Cloud",
+      "Genomics",
+      "accessibility teams",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-250",
+    "internId": "INT-250",
+    "name": "Dario Park",
+    "skill": "Privacy",
+    "project": "Designing a Privacy project for community health workers, using live telemetry to turn Edge Computing signals into safer deployment decisions.",
+    "tags": [
+      "Privacy",
+      "Edge Computing",
+      "Synthetic Biology"
+    ],
+    "searchTags": [
+      "Privacy",
+      "Security, Law & Ethics",
+      "Edge Computing",
+      "Synthetic Biology",
+      "community health workers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-251",
+    "internId": "INT-251",
+    "name": "Leah Nguyen",
+    "skill": "Cryptography",
+    "project": "Prototyping a Cryptography project for privacy reviewers, using failure reports to turn Real-Time signals into measurable prototype evidence.",
+    "tags": [
+      "Cryptography",
+      "Real-Time",
+      "Drug Discovery"
+    ],
+    "searchTags": [
+      "Cryptography",
+      "Security, Law & Ethics",
+      "Real-Time",
+      "Drug Discovery",
+      "privacy reviewers",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-252",
+    "internId": "INT-252",
+    "name": "Tomas Das",
+    "skill": "Data Privacy Law",
+    "project": "Testing a Data Privacy Law project for makerspaces, using user interviews to turn Browser Extensions signals into trustworthy field data.",
+    "tags": [
+      "Data Privacy Law",
+      "Browser Extensions",
+      "Health Monitoring"
+    ],
+    "searchTags": [
+      "Data Privacy Law",
+      "Security, Law & Ethics",
+      "Browser Extensions",
+      "Health Monitoring",
+      "makerspaces",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  },
+  {
+    "partnerId": "PRT-253",
+    "internId": "INT-253",
+    "name": "Ava Patel",
+    "skill": "Ethics",
+    "project": "Launching a Ethics project for local nonprofits, using expert challenges to turn Open Source signals into stronger user validation.",
+    "tags": [
+      "Ethics",
+      "Open Source",
+      "Dentistry"
+    ],
+    "searchTags": [
+      "Ethics",
+      "Security, Law & Ethics",
+      "Open Source",
+      "Dentistry",
+      "local nonprofits",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Pune, India"
+  },
+  {
+    "partnerId": "PRT-254",
+    "internId": "INT-254",
+    "name": "Milo Voss",
+    "skill": "Education",
+    "project": "Modeling a Education project for clinics, using design reviews to turn Robotics signals into a sharper Demo Day defense.",
+    "tags": [
+      "Education",
+      "Robotics",
+      "Neurosurgery"
+    ],
+    "searchTags": [
+      "Education",
+      "Social Impact & Design",
+      "Robotics",
+      "Neurosurgery",
+      "clinics",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Taipei, Taiwan"
+  },
+  {
+    "partnerId": "PRT-255",
+    "internId": "INT-255",
+    "name": "Nia Novak",
+    "skill": "Accessibility",
+    "project": "Instrumenting a Accessibility project for field teams, using simulation logs to turn Autonomous signals into a repeatable test bench.",
+    "tags": [
+      "Accessibility",
+      "Autonomous",
+      "Immunotherapy"
+    ],
+    "searchTags": [
+      "Accessibility",
+      "Social Impact & Design",
+      "Autonomous",
+      "Immunotherapy",
+      "field teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Rotterdam, Netherlands"
+  },
+  {
+    "partnerId": "PRT-256",
+    "internId": "INT-256",
+    "name": "Theo Kowalski",
+    "skill": "Inclusion",
+    "project": "Hardening a Inclusion project for city planners, using benchmark runs to turn Control Systems signals into clear readiness signals.",
+    "tags": [
+      "Inclusion",
+      "Control Systems",
+      "Prosthetics"
+    ],
+    "searchTags": [
+      "Inclusion",
+      "Social Impact & Design",
+      "Control Systems",
+      "Prosthetics",
+      "city planners",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Auckland, New Zealand"
+  },
+  {
+    "partnerId": "PRT-257",
+    "internId": "INT-257",
+    "name": "Maya Ndlovu",
+    "skill": "Community",
+    "project": "Building a Community project for school labs, using sensor traces to turn Mechatronics signals into faster mentor feedback.",
+    "tags": [
+      "Community",
+      "Mechatronics",
+      "Elder Care"
+    ],
+    "searchTags": [
+      "Community",
+      "Social Impact & Design",
+      "Mechatronics",
+      "Elder Care",
+      "school labs",
+      "faster mentor feedback",
+      "sensor traces",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Gothenburg, Sweden"
+  },
+  {
+    "partnerId": "PRT-258",
+    "internId": "INT-258",
+    "name": "Leo Costa",
+    "skill": "Disaster Response",
+    "project": "Designing a Disaster Response project for small manufacturers, using live telemetry to turn Drones signals into safer deployment decisions.",
+    "tags": [
+      "Disaster Response",
+      "Drones",
+      "Materials Science"
+    ],
+    "searchTags": [
+      "Disaster Response",
+      "Social Impact & Design",
+      "Drones",
+      "Materials Science",
+      "small manufacturers",
+      "safer deployment decisions",
+      "live telemetry",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Berlin, Germany"
+  },
+  {
+    "partnerId": "PRT-259",
+    "internId": "INT-259",
+    "name": "Iris Brooks",
+    "skill": "UX",
+    "project": "Prototyping a UX project for research groups, using failure reports to turn Aerospace Engineering signals into measurable prototype evidence.",
+    "tags": [
+      "UX",
+      "Aerospace Engineering",
+      "Nanotech"
+    ],
+    "searchTags": [
+      "UX",
+      "Social Impact & Design",
+      "Aerospace Engineering",
+      "Nanotech",
+      "research groups",
+      "measurable prototype evidence",
+      "failure reports",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Lisbon, Portugal"
+  },
+  {
+    "partnerId": "PRT-260",
+    "internId": "INT-260",
+    "name": "Kai Okafor",
+    "skill": "AI",
+    "project": "Testing a AI project for disaster crews, using user interviews to turn Structural Engineering signals into trustworthy field data.",
+    "tags": [
+      "AI",
+      "Structural Engineering",
+      "Quantum Hardware"
+    ],
+    "searchTags": [
+      "AI",
+      "Artificial Intelligence",
+      "Structural Engineering",
+      "Quantum Hardware",
+      "disaster crews",
+      "trustworthy field data",
+      "user interviews",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Toronto, Canada"
+  },
+  {
+    "partnerId": "PRT-261",
+    "internId": "INT-261",
+    "name": "Zara Haddad",
+    "skill": "ML",
+    "project": "Launching a ML project for public libraries, using expert challenges to turn 3D Printing signals into stronger user validation.",
+    "tags": [
+      "ML",
+      "3D Printing",
+      "Astrophysics"
+    ],
+    "searchTags": [
+      "ML",
+      "Artificial Intelligence",
+      "3D Printing",
+      "Astrophysics",
+      "public libraries",
+      "stronger user validation",
+      "expert challenges",
+      "field test",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Melbourne, Australia"
+  },
+  {
+    "partnerId": "PRT-262",
+    "internId": "INT-262",
+    "name": "Noah Ibrahim",
+    "skill": "Deep Learning",
+    "project": "Modeling a Deep Learning project for energy co-ops, using design reviews to turn Embedded signals into a sharper Demo Day defense.",
+    "tags": [
+      "Deep Learning",
+      "Embedded",
+      "Plasma Physics"
+    ],
+    "searchTags": [
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Embedded",
+      "Plasma Physics",
+      "energy co-ops",
+      "a sharper Demo Day defense",
+      "design reviews",
+      "demo defense",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Cape Town, South Africa"
+  },
+  {
+    "partnerId": "PRT-263",
+    "internId": "INT-263",
+    "name": "Lena Bennett",
+    "skill": "Foundation Models",
+    "project": "Instrumenting a Foundation Models project for mobility teams, using simulation logs to turn FPGA signals into a repeatable test bench.",
+    "tags": [
+      "Foundation Models",
+      "FPGA",
+      "Security"
+    ],
+    "searchTags": [
+      "Foundation Models",
+      "Artificial Intelligence",
+      "FPGA",
+      "Security",
+      "mobility teams",
+      "a repeatable test bench",
+      "simulation logs",
+      "skill proof",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Mexico City, Mexico"
+  },
+  {
+    "partnerId": "PRT-264",
+    "internId": "INT-264",
+    "name": "Owen Diaz",
+    "skill": "NLP",
+    "project": "Hardening a NLP project for farm operators, using benchmark runs to turn Semiconductor Design signals into clear readiness signals.",
+    "tags": [
+      "NLP",
+      "Semiconductor Design",
+      "Privacy"
+    ],
+    "searchTags": [
+      "NLP",
+      "Artificial Intelligence",
+      "Semiconductor Design",
+      "Privacy",
+      "farm operators",
+      "clear readiness signals",
+      "benchmark runs",
+      "prototype",
+      "intern",
+      "Demo Day"
+    ],
+    "region": "Madrid, Spain"
+  }
 ]

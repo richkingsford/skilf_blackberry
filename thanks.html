@@ -4,20 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thanks - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
   <style>
     :root { color-scheme: dark; --ink: #e8edf3; --ink-soft: #8fa3ba; --gold: #d4a94b; --bg: #0b1117; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--ink); font-family: "Segoe UI Variable", "Aptos", sans-serif; }
-    main { width: min(640px, 90vw); text-align: center; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font-family: "Segoe UI Variable", "Aptos", sans-serif; }
+    main { width: min(640px, 90vw); margin: 92px auto; text-align: center; }
     h1 { color: var(--gold); font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 10px; }
     p { color: var(--ink-soft); line-height: 1.5; }
     a { color: var(--gold); }
   </style>
 </head>
 <body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
   <main>
     <h1>Thanks</h1>
     <p>Your Skilf form was sent. We will follow up by email.</p>
     <p><a href="index.html">Back to Skilf</a></p>
   </main>
+  <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Data Privacy Law thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Data Privacy Law in Security, Law &amp; Ethics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#7be0b1" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#f2c14e" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#264f73" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 138c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#264f73" opacity="0.2"/>
+    <path d="M0 182c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#7be0b1" opacity="0.08"/>
+    <circle cx="278" cy="44" r="36" fill="#70a1ff" opacity="0.12"/>
+    <circle cx="54" cy="168" r="26" fill="#f2c14e" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(242 108) rotate(7) scale(1.04)"><rect x="-68" y="-52" width="136" height="104" rx="14" fill="#264f73" opacity="1"/><rect x="-44" y="-24" width="88" height="48" rx="9" fill="#0b1117" opacity="0.34"/><circle cx="-22" cy="0" r="13" fill="#7be0b1" opacity="1"/><rect x="2" y="-13" width="26" height="26" rx="7" fill="#f2c14e" opacity="1"/><path d="M-52 42c24-24 80-24 104 0" fill="none" stroke="#70a1ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(112 92) rotate(-8) scale(0.86)"><rect x="-66" y="-46" width="132" height="92" rx="10" fill="#264f73" opacity="1"/><path d="M0-46v92" fill="none" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/><path d="M-38-4h76M-24-4c0-20 48-20 48 0" fill="none" stroke="#f2c14e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-24" cy="8" r="10" fill="#7be0b1" opacity="1"/><circle cx="24" cy="8" r="10" fill="#70a1ff" opacity="1"/><line x1="-40" y1="46" x2="40" y2="46" stroke="#7be0b1" stroke-width="5" stroke-linecap="round" opacity="0.92"/></g><g transform="translate(86 158) rotate(5) scale(0.54)"><path d="M0-66l68 26v42c0 38-25 64-68 78-43-14-68-40-68-78v-42z" fill="#264f73" stroke="#7be0b1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><rect x="-24" y="-4" width="48" height="42" rx="8" fill="#f2c14e" opacity="1"/><path d="M-14-4v-14c0-20 28-20 28 0v14" fill="none" stroke="#e8edf3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="0" cy="18" r="5" fill="#0b1117" opacity="0.55"/></g>
+  </g>
+</svg>

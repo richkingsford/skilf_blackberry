@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Immunotherapy thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Immunotherapy in Life Sciences &amp; Health.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#7be0b1" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#f2c14e" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#264f73" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 140c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#264f73" opacity="0.2"/>
+    <path d="M0 184c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#7be0b1" opacity="0.08"/>
+    <circle cx="290" cy="52" r="36" fill="#70a1ff" opacity="0.12"/>
+    <circle cx="62" cy="156" r="26" fill="#f2c14e" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(242 108) rotate(7) scale(1.04)"><path d="M0 58V0M0 0l-48-48M0 0l48-48" fill="none" stroke="#7be0b1" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-48-48l-18-20M48-48l18-20" fill="none" stroke="#f2c14e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="0" cy="58" r="10" fill="#7be0b1" opacity="0.95"/><circle cx="-66" cy="-68" r="10" fill="#f2c14e" opacity="0.95"/><circle cx="66" cy="-68" r="10" fill="#264f73" opacity="0.95"/><circle cx="-24" cy="24" r="10" fill="#70a1ff" opacity="0.95"/><circle cx="24" cy="24" r="10" fill="#7be0b1" opacity="0.95"/></g><g transform="translate(112 92) rotate(-8) scale(0.86)"><circle cx="-46" cy="-26" r="25" fill="#7be0b1" opacity="0.95"/><circle cx="2" cy="-46" r="25" fill="#f2c14e" opacity="0.95"/><circle cx="50" cy="-12" r="25" fill="#264f73" opacity="0.95"/><circle cx="34" cy="40" r="25" fill="#70a1ff" opacity="0.95"/><circle cx="-26" cy="34" r="25" fill="#7be0b1" opacity="0.95"/><circle cx="-68" cy="18" r="25" fill="#f2c14e" opacity="0.95"/><circle cx="-46" cy="-26" r="7" fill="#0b1117" opacity="0.95"/><circle cx="2" cy="-46" r="7" fill="#0b1117" opacity="0.95"/><circle cx="50" cy="-12" r="7" fill="#0b1117" opacity="0.95"/><circle cx="34" cy="40" r="7" fill="#0b1117" opacity="0.95"/><circle cx="-26" cy="34" r="7" fill="#0b1117" opacity="0.95"/><circle cx="-68" cy="18" r="7" fill="#0b1117" opacity="0.95"/></g><g transform="translate(86 158) rotate(5) scale(0.54)"><rect x="-64" y="-58" width="92" height="120" rx="14" fill="#e8edf3" opacity="0.9"/><path d="M-42-8h20l10-26 18 50 11-24h28" fill="none" stroke="#70a1ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><rect x="38" y="-46" width="38" height="38" rx="9" fill="#7be0b1" opacity="1"/><path d="M57-38v22M46-27h22" fill="none" stroke="#e8edf3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><line x1="-42" y1="32" x2="6" y2="32" stroke="#f2c14e" stroke-width="5" stroke-linecap="round" opacity="0.92"/></g>
+  </g>
+</svg>

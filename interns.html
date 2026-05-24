@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interns - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #e8edf3;
+      --ink-soft: #8fa3ba;
+      --gold: #d4a94b;
+      --line: #2a3a4e;
+      --bg: #0b1117;
+      --panel: #151f2d;
+      --teal: #55d3c4;
+      --coral: #ff8c73;
+      --violet: #9c83ff;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(ellipse 620px 460px at 9% 8%, rgba(85, 211, 196, 0.11), transparent 70%),
+        radial-gradient(ellipse 560px 460px at 94% 22%, rgba(255, 140, 115, 0.09), transparent 72%),
+        var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    main { width: min(1180px, 94vw); margin: 46px auto 72px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr); gap: 28px; align-items: end; margin-bottom: 26px; }
+    h1 { margin: 0 0 10px; color: var(--gold); font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: 0; }
+    .lead { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 1.03rem; max-width: 650px; }
+    .mentor-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.14fr) minmax(300px, 0.86fr);
+      gap: 28px;
+      align-items: center;
+      margin: 58px 0 62px;
+    }
+    .mentor-intro img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 40px rgb(0 0 0 / 28%);
+    }
+    .mentor-copy h2 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .mentor-copy p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(21, 31, 45, 0.78);
+      padding: 13px 14px;
+      min-height: 76px;
+    }
+    .stat strong { display: block; font-size: 1.55rem; line-height: 1; color: var(--ink); }
+    .stat span { display: block; margin-top: 8px; color: var(--ink-soft); font-size: 0.8rem; font-weight: 750; }
+    .toolbar {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+      flex-wrap: wrap;
+      margin: 22px 0 18px;
+    }
+    .search-input {
+      flex: 1 1 0;
+      min-width: 260px;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #101821;
+      color: var(--ink);
+      padding: 10px 12px;
+      font: inherit;
+      outline: none;
+    }
+    .search-input:focus { border-color: rgba(85, 211, 196, 0.7); }
+    .tool-btn {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 10px 12px;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: rgba(212, 169, 75, 0.52); }
+    .filter-btn {
+      width: 44px;
+      flex: 0 0 44px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+    }
+    .filter-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .active-filter {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(85, 211, 196, 0.44);
+      border-radius: 999px;
+      padding: 7px 9px 7px 12px;
+      color: var(--teal);
+      background: rgba(85, 211, 196, 0.08);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .active-filter.visible { display: inline-flex; }
+    .active-filter button {
+      width: 22px;
+      height: 22px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      line-height: 1;
+    }
+    .tree-drop {
+      display: none;
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      right: 0;
+      z-index: 20;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #101821;
+      box-shadow: 0 16px 32px rgb(0 0 0 / 32%);
+    }
+    .tree-drop {
+      max-height: min(560px, 70vh);
+      overflow: auto;
+      padding: 14px;
+    }
+    .tree-drop.open { display: block; }
+    .skill-browser-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .skill-browser-head strong {
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .skill-browser-head span {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .tree-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 12px;
+    }
+    .tree-category {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(21, 31, 45, 0.62);
+      padding: 12px;
+    }
+    .tree-category.is-hidden,
+    .tree-group.is-hidden,
+    .tree-leaf.is-hidden {
+      display: none;
+    }
+    .tree-category-title {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+    .tree-group { margin-top: 10px; }
+    .tree-group:first-of-type { margin-top: 0; }
+    .tree-group-title {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .tree-leaf {
+      display: inline-flex;
+      margin: 0 5px 6px 0;
+      border: 1px solid rgba(42, 58, 78, 0.88);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 5px 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .tree-leaf:hover,
+    .tree-leaf.active {
+      color: var(--ink);
+      border-color: rgba(85, 211, 196, 0.55);
+      background: rgba(85, 211, 196, 0.1);
+    }
+    .intern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .intern-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+      overflow: visible;
+      background: linear-gradient(160deg, var(--panel), #1b2a3d);
+      box-shadow: 0 10px 24px rgb(0 0 0 / 24%);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .intern-card.menu-open { z-index: 80; }
+    .thumb {
+      width: 100%;
+      aspect-ratio: 12 / 7;
+      display: block;
+      background: #101821;
+      border-bottom: 1px solid var(--line);
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+    }
+    .thumb svg { width: 100%; height: 100%; display: block; }
+    .intern-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .intern-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .name-row { display: flex; align-items: center; gap: 7px; min-width: 0; }
+    .profile-icon { width: 28.6px; height: 32.18px; border-radius: 50%; flex: 0 0 auto; background: url('profile icons_one_column.png'); background-size: 28.6px 228.8px; overflow: hidden; }
+    .name { margin: 0; font-size: 1.03rem; line-height: 1.2; }
+    .skill-pill {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 169, 75, 0.42);
+      color: var(--gold);
+      padding: 5px 8px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .project { margin: 0; color: var(--ink); line-height: 1.45; font-size: 0.92rem; }
+    .region { margin: 0; color: var(--ink-soft); font-size: 0.8rem; font-weight: 750; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--ink-soft);
+      padding: 5px 8px;
+      font: inherit;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tag:hover { border-color: rgba(85, 211, 196, 0.5); color: var(--ink); }
+    .msg-row { position: relative; display: flex; flex-wrap: wrap; margin-top: 2px; padding-top: 2px; z-index: 1; }
+    .msg-row.menu-open { z-index: 120; }
+    .msg-row.expanded .msg-input { order: -1; width: 100%; flex: 0 0 100%; border-right: 1px solid var(--line); border-radius: 8px 8px 0 0; min-height: 4.4em; }
+    .msg-row.expanded .msg-arrow { border-radius: 0 0 0 8px; border-left: 1px solid var(--line); }
+    .msg-row.expanded .send-btn { border-radius: 0 0 8px 0; }
+    .msg-input {
+      flex: 1;
+      min-width: 0;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      outline: none;
+      background: var(--bg);
+      color: var(--ink);
+      resize: none;
+      line-height: 1.15;
+      overflow: hidden;
+    }
+    .msg-input:focus { border-color: rgba(85, 211, 196, 0.62); }
+    .msg-arrow {
+      width: 34px;
+      border: 1px solid var(--line);
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      background: #1a2636;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 34px;
+    }
+    .send-btn {
+      padding: 7px 14px;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      background: var(--gold);
+      color: var(--bg);
+      font-size: 0.82rem;
+      font-weight: 750;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .send-btn:hover { opacity: 0.88; }
+    .send-btn.sent { background: #7be0b1; }
+    .registration-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(3, 7, 12, 0.52);
+    }
+    .registration-modal {
+      width: min(420px, 92vw);
+      border: 1px solid rgba(212,169,75,0.55);
+      border-radius: 8px;
+      background: #101821;
+      box-shadow: 0 24px 54px rgb(0 0 0 / 48%);
+      padding: 18px;
+      color: var(--ink);
+    }
+    .registration-modal h2 { margin: 0 0 8px; font-size: 1.18rem; line-height: 1.2; }
+    .registration-modal p { margin: 0 0 14px; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.45; }
+    .registration-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .registration-actions a,
+    .registration-close {
+      border: 0;
+      border-radius: 7px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+    .registration-actions a { background: var(--gold); color: var(--bg); }
+    .registration-close { margin-top: 10px; width: 100%; background: rgba(255,255,255,0.08); color: var(--ink); }
+    .msg-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: 4px 0 0;
+      padding: 4px 0;
+      list-style: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 30%);
+      z-index: 130;
+    }
+    .msg-menu li { padding: 8px 14px; cursor: pointer; font-size: 0.82rem; color: var(--ink); }
+    .msg-menu li:hover { background: rgba(255,255,255,0.06); }
+    .empty {
+      display: none;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--ink-soft);
+      padding: 28px;
+      text-align: center;
+    }
+    .empty.visible { display: block; }
+    .more-bar {
+      width: 100%;
+      margin: 16px 0 0;
+      border: 1px solid rgba(212, 169, 75, 0.46);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(212, 169, 75, 0.16), rgba(85, 211, 196, 0.1));
+      color: var(--ink);
+      padding: 15px 18px;
+      font: inherit;
+      font-size: 0.98rem;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: center;
+    }
+    .more-bar:hover { border-color: rgba(212, 169, 75, 0.72); }
+    .intern-cta-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 42px 0 0;
+      padding-bottom: 6px;
+    }
+    .intern-cta {
+      border: 1px solid rgba(212, 169, 75, 0.52);
+      border-radius: 8px;
+      background: rgba(212, 169, 75, 0.1);
+      color: var(--gold);
+      padding: 12px 16px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+    .intern-cta:hover { border-color: rgba(212, 169, 75, 0.84); background: rgba(212, 169, 75, 0.16); }
+    @media (max-width: 960px) {
+      .hero,
+      .mentor-intro { grid-template-columns: 1fr; }
+      .intern-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      main { margin-top: 28px; }
+      .stats, .intern-grid { grid-template-columns: 1fr; }
+      .toolbar { flex-wrap: nowrap; }
+      .search-input { min-width: 0; }
+      .tool-btn { flex: 0 0 auto; }
+      .filter-btn { flex: 0 0 44px; }
+      .registration-actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns" aria-current="page">Interns</a>
+        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Interns</h1>
+        <p class="lead">Every Skilf intern already has an internship, but some are only working for themselves on a startup.</p>
+      </div>
+      <div class="stats" aria-label="Intern explorer stats">
+        <div class="stat"><strong data-intern-count>0</strong><span>intern project ideas</span></div>
+        <div class="stat"><strong data-skill-count>66</strong><span>skill links</span></div>
+        <div class="stat"><strong data-visual-count>66</strong><span>thumbnails ready</span></div>
+      </div>
+    </section>
+
+    <section class="mentor-intro" aria-labelledby="mentor-intern-heading">
+      <img src="assets/interns-mentor-hero.png" alt="Professional mentor helping an intern refine a prototype project" loading="eager" decoding="async">
+      <div class="mentor-copy">
+        <h2 id="mentor-intern-heading">Hire or mentor a Skilf intern.</h2>
+        <p>Any professional, startup, mature organization, or independent expert can help an intern do more credible work. A paid or unpaid role with an experienced professional gives their evidence more weight and gives you an early look at motivated talent.</p>
+      </div>
+    </section>
+
+    <div class="toolbar" id="intern-toolbar">
+      <input class="search-input" id="intern-search" type="search" placeholder="Search interns, projects, regions, or skills" autocomplete="off" aria-controls="intern-tree" aria-expanded="false">
+      <button class="tool-btn filter-btn" type="button" data-tree-toggle aria-label="Open skill filters" aria-controls="intern-tree" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5h16M7 12h10M10 19h4"></path>
+        </svg>
+      </button>
+      <button class="tool-btn" type="button" data-clear-search>Clear</button>
+      <span class="active-filter" data-active-filter><span data-active-filter-text></span><button type="button" aria-label="Clear skill filter">x</button></span>
+      <div class="tree-drop" id="intern-tree" aria-label="Skill filters"></div>
+    </div>
+
+    <section class="intern-grid" id="interns" aria-label="Intern project ideas"></section>
+    <button class="more-bar" type="button" data-more-interns hidden><span data-more-count></span> more</button>
+    <p class="empty" data-empty>No intern projects match this filter yet.</p>
+    <section class="intern-cta-row" aria-label="Intern actions">
+      <a class="intern-cta" href="apply.html#intern">Become an Intern</a>
+      <a class="intern-cta" href="apply.html#mentor">Mentor an Intern</a>
+      <a class="intern-cta" href="apply.html#hire">Hire an Intern</a>
+    </section>
+  </main>
+  <script>
+    const state = {
+      interns: [],
+      tree: {},
+      manifest: { items: [], placeholder: "assets/skilf-thumbnails/placeholder.svg" },
+      svgFiles: {},
+      skills: [],
+      query: "",
+      activeSkill: "",
+      expanded: false,
+    };
+
+    function readJson(url) {
+      return readText(url).then((text) => JSON.parse(text.replace(/^\uFEFF/, "")));
+    }
+
+    function readText(url) {
+      return fetch(url).then((response) => {
+        if (!response.ok) throw new Error("Could not load " + url);
+        return response.text();
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      }[char]));
+    }
+
+    function normalize(value) {
+      return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    }
+
+    function slugify(value) {
+      return normalize(value).replace(/\s+/g, "-");
+    }
+
+    function buildSkillList(tree) {
+      const list = [];
+      Object.entries(tree).forEach(([category, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((skill) => list.push({ category, group: category, skill }));
+        } else {
+          Object.entries(value).forEach(([group, skills]) => {
+            skills.forEach((skill) => list.push({ category, group, skill }));
+          });
+        }
+      });
+      return list;
+    }
+
+    const messageOptions = [
+      "Would you be interested in paid-work on my project?",
+      "Would you be interested in working on my project as a sweat-equity cofounder?",
+      "Are you open to experienced collaborators joining you in this effort?",
+      "Are you open to inexperienced collaborators joining you in this effort?"
+    ];
+
+    function searchableTags(intern) {
+      return [...(intern.tags || []), ...(intern.searchTags || [])];
+    }
+
+    function thumbnailFor(intern) {
+      const lookup = new Map(state.manifest.items.map((item) => [normalize(item.skill), item.file]));
+      const candidates = [intern.skill, ...searchableTags(intern)];
+      for (const candidate of candidates) {
+        const file = lookup.get(normalize(candidate));
+        if (file) return { file, skill: candidate };
+      }
+      return { file: state.manifest.placeholder, skill: intern.skill || "Skilf project" };
+    }
+
+    function thumbnailMarkup(file) {
+      return state.svgFiles[file] || state.svgFiles[state.manifest.placeholder] || "";
+    }
+
+    function skillCount(skill) {
+      return state.interns.filter((intern) => [intern.skill, ...searchableTags(intern)].some((tag) => normalize(tag) === normalize(skill))).length;
+    }
+
+    function matchesIntern(intern) {
+      const haystack = normalize([intern.name, intern.skill, intern.project, intern.region, ...searchableTags(intern)].join(" "));
+      const queryMatch = !state.query || haystack.includes(normalize(state.query));
+      const skillMatch = !state.activeSkill || [intern.skill, ...searchableTags(intern)].some((skill) => normalize(skill) === normalize(state.activeSkill));
+      return queryMatch && skillMatch;
+    }
+
+    function closeSendPrompts() {
+      document.querySelectorAll(".registration-backdrop").forEach((prompt) => prompt.remove());
+    }
+
+    function closeMessageMenus(exceptMenu) {
+      document.querySelectorAll(".msg-menu").forEach((menu) => {
+        if (menu !== exceptMenu) menu.style.display = "none";
+      });
+      document.querySelectorAll(".msg-row").forEach((row) => {
+        if (!exceptMenu || !row.contains(exceptMenu)) row.classList.remove("menu-open");
+      });
+      document.querySelectorAll(".intern-card").forEach((card) => {
+        if (!exceptMenu || !card.contains(exceptMenu)) card.classList.remove("menu-open");
+      });
+    }
+
+    function showRegistrationPrompt() {
+      closeSendPrompts();
+      const backdrop = document.createElement("div");
+      backdrop.className = "registration-backdrop";
+      backdrop.innerHTML = `<div class="registration-modal" role="dialog" aria-modal="true" aria-labelledby="registration-modal-title">
+        <h2 id="registration-modal-title">Register to send messages.</h2>
+        <p>Only registered mentors, interns, and board members can send messages. Choose your role and we will take you to the right form.</p>
+        <div class="registration-actions">
+          <a href="apply.html#mentor">Mentor</a>
+          <a href="apply.html#intern">Intern</a>
+          <a href="apply.html#board-member">Board Member</a>
+        </div>
+        <button class="registration-close" type="button">Not now</button>
+      </div>`;
+      backdrop.addEventListener("click", (event) => {
+        if (event.target === backdrop) closeSendPrompts();
+      });
+      backdrop.querySelector(".registration-close").addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeSendPrompts();
+      });
+      document.body.appendChild(backdrop);
+    }
+
+    function cardMessagePayload(row) {
+      const card = row.closest(".intern-card");
+      return {
+        targetType: "intern",
+        targetName: card?.querySelector(".name")?.textContent.trim() || "",
+        targetField: card?.querySelector(".skill-pill")?.textContent.trim() || "",
+        targetProject: card?.querySelector(".project")?.textContent.trim() || "",
+        message: row.querySelector(".msg-input")?.value.trim() || ""
+      };
+    }
+
+    async function sendCardMessage(send, auth) {
+      const original = send.dataset.originalText || send.textContent;
+      send.dataset.originalText = original;
+      send.disabled = true;
+      send.textContent = "Sending...";
+      try {
+        if (auth.saveCardMessage) await auth.saveCardMessage(cardMessagePayload(send.closest(".msg-row")));
+        send.textContent = "Sent";
+        send.classList.add("sent");
+        window.setTimeout(() => {
+          send.textContent = send.dataset.originalText || "Send";
+          send.classList.remove("sent");
+          send.disabled = false;
+        }, 1800);
+      } catch (error) {
+        console.error("Message send failed.", error);
+        const status = document.querySelector("[data-auth-status]");
+        if (status) {
+          status.textContent = "Could not send yet. Try again in a moment.";
+          status.hidden = false;
+        }
+        send.textContent = send.dataset.originalText || "Send";
+        send.disabled = false;
+      }
+    }
+
+    function msgWidget(defaultIndex) {
+      const index = defaultIndex % messageOptions.length;
+      return `<div class="msg-row">
+        <ul class="msg-menu">${messageOptions.map((message) => `<li>${escapeHtml(message)}</li>`).join("")}</ul>
+        <textarea class="msg-input" rows="1">${escapeHtml(messageOptions[index])}</textarea>
+        <button class="msg-arrow" type="button" aria-label="Pick a message"><svg width="10" height="6" aria-hidden="true"><path d="M0 0l5 6 5-6z" fill="#8fa3ba"/></svg></button>
+        <button class="send-btn" type="button">Send</button>
+      </div>`;
+    }
+
+    function renderCards() {
+      const grid = document.getElementById("interns");
+      const empty = document.querySelector("[data-empty]");
+      const moreButton = document.querySelector("[data-more-interns]");
+      const filtered = state.interns.filter(matchesIntern);
+      const visible = state.expanded ? filtered : filtered.slice(0, 6);
+      grid.innerHTML = visible.map((intern, index) => {
+        const thumb = thumbnailFor(intern);
+        const tags = (intern.tags || []).map((tag) => `<button class="tag" type="button" data-skill="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join("");
+        const iconOffset = (index % 7) * 32.18;
+        return `<article class="intern-card">
+          <div class="thumb" role="img" aria-label="${escapeHtml(thumb.skill)} project thumbnail with no people">${thumbnailMarkup(thumb.file)}</div>
+          <div class="intern-body">
+            <div class="intern-top">
+              <div class="name-row"><div class="profile-icon" style="background-position:0 -${iconOffset}px"></div><h2 class="name">${escapeHtml(intern.name)}</h2></div>
+              <span class="skill-pill">${escapeHtml(intern.skill)}</span>
+            </div>
+            <p class="project">${escapeHtml(intern.project)}</p>
+            <p class="region">${escapeHtml(intern.region)}</p>
+            <div class="tags">${tags}</div>
+            ${msgWidget(index)}
+          </div>
+        </article>`;
+      }).join("");
+      empty.classList.toggle("visible", filtered.length === 0);
+      if (moreButton) {
+        const moreCount = Math.max(filtered.length - visible.length, 0);
+        moreButton.hidden = moreCount === 0;
+        moreButton.setAttribute("aria-expanded", String(state.expanded));
+        moreButton.querySelector("[data-more-count]").textContent = String(moreCount);
+      }
+      document.querySelector("[data-intern-count]").textContent = String(filtered.length);
+    }
+
+    function renderActiveFilter() {
+      const pill = document.querySelector("[data-active-filter]");
+      const text = document.querySelector("[data-active-filter-text]");
+      pill.classList.toggle("visible", Boolean(state.activeSkill));
+      text.textContent = state.activeSkill ? state.activeSkill : "";
+      document.querySelectorAll(".tree-leaf").forEach((link) => {
+        link.classList.toggle("active", normalize(link.dataset.skill) === normalize(state.activeSkill));
+      });
+    }
+
+    function buildTree() {
+      const tree = document.getElementById("intern-tree");
+      let html = '<div class="skill-browser-head"><strong>Skill filters</strong><span data-skill-browser-count></span></div>';
+      html += '<div class="tree-body">';
+      Object.entries(state.tree).forEach(([category, value]) => {
+        html += `<section class="tree-category" data-search="${escapeHtml(normalize(category))}"><h2 class="tree-category-title">${escapeHtml(category)}</h2>`;
+        const groups = Array.isArray(value) ? [[category, value]] : Object.entries(value);
+        groups.forEach(([group, skills]) => {
+          html += `<div class="tree-group" data-search="${escapeHtml(normalize([category, group].join(" ")))}">`;
+          if (group !== category) html += `<h3 class="tree-group-title">${escapeHtml(group)}</h3>`;
+          html += '<div class="tree-links">';
+          skills.forEach((skill, index) => {
+            const search = normalize([category, group, skill].join(" "));
+            const href = `#skill-${slugify([category, group, skill, index].join(" "))}`;
+            const count = skillCount(skill);
+            const noun = count === 1 ? "project" : "projects";
+            html += `<a class="tree-leaf" href="${escapeHtml(href)}" data-skill="${escapeHtml(skill)}" data-search="${escapeHtml(search)}" aria-label="${escapeHtml(`${skill}, ${group}, ${count} ${noun}`)}">${escapeHtml(skill)}</a>`;
+          });
+          html += "</div></div>";
+        });
+        html += "</section>";
+      });
+      html += "</div>";
+      tree.innerHTML = html;
+    }
+
+    function setBrowserOpen(open) {
+      const tree = document.getElementById("intern-tree");
+      const input = document.getElementById("intern-search");
+      const toggle = document.querySelector("[data-tree-toggle]");
+      tree.classList.toggle("open", open);
+      input.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-expanded", String(open));
+    }
+
+    function updateSkillBrowser() {
+      const input = document.getElementById("intern-search");
+      const count = document.querySelector("[data-skill-browser-count]");
+      const q = normalize(input.value);
+      const links = [...document.querySelectorAll(".tree-leaf")];
+      let visible = 0;
+
+      links.forEach((link) => {
+        const isVisible = !q || normalize(link.dataset.search).includes(q);
+        link.classList.toggle("is-hidden", !isVisible);
+        if (isVisible) visible += 1;
+      });
+
+      document.querySelectorAll(".tree-group").forEach((group) => {
+        const hasVisibleLink = Boolean(group.querySelector(".tree-leaf:not(.is-hidden)"));
+        group.classList.toggle("is-hidden", !hasVisibleLink);
+      });
+
+      document.querySelectorAll(".tree-category").forEach((category) => {
+        const hasVisibleGroup = Boolean(category.querySelector(".tree-group:not(.is-hidden)"));
+        category.classList.toggle("is-hidden", !hasVisibleGroup);
+      });
+
+      if (count) count.textContent = `${visible} skill links`;
+    }
+
+    function setSkill(skill) {
+      state.activeSkill = skill || "";
+      state.expanded = false;
+      renderActiveFilter();
+      renderCards();
+    }
+
+    function selectSkill(skill) {
+      const input = document.getElementById("intern-search");
+      input.value = "";
+      state.query = "";
+      setSkill(skill);
+      updateSkillBrowser();
+      setBrowserOpen(false);
+    }
+
+    function wireEvents() {
+      const input = document.getElementById("intern-search");
+      const tree = document.getElementById("intern-tree");
+
+      input.addEventListener("input", () => {
+        state.query = input.value;
+        state.expanded = false;
+        updateSkillBrowser();
+        setBrowserOpen(true);
+        renderCards();
+      });
+
+      input.addEventListener("click", () => {
+        updateSkillBrowser();
+        setBrowserOpen(true);
+      });
+
+      document.querySelector("[data-tree-toggle]").addEventListener("click", () => {
+        updateSkillBrowser();
+        setBrowserOpen(!tree.classList.contains("open"));
+      });
+
+      document.querySelector("[data-clear-search]").addEventListener("click", () => {
+        input.value = "";
+        state.query = "";
+        setSkill("");
+        updateSkillBrowser();
+        setBrowserOpen(false);
+        input.focus();
+      });
+
+      document.querySelector("[data-active-filter] button").addEventListener("click", () => setSkill(""));
+
+      document.querySelector("[data-more-interns]").addEventListener("click", () => {
+        state.expanded = true;
+        setBrowserOpen(false);
+        renderCards();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setBrowserOpen(false);
+          closeSendPrompts();
+          closeMessageMenus();
+        }
+      });
+
+      tree.addEventListener("click", (event) => {
+        const leaf = event.target.closest(".tree-leaf");
+        if (!leaf) return;
+        event.preventDefault();
+        selectSkill(leaf.dataset.skill);
+      });
+
+      document.addEventListener("click", (event) => {
+        const tag = event.target.closest(".tag");
+        if (tag) {
+          selectSkill(tag.dataset.skill);
+          return;
+        }
+        if (!event.target.closest("#intern-toolbar")) {
+          setBrowserOpen(false);
+        }
+      });
+
+      document.addEventListener("focusin", (event) => {
+        if (event.target.classList.contains("msg-input")) {
+          const row = event.target.closest(".msg-row");
+          row.classList.add("expanded");
+          event.target.rows = 2;
+        }
+      });
+
+      document.addEventListener("focusout", (event) => {
+        if (event.target.classList.contains("msg-input")) {
+          const row = event.target.closest(".msg-row");
+          const menu = row.querySelector(".msg-menu");
+          if (!menu.style.display || menu.style.display === "none") {
+            row.classList.remove("expanded");
+            event.target.rows = 1;
+          }
+        }
+      });
+
+      document.addEventListener("click", async (event) => {
+        const send = event.target.closest(".send-btn");
+        if (send) {
+          event.preventDefault();
+          const auth = window.skilfFirebase;
+          if (!auth || !auth.requireSignIn) {
+            showRegistrationPrompt();
+            return;
+          }
+          if (!auth.user) {
+            showRegistrationPrompt();
+            return;
+          }
+          await sendCardMessage(send, auth);
+          return;
+        }
+
+        if (!event.target.closest(".registration-modal")) closeSendPrompts();
+
+        const arrow = event.target.closest(".msg-arrow");
+        if (arrow) {
+          const menu = arrow.closest(".msg-row").querySelector(".msg-menu");
+          closeMessageMenus(menu);
+          arrow.closest(".msg-row").classList.toggle("menu-open", menu.style.display !== "block");
+          arrow.closest(".intern-card").classList.toggle("menu-open", menu.style.display !== "block");
+          menu.style.display = menu.style.display === "block" ? "none" : "block";
+          return;
+        }
+
+        const item = event.target.closest(".msg-menu li");
+        if (item) {
+          const row = item.closest(".msg-row");
+          row.querySelector(".msg-input").value = item.textContent;
+          row.querySelector(".msg-input").style.height = "auto";
+          row.querySelector(".msg-menu").style.display = "none";
+          row.classList.remove("menu-open");
+          row.closest(".intern-card").classList.remove("menu-open");
+          return;
+        }
+
+        closeMessageMenus();
+      });
+    }
+
+    Promise.all([
+      readJson("prospectivePartners.json"),
+      readJson("skill-tree.json"),
+      readJson("assets/skilf-thumbnails/manifest.json"),
+    ]).then(([interns, tree, manifest]) => {
+      state.interns = interns;
+      state.tree = tree;
+      state.manifest = manifest;
+      state.skills = buildSkillList(tree);
+      const files = [manifest.placeholder, ...manifest.items.map((item) => item.file)];
+      return Promise.all(files.map((file) => readText(file).then((svg) => [file, svg]))).then((svgEntries) => {
+        state.svgFiles = Object.fromEntries(svgEntries);
+        return manifest;
+      });
+    }).then((manifest) => {
+      document.querySelector("[data-skill-count]").textContent = String(manifest.totalSkillTreeLeaves || state.skills.length);
+      document.querySelector("[data-visual-count]").textContent = String(manifest.generatedItems || manifest.items.length);
+      buildTree();
+      wireEvents();
+      renderCards();
+      updateSkillBrowser();
+    }).catch((error) => {
+      console.error(error);
+      document.querySelector("[data-empty]").textContent = "Intern projects could not load.";
+      document.querySelector("[data-empty]").classList.add("visible");
+    });
+  </script>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

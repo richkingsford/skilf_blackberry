@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Photonics thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Photonics in Hardware &amp; Sensors.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#7be0b1" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#f2c14e" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#264f73" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 142c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#264f73" opacity="0.2"/>
+    <path d="M0 186c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#7be0b1" opacity="0.08"/>
+    <circle cx="280" cy="34" r="38" fill="#70a1ff" opacity="0.12"/>
+    <circle cx="44" cy="158" r="26" fill="#f2c14e" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(176 120) rotate(-3) scale(1.12)"><polygon points="-50,50 0,-56 64,50" fill="#264f73" opacity="0.82"/><path d="M-80-30h82l78 58" fill="none" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/><path d="M2-30l68-28M2-20l82-2M2-10l72 28" fill="none" stroke="#7be0b1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M2 0l58 58" fill="none" stroke="#70a1ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(274 62) rotate(10) scale(0.56)"><path d="M-78 10c18-72 38 72 56 0s38-72 56 0 38 72 56 0" fill="none" stroke="#7be0b1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-66 48c34-22 62-22 96 0 22 14 44 14 70 0" fill="none" stroke="#f2c14e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-68" cy="-48" r="7" fill="#70a1ff" opacity="1"/><circle cx="70" cy="-38" r="10" fill="#264f73" opacity="1"/></g><g transform="translate(76 148) rotate(-8) scale(0.58)"><circle cx="0" cy="0" r="58" fill="#7be0b1" opacity="0.88"/><circle cx="0" cy="0" r="38" fill="#0b1117" opacity="0.18"/><line x1="-36" y1="-50" x2="-36" y2="50" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="-12" y1="-50" x2="-12" y2="50" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="12" y1="-50" x2="12" y2="50" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="36" y1="-50" x2="36" y2="50" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="-50" y1="-36" x2="50" y2="-36" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="-50" y1="-12" x2="50" y2="-12" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="-50" y1="12" x2="50" y2="12" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><line x1="-50" y1="36" x2="50" y2="36" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.4"/><path d="M36 42c18-18 24-42 16-66" fill="none" stroke="#f2c14e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Skilf Challenge Dialogue logo</title>
+  <desc id="desc">One candidate defending in a question-and-answer challenge before a board.</desc>
+  <path d="M12 40c0-11 9-20 20-20s20 9 20 20" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M17 16h11c3 0 5 2 5 5v1c0 3-2 5-5 5h-4l-6 5v-5h-1c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#d4a94b"/>
+  <path d="M37 16h10c3 0 5 2 5 5v1c0 3-2 5-5 5h-1v5l-6-5h-3c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#73b8ff"/>
+  <circle cx="32" cy="39" r="5.5" fill="#ff8c73"/>
+  <path d="M22 52c4-7 20-7 24 0" fill="none" stroke="#9c83ff" stroke-width="4" stroke-linecap="round"/>
+</svg>

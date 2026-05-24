@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monetize Your Expertise - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
   <style>
     :root { color-scheme: light; --ink:#11233b; --ink-soft:#3f5877; --gold:#9d7b35; --line:#d7dde6; --panel:#fff; }
     body { margin:0; font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif; background:radial-gradient(circle at 12% 18%,#f8f3df 0%,#f8f3df 15%,transparent 50%),radial-gradient(circle at 88% 84%,#e6eef8 0%,#e6eef8 20%,transparent 56%),linear-gradient(165deg,#f7fafc 0%,#eef3f8 100%); color:var(--ink); }
@@ -27,8 +28,36 @@
   </style>
 </head>
 <body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html" aria-current="page">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
   <main>
-    <a class="back" href="index.html">Back to Skilf</a>
     <h1>Monetize Your Expertise</h1>
     <p class="subtitle">Serve on Demo Day panels, mentor apprentices, and help candidates turn rough ability into credible, marketable proof.</p>
     <img class="hero" src="assets/advisor-skill-growth.png" alt="Advisor helping a learner turn project work into marketable skills">
@@ -51,8 +80,9 @@
         </ul>
         <a class="cta" href="apply.html?kind=panelist">Join the panelist pool</a>
       </div>
-      <img src="assets/board-mentee-map.png" alt="Advisor view of apprentices and upcoming Demo Days">
+      <img src="assets/board-mentee-map-no-pointing.png" alt="Advisor view of apprentices and upcoming Demo Days">
     </section>
   </main>
+  <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

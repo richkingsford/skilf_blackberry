@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Control Systems thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Control Systems in Engineering &amp; Robotics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#facc15" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 159c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#2563eb" opacity="0.2"/>
+    <path d="M0 203c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#facc15" opacity="0.08"/>
+    <circle cx="301" cy="67" r="35" fill="#fb7185" opacity="0.12"/>
+    <circle cx="77" cy="167" r="31" fill="#34d399" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(184 104) rotate(0) scale(1.1)"><path d="M-48-30c28-38 90-22 100 22" fill="none" stroke="#facc15" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M52-8l18-2-12 14" fill="none" stroke="#facc15" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M48 34c-30 35-91 17-98-28" fill="none" stroke="#34d399" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-50 6l-18 2 12-14" fill="none" stroke="#34d399" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><rect x="-30" y="-24" width="60" height="48" rx="10" fill="#2563eb" opacity="0.92"/><circle cx="0" cy="0" r="10" fill="#fb7185" opacity="1"/></g><g transform="translate(82 74) rotate(-12) scale(0.64)"><circle cx="-28" cy="2" r="42" fill="#2563eb" opacity="0.9"/><circle cx="-28" cy="2" r="20" fill="#0b1117" opacity="0.5"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(0 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(45 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(90 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(135 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(180 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(225 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(270 -28 2)"/><rect x="-34" y="-57" width="12" height="22" rx="4" fill="#facc15" transform="rotate(315 -28 2)"/><path d="M36 40a58 58 0 0 1 38-90" fill="none" stroke="#34d399" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><line x1="36" y1="40" x2="68" y2="-18" stroke="#fb7185" stroke-width="6" stroke-linecap="round" opacity="0.92"/></g><g transform="translate(286 148) rotate(9) scale(0.58)"><rect x="-72" y="-54" width="144" height="108" rx="12" fill="#2563eb" opacity="0.8"/><line x1="-48" y1="-54" x2="-48" y2="54" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="-24" y1="-54" x2="-24" y2="54" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="0" y1="-54" x2="0" y2="54" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="24" y1="-54" x2="24" y2="54" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="48" y1="-54" x2="48" y2="54" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="-72" y1="-36" x2="72" y2="-36" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="-72" y1="-12" x2="72" y2="-12" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="-72" y1="12" x2="72" y2="12" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><line x1="-72" y1="36" x2="72" y2="36" stroke="#e8edf3" stroke-width="2" stroke-linecap="round" opacity="0.22"/><path d="M-58 36c42-80 76 52 128-44" fill="none" stroke="#34d399" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="42" cy="-18" r="13" fill="#facc15" opacity="1"/></g>
+  </g>
+</svg>

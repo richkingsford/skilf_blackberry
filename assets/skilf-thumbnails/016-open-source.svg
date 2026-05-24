@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Open Source thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Open Source in Software &amp; Data.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#7be0b1" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#f2c14e" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#264f73" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 146c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#264f73" opacity="0.2"/>
+    <path d="M0 190c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#7be0b1" opacity="0.08"/>
+    <circle cx="284" cy="34" r="42" fill="#70a1ff" opacity="0.12"/>
+    <circle cx="44" cy="162" r="26" fill="#f2c14e" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(146 118) rotate(-4) scale(1)"><line x1="-62" y1="42" x2="-8" y2="-10" stroke="#7be0b1" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-8" y1="-10" x2="50" y2="-46" stroke="#f2c14e" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-8" y1="-10" x2="60" y2="42" stroke="#264f73" stroke-width="7" stroke-linecap="round" opacity="0.92"/><circle cx="-62" cy="42" r="17" fill="#7be0b1" opacity="1"/><circle cx="-8" cy="-10" r="17" fill="#70a1ff" opacity="1"/><circle cx="50" cy="-46" r="17" fill="#f2c14e" opacity="1"/><circle cx="60" cy="42" r="17" fill="#264f73" opacity="1"/><path d="M-74-52h52" fill="none" stroke="#e8edf3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.42"/></g><g transform="translate(262 82) rotate(8) scale(0.74)"><rect x="-66" y="-40" width="48" height="48" rx="8" fill="#7be0b1" opacity="1"/><rect x="-10" y="-40" width="48" height="48" rx="8" fill="#f2c14e" opacity="1"/><rect x="46" y="-40" width="48" height="48" rx="8" fill="#264f73" opacity="1"/><rect x="-38" y="18" width="48" height="48" rx="8" fill="#70a1ff" opacity="1"/><rect x="18" y="18" width="48" height="48" rx="8" fill="#7be0b1" opacity="0.85"/><path d="M-18 8h8M38 8h8M10 42h8" fill="none" stroke="#e8edf3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/></g><g transform="translate(66 70) rotate(0) scale(0.48)"><rect x="-72" y="-54" width="144" height="108" rx="13" fill="#264f73" opacity="0.86"/><path d="M-72-24h144" fill="none" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/><circle cx="-54" cy="-40" r="5" fill="#70a1ff" opacity="1"/><circle cx="-36" cy="-40" r="5" fill="#f2c14e" opacity="1"/><path d="M-26 12c14-20 24-2 18 10 20-12 32 18 8 28h-52c-12-18 8-32 20-18-4-10-4-16 6-20z" fill="#7be0b1" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M18 8h30v30H18z" fill="#f2c14e" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g>
+  </g>
+</svg>

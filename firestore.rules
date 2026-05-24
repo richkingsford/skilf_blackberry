@@ -6,11 +6,26 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    match /people/{personId} {
-      allow create: if isSignedIn()
+    function ownsCreatedDoc() {
+      return isSignedIn()
         && request.resource.data.authUid == request.auth.uid
+        && request.resource.data.authEmail is string;
+    }
+
+    match /people/{personId} {
+      allow create: if ownsCreatedDoc()
         && request.resource.data.email is string
-        && request.resource.data.role in ["student", "panelist", "sponsor"];
+        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor"];
+      allow read, update, delete: if false;
+    }
+
+    match /messages/{messageId} {
+      allow create: if ownsCreatedDoc()
+        && request.resource.data.targetType in ["expert", "partner"]
+        && request.resource.data.targetName is string
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 2000;
       allow read, update, delete: if false;
     }
   }

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Ethics thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Ethics in Security, Law &amp; Ethics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#70a1ff" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#e28bff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1f6f78" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 157c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#1f6f78" opacity="0.2"/>
+    <path d="M0 201c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#70a1ff" opacity="0.08"/>
+    <circle cx="289" cy="39" r="35" fill="#ff8c73" opacity="0.12"/>
+    <circle cx="49" cy="167" r="27" fill="#e28bff" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(184 104) rotate(0) scale(1.1)"><line x1="0" y1="-56" x2="0" y2="58" stroke="#70a1ff" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-62" y1="-22" x2="62" y2="-22" stroke="#e28bff" stroke-width="6" stroke-linecap="round" opacity="0.92"/><path d="M-48-22l-24 48h48zM48-22l-24 48h48z" fill="#1f6f78" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="0" cy="-56" r="11" fill="#ff8c73" opacity="1"/><path d="M-42 58h84" fill="none" stroke="#70a1ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(82 74) rotate(-12) scale(0.64)"><rect x="-66" y="-46" width="132" height="92" rx="10" fill="#1f6f78" opacity="1"/><path d="M0-46v92" fill="none" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/><path d="M-38-4h76M-24-4c0-20 48-20 48 0" fill="none" stroke="#e28bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-24" cy="8" r="10" fill="#70a1ff" opacity="1"/><circle cx="24" cy="8" r="10" fill="#ff8c73" opacity="1"/><line x1="-40" y1="46" x2="40" y2="46" stroke="#70a1ff" stroke-width="5" stroke-linecap="round" opacity="0.92"/></g><g transform="translate(286 148) rotate(9) scale(0.58)"><circle cx="0" cy="0" r="22" fill="#70a1ff" opacity="0.9"/><circle cx="0" cy="0" r="46" fill="none" stroke="#e28bff" stroke-width="7" opacity="0.68" opacity="1"/><circle cx="0" cy="0" r="70" fill="none" stroke="#1f6f78" stroke-width="6" opacity="0.5" opacity="1"/><path d="M-76 52c46-24 106-24 152 0" fill="none" stroke="#ff8c73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g>
+  </g>
+</svg>

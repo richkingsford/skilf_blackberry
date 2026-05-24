@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Plasma Physics thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Plasma Physics in Physical Sciences &amp; Materials.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#70a1ff" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#e28bff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1f6f78" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 141c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#1f6f78" opacity="0.2"/>
+    <path d="M0 185c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#70a1ff" opacity="0.08"/>
+    <circle cx="299" cy="65" r="45" fill="#ff8c73" opacity="0.12"/>
+    <circle cx="75" cy="165" r="27" fill="#e28bff" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(118 82) rotate(-8) scale(0.78)"><path d="M-72 44c20-92 50 18 72-68 22 86 52-24 72 68" fill="none" stroke="#ff8c73" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-54-10c36 38 72 38 108 0" fill="none" stroke="#70a1ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-64" cy="42" r="10" fill="#e28bff" opacity="1"/><circle cx="64" cy="42" r="10" fill="#1f6f78" opacity="1"/></g><g transform="translate(224 126) rotate(4) scale(1.04)"><ellipse cx="0" cy="0" rx="78" ry="24" fill="none" stroke="#70a1ff" stroke-width="6" transform="rotate(24)"/><ellipse cx="0" cy="0" rx="78" ry="24" fill="none" stroke="#e28bff" stroke-width="6" transform="rotate(-24)"/><ellipse cx="0" cy="0" rx="26" ry="74" fill="none" stroke="#1f6f78" stroke-width="6"/><circle cx="0" cy="0" r="15" fill="#ff8c73" opacity="1"/><circle cx="60" cy="-34" r="8" fill="#70a1ff" opacity="1"/></g><g transform="translate(70 156) rotate(0) scale(0.48)"><path d="M-78 10c18-72 38 72 56 0s38-72 56 0 38 72 56 0" fill="none" stroke="#70a1ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-66 48c34-22 62-22 96 0 22 14 44 14 70 0" fill="none" stroke="#e28bff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-68" cy="-48" r="7" fill="#ff8c73" opacity="1"/><circle cx="70" cy="-38" r="10" fill="#1f6f78" opacity="1"/></g>
+  </g>
+</svg>

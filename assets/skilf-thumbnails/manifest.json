@@ -1,0 +1,1881 @@
+{
+  "source": "skill-tree.json",
+  "totalSkillTreeLeaves": 66,
+  "uniqueSkillNames": 66,
+  "batchSize": 30,
+  "generatedItems": 66,
+  "placeholder": "assets/skilf-thumbnails/placeholder.svg",
+  "batches": [
+    {
+      "number": 1,
+      "start": 1,
+      "end": 30,
+      "items": [
+        {
+          "index": 1,
+          "batch": 1,
+          "skill": "AI",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "ai",
+          "concepts": [
+            "sparkChip",
+            "foundationBlocks",
+            "promptCards"
+          ],
+          "file": "assets/skilf-thumbnails/001-ai.svg"
+        },
+        {
+          "index": 2,
+          "batch": 1,
+          "skill": "ML",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "ml",
+          "concepts": [
+            "neuralNet",
+            "scatterDots",
+            "edgeNodes"
+          ],
+          "file": "assets/skilf-thumbnails/002-ml.svg"
+        },
+        {
+          "index": 3,
+          "batch": 1,
+          "skill": "Deep Learning",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "deep-learning",
+          "concepts": [
+            "layerStack",
+            "neuralNet",
+            "sparkChip"
+          ],
+          "file": "assets/skilf-thumbnails/003-deep-learning.svg"
+        },
+        {
+          "index": 4,
+          "batch": 1,
+          "skill": "Foundation Models",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "foundation-models",
+          "concepts": [
+            "foundationBlocks",
+            "promptCards",
+            "sparkChip"
+          ],
+          "file": "assets/skilf-thumbnails/004-foundation-models.svg"
+        },
+        {
+          "index": 5,
+          "batch": 1,
+          "skill": "NLP",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "nlp",
+          "concepts": [
+            "speechParse",
+            "syntaxTree",
+            "plainDocument"
+          ],
+          "file": "assets/skilf-thumbnails/005-nlp.svg"
+        },
+        {
+          "index": 6,
+          "batch": 1,
+          "skill": "Computer Vision",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "computer-vision",
+          "concepts": [
+            "cameraLens",
+            "scanSlices",
+            "lidarFan"
+          ],
+          "file": "assets/skilf-thumbnails/006-computer-vision.svg"
+        },
+        {
+          "index": 7,
+          "batch": 1,
+          "skill": "Medical NLP",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "medical-nlp",
+          "concepts": [
+            "medicalWords",
+            "speechParse",
+            "heartMonitor"
+          ],
+          "file": "assets/skilf-thumbnails/007-medical-nlp.svg"
+        },
+        {
+          "index": 8,
+          "batch": 1,
+          "skill": "Biomedical NLP",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "biomedical-nlp",
+          "concepts": [
+            "dnaText",
+            "medicalWords",
+            "moleculeDock"
+          ],
+          "file": "assets/skilf-thumbnails/008-biomedical-nlp.svg"
+        },
+        {
+          "index": 9,
+          "batch": 1,
+          "skill": "Knowledge Graphs",
+          "category": "Artificial Intelligence",
+          "group": "Artificial Intelligence",
+          "slug": "knowledge-graphs",
+          "concepts": [
+            "knowledgeGraph",
+            "mesh",
+            "syntaxTree"
+          ],
+          "file": "assets/skilf-thumbnails/009-knowledge-graphs.svg"
+        },
+        {
+          "index": 10,
+          "batch": 1,
+          "skill": "Analytics",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "analytics",
+          "concepts": [
+            "barDashboard",
+            "scatterDots",
+            "financeGraph"
+          ],
+          "file": "assets/skilf-thumbnails/010-analytics.svg"
+        },
+        {
+          "index": 11,
+          "batch": 1,
+          "skill": "Optimization",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "optimization",
+          "concepts": [
+            "optimizerPath",
+            "rewardMaze",
+            "barDashboard"
+          ],
+          "file": "assets/skilf-thumbnails/011-optimization.svg"
+        },
+        {
+          "index": 12,
+          "batch": 1,
+          "skill": "Cloud",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "cloud",
+          "concepts": [
+            "cloudServer",
+            "edgeCloud",
+            "clusterStack"
+          ],
+          "file": "assets/skilf-thumbnails/012-cloud.svg"
+        },
+        {
+          "index": 13,
+          "batch": 1,
+          "skill": "Edge Computing",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "edge-computing",
+          "concepts": [
+            "edgeCloud",
+            "edgeNodes",
+            "iotHub"
+          ],
+          "file": "assets/skilf-thumbnails/013-edge-computing.svg"
+        },
+        {
+          "index": 14,
+          "batch": 1,
+          "skill": "Real-Time",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "real-time",
+          "concepts": [
+            "realTimeClock",
+            "telemetryDish",
+            "waveform"
+          ],
+          "file": "assets/skilf-thumbnails/014-real-time.svg"
+        },
+        {
+          "index": 15,
+          "batch": 1,
+          "skill": "Browser Extensions",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "browser-extensions",
+          "concepts": [
+            "browserPuzzle",
+            "wireframe",
+            "forkNodes"
+          ],
+          "file": "assets/skilf-thumbnails/015-browser-extensions.svg"
+        },
+        {
+          "index": 16,
+          "batch": 1,
+          "skill": "Open Source",
+          "category": "Software & Data",
+          "group": "Software & Data",
+          "slug": "open-source",
+          "concepts": [
+            "forkNodes",
+            "modularBlocks",
+            "browserPuzzle"
+          ],
+          "file": "assets/skilf-thumbnails/016-open-source.svg"
+        },
+        {
+          "index": 17,
+          "batch": 1,
+          "skill": "Robotics",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "robotics",
+          "concepts": [
+            "robotArm",
+            "embeddedBoard",
+            "sensorTripod"
+          ],
+          "file": "assets/skilf-thumbnails/017-robotics.svg"
+        },
+        {
+          "index": 18,
+          "batch": 1,
+          "skill": "Autonomous",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "autonomous",
+          "concepts": [
+            "autonomyRoad",
+            "robotArm",
+            "lidarFan"
+          ],
+          "file": "assets/skilf-thumbnails/018-autonomous.svg"
+        },
+        {
+          "index": 19,
+          "batch": 1,
+          "skill": "Control Systems",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "control-systems",
+          "concepts": [
+            "feedbackLoop",
+            "gearGauge",
+            "simulationGrid"
+          ],
+          "file": "assets/skilf-thumbnails/019-control-systems.svg"
+        },
+        {
+          "index": 20,
+          "batch": 1,
+          "skill": "Mechatronics",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "mechatronics",
+          "concepts": [
+            "robotArm",
+            "gearGauge",
+            "embeddedBoard"
+          ],
+          "file": "assets/skilf-thumbnails/020-mechatronics.svg"
+        },
+        {
+          "index": 21,
+          "batch": 1,
+          "skill": "Drones",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "drones",
+          "concepts": [
+            "drone",
+            "satelliteScan",
+            "autonomyRoad"
+          ],
+          "file": "assets/skilf-thumbnails/021-drones.svg"
+        },
+        {
+          "index": 22,
+          "batch": 1,
+          "skill": "Aerospace Engineering",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "aerospace-engineering",
+          "concepts": [
+            "rocketPlane",
+            "simulationGrid",
+            "starMap"
+          ],
+          "file": "assets/skilf-thumbnails/022-aerospace-engineering.svg"
+        },
+        {
+          "index": 23,
+          "batch": 1,
+          "skill": "Structural Engineering",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "structural-engineering",
+          "concepts": [
+            "bridgeTruss",
+            "simulationGrid",
+            "soilCore"
+          ],
+          "file": "assets/skilf-thumbnails/023-structural-engineering.svg"
+        },
+        {
+          "index": 24,
+          "batch": 1,
+          "skill": "3D Printing",
+          "category": "Engineering & Robotics",
+          "group": "Engineering & Robotics",
+          "slug": "3d-printing",
+          "concepts": [
+            "printerNozzle",
+            "lattice",
+            "prostheticJoint"
+          ],
+          "file": "assets/skilf-thumbnails/024-3d-printing.svg"
+        },
+        {
+          "index": 25,
+          "batch": 1,
+          "skill": "Embedded",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "embedded",
+          "concepts": [
+            "embeddedBoard",
+            "sensorTripod",
+            "phoneChip"
+          ],
+          "file": "assets/skilf-thumbnails/025-embedded.svg"
+        },
+        {
+          "index": 26,
+          "batch": 1,
+          "skill": "FPGA",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "fpga",
+          "concepts": [
+            "fpgaGrid",
+            "quantumChip",
+            "embeddedBoard"
+          ],
+          "file": "assets/skilf-thumbnails/026-fpga.svg"
+        },
+        {
+          "index": 27,
+          "batch": 1,
+          "skill": "Semiconductor Design",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "semiconductor-design",
+          "concepts": [
+            "wafer",
+            "fpgaGrid",
+            "lattice"
+          ],
+          "file": "assets/skilf-thumbnails/027-semiconductor-design.svg"
+        },
+        {
+          "index": 28,
+          "batch": 1,
+          "skill": "Signal Processing",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "signal-processing",
+          "concepts": [
+            "waveform",
+            "voiceWaves",
+            "sensorTripod"
+          ],
+          "file": "assets/skilf-thumbnails/028-signal-processing.svg"
+        },
+        {
+          "index": 29,
+          "batch": 1,
+          "skill": "Photonics",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "photonics",
+          "concepts": [
+            "prism",
+            "waveform",
+            "wafer"
+          ],
+          "file": "assets/skilf-thumbnails/029-photonics.svg"
+        },
+        {
+          "index": 30,
+          "batch": 1,
+          "skill": "Sensors",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "sensors",
+          "concepts": [
+            "sensorTripod",
+            "iotHub",
+            "wearableBand"
+          ],
+          "file": "assets/skilf-thumbnails/030-sensors.svg"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "start": 31,
+      "end": 60,
+      "items": [
+        {
+          "index": 31,
+          "batch": 2,
+          "skill": "Wearables",
+          "category": "Hardware & Sensors",
+          "group": "Hardware & Sensors",
+          "slug": "wearables",
+          "concepts": [
+            "wearableBand",
+            "heartMonitor",
+            "hapticPads"
+          ],
+          "file": "assets/skilf-thumbnails/031-wearables.svg"
+        },
+        {
+          "index": 32,
+          "batch": 2,
+          "skill": "Power Systems Engineering",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "power-systems-engineering",
+          "concepts": [
+            "powerGrid",
+            "batteryGrid",
+            "telemetryDish"
+          ],
+          "file": "assets/skilf-thumbnails/032-power-systems-engineering.svg"
+        },
+        {
+          "index": 33,
+          "batch": 2,
+          "skill": "Renewable Energy Systems",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "renewable-energy-systems",
+          "concepts": [
+            "windSolar",
+            "powerGrid",
+            "batteryGrid"
+          ],
+          "file": "assets/skilf-thumbnails/033-renewable-energy-systems.svg"
+        },
+        {
+          "index": 34,
+          "batch": 2,
+          "skill": "Nuclear",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "nuclear",
+          "concepts": [
+            "reactorCore",
+            "powerGrid",
+            "shieldLock"
+          ],
+          "file": "assets/skilf-thumbnails/034-nuclear.svg"
+        },
+        {
+          "index": 35,
+          "batch": 2,
+          "skill": "Climate Informatics",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "climate-informatics",
+          "concepts": [
+            "climateMap",
+            "barDashboard",
+            "satelliteScan"
+          ],
+          "file": "assets/skilf-thumbnails/035-climate-informatics.svg"
+        },
+        {
+          "index": 36,
+          "batch": 2,
+          "skill": "Air Quality",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "air-quality",
+          "concepts": [
+            "airParticles",
+            "sensorTripod",
+            "climateMap"
+          ],
+          "file": "assets/skilf-thumbnails/036-air-quality.svg"
+        },
+        {
+          "index": 37,
+          "batch": 2,
+          "skill": "Water Quality",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "water-quality",
+          "concepts": [
+            "waterDrop",
+            "sensorTripod",
+            "toxinVial"
+          ],
+          "file": "assets/skilf-thumbnails/037-water-quality.svg"
+        },
+        {
+          "index": 38,
+          "batch": 2,
+          "skill": "Remote Sensing",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "remote-sensing",
+          "concepts": [
+            "satelliteScan",
+            "climateMap",
+            "lidarFan"
+          ],
+          "file": "assets/skilf-thumbnails/038-remote-sensing.svg"
+        },
+        {
+          "index": 39,
+          "batch": 2,
+          "skill": "Agriculture",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "agriculture",
+          "concepts": [
+            "fieldRows",
+            "cropLeaf",
+            "satelliteScan"
+          ],
+          "file": "assets/skilf-thumbnails/039-agriculture.svg"
+        },
+        {
+          "index": 40,
+          "batch": 2,
+          "skill": "Reforestation",
+          "category": "Energy & Environment",
+          "group": "Energy & Environment",
+          "slug": "reforestation",
+          "concepts": [
+            "saplings",
+            "satelliteScan",
+            "recyclingLoop"
+          ],
+          "file": "assets/skilf-thumbnails/040-reforestation.svg"
+        },
+        {
+          "index": 41,
+          "batch": 2,
+          "skill": "Computational Biology",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "computational-biology",
+          "concepts": [
+            "cellCluster",
+            "barDashboard",
+            "genome"
+          ],
+          "file": "assets/skilf-thumbnails/041-computational-biology.svg"
+        },
+        {
+          "index": 42,
+          "batch": 2,
+          "skill": "Genomics",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "genomics",
+          "concepts": [
+            "genome",
+            "dnaText",
+            "barDashboard"
+          ],
+          "file": "assets/skilf-thumbnails/042-genomics.svg"
+        },
+        {
+          "index": 43,
+          "batch": 2,
+          "skill": "Synthetic Biology",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "synthetic-biology",
+          "concepts": [
+            "cellFactory",
+            "genome",
+            "moleculeDock"
+          ],
+          "file": "assets/skilf-thumbnails/043-synthetic-biology.svg"
+        },
+        {
+          "index": 44,
+          "batch": 2,
+          "skill": "Drug Discovery",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "drug-discovery",
+          "concepts": [
+            "moleculeDock",
+            "flask",
+            "proteinFold"
+          ],
+          "file": "assets/skilf-thumbnails/044-drug-discovery.svg"
+        },
+        {
+          "index": 45,
+          "batch": 2,
+          "skill": "Health Monitoring",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "health-monitoring",
+          "concepts": [
+            "heartMonitor",
+            "wearableBand",
+            "telemetryDish"
+          ],
+          "file": "assets/skilf-thumbnails/045-health-monitoring.svg"
+        },
+        {
+          "index": 46,
+          "batch": 2,
+          "skill": "Dentistry",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "dentistry",
+          "concepts": [
+            "tooth",
+            "scanSlices",
+            "medicalWords"
+          ],
+          "file": "assets/skilf-thumbnails/046-dentistry.svg"
+        },
+        {
+          "index": 47,
+          "batch": 2,
+          "skill": "Neurosurgery",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "neurosurgery",
+          "concepts": [
+            "brainScan",
+            "neuroChip",
+            "scanSlices"
+          ],
+          "file": "assets/skilf-thumbnails/047-neurosurgery.svg"
+        },
+        {
+          "index": 48,
+          "batch": 2,
+          "skill": "Immunotherapy",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "immunotherapy",
+          "concepts": [
+            "antibody",
+            "cellCluster",
+            "medicalWords"
+          ],
+          "file": "assets/skilf-thumbnails/048-immunotherapy.svg"
+        },
+        {
+          "index": 49,
+          "batch": 2,
+          "skill": "Prosthetics",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "prosthetics",
+          "concepts": [
+            "prostheticJoint",
+            "printerNozzle",
+            "therapyAngles"
+          ],
+          "file": "assets/skilf-thumbnails/049-prosthetics.svg"
+        },
+        {
+          "index": 50,
+          "batch": 2,
+          "skill": "Elder Care",
+          "category": "Life Sciences & Health",
+          "group": "Life Sciences & Health",
+          "slug": "elder-care",
+          "concepts": [
+            "homeHeart",
+            "careLamp",
+            "heartMonitor"
+          ],
+          "file": "assets/skilf-thumbnails/050-elder-care.svg"
+        },
+        {
+          "index": 51,
+          "batch": 2,
+          "skill": "Materials Science",
+          "category": "Physical Sciences & Materials",
+          "group": "Physical Sciences & Materials",
+          "slug": "materials-science",
+          "concepts": [
+            "lattice",
+            "wafer",
+            "nanotubes"
+          ],
+          "file": "assets/skilf-thumbnails/051-materials-science.svg"
+        },
+        {
+          "index": 52,
+          "batch": 2,
+          "skill": "Nanotech",
+          "category": "Physical Sciences & Materials",
+          "group": "Physical Sciences & Materials",
+          "slug": "nanotech",
+          "concepts": [
+            "nanotubes",
+            "lattice",
+            "wafer"
+          ],
+          "file": "assets/skilf-thumbnails/052-nanotech.svg"
+        },
+        {
+          "index": 53,
+          "batch": 2,
+          "skill": "Quantum Hardware",
+          "category": "Physical Sciences & Materials",
+          "group": "Physical Sciences & Materials",
+          "slug": "quantum-hardware",
+          "concepts": [
+            "quantumChip",
+            "quantumGates",
+            "wafer"
+          ],
+          "file": "assets/skilf-thumbnails/053-quantum-hardware.svg"
+        },
+        {
+          "index": 54,
+          "batch": 2,
+          "skill": "Astrophysics",
+          "category": "Physical Sciences & Materials",
+          "group": "Physical Sciences & Materials",
+          "slug": "astrophysics",
+          "concepts": [
+            "starMap",
+            "atom",
+            "satelliteScan"
+          ],
+          "file": "assets/skilf-thumbnails/054-astrophysics.svg"
+        },
+        {
+          "index": 55,
+          "batch": 2,
+          "skill": "Plasma Physics",
+          "category": "Physical Sciences & Materials",
+          "group": "Physical Sciences & Materials",
+          "slug": "plasma-physics",
+          "concepts": [
+            "plasma",
+            "atom",
+            "waveform"
+          ],
+          "file": "assets/skilf-thumbnails/055-plasma-physics.svg"
+        },
+        {
+          "index": 56,
+          "batch": 2,
+          "skill": "Security",
+          "category": "Security, Law & Ethics",
+          "group": "Security, Law & Ethics",
+          "slug": "security",
+          "concepts": [
+            "shieldLock",
+            "keyPair",
+            "privacyWindow"
+          ],
+          "file": "assets/skilf-thumbnails/056-security.svg"
+        },
+        {
+          "index": 57,
+          "batch": 2,
+          "skill": "Privacy",
+          "category": "Security, Law & Ethics",
+          "group": "Security, Law & Ethics",
+          "slug": "privacy",
+          "concepts": [
+            "privacyWindow",
+            "shieldLock",
+            "keyPair"
+          ],
+          "file": "assets/skilf-thumbnails/057-privacy.svg"
+        },
+        {
+          "index": 58,
+          "batch": 2,
+          "skill": "Cryptography",
+          "category": "Security, Law & Ethics",
+          "group": "Security, Law & Ethics",
+          "slug": "cryptography",
+          "concepts": [
+            "keyPair",
+            "quantumGates",
+            "shieldLock"
+          ],
+          "file": "assets/skilf-thumbnails/058-cryptography.svg"
+        },
+        {
+          "index": 59,
+          "batch": 2,
+          "skill": "Data Privacy Law",
+          "category": "Security, Law & Ethics",
+          "group": "Security, Law & Ethics",
+          "slug": "data-privacy-law",
+          "concepts": [
+            "privacyWindow",
+            "lawBook",
+            "shieldLock"
+          ],
+          "file": "assets/skilf-thumbnails/059-data-privacy-law.svg"
+        },
+        {
+          "index": 60,
+          "batch": 2,
+          "skill": "Ethics",
+          "category": "Security, Law & Ethics",
+          "group": "Security, Law & Ethics",
+          "slug": "ethics",
+          "concepts": [
+            "scales",
+            "lawBook",
+            "impactRipple"
+          ],
+          "file": "assets/skilf-thumbnails/060-ethics.svg"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "start": 61,
+      "end": 66,
+      "items": [
+        {
+          "index": 61,
+          "batch": 3,
+          "skill": "Education",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "education",
+          "concepts": [
+            "bookSpark",
+            "adaptivePath",
+            "plainDocument"
+          ],
+          "file": "assets/skilf-thumbnails/061-education.svg"
+        },
+        {
+          "index": 62,
+          "batch": 3,
+          "skill": "Accessibility",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "accessibility",
+          "concepts": [
+            "accessPath",
+            "wireframe",
+            "voiceWaves"
+          ],
+          "file": "assets/skilf-thumbnails/062-accessibility.svg"
+        },
+        {
+          "index": 63,
+          "batch": 3,
+          "skill": "Inclusion",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "inclusion",
+          "concepts": [
+            "inclusionRing",
+            "accessPath",
+            "modularBlocks"
+          ],
+          "file": "assets/skilf-thumbnails/063-inclusion.svg"
+        },
+        {
+          "index": 64,
+          "batch": 3,
+          "skill": "Community",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "community",
+          "concepts": [
+            "modularBlocks",
+            "impactRipple",
+            "mapPins"
+          ],
+          "file": "assets/skilf-thumbnails/064-community.svg"
+        },
+        {
+          "index": 65,
+          "batch": 3,
+          "skill": "Disaster Response",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "disaster-response",
+          "concepts": [
+            "alertBeacon",
+            "mapPins",
+            "telemetryDish"
+          ],
+          "file": "assets/skilf-thumbnails/065-disaster-response.svg"
+        },
+        {
+          "index": 66,
+          "batch": 3,
+          "skill": "UX",
+          "category": "Social Impact & Design",
+          "group": "Social Impact & Design",
+          "slug": "ux",
+          "concepts": [
+            "wireframe",
+            "choiceGraph",
+            "colorWheel"
+          ],
+          "file": "assets/skilf-thumbnails/066-ux.svg"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "index": 1,
+      "batch": 1,
+      "skill": "AI",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "ai",
+      "concepts": [
+        "sparkChip",
+        "foundationBlocks",
+        "promptCards"
+      ],
+      "file": "assets/skilf-thumbnails/001-ai.svg"
+    },
+    {
+      "index": 2,
+      "batch": 1,
+      "skill": "ML",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "ml",
+      "concepts": [
+        "neuralNet",
+        "scatterDots",
+        "edgeNodes"
+      ],
+      "file": "assets/skilf-thumbnails/002-ml.svg"
+    },
+    {
+      "index": 3,
+      "batch": 1,
+      "skill": "Deep Learning",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "deep-learning",
+      "concepts": [
+        "layerStack",
+        "neuralNet",
+        "sparkChip"
+      ],
+      "file": "assets/skilf-thumbnails/003-deep-learning.svg"
+    },
+    {
+      "index": 4,
+      "batch": 1,
+      "skill": "Foundation Models",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "foundation-models",
+      "concepts": [
+        "foundationBlocks",
+        "promptCards",
+        "sparkChip"
+      ],
+      "file": "assets/skilf-thumbnails/004-foundation-models.svg"
+    },
+    {
+      "index": 5,
+      "batch": 1,
+      "skill": "NLP",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "nlp",
+      "concepts": [
+        "speechParse",
+        "syntaxTree",
+        "plainDocument"
+      ],
+      "file": "assets/skilf-thumbnails/005-nlp.svg"
+    },
+    {
+      "index": 6,
+      "batch": 1,
+      "skill": "Computer Vision",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "computer-vision",
+      "concepts": [
+        "cameraLens",
+        "scanSlices",
+        "lidarFan"
+      ],
+      "file": "assets/skilf-thumbnails/006-computer-vision.svg"
+    },
+    {
+      "index": 7,
+      "batch": 1,
+      "skill": "Medical NLP",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "medical-nlp",
+      "concepts": [
+        "medicalWords",
+        "speechParse",
+        "heartMonitor"
+      ],
+      "file": "assets/skilf-thumbnails/007-medical-nlp.svg"
+    },
+    {
+      "index": 8,
+      "batch": 1,
+      "skill": "Biomedical NLP",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "biomedical-nlp",
+      "concepts": [
+        "dnaText",
+        "medicalWords",
+        "moleculeDock"
+      ],
+      "file": "assets/skilf-thumbnails/008-biomedical-nlp.svg"
+    },
+    {
+      "index": 9,
+      "batch": 1,
+      "skill": "Knowledge Graphs",
+      "category": "Artificial Intelligence",
+      "group": "Artificial Intelligence",
+      "slug": "knowledge-graphs",
+      "concepts": [
+        "knowledgeGraph",
+        "mesh",
+        "syntaxTree"
+      ],
+      "file": "assets/skilf-thumbnails/009-knowledge-graphs.svg"
+    },
+    {
+      "index": 10,
+      "batch": 1,
+      "skill": "Analytics",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "analytics",
+      "concepts": [
+        "barDashboard",
+        "scatterDots",
+        "financeGraph"
+      ],
+      "file": "assets/skilf-thumbnails/010-analytics.svg"
+    },
+    {
+      "index": 11,
+      "batch": 1,
+      "skill": "Optimization",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "optimization",
+      "concepts": [
+        "optimizerPath",
+        "rewardMaze",
+        "barDashboard"
+      ],
+      "file": "assets/skilf-thumbnails/011-optimization.svg"
+    },
+    {
+      "index": 12,
+      "batch": 1,
+      "skill": "Cloud",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "cloud",
+      "concepts": [
+        "cloudServer",
+        "edgeCloud",
+        "clusterStack"
+      ],
+      "file": "assets/skilf-thumbnails/012-cloud.svg"
+    },
+    {
+      "index": 13,
+      "batch": 1,
+      "skill": "Edge Computing",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "edge-computing",
+      "concepts": [
+        "edgeCloud",
+        "edgeNodes",
+        "iotHub"
+      ],
+      "file": "assets/skilf-thumbnails/013-edge-computing.svg"
+    },
+    {
+      "index": 14,
+      "batch": 1,
+      "skill": "Real-Time",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "real-time",
+      "concepts": [
+        "realTimeClock",
+        "telemetryDish",
+        "waveform"
+      ],
+      "file": "assets/skilf-thumbnails/014-real-time.svg"
+    },
+    {
+      "index": 15,
+      "batch": 1,
+      "skill": "Browser Extensions",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "browser-extensions",
+      "concepts": [
+        "browserPuzzle",
+        "wireframe",
+        "forkNodes"
+      ],
+      "file": "assets/skilf-thumbnails/015-browser-extensions.svg"
+    },
+    {
+      "index": 16,
+      "batch": 1,
+      "skill": "Open Source",
+      "category": "Software & Data",
+      "group": "Software & Data",
+      "slug": "open-source",
+      "concepts": [
+        "forkNodes",
+        "modularBlocks",
+        "browserPuzzle"
+      ],
+      "file": "assets/skilf-thumbnails/016-open-source.svg"
+    },
+    {
+      "index": 17,
+      "batch": 1,
+      "skill": "Robotics",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "robotics",
+      "concepts": [
+        "robotArm",
+        "embeddedBoard",
+        "sensorTripod"
+      ],
+      "file": "assets/skilf-thumbnails/017-robotics.svg"
+    },
+    {
+      "index": 18,
+      "batch": 1,
+      "skill": "Autonomous",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "autonomous",
+      "concepts": [
+        "autonomyRoad",
+        "robotArm",
+        "lidarFan"
+      ],
+      "file": "assets/skilf-thumbnails/018-autonomous.svg"
+    },
+    {
+      "index": 19,
+      "batch": 1,
+      "skill": "Control Systems",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "control-systems",
+      "concepts": [
+        "feedbackLoop",
+        "gearGauge",
+        "simulationGrid"
+      ],
+      "file": "assets/skilf-thumbnails/019-control-systems.svg"
+    },
+    {
+      "index": 20,
+      "batch": 1,
+      "skill": "Mechatronics",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "mechatronics",
+      "concepts": [
+        "robotArm",
+        "gearGauge",
+        "embeddedBoard"
+      ],
+      "file": "assets/skilf-thumbnails/020-mechatronics.svg"
+    },
+    {
+      "index": 21,
+      "batch": 1,
+      "skill": "Drones",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "drones",
+      "concepts": [
+        "drone",
+        "satelliteScan",
+        "autonomyRoad"
+      ],
+      "file": "assets/skilf-thumbnails/021-drones.svg"
+    },
+    {
+      "index": 22,
+      "batch": 1,
+      "skill": "Aerospace Engineering",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "aerospace-engineering",
+      "concepts": [
+        "rocketPlane",
+        "simulationGrid",
+        "starMap"
+      ],
+      "file": "assets/skilf-thumbnails/022-aerospace-engineering.svg"
+    },
+    {
+      "index": 23,
+      "batch": 1,
+      "skill": "Structural Engineering",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "structural-engineering",
+      "concepts": [
+        "bridgeTruss",
+        "simulationGrid",
+        "soilCore"
+      ],
+      "file": "assets/skilf-thumbnails/023-structural-engineering.svg"
+    },
+    {
+      "index": 24,
+      "batch": 1,
+      "skill": "3D Printing",
+      "category": "Engineering & Robotics",
+      "group": "Engineering & Robotics",
+      "slug": "3d-printing",
+      "concepts": [
+        "printerNozzle",
+        "lattice",
+        "prostheticJoint"
+      ],
+      "file": "assets/skilf-thumbnails/024-3d-printing.svg"
+    },
+    {
+      "index": 25,
+      "batch": 1,
+      "skill": "Embedded",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "embedded",
+      "concepts": [
+        "embeddedBoard",
+        "sensorTripod",
+        "phoneChip"
+      ],
+      "file": "assets/skilf-thumbnails/025-embedded.svg"
+    },
+    {
+      "index": 26,
+      "batch": 1,
+      "skill": "FPGA",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "fpga",
+      "concepts": [
+        "fpgaGrid",
+        "quantumChip",
+        "embeddedBoard"
+      ],
+      "file": "assets/skilf-thumbnails/026-fpga.svg"
+    },
+    {
+      "index": 27,
+      "batch": 1,
+      "skill": "Semiconductor Design",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "semiconductor-design",
+      "concepts": [
+        "wafer",
+        "fpgaGrid",
+        "lattice"
+      ],
+      "file": "assets/skilf-thumbnails/027-semiconductor-design.svg"
+    },
+    {
+      "index": 28,
+      "batch": 1,
+      "skill": "Signal Processing",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "signal-processing",
+      "concepts": [
+        "waveform",
+        "voiceWaves",
+        "sensorTripod"
+      ],
+      "file": "assets/skilf-thumbnails/028-signal-processing.svg"
+    },
+    {
+      "index": 29,
+      "batch": 1,
+      "skill": "Photonics",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "photonics",
+      "concepts": [
+        "prism",
+        "waveform",
+        "wafer"
+      ],
+      "file": "assets/skilf-thumbnails/029-photonics.svg"
+    },
+    {
+      "index": 30,
+      "batch": 1,
+      "skill": "Sensors",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "sensors",
+      "concepts": [
+        "sensorTripod",
+        "iotHub",
+        "wearableBand"
+      ],
+      "file": "assets/skilf-thumbnails/030-sensors.svg"
+    },
+    {
+      "index": 31,
+      "batch": 2,
+      "skill": "Wearables",
+      "category": "Hardware & Sensors",
+      "group": "Hardware & Sensors",
+      "slug": "wearables",
+      "concepts": [
+        "wearableBand",
+        "heartMonitor",
+        "hapticPads"
+      ],
+      "file": "assets/skilf-thumbnails/031-wearables.svg"
+    },
+    {
+      "index": 32,
+      "batch": 2,
+      "skill": "Power Systems Engineering",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "power-systems-engineering",
+      "concepts": [
+        "powerGrid",
+        "batteryGrid",
+        "telemetryDish"
+      ],
+      "file": "assets/skilf-thumbnails/032-power-systems-engineering.svg"
+    },
+    {
+      "index": 33,
+      "batch": 2,
+      "skill": "Renewable Energy Systems",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "renewable-energy-systems",
+      "concepts": [
+        "windSolar",
+        "powerGrid",
+        "batteryGrid"
+      ],
+      "file": "assets/skilf-thumbnails/033-renewable-energy-systems.svg"
+    },
+    {
+      "index": 34,
+      "batch": 2,
+      "skill": "Nuclear",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "nuclear",
+      "concepts": [
+        "reactorCore",
+        "powerGrid",
+        "shieldLock"
+      ],
+      "file": "assets/skilf-thumbnails/034-nuclear.svg"
+    },
+    {
+      "index": 35,
+      "batch": 2,
+      "skill": "Climate Informatics",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "climate-informatics",
+      "concepts": [
+        "climateMap",
+        "barDashboard",
+        "satelliteScan"
+      ],
+      "file": "assets/skilf-thumbnails/035-climate-informatics.svg"
+    },
+    {
+      "index": 36,
+      "batch": 2,
+      "skill": "Air Quality",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "air-quality",
+      "concepts": [
+        "airParticles",
+        "sensorTripod",
+        "climateMap"
+      ],
+      "file": "assets/skilf-thumbnails/036-air-quality.svg"
+    },
+    {
+      "index": 37,
+      "batch": 2,
+      "skill": "Water Quality",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "water-quality",
+      "concepts": [
+        "waterDrop",
+        "sensorTripod",
+        "toxinVial"
+      ],
+      "file": "assets/skilf-thumbnails/037-water-quality.svg"
+    },
+    {
+      "index": 38,
+      "batch": 2,
+      "skill": "Remote Sensing",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "remote-sensing",
+      "concepts": [
+        "satelliteScan",
+        "climateMap",
+        "lidarFan"
+      ],
+      "file": "assets/skilf-thumbnails/038-remote-sensing.svg"
+    },
+    {
+      "index": 39,
+      "batch": 2,
+      "skill": "Agriculture",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "agriculture",
+      "concepts": [
+        "fieldRows",
+        "cropLeaf",
+        "satelliteScan"
+      ],
+      "file": "assets/skilf-thumbnails/039-agriculture.svg"
+    },
+    {
+      "index": 40,
+      "batch": 2,
+      "skill": "Reforestation",
+      "category": "Energy & Environment",
+      "group": "Energy & Environment",
+      "slug": "reforestation",
+      "concepts": [
+        "saplings",
+        "satelliteScan",
+        "recyclingLoop"
+      ],
+      "file": "assets/skilf-thumbnails/040-reforestation.svg"
+    },
+    {
+      "index": 41,
+      "batch": 2,
+      "skill": "Computational Biology",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "computational-biology",
+      "concepts": [
+        "cellCluster",
+        "barDashboard",
+        "genome"
+      ],
+      "file": "assets/skilf-thumbnails/041-computational-biology.svg"
+    },
+    {
+      "index": 42,
+      "batch": 2,
+      "skill": "Genomics",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "genomics",
+      "concepts": [
+        "genome",
+        "dnaText",
+        "barDashboard"
+      ],
+      "file": "assets/skilf-thumbnails/042-genomics.svg"
+    },
+    {
+      "index": 43,
+      "batch": 2,
+      "skill": "Synthetic Biology",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "synthetic-biology",
+      "concepts": [
+        "cellFactory",
+        "genome",
+        "moleculeDock"
+      ],
+      "file": "assets/skilf-thumbnails/043-synthetic-biology.svg"
+    },
+    {
+      "index": 44,
+      "batch": 2,
+      "skill": "Drug Discovery",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "drug-discovery",
+      "concepts": [
+        "moleculeDock",
+        "flask",
+        "proteinFold"
+      ],
+      "file": "assets/skilf-thumbnails/044-drug-discovery.svg"
+    },
+    {
+      "index": 45,
+      "batch": 2,
+      "skill": "Health Monitoring",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "health-monitoring",
+      "concepts": [
+        "heartMonitor",
+        "wearableBand",
+        "telemetryDish"
+      ],
+      "file": "assets/skilf-thumbnails/045-health-monitoring.svg"
+    },
+    {
+      "index": 46,
+      "batch": 2,
+      "skill": "Dentistry",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "dentistry",
+      "concepts": [
+        "tooth",
+        "scanSlices",
+        "medicalWords"
+      ],
+      "file": "assets/skilf-thumbnails/046-dentistry.svg"
+    },
+    {
+      "index": 47,
+      "batch": 2,
+      "skill": "Neurosurgery",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "neurosurgery",
+      "concepts": [
+        "brainScan",
+        "neuroChip",
+        "scanSlices"
+      ],
+      "file": "assets/skilf-thumbnails/047-neurosurgery.svg"
+    },
+    {
+      "index": 48,
+      "batch": 2,
+      "skill": "Immunotherapy",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "immunotherapy",
+      "concepts": [
+        "antibody",
+        "cellCluster",
+        "medicalWords"
+      ],
+      "file": "assets/skilf-thumbnails/048-immunotherapy.svg"
+    },
+    {
+      "index": 49,
+      "batch": 2,
+      "skill": "Prosthetics",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "prosthetics",
+      "concepts": [
+        "prostheticJoint",
+        "printerNozzle",
+        "therapyAngles"
+      ],
+      "file": "assets/skilf-thumbnails/049-prosthetics.svg"
+    },
+    {
+      "index": 50,
+      "batch": 2,
+      "skill": "Elder Care",
+      "category": "Life Sciences & Health",
+      "group": "Life Sciences & Health",
+      "slug": "elder-care",
+      "concepts": [
+        "homeHeart",
+        "careLamp",
+        "heartMonitor"
+      ],
+      "file": "assets/skilf-thumbnails/050-elder-care.svg"
+    },
+    {
+      "index": 51,
+      "batch": 2,
+      "skill": "Materials Science",
+      "category": "Physical Sciences & Materials",
+      "group": "Physical Sciences & Materials",
+      "slug": "materials-science",
+      "concepts": [
+        "lattice",
+        "wafer",
+        "nanotubes"
+      ],
+      "file": "assets/skilf-thumbnails/051-materials-science.svg"
+    },
+    {
+      "index": 52,
+      "batch": 2,
+      "skill": "Nanotech",
+      "category": "Physical Sciences & Materials",
+      "group": "Physical Sciences & Materials",
+      "slug": "nanotech",
+      "concepts": [
+        "nanotubes",
+        "lattice",
+        "wafer"
+      ],
+      "file": "assets/skilf-thumbnails/052-nanotech.svg"
+    },
+    {
+      "index": 53,
+      "batch": 2,
+      "skill": "Quantum Hardware",
+      "category": "Physical Sciences & Materials",
+      "group": "Physical Sciences & Materials",
+      "slug": "quantum-hardware",
+      "concepts": [
+        "quantumChip",
+        "quantumGates",
+        "wafer"
+      ],
+      "file": "assets/skilf-thumbnails/053-quantum-hardware.svg"
+    },
+    {
+      "index": 54,
+      "batch": 2,
+      "skill": "Astrophysics",
+      "category": "Physical Sciences & Materials",
+      "group": "Physical Sciences & Materials",
+      "slug": "astrophysics",
+      "concepts": [
+        "starMap",
+        "atom",
+        "satelliteScan"
+      ],
+      "file": "assets/skilf-thumbnails/054-astrophysics.svg"
+    },
+    {
+      "index": 55,
+      "batch": 2,
+      "skill": "Plasma Physics",
+      "category": "Physical Sciences & Materials",
+      "group": "Physical Sciences & Materials",
+      "slug": "plasma-physics",
+      "concepts": [
+        "plasma",
+        "atom",
+        "waveform"
+      ],
+      "file": "assets/skilf-thumbnails/055-plasma-physics.svg"
+    },
+    {
+      "index": 56,
+      "batch": 2,
+      "skill": "Security",
+      "category": "Security, Law & Ethics",
+      "group": "Security, Law & Ethics",
+      "slug": "security",
+      "concepts": [
+        "shieldLock",
+        "keyPair",
+        "privacyWindow"
+      ],
+      "file": "assets/skilf-thumbnails/056-security.svg"
+    },
+    {
+      "index": 57,
+      "batch": 2,
+      "skill": "Privacy",
+      "category": "Security, Law & Ethics",
+      "group": "Security, Law & Ethics",
+      "slug": "privacy",
+      "concepts": [
+        "privacyWindow",
+        "shieldLock",
+        "keyPair"
+      ],
+      "file": "assets/skilf-thumbnails/057-privacy.svg"
+    },
+    {
+      "index": 58,
+      "batch": 2,
+      "skill": "Cryptography",
+      "category": "Security, Law & Ethics",
+      "group": "Security, Law & Ethics",
+      "slug": "cryptography",
+      "concepts": [
+        "keyPair",
+        "quantumGates",
+        "shieldLock"
+      ],
+      "file": "assets/skilf-thumbnails/058-cryptography.svg"
+    },
+    {
+      "index": 59,
+      "batch": 2,
+      "skill": "Data Privacy Law",
+      "category": "Security, Law & Ethics",
+      "group": "Security, Law & Ethics",
+      "slug": "data-privacy-law",
+      "concepts": [
+        "privacyWindow",
+        "lawBook",
+        "shieldLock"
+      ],
+      "file": "assets/skilf-thumbnails/059-data-privacy-law.svg"
+    },
+    {
+      "index": 60,
+      "batch": 2,
+      "skill": "Ethics",
+      "category": "Security, Law & Ethics",
+      "group": "Security, Law & Ethics",
+      "slug": "ethics",
+      "concepts": [
+        "scales",
+        "lawBook",
+        "impactRipple"
+      ],
+      "file": "assets/skilf-thumbnails/060-ethics.svg"
+    },
+    {
+      "index": 61,
+      "batch": 3,
+      "skill": "Education",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "education",
+      "concepts": [
+        "bookSpark",
+        "adaptivePath",
+        "plainDocument"
+      ],
+      "file": "assets/skilf-thumbnails/061-education.svg"
+    },
+    {
+      "index": 62,
+      "batch": 3,
+      "skill": "Accessibility",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "accessibility",
+      "concepts": [
+        "accessPath",
+        "wireframe",
+        "voiceWaves"
+      ],
+      "file": "assets/skilf-thumbnails/062-accessibility.svg"
+    },
+    {
+      "index": 63,
+      "batch": 3,
+      "skill": "Inclusion",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "inclusion",
+      "concepts": [
+        "inclusionRing",
+        "accessPath",
+        "modularBlocks"
+      ],
+      "file": "assets/skilf-thumbnails/063-inclusion.svg"
+    },
+    {
+      "index": 64,
+      "batch": 3,
+      "skill": "Community",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "community",
+      "concepts": [
+        "modularBlocks",
+        "impactRipple",
+        "mapPins"
+      ],
+      "file": "assets/skilf-thumbnails/064-community.svg"
+    },
+    {
+      "index": 65,
+      "batch": 3,
+      "skill": "Disaster Response",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "disaster-response",
+      "concepts": [
+        "alertBeacon",
+        "mapPins",
+        "telemetryDish"
+      ],
+      "file": "assets/skilf-thumbnails/065-disaster-response.svg"
+    },
+    {
+      "index": 66,
+      "batch": 3,
+      "skill": "UX",
+      "category": "Social Impact & Design",
+      "group": "Social Impact & Design",
+      "slug": "ux",
+      "concepts": [
+        "wireframe",
+        "choiceGraph",
+        "colorWheel"
+      ],
+      "file": "assets/skilf-thumbnails/066-ux.svg"
+    }
+  ]
+}

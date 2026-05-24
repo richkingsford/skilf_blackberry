@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skilf Constellation Logo Variants</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1117;
+      --panel: #121b27;
+      --panel-2: #172435;
+      --ink: #edf4f8;
+      --soft: #a8b8c9;
+      --line: #2b3c51;
+      --gold: #d7ad45;
+      --mint: #53d4c1;
+      --coral: #f07562;
+      --violet: #9a7bf4;
+      --sky: #5ea9f2;
+      --green: #71c96a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgb(215 173 69 / 12%), transparent 30%),
+        radial-gradient(circle at 88% 22%, rgb(83 212 193 / 10%), transparent 28%),
+        radial-gradient(circle at 42% 92%, rgb(154 123 244 / 8%), transparent 32%),
+        var(--bg);
+      min-height: 100vh;
+    }
+    main { width: min(1180px, 94vw); margin: 36px auto 72px; }
+    .intro { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 24px; }
+    .intro h1 { margin: 0 0 8px; font-size: 36px; letter-spacing: 0; }
+    .intro p { margin: 0; max-width: 680px; color: var(--soft); line-height: 1.55; }
+    .back { color: var(--gold); font-weight: 800; text-decoration: none; white-space: nowrap; }
+    .board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .option {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(160deg, rgb(18 27 39 / 96%), rgb(23 36 53 / 96%));
+      box-shadow: 0 18px 42px rgb(0 0 0 / 28%);
+    }
+    .option.featured { grid-column: 1 / -1; }
+    .preview-nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgb(8 14 21 / 72%);
+    }
+    .logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      text-decoration: none;
+      min-width: 0;
+    }
+    .logo-lockup svg { width: 45px; height: 45px; flex: 0 0 auto; }
+    .wordmark { display: block; font-size: 25px; line-height: 1; font-weight: 850; letter-spacing: 0; }
+    .descriptor { display: block; margin-top: 4px; color: var(--soft); font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--soft); font-size: 14px; }
+    .nav-links span { white-space: nowrap; }
+    .nav-cta {
+      border: 1px solid color-mix(in srgb, var(--gold), white 10%);
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: var(--gold);
+      color: #11161d;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .option-body { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 18px; align-items: center; padding: 18px; }
+    .mark-stage {
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 132px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 34% 24%, rgb(255 255 255 / 9%), transparent 43%),
+        #0a1119;
+    }
+    .mark-stage svg { width: 92px; height: 92px; }
+    .option h2 { margin: 0 0 8px; font-size: 19px; letter-spacing: 0; }
+    .option p { margin: 0; color: var(--soft); line-height: 1.5; font-size: 14px; }
+    .traits { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .traits span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 9px;
+      color: var(--ink);
+      background: rgb(255 255 255 / 4%);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    @media (max-width: 900px) {
+      .intro { display: block; }
+      .back { display: inline-block; margin-top: 14px; }
+      .board { grid-template-columns: 1fr; }
+      .option.featured { grid-column: auto; }
+      .nav-links span:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 24px; }
+      .intro h1 { font-size: 28px; }
+      .preview-nav { align-items: flex-start; flex-direction: column; }
+      .option-body { grid-template-columns: 1fr; }
+      .mark-stage { width: 100%; height: 136px; }
+      .nav-links { width: 100%; justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="intro">
+      <div>
+        <h1>Seven Constellation Variants</h1>
+        <p>Built from the #7 direction, now centered on one candidate defending a real project in front of a board.</p>
+      </div>
+      <a class="back" href="logo-options.html">Back to logo options</a>
+    </section>
+
+    <section class="board" aria-label="Constellation logo variant board">
+      <article class="option featured">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 1">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf solo defense arc logo">
+              <path d="M14 45c0-10 8-18 18-18s18 8 18 18" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="18" cy="22" r="5" fill="#d7ad45"/>
+              <circle cx="32" cy="17" r="5" fill="#9a7bf4"/>
+              <circle cx="46" cy="22" r="5" fill="#5ea9f2"/>
+              <circle cx="32" cy="37" r="5.5" fill="#f07562"/>
+              <path d="M22 52c3.4-6.4 20.6-6.4 24 0" fill="none" stroke="#d7ad45" stroke-width="4" stroke-linecap="round"/>
+              <path d="M32 28v-8" stroke="#ffffff" stroke-opacity=".72" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Solo Defense</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M14 45c0-10 8-18 18-18s18 8 18 18" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="18" cy="22" r="5" fill="#d7ad45"/>
+              <circle cx="32" cy="17" r="5" fill="#9a7bf4"/>
+              <circle cx="46" cy="22" r="5" fill="#5ea9f2"/>
+              <circle cx="32" cy="37" r="5.5" fill="#f07562"/>
+              <path d="M22 52c3.4-6.4 20.6-6.4 24 0" fill="none" stroke="#d7ad45" stroke-width="4" stroke-linecap="round"/>
+              <path d="M32 28v-8" stroke="#fff" stroke-opacity=".72" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>1. Solo Defense Arc</h2>
+            <p>The cleanest expression of the idea: one candidate below a three-person board, with the constellation arc holding the room together.</p>
+            <div class="traits"><span>Best primary logo</span><span>Human</span><span>Board defense</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 2">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf podium board logo">
+              <path d="M14 18h36" stroke="#2f4358" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="20" cy="18" r="4.8" fill="#d7ad45"/>
+              <circle cx="32" cy="18" r="4.8" fill="#9a7bf4"/>
+              <circle cx="44" cy="18" r="4.8" fill="#5ea9f2"/>
+              <path d="M20 33h24l-4 18H24l-4-18Z" fill="#101923" stroke="#d7ad45" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="32" cy="31" r="5.4" fill="#53d4c1"/>
+              <path d="M25 46h14" stroke="#f07562" stroke-width="3" stroke-linecap="round"/>
+              <path d="M18 57h28" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Podium Board</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M14 18h36" stroke="#2f4358" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="20" cy="18" r="4.8" fill="#d7ad45"/>
+              <circle cx="32" cy="18" r="4.8" fill="#9a7bf4"/>
+              <circle cx="44" cy="18" r="4.8" fill="#5ea9f2"/>
+              <path d="M20 33h24l-4 18H24l-4-18Z" fill="#101923" stroke="#d7ad45" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="32" cy="31" r="5.4" fill="#53d4c1"/>
+              <path d="M25 46h14" stroke="#f07562" stroke-width="3" stroke-linecap="round"/>
+              <path d="M18 57h28" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>2. Podium Board</h2>
+            <p>Most literal: board above, candidate at a podium, evidence line below. It feels official without becoming stuffy.</p>
+            <div class="traits"><span>Literal</span><span>Official</span><span>Demo stage</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 3">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf spotlight defense logo">
+              <path d="M32 11 52 51H12L32 11Z" fill="#101923" stroke="#2f4358" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="22" cy="27" r="4.5" fill="#d7ad45"/>
+              <circle cx="32" cy="22" r="4.5" fill="#9a7bf4"/>
+              <circle cx="42" cy="27" r="4.5" fill="#5ea9f2"/>
+              <path d="M22 38c5-6 19-6 24 0" fill="none" stroke="#53d4c1" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="32" cy="42" r="5" fill="#f07562"/>
+              <path d="M26 53h24" stroke="#d7ad45" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Spotlight</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M32 11 52 51H12L32 11Z" fill="#101923" stroke="#2f4358" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="22" cy="27" r="4.5" fill="#d7ad45"/>
+              <circle cx="32" cy="22" r="4.5" fill="#9a7bf4"/>
+              <circle cx="42" cy="27" r="4.5" fill="#5ea9f2"/>
+              <path d="M22 38c5-6 19-6 24 0" fill="none" stroke="#53d4c1" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="32" cy="42" r="5" fill="#f07562"/>
+              <path d="M26 53h24" stroke="#d7ad45" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>3. Spotlight Defense</h2>
+            <p>A candidate inside a stage-light triangle. It says "perform under pressure" while keeping the board as a quiet constellation.</p>
+            <div class="traits"><span>Pressure</span><span>Stage</span><span>Sharp</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 4">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf dialogue defense logo">
+              <path d="M12 40c0-11 9-20 20-20s20 9 20 20" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <path d="M17 16h11c3 0 5 2 5 5v1c0 3-2 5-5 5h-4l-6 5v-5h-1c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#d7ad45"/>
+              <path d="M37 16h10c3 0 5 2 5 5v1c0 3-2 5-5 5h-1v5l-6-5h-3c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#5ea9f2"/>
+              <circle cx="32" cy="39" r="5.5" fill="#f07562"/>
+              <path d="M22 52c4-7 20-7 24 0" fill="none" stroke="#9a7bf4" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Challenge</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M12 40c0-11 9-20 20-20s20 9 20 20" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <path d="M17 16h11c3 0 5 2 5 5v1c0 3-2 5-5 5h-4l-6 5v-5h-1c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#d7ad45"/>
+              <path d="M37 16h10c3 0 5 2 5 5v1c0 3-2 5-5 5h-1v5l-6-5h-3c-3 0-5-2-5-5v-1c0-3 2-5 5-5Z" fill="#5ea9f2"/>
+              <circle cx="32" cy="39" r="5.5" fill="#f07562"/>
+              <path d="M22 52c4-7 20-7 24 0" fill="none" stroke="#9a7bf4" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>4. Challenge Dialogue</h2>
+            <p>More conversational: the board asks hard questions, the candidate defends. Good if the brand should feel less ceremonial.</p>
+            <div class="traits"><span>Questions</span><span>Adversarial</span><span>Accessible</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 5">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf review table logo">
+              <path d="M15 18h34v20H15V18Z" fill="#101923" stroke="#2f4358" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="23" cy="28" r="4.5" fill="#d7ad45"/>
+              <circle cx="32" cy="28" r="4.5" fill="#9a7bf4"/>
+              <circle cx="41" cy="28" r="4.5" fill="#5ea9f2"/>
+              <path d="M13 43h38" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="32" cy="48" r="5.5" fill="#f07562"/>
+              <path d="M23 57c4-5 20-5 24 0" stroke="#d7ad45" stroke-width="3" stroke-linecap="round" fill="none"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Review Table</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M15 18h34v20H15V18Z" fill="#101923" stroke="#2f4358" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="23" cy="28" r="4.5" fill="#d7ad45"/>
+              <circle cx="32" cy="28" r="4.5" fill="#9a7bf4"/>
+              <circle cx="41" cy="28" r="4.5" fill="#5ea9f2"/>
+              <path d="M13 43h38" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="32" cy="48" r="5.5" fill="#f07562"/>
+              <path d="M23 57c4-5 20-5 24 0" stroke="#d7ad45" stroke-width="3" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <h2>5. Review Table</h2>
+            <p>Very board-forward: a candidate stands below the review table. It has the clearest "in front of a board" read at tiny sizes.</p>
+            <div class="traits"><span>Board-forward</span><span>Small-size clear</span><span>Serious</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 6">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf project defense logo">
+              <path d="M32 8 52 20v24L32 56 12 44V20L32 8Z" fill="#101923" stroke="#2f4358" stroke-width="3"/>
+              <path d="M18 26c7-7 21-7 28 0" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="23" cy="26" r="4" fill="#d7ad45"/>
+              <circle cx="32" cy="23" r="4" fill="#9a7bf4"/>
+              <circle cx="41" cy="26" r="4" fill="#5ea9f2"/>
+              <path d="M26 38 32 34l6 4-6 4-6-4Z" fill="#f07562"/>
+              <circle cx="32" cy="47" r="4.8" fill="#d7ad45"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Project Defense</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M32 8 52 20v24L32 56 12 44V20L32 8Z" fill="#101923" stroke="#2f4358" stroke-width="3"/>
+              <path d="M18 26c7-7 21-7 28 0" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="23" cy="26" r="4" fill="#d7ad45"/>
+              <circle cx="32" cy="23" r="4" fill="#9a7bf4"/>
+              <circle cx="41" cy="26" r="4" fill="#5ea9f2"/>
+              <path d="M26 38 32 34l6 4-6 4-6-4Z" fill="#f07562"/>
+              <circle cx="32" cy="47" r="4.8" fill="#d7ad45"/>
+            </svg>
+          </div>
+          <div>
+            <h2>6. Project Defense</h2>
+            <p>Adds the project itself into the mark: board above, artifact in the middle, candidate below. Good for "show real work."</p>
+            <div class="traits"><span>Artifact</span><span>Credential</span><span>Complete story</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for variant 7">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf pass the board logo">
+              <path d="M14 31c7-10 22-14 36-4" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="18" cy="25" r="4.8" fill="#d7ad45"/>
+              <circle cx="31" cy="19" r="4.8" fill="#9a7bf4"/>
+              <circle cx="46" cy="26" r="4.8" fill="#5ea9f2"/>
+              <path d="m21 43 7 7 16-19" fill="none" stroke="#d7ad45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="31" cy="42" r="5" fill="#f07562"/>
+              <path d="M13 56h34" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Pass The Board</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M14 31c7-10 22-14 36-4" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="18" cy="25" r="4.8" fill="#d7ad45"/>
+              <circle cx="31" cy="19" r="4.8" fill="#9a7bf4"/>
+              <circle cx="46" cy="26" r="4.8" fill="#5ea9f2"/>
+              <path d="m21 43 7 7 16-19" fill="none" stroke="#d7ad45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="31" cy="42" r="5" fill="#f07562"/>
+              <path d="M13 56h34" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>7. Pass The Board</h2>
+            <p>The most credential-oriented variant. The board is still present, but the pass mark says the defense has a real outcome.</p>
+            <div class="traits"><span>Outcome</span><span>Badge-ready</span><span>Optimistic</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

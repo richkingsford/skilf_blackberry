@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Cryptography thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Cryptography in Security, Law &amp; Ethics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#facc15" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 157c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#2563eb" opacity="0.2"/>
+    <path d="M0 201c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#facc15" opacity="0.08"/>
+    <circle cx="309" cy="53" r="43" fill="#fb7185" opacity="0.12"/>
+    <circle cx="63" cy="175" r="31" fill="#34d399" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(218 120) rotate(5) scale(0.98)"><circle cx="-36" cy="-18" r="24" fill="#facc15" opacity="0.9"/><circle cx="-36" cy="-18" r="10" fill="#0b1117" opacity="0.45"/><line x1="-12" y1="-18" x2="62" y2="-18" stroke="#facc15" stroke-width="10" stroke-linecap="round" opacity="0.92"/><line x1="38" y1="-18" x2="38" y2="4" stroke="#facc15" stroke-width="8" stroke-linecap="round" opacity="0.92"/><circle cx="20" cy="40" r="24" fill="#34d399" opacity="0.88"/><line x1="44" y1="40" x2="78" y2="40" stroke="#34d399" stroke-width="10" stroke-linecap="round" opacity="0.92"/><line x1="60" y1="40" x2="60" y2="58" stroke="#34d399" stroke-width="7" stroke-linecap="round" opacity="0.92"/></g><g transform="translate(104 88) rotate(-7) scale(0.84)"><rect x="-78" y="-24" width="48" height="48" rx="9" fill="#facc15" opacity="1"/><line x1="-78" y1="0" x2="-100" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><line x1="-30" y1="0" x2="-8" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><rect x="-24" y="-24" width="48" height="48" rx="9" fill="#34d399" opacity="1"/><line x1="-24" y1="0" x2="-46" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><line x1="24" y1="0" x2="46" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><rect x="30" y="-24" width="48" height="48" rx="9" fill="#2563eb" opacity="1"/><line x1="30" y1="0" x2="8" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><line x1="78" y1="0" x2="100" y2="0" stroke="#e8edf3" stroke-width="4" stroke-linecap="round" opacity="0.5"/><circle cx="-54" cy="0" r="7" fill="#0b1117" opacity="0.45"/><path d="M-12-8L12 8M12-8L-12 8" fill="none" stroke="#0b1117" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/><circle cx="54" cy="0" r="13" fill="#0b1117" opacity="0.25"/><path d="M-78-50c42 20 114 20 156 0" fill="none" stroke="#fb7185" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(78 158) rotate(0) scale(0.5)"><path d="M0-66l68 26v42c0 38-25 64-68 78-43-14-68-40-68-78v-42z" fill="#2563eb" stroke="#facc15" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><rect x="-24" y="-4" width="48" height="42" rx="8" fill="#34d399" opacity="1"/><path d="M-14-4v-14c0-20 28-20 28 0v14" fill="none" stroke="#e8edf3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="0" cy="18" r="5" fill="#0b1117" opacity="0.55"/></g>
+  </g>
+</svg>

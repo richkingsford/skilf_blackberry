@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Deep Learning thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Deep Learning in Artificial Intelligence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#70a1ff" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#e28bff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1f6f78" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 141c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#1f6f78" opacity="0.2"/>
+    <path d="M0 185c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#70a1ff" opacity="0.08"/>
+    <circle cx="301" cy="57" r="35" fill="#ff8c73" opacity="0.12"/>
+    <circle cx="67" cy="155" r="27" fill="#e28bff" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(184 104) rotate(0) scale(1.1)"><rect x="-70" y="-46" width="34" height="92" rx="13" fill="#70a1ff" opacity="0.94"/><rect x="-18" y="-62" width="36" height="124" rx="13" fill="#e28bff" opacity="0.94"/><rect x="36" y="-46" width="34" height="92" rx="13" fill="#1f6f78" opacity="0.94"/><line x1="-36" y1="-22" x2="-18" y2="-22" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" opacity="0.5"/><line x1="-36" y1="22" x2="-18" y2="22" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" opacity="0.5"/><line x1="18" y1="-38" x2="36" y2="-38" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" opacity="0.5"/><line x1="18" y1="36" x2="36" y2="36" stroke="#e8edf3" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="-53" cy="-22" r="5" fill="#0b1117" opacity="0.95"/><circle cx="-53" cy="22" r="5" fill="#0b1117" opacity="0.95"/><circle cx="0" cy="-38" r="5" fill="#0b1117" opacity="0.95"/><circle cx="0" cy="0" r="5" fill="#0b1117" opacity="0.95"/><circle cx="0" cy="36" r="5" fill="#0b1117" opacity="0.95"/><circle cx="53" cy="-38" r="5" fill="#0b1117" opacity="0.95"/><circle cx="53" cy="36" r="5" fill="#0b1117" opacity="0.95"/></g><g transform="translate(82 74) rotate(-12) scale(0.64)"><line x1="-58" y1="18" x2="-12" y2="-28" stroke="#70a1ff" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-12" y1="-28" x2="42" y2="0" stroke="#e28bff" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-12" y1="-28" x2="52" y2="-48" stroke="#ff8c73" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="42" y1="0" x2="70" y2="38" stroke="#1f6f78" stroke-width="7" stroke-linecap="round" opacity="0.92"/><line x1="-40" y1="42" x2="42" y2="0" stroke="#1f6f78" stroke-width="5" stroke-linecap="round" opacity="0.92"/><circle cx="-58" cy="18" r="14" fill="#70a1ff" opacity="0.95"/><circle cx="-12" cy="-28" r="14" fill="#e28bff" opacity="0.95"/><circle cx="42" cy="0" r="14" fill="#1f6f78" opacity="0.95"/><circle cx="70" cy="38" r="14" fill="#ff8c73" opacity="0.95"/><circle cx="-40" cy="42" r="14" fill="#70a1ff" opacity="0.95"/><circle cx="52" cy="-48" r="14" fill="#e28bff" opacity="0.95"/></g><g transform="translate(286 148) rotate(9) scale(0.58)"><rect x="-48" y="-42" width="96" height="84" rx="16" fill="#1f6f78" opacity="0.92"/><rect x="-22" y="-18" width="44" height="36" rx="8" fill="#70a1ff" opacity="0.94"/><line x1="-60" y1="-56" x2="-60" y2="-42" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="-60" y1="42" x2="-60" y2="56" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="-28" y1="-56" x2="-28" y2="-42" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="-28" y1="42" x2="-28" y2="56" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="0" y1="-56" x2="0" y2="-42" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="0" y1="42" x2="0" y2="56" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="28" y1="-56" x2="28" y2="-42" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="28" y1="42" x2="28" y2="56" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="60" y1="-56" x2="60" y2="-42" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><line x1="60" y1="42" x2="60" y2="56" stroke="#e28bff" stroke-width="4" stroke-linecap="round" opacity="0.92"/><path d="M62-66l8 18 19 8-19 8-8 18-8-18-19-8 19-8z" fill="#ff8c73" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g>
+  </g>
+</svg>

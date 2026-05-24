@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">Real-Time thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for Real-Time in Software &amp; Data.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#facc15" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 153c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#2563eb" opacity="0.2"/>
+    <path d="M0 197c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#facc15" opacity="0.08"/>
+    <circle cx="283" cy="43" r="41" fill="#fb7185" opacity="0.12"/>
+    <circle cx="53" cy="173" r="31" fill="#34d399" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(88 96) rotate(-12) scale(0.72)"><circle cx="0" cy="0" r="58" fill="#2563eb" opacity="0.9"/><circle cx="0" cy="0" r="42" fill="#0b1117" opacity="0.3"/><line x1="0" y1="0" x2="0" y2="-28" stroke="#facc15" stroke-width="6" stroke-linecap="round" opacity="0.92"/><line x1="0" y1="0" x2="28" y2="16" stroke="#34d399" stroke-width="6" stroke-linecap="round" opacity="0.92"/><path d="M-76 52h152" fill="none" stroke="#fb7185" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-76" cy="52" r="6" fill="#facc15" opacity="0.95"/><circle cx="-26" cy="52" r="6" fill="#34d399" opacity="0.95"/><circle cx="26" cy="52" r="6" fill="#2563eb" opacity="0.95"/><circle cx="76" cy="52" r="6" fill="#fb7185" opacity="0.95"/></g><g transform="translate(186 118) rotate(0) scale(1.02)"><path d="M-50 44c50-8 78-36 92-84" fill="none" stroke="#facc15" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-52 46l30 20M-30 40l26 28" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M14-36c28 10 42 28 48 54M34-58c44 17 66 46 76 86" fill="none" stroke="#34d399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-50" cy="44" r="9" fill="#fb7185" opacity="1"/></g><g transform="translate(286 82) rotate(12) scale(0.66)"><path d="M-78 10c18-72 38 72 56 0s38-72 56 0 38 72 56 0" fill="none" stroke="#facc15" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><path d="M-66 48c34-22 62-22 96 0 22 14 44 14 70 0" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-68" cy="-48" r="7" fill="#fb7185" opacity="1"/><circle cx="70" cy="-38" r="10" fill="#2563eb" opacity="1"/></g>
+  </g>
+</svg>

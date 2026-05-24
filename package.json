@@ -8,7 +8,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve:workspace": "serve . -l 3999 --no-clipboard"
+    "serve:workspace": "serve . -l 3999 --no-clipboard",
+    "firebase:login": "npx firebase-tools login",
+    "firebase:deploy-db": "npx firebase-tools deploy --only firestore:rules,firestore:indexes --project skilf-9f736",
+    "firebase:deploy-rules": "npx firebase-tools deploy --only firestore:rules --project skilf-9f736"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   "homepage": "https://github.com/richkingsford/skilf_blackberry#readme",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
+    "firebase-tools": "^15.18.0",
     "serve": "^14.2.6"
   }
 }

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Skilf Solo Defense logo</title>
+  <desc id="desc">One candidate defending in front of a three-person board at a curved table.</desc>
+  <path d="M14 31c6-8 30-8 36 0" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="18" cy="22" r="5" fill="#d4a94b"/>
+  <circle cx="32" cy="17" r="5" fill="#9c83ff"/>
+  <circle cx="46" cy="22" r="5" fill="#73b8ff"/>
+  <circle cx="32" cy="37" r="5.5" fill="#ff8c73"/>
+</svg>

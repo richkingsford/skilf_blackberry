@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skilf Logo Options</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0c1117;
+      --panel: #121923;
+      --panel-2: #172232;
+      --ink: #eef4f8;
+      --soft: #a9b9c9;
+      --line: #293849;
+      --gold: #d7ad45;
+      --mint: #53d4c1;
+      --coral: #f07562;
+      --violet: #9a7bf4;
+      --sky: #5ea9f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 18% 8%, rgb(215 173 69 / 13%), transparent 31%),
+        radial-gradient(circle at 92% 30%, rgb(83 212 193 / 9%), transparent 28%),
+        radial-gradient(circle at 52% 92%, rgb(240 117 98 / 8%), transparent 28%),
+        var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    main { width: min(1180px, 94vw); margin: 36px auto 72px; }
+    .intro { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 24px; }
+    .intro h1 { margin: 0 0 8px; font-size: 36px; letter-spacing: 0; }
+    .intro p { margin: 0; color: var(--soft); max-width: 660px; line-height: 1.55; }
+    .back { color: var(--gold); text-decoration: none; font-weight: 700; white-space: nowrap; }
+    .board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .option {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(160deg, rgb(18 25 35 / 94%), rgb(23 34 50 / 94%));
+      box-shadow: 0 18px 42px rgb(0 0 0 / 26%);
+      overflow: hidden;
+    }
+    .option.wide { grid-column: 1 / -1; }
+    .preview-nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgb(9 14 20 / 72%);
+    }
+    .logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .logo-lockup svg { width: 44px; height: 44px; flex: 0 0 auto; }
+    .wordmark { display: block; font-size: 25px; line-height: 1; font-weight: 800; letter-spacing: 0; }
+    .descriptor { display: block; margin-top: 4px; color: var(--soft); font-size: 11px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--soft); font-size: 14px; }
+    .nav-links span { white-space: nowrap; }
+    .nav-cta {
+      border: 1px solid color-mix(in srgb, var(--gold), white 10%);
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: var(--gold);
+      color: #11161d;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .option-body { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 18px; padding: 18px; align-items: center; }
+    .mark-stage {
+      display: grid;
+      place-items: center;
+      width: 128px;
+      height: 128px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 32% 24%, rgb(255 255 255 / 8%), transparent 42%),
+        #0b121a;
+    }
+    .mark-stage svg { width: 88px; height: 88px; }
+    .option h2 { margin: 0 0 8px; font-size: 19px; letter-spacing: 0; }
+    .option p { margin: 0; color: var(--soft); line-height: 1.5; font-size: 14px; }
+    .traits { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .traits span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 9px;
+      color: var(--ink);
+      background: rgb(255 255 255 / 4%);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .intro { display: block; }
+      .back { display: inline-block; margin-top: 14px; }
+      .board { grid-template-columns: 1fr; }
+      .option.wide { grid-column: auto; }
+      .nav-links span { display: none; }
+    }
+    @media (max-width: 560px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 24px; }
+      .intro h1 { font-size: 28px; }
+      .preview-nav { align-items: flex-start; flex-direction: column; }
+      .option-body { grid-template-columns: 1fr; }
+      .mark-stage { width: 100%; height: 132px; }
+      .nav-links { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="intro">
+      <div>
+        <h1>Seven Skilf Logo Directions</h1>
+        <p>Nav-ready vector options built around proof, pressure, craft, expert review, technical ambition, and earned credentials.</p>
+      </div>
+      <a class="back" href="index.html">Back to homepage</a>
+    </section>
+
+    <section class="board" aria-label="Logo option board">
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 1">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf proof prism logo">
+              <defs>
+                <linearGradient id="cubeA" x1="14" y1="10" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#61e5d4"/>
+                  <stop offset="0.56" stop-color="#5ea9f2"/>
+                  <stop offset="1" stop-color="#d7ad45"/>
+                </linearGradient>
+              </defs>
+              <path d="M32 5 55 18.5v27L32 59 9 45.5v-27L32 5Z" fill="#101923" stroke="#d7ad45" stroke-width="3"/>
+              <path d="M32 13 47 21.7 32 30.4 17 21.7 32 13Z" fill="url(#cubeA)"/>
+              <path d="M17 25.5 30 33.2v16L17 41.5v-16Z" fill="#46b8d9"/>
+              <path d="M47 25.5 34 33.2v16l13-7.7v-16Z" fill="#b98be9"/>
+              <path d="M21 43.5 11 49M43 43.5l10 5.5" stroke="#53d4c1" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Proof Prism</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <use href="#proof-prism"></use>
+            </svg>
+            <svg width="0" height="0" aria-hidden="true">
+              <symbol id="proof-prism" viewBox="0 0 64 64">
+                <path d="M32 5 55 18.5v27L32 59 9 45.5v-27L32 5Z" fill="#101923" stroke="#d7ad45" stroke-width="3"/>
+                <path d="M32 13 47 21.7 32 30.4 17 21.7 32 13Z" fill="#53d4c1"/>
+                <path d="M17 25.5 30 33.2v16L17 41.5v-16Z" fill="#5ea9f2"/>
+                <path d="M47 25.5 34 33.2v16l13-7.7v-16Z" fill="#9a7bf4"/>
+                <path d="M21 43.5 11 49M43 43.5l10 5.5" stroke="#d7ad45" stroke-width="3" stroke-linecap="round"/>
+              </symbol>
+            </svg>
+          </div>
+          <div>
+            <h2>1. Proof Prism</h2>
+            <p>A technical credential mark: project cube, expert scrutiny, and earned gold edge. Best if Skilf should feel like a serious proof-of-skill network.</p>
+            <div class="traits"><span>Technical</span><span>Credential</span><span>Premium</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 2">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf defense seal logo">
+              <path d="M32 7c13.8 0 25 10.6 25 23.7 0 12.5-9.7 20.3-25 27.3C16.7 51 7 43.2 7 30.7 7 17.6 18.2 7 32 7Z" fill="#141e2b" stroke="#d7ad45" stroke-width="3"/>
+              <path d="M19 30c7-12 19-12 26 0" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="32" cy="30" r="8" fill="#d7ad45"/>
+              <path d="m32 23.5 1.8 3.8 4.1.6-3 3 0.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-3 4.1-.6L32 23.5Z" fill="#101923"/>
+              <path d="M17 43h30" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Defense Seal</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M32 7c13.8 0 25 10.6 25 23.7 0 12.5-9.7 20.3-25 27.3C16.7 51 7 43.2 7 30.7 7 17.6 18.2 7 32 7Z" fill="#141e2b" stroke="#d7ad45" stroke-width="3"/>
+              <path d="M19 30c7-12 19-12 26 0" fill="none" stroke="#53d4c1" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="32" cy="30" r="8" fill="#d7ad45"/>
+              <path d="m32 23.5 1.8 3.8 4.1.6-3 3 .7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-3 4.1-.6L32 23.5Z" fill="#101923"/>
+              <path d="M17 43h30" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>2. Defense Seal</h2>
+            <p>A badge shaped by a stage arc and review line. It leans hardest into Demo Day, pressure, and "you earned this in public."</p>
+            <div class="traits"><span>Earned</span><span>Public proof</span><span>Defensible</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 3">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf signal S logo">
+              <path d="M47 13H25c-7 0-12 4.5-12 10.8 0 6.1 4.6 9.8 12 9.8h14c5.3 0 8 2.3 8 5.9 0 3.4-2.9 5.7-7.6 5.7H15" fill="none" stroke="#d7ad45" stroke-width="8" stroke-linecap="round"/>
+              <path d="M47 13H25c-7 0-12 4.5-12 10.8 0 6.1 4.6 9.8 12 9.8h14c5.3 0 8 2.3 8 5.9 0 3.4-2.9 5.7-7.6 5.7H15" fill="none" stroke="#53d4c1" stroke-width="3.2" stroke-linecap="round"/>
+              <circle cx="48" cy="13" r="5" fill="#f07562"/>
+              <circle cx="15" cy="46" r="5" fill="#5ea9f2"/>
+              <path d="M25 26h14" stroke="#9a7bf4" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Signal S</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M47 13H25c-7 0-12 4.5-12 10.8 0 6.1 4.6 9.8 12 9.8h14c5.3 0 8 2.3 8 5.9 0 3.4-2.9 5.7-7.6 5.7H15" fill="none" stroke="#d7ad45" stroke-width="8" stroke-linecap="round"/>
+              <path d="M47 13H25c-7 0-12 4.5-12 10.8 0 6.1 4.6 9.8 12 9.8h14c5.3 0 8 2.3 8 5.9 0 3.4-2.9 5.7-7.6 5.7H15" fill="none" stroke="#53d4c1" stroke-width="3.2" stroke-linecap="round"/>
+              <circle cx="48" cy="13" r="5" fill="#f07562"/>
+              <circle cx="15" cy="46" r="5" fill="#5ea9f2"/>
+              <path d="M25 26h14" stroke="#9a7bf4" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>3. Signal S</h2>
+            <p>A more app-native monogram: fast, memorable, and good as a favicon. The path suggests a learner moving through review checkpoints.</p>
+            <div class="traits"><span>Modern</span><span>Favicon ready</span><span>Momentum</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 4">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf panel lights logo">
+              <path d="M12 44V20c0-4.4 3.6-8 8-8h24c4.4 0 8 3.6 8 8v24c0 4.4-3.6 8-8 8H20c-4.4 0-8-3.6-8-8Z" fill="#111923" stroke="#2f4358" stroke-width="3"/>
+              <circle cx="22" cy="24" r="6" fill="#53d4c1"/>
+              <circle cx="32" cy="20" r="6" fill="#d7ad45"/>
+              <circle cx="42" cy="24" r="6" fill="#f07562"/>
+              <path d="M20 38c4.8-4 19.2-4 24 0" fill="none" stroke="#9a7bf4" stroke-width="4" stroke-linecap="round"/>
+              <path d="M22 47h20" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Panel Lights</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M12 44V20c0-4.4 3.6-8 8-8h24c4.4 0 8 3.6 8 8v24c0 4.4-3.6 8-8 8H20c-4.4 0-8-3.6-8-8Z" fill="#111923" stroke="#2f4358" stroke-width="3"/>
+              <circle cx="22" cy="24" r="6" fill="#53d4c1"/>
+              <circle cx="32" cy="20" r="6" fill="#d7ad45"/>
+              <circle cx="42" cy="24" r="6" fill="#f07562"/>
+              <path d="M20 38c4.8-4 19.2-4 24 0" fill="none" stroke="#9a7bf4" stroke-width="4" stroke-linecap="round"/>
+              <path d="M22 47h20" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>4. Panel Lights</h2>
+            <p>A friendlier review-panel symbol. The three lights imply experts, performance, and a stage without looking like old-school academia.</p>
+            <div class="traits"><span>Human</span><span>Review panel</span><span>Warm</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 5">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf skillforge logo">
+              <path d="M18 45 32 8l14 37" fill="none" stroke="#d7ad45" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23 33h26" stroke="#53d4c1" stroke-width="6" stroke-linecap="round"/>
+              <path d="M20 49h28" stroke="#f07562" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="32" cy="23" r="5" fill="#5ea9f2"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Skillforge</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M18 45 32 8l14 37" fill="none" stroke="#d7ad45" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23 33h26" stroke="#53d4c1" stroke-width="6" stroke-linecap="round"/>
+              <path d="M20 49h28" stroke="#f07562" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="32" cy="23" r="5" fill="#5ea9f2"/>
+            </svg>
+          </div>
+          <div>
+            <h2>5. Skillforge</h2>
+            <p>A bold, almost crest-like mark built from a rising frame and an anvil line. Strong for "hard work becomes visible proof."</p>
+            <div class="traits"><span>Craft</span><span>Strong</span><span>Simple</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <nav class="preview-nav" aria-label="Preview navigation for option 6">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf checkpoint orbit logo">
+              <circle cx="32" cy="32" r="23" fill="none" stroke="#2f4358" stroke-width="3"/>
+              <path d="M13 36c10 12 28 12 38-1" fill="none" stroke="#53d4c1" stroke-width="5" stroke-linecap="round"/>
+              <path d="m24 30 7 7 13-16" fill="none" stroke="#d7ad45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="13" cy="36" r="5" fill="#f07562"/>
+              <circle cx="51" cy="35" r="5" fill="#5ea9f2"/>
+              <circle cx="32" cy="9" r="4" fill="#9a7bf4"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Checkpoint Orbit</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="23" fill="none" stroke="#2f4358" stroke-width="3"/>
+              <path d="M13 36c10 12 28 12 38-1" fill="none" stroke="#53d4c1" stroke-width="5" stroke-linecap="round"/>
+              <path d="m24 30 7 7 13-16" fill="none" stroke="#d7ad45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="13" cy="36" r="5" fill="#f07562"/>
+              <circle cx="51" cy="35" r="5" fill="#5ea9f2"/>
+              <circle cx="32" cy="9" r="4" fill="#9a7bf4"/>
+            </svg>
+          </div>
+          <div>
+            <h2>6. Checkpoint Orbit</h2>
+            <p>A verification-centered option. It feels more platform and less school, with a clear pass signal and multiple proof points around it.</p>
+            <div class="traits"><span>Verified</span><span>Network</span><span>Clear</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="option wide">
+        <nav class="preview-nav" aria-label="Preview navigation for option 7">
+          <a class="logo-lockup" href="#">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Skilf blackberry constellation logo">
+              <path d="M17 43c0-10.5 8.5-19 19-19 7 0 12.8 3.6 16 9" fill="none" stroke="#53d4c1" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="21" cy="19" r="6" fill="#d7ad45"/>
+              <circle cx="34" cy="15" r="6" fill="#9a7bf4"/>
+              <circle cx="45" cy="23" r="6" fill="#5ea9f2"/>
+              <circle cx="28" cy="31" r="6" fill="#f07562"/>
+              <circle cx="41" cy="38" r="6" fill="#53d4c1"/>
+              <path d="M20 47h32" stroke="#d7ad45" stroke-width="4" stroke-linecap="round"/>
+              <path d="M14 53h23" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span><span class="wordmark">Skilf</span><span class="descriptor">Constellation</span></span>
+          </a>
+          <div class="nav-links"><span>Demo Day</span><span>Experts</span><span class="nav-cta">Begin</span></div>
+        </nav>
+        <div class="option-body">
+          <div class="mark-stage">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M17 43c0-10.5 8.5-19 19-19 7 0 12.8 3.6 16 9" fill="none" stroke="#53d4c1" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="21" cy="19" r="6" fill="#d7ad45"/>
+              <circle cx="34" cy="15" r="6" fill="#9a7bf4"/>
+              <circle cx="45" cy="23" r="6" fill="#5ea9f2"/>
+              <circle cx="28" cy="31" r="6" fill="#f07562"/>
+              <circle cx="41" cy="38" r="6" fill="#53d4c1"/>
+              <path d="M20 47h32" stroke="#d7ad45" stroke-width="4" stroke-linecap="round"/>
+              <path d="M14 53h23" stroke="#5ea9f2" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h2>7. Constellation</h2>
+            <p>The most distinctive and slightly playful direction. It nods to Blackberry, networks of talent, and many small proofs becoming one recognizable credential.</p>
+            <div class="traits"><span>Distinctive</span><span>Talent network</span><span>Memorable</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

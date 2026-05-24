@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-labelledby="title desc">
+  <title id="title">NLP thumbnail</title>
+  <desc id="desc">A no-people thumbnail scene for NLP in Artificial Intelligence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#18263a"/>
+      <stop offset="0.52" stop-color="#203752"/>
+      <stop offset="1" stop-color="#101821"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="80%" cy="14%" r="82%">
+      <stop offset="0" stop-color="#70a1ff" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#e28bff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1f6f78" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+    <rect width="360" height="210" rx="24" fill="url(#bg)"/>
+    <rect width="360" height="210" rx="24" fill="url(#pulse)"/>
+    <path d="M0 137c54-22 92-4 140-26 70-32 106-70 220-48v118H0z" fill="#1f6f78" opacity="0.2"/>
+    <path d="M0 181c70-22 112 0 174-18 64-18 106-12 186 8v62H0z" fill="#70a1ff" opacity="0.08"/>
+    <circle cx="285" cy="53" r="43" fill="#ff8c73" opacity="0.12"/>
+    <circle cx="63" cy="163" r="27" fill="#e28bff" opacity="0.1"/>
+  
+  <g filter="drop-shadow(0 9px 12px rgb(0 0 0 / 0.18))">
+    <g transform="translate(218 120) rotate(5) scale(0.98)"><path d="M-70-14c0-22 18-40 40-40h72c22 0 40 18 40 40s-18 40-40 40H4l-42 30 10-30h-2c-22 0-40-18-40-40z" fill="#70a1ff" stroke="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-34" cy="-14" r="6" fill="#0b1117" opacity="0.58"/><circle cx="0" cy="-14" r="6" fill="#0b1117" opacity="0.58"/><circle cx="34" cy="-14" r="6" fill="#0b1117" opacity="0.58"/><path d="M-46 54h92M-20 54v34M20 54v34" fill="none" stroke="#e28bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/></g><g transform="translate(104 88) rotate(-7) scale(0.84)"><line x1="0" y1="-62" x2="-52" y2="-8" stroke="#70a1ff" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="0" y1="-62" x2="52" y2="-8" stroke="#70a1ff" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="-52" y1="-8" x2="-74" y2="48" stroke="#e28bff" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="-52" y1="-8" x2="-28" y2="48" stroke="#e28bff" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="52" y1="-8" x2="28" y2="48" stroke="#1f6f78" stroke-width="5" stroke-linecap="round" opacity="0.92"/><line x1="52" y1="-8" x2="74" y2="48" stroke="#1f6f78" stroke-width="5" stroke-linecap="round" opacity="0.92"/><circle cx="0" cy="-62" r="10" fill="#70a1ff" opacity="0.95"/><circle cx="-52" cy="-8" r="10" fill="#e28bff" opacity="0.95"/><circle cx="52" cy="-8" r="10" fill="#1f6f78" opacity="0.95"/><circle cx="-74" cy="48" r="10" fill="#ff8c73" opacity="0.95"/><circle cx="-28" cy="48" r="10" fill="#70a1ff" opacity="0.95"/><circle cx="28" cy="48" r="10" fill="#e28bff" opacity="0.95"/><circle cx="74" cy="48" r="10" fill="#1f6f78" opacity="0.95"/></g><g transform="translate(78 158) rotate(0) scale(0.5)"><rect x="-60" y="-62" width="120" height="124" rx="12" fill="#e8edf3" opacity="0.92"/><line x1="-36" y1="-26" x2="36" y2="-26" stroke="#70a1ff" stroke-width="6" stroke-linecap="round" opacity="0.92"/><line x1="-36" y1="0" x2="20" y2="0" stroke="#e28bff" stroke-width="6" stroke-linecap="round" opacity="0.92"/><line x1="-36" y1="26" x2="42" y2="26" stroke="#1f6f78" stroke-width="6" stroke-linecap="round" opacity="0.92"/><path d="M52-54l28 28-28 28" fill="none" stroke="#ff8c73" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="1"/><circle cx="-44" cy="48" r="8" fill="#70a1ff" opacity="1"/></g>
+  </g>
+</svg>
