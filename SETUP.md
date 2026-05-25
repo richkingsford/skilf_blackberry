@@ -36,9 +36,9 @@ Netlify captures the form without a custom backend. The recipient cannot be full
 8. Run the site locally with `npm run serve:workspace` and open `http://localhost:3999/index.html`.
 9. Click Sign in. After Google sign-in succeeds, the nav should show your profile chip.
 
-The application form saves signed-in submissions to the `people` collection with `role` values of `intern`, `scholarship`, `board-member`, or `mentor`. Netlify form capture still works if Firebase is not configured yet.
+The application form saves signed-in submissions to the `people` collection with `role` values of `intern`, `scholarship`, `board-member`, `mentor`, or `hire`. Netlify form capture still works if Firebase is not configured yet.
 
-Homepage card messages save to the `messages` collection. The structure is documented in `docs/firestore-schema.md`.
+Signed-in users also get a private `userProfiles/{uid}` document with registered roles of `intern`, `mentor`, or `board-member`. Homepage and interns-page card messages save to the `messages` collection only for users with one of those registered roles. The structure is documented in `docs/firestore-schema.md`.
 
 If sign-in says `This domain is not authorized in Firebase Authentication`, add the exact host you are using to Authorized domains. For local testing, `localhost` and `127.0.0.1` are different hosts.
 

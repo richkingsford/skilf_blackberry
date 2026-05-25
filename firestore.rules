@@ -12,16 +12,60 @@ service cloud.firestore {
         && request.resource.data.authEmail is string;
     }
 
+    function ownsProfile(userId) {
+      return isSignedIn() && userId == request.auth.uid;
+    }
+
+    function validRegisteredRoles(roles) {
+      return roles is list
+        && roles.hasOnly(["board-member", "mentor", "intern"]);
+    }
+
+    function validUserProfile(userId) {
+      return ownsProfile(userId)
+        && request.resource.data.keys().hasOnly([
+          "uid",
+          "email",
+          "displayName",
+          "photoURL",
+          "roles",
+          "primaryRole",
+          "isRegistered",
+          "source",
+          "createdAt",
+          "updatedAt"
+        ])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email is string
+        && validRegisteredRoles(request.resource.data.roles)
+        && request.resource.data.primaryRole in ["", "board-member", "mentor", "intern"]
+        && request.resource.data.isRegistered is bool;
+    }
+
+    function isRegisteredSender() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/userProfiles/$(request.auth.uid))
+        && get(/databases/$(database)/documents/userProfiles/$(request.auth.uid)).data.roles is list
+        && get(/databases/$(database)/documents/userProfiles/$(request.auth.uid)).data.roles.hasAny(["board-member", "mentor", "intern"]);
+    }
+
+    match /userProfiles/{userId} {
+      allow read: if ownsProfile(userId);
+      allow create, update: if validUserProfile(userId);
+      allow delete: if false;
+    }
+
     match /people/{personId} {
       allow create: if ownsCreatedDoc()
         && request.resource.data.email is string
-        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor"];
+        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor", "hire"];
       allow read, update, delete: if false;
     }
 
     match /messages/{messageId} {
-      allow create: if ownsCreatedDoc()
-        && request.resource.data.targetType in ["expert", "partner"]
+      allow create: if isRegisteredSender()
+        && ownsCreatedDoc()
+        && request.resource.data.targetType in ["expert", "partner", "intern"]
         && request.resource.data.targetName is string
         && request.resource.data.message is string
         && request.resource.data.message.size() > 0

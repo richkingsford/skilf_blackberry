@@ -13,15 +13,25 @@ import {
 import {
   addDoc,
   collection,
+  doc,
+  getDoc,
   getFirestore,
   serverTimestamp,
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+const REGISTERED_MESSAGE_ROLES = ["board-member", "mentor", "intern"];
+const TEMPORARY_ROLE_SEEDS = {
+  "richkingsford@gmail.com": "mentor",
+};
 
 const state = {
   ready: false,
   auth: null,
   db: null,
   user: null,
+  profile: null,
+  registeredRoles: [],
 };
 
 const googleProvider = new GoogleAuthProvider();
@@ -63,6 +73,62 @@ function displayNameFor(user) {
   return value.split(/\s+/)[0].split("@")[0];
 }
 
+function normalizeEmail(email) {
+  return String(email || "").trim().toLowerCase();
+}
+
+function normalizeRole(role) {
+  return String(role || "").trim().toLowerCase();
+}
+
+function registeredRolesFrom(values) {
+  return [...new Set((values || []).map(normalizeRole).filter((role) => REGISTERED_MESSAGE_ROLES.includes(role)))];
+}
+
+function temporarySeedRoleFor(user) {
+  return TEMPORARY_ROLE_SEEDS[normalizeEmail(user && user.email)] || "";
+}
+
+function applyProfileData(data) {
+  state.profile = data || null;
+  state.registeredRoles = registeredRolesFrom(data && data.roles);
+}
+
+function hasRegisteredMessageRole() {
+  return state.registeredRoles.some((role) => REGISTERED_MESSAGE_ROLES.includes(role));
+}
+
+async function syncUserProfile(user = state.user, requestedRole = "") {
+  if (!state.ready || !user) return null;
+  const profileRef = doc(state.db, "userProfiles", user.uid);
+  const existing = await getDoc(profileRef).catch(() => null);
+  const existingData = existing && existing.exists() ? existing.data() : {};
+  const roles = registeredRolesFrom([
+    ...(existingData.roles || []),
+    normalizeRole(requestedRole),
+    temporarySeedRoleFor(user),
+  ]);
+  const profileData = {
+    uid: user.uid,
+    email: user.email || "",
+    displayName: user.displayName || "",
+    photoURL: user.photoURL || "",
+    roles,
+    primaryRole: roles[0] || "",
+    isRegistered: roles.length > 0,
+    source: "skilf-site",
+    updatedAt: serverTimestamp(),
+  };
+  if (!existing || !existing.exists()) profileData.createdAt = serverTimestamp();
+
+  await setDoc(profileRef, profileData, { merge: true });
+  applyProfileData({ ...existingData, ...profileData });
+
+  const latest = await getDoc(profileRef).catch(() => null);
+  if (latest && latest.exists()) applyProfileData(latest.data());
+  return state.profile;
+}
+
 function renderAuthState(user) {
   for (const ui of authUiElements()) {
     if (ui.profile) ui.profile.hidden = !user;
@@ -101,6 +167,7 @@ async function signInWithGoogle() {
   try {
     const result = await signInWithPopup(state.auth, googleProvider);
     state.user = result.user || state.auth.currentUser;
+    if (state.user) await syncUserProfile(state.user).catch((error) => console.error("User profile sync failed.", error));
     renderAuthState(state.user);
     return state.user;
   } catch (error) {
@@ -119,7 +186,10 @@ async function requireSignIn(message = "Sign in to continue.") {
     setAuthStatus("Firebase is not configured yet.");
     return null;
   }
-  if (state.user) return state.user;
+  if (state.user) {
+    await syncUserProfile(state.user).catch((error) => console.error("User profile sync failed.", error));
+    return state.user;
+  }
   setAuthStatus(message);
   return signInWithGoogle();
 }
@@ -128,7 +198,7 @@ async function savePersonApplication(form) {
   if (!state.ready) return null;
   const data = Object.fromEntries(new FormData(form).entries());
   const user = state.user;
-  return addDoc(collection(state.db, "people"), {
+  const docRef = await addDoc(collection(state.db, "people"), {
     role: data.role || "intern",
     name: data.name || "",
     email: data.email || "",
@@ -140,11 +210,17 @@ async function savePersonApplication(form) {
     authEmail: user ? user.email : null,
     createdAt: serverTimestamp(),
   });
+  if (user) await syncUserProfile(user, data.role).catch((error) => console.error("User role sync failed.", error));
+  return docRef;
 }
 
 async function saveCardMessage(payload) {
   const user = state.user || (state.auth ? state.auth.currentUser : null);
   if (!state.ready || !user) return null;
+  await syncUserProfile(user);
+  if (!hasRegisteredMessageRole()) {
+    throw new Error("Only registered mentors, interns, and board members can send messages.");
+  }
   const message = {
     targetType: payload.targetType || "expert",
     targetName: payload.targetName || "",
@@ -154,6 +230,7 @@ async function saveCardMessage(payload) {
     source: "skilf-homepage-card",
     authUid: user.uid,
     authEmail: user.email || "",
+    senderRoles: [...state.registeredRoles],
     createdAt: serverTimestamp(),
   };
   const docRef = await addDoc(collection(state.db, "messages"), message);
@@ -256,7 +333,9 @@ if (!firebaseReady) {
   });
   onAuthStateChanged(state.auth, (user) => {
     state.user = user;
+    if (!user) applyProfileData(null);
     renderAuthState(user);
+    if (user) syncUserProfile(user).catch((error) => console.error("User profile sync failed.", error));
   });
 }
 
@@ -267,7 +346,17 @@ window.skilfFirebase = {
   get user() {
     return state.user;
   },
+  get profile() {
+    return state.profile;
+  },
+  get registeredRoles() {
+    return [...state.registeredRoles];
+  },
+  get hasRegisteredRole() {
+    return hasRegisteredMessageRole();
+  },
   requireSignIn,
+  syncUserProfile,
   saveCardMessage,
   savePersonApplication,
 };

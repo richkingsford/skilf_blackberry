@@ -190,8 +190,8 @@ test.describe('Backlog regression', () => {
   test('Interns page supports search, skill tree filtering, and thumbnails', async ({ page }) => {
     await page.goto('/interns');
     await expect(page.getByRole('heading', { name: 'Interns' })).toBeVisible();
-    await expect(page.locator('.lead')).toHaveText('Every Skilf intern already has an internship, but some are only working for themselves on a startup.');
-    await expect(page.getByRole('heading', { name: 'Hire or mentor a Skilf intern.' })).toBeVisible();
+    await expect(page.locator('.lead')).toHaveText('Every Skilf intern already has an internship — some are even working for themselves on their own startup.');
+    await expect(page.getByRole('heading', { name: 'Hire or mentor an intern.' })).toBeVisible();
     await expect(page.locator('img[src="assets/interns-mentor-hero.png"]')).toBeVisible();
     await expect(page.getByText('Every Skilf intern already has an internship')).toHaveCount(1);
     await expect(page.getByText('paid or unpaid role with an experienced professional')).toBeVisible();
@@ -302,6 +302,7 @@ test.describe('Backlog regression', () => {
     await page.evaluate(() => {
       window.skilfFirebase = {
         user: { uid: 'test-user' },
+        hasRegisteredRole: true,
         requireSignIn: async () => ({ uid: 'test-user' }),
         saveCardMessage: async (payload) => {
           window.__savedMessages.push(payload);
@@ -318,6 +319,21 @@ test.describe('Backlog regression', () => {
     expect(messages[0].targetField.length).toBeGreaterThan(0);
     expect(messages[0].targetProject.length).toBeGreaterThan(0);
     expect(messages[0].message.length).toBeGreaterThan(0);
+  });
+
+  test('Firebase schema tracks registered sender roles', async () => {
+    const firebaseSource = fs.readFileSync(path.join(__dirname, '..', 'skilf-firebase.js'), 'utf8');
+    const rulesSource = fs.readFileSync(path.join(__dirname, '..', 'firestore.rules'), 'utf8');
+    const schemaSource = fs.readFileSync(path.join(__dirname, '..', 'docs', 'firestore-schema.md'), 'utf8');
+
+    expect(firebaseSource).toContain('userProfiles');
+    expect(firebaseSource).toContain('"richkingsford@gmail.com": "mentor"');
+    expect(firebaseSource).toContain('senderRoles');
+    expect(rulesSource).toContain('match /userProfiles/{userId}');
+    expect(rulesSource).toContain('isRegisteredSender()');
+    expect(rulesSource).toContain('"intern", "scholarship", "board-member", "mentor", "hire"');
+    expect(schemaSource).toContain('`userProfiles`');
+    expect(schemaSource).toContain('`richkingsford@gmail.com` is seeded as `mentor`');
   });
 
   test('intern project data has complete visible and search tags', async () => {

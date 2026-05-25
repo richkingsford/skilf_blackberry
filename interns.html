@@ -474,7 +474,7 @@
     <section class="hero">
       <div>
         <h1>Interns</h1>
-        <p class="lead">Every Skilf intern already has an internship, but some are only working for themselves on a startup.</p>
+        <p class="lead">Every Skilf intern already has an internship — some are even working for themselves on their own startup.</p>
       </div>
       <div class="stats" aria-label="Intern explorer stats">
         <div class="stat"><strong data-intern-count>0</strong><span>intern project ideas</span></div>
@@ -486,7 +486,7 @@
     <section class="mentor-intro" aria-labelledby="mentor-intern-heading">
       <img src="assets/interns-mentor-hero.png" alt="Professional mentor helping an intern refine a prototype project" loading="eager" decoding="async">
       <div class="mentor-copy">
-        <h2 id="mentor-intern-heading">Hire or mentor a Skilf intern.</h2>
+        <h2 id="mentor-intern-heading">Hire or mentor an intern.</h2>
         <p>Any professional, startup, mature organization, or independent expert can help an intern do more credible work. A paid or unpaid role with an experienced professional gives their evidence more weight and gives you an early look at motivated talent.</p>
       </div>
     </section>
@@ -678,6 +678,16 @@
         send.textContent = send.dataset.originalText || "Send";
         send.disabled = false;
       }
+    }
+
+    async function hasRegisteredMessageRole(auth) {
+      if (!auth || !auth.user) return false;
+      if (auth.syncUserProfile) await auth.syncUserProfile(auth.user).catch(() => null);
+      if (typeof auth.hasRegisteredRole === "boolean") return auth.hasRegisteredRole;
+      if (Array.isArray(auth.registeredRoles)) {
+        return auth.registeredRoles.some((role) => ["mentor", "intern", "board-member"].includes(role));
+      }
+      return false;
     }
 
     function msgWidget(defaultIndex) {
@@ -905,6 +915,10 @@
             return;
           }
           if (!auth.user) {
+            showRegistrationPrompt();
+            return;
+          }
+          if (!(await hasRegisteredMessageRole(auth))) {
             showRegistrationPrompt();
             return;
           }
