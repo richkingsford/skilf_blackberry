@@ -1,17 +1,15 @@
-const FIREBASE_WEB_API_KEY = process.env.FIREBASE_WEB_API_KEY || "AIzaSyDU0tW1mgqrnpEciULEIY48gXMivTTq470";
+const {
+  json,
+  requireUser,
+} = require("./_firebase-admin");
+
 const MESSAGE_TO_EMAIL = process.env.MESSAGE_TO_EMAIL || "richkingsford@gmail.com";
 const MESSAGE_FROM_EMAIL = process.env.MESSAGE_FROM_EMAIL || "Skilf <onboarding@resend.dev>";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const MESSAGE_ROLES = new Set(["mentor", "intern", "board-member"]);
 
-function json(statusCode, body) {
-  return {
-    statusCode,
-    headers: {
-      "Content-Type": "application/json",
-      "Cache-Control": "no-store",
-    },
-    body: JSON.stringify(body),
-  };
+function writesAllowed() {
+  return String(process.env.SKILF_ALLOW_WRITES || "true").trim().toLowerCase() !== "false";
 }
 
 function readBearerToken(headers) {
@@ -24,26 +22,35 @@ function clean(value, maxLength = 2000) {
   return String(value || "").trim().slice(0, maxLength);
 }
 
-async function verifyFirebaseUser(idToken) {
-  const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${FIREBASE_WEB_API_KEY}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken }),
-  });
-  if (!response.ok) return null;
-  const data = await response.json();
-  return data.users && data.users.length ? data.users[0] : null;
+function authFailureStatus(error) {
+  if (error.statusCode) return error.statusCode;
+  return String(error.code || "").startsWith("auth/") ? 401 : 500;
+}
+
+function canSendMessages(roles = []) {
+  return roles.some((role) => MESSAGE_ROLES.has(role));
 }
 
 exports.handler = async function handler(event) {
   if (event.httpMethod === "OPTIONS") return { statusCode: 204, body: "" };
   if (event.httpMethod !== "POST") return json(405, { error: "Use POST." });
+  if (!writesAllowed()) return json(403, { error: "Production writes are disabled for this deployment." });
 
   const token = readBearerToken(event.headers || {});
   if (!token) return json(401, { error: "Sign in before sending a message." });
 
-  const firebaseUser = await verifyFirebaseUser(token);
-  if (!firebaseUser) return json(401, { error: "Your sign-in could not be verified." });
+  let verified;
+  try {
+    verified = await requireUser(event);
+  } catch (error) {
+    const statusCode = authFailureStatus(error);
+    return json(statusCode, {
+      error: statusCode === 401 ? "Your sign-in could not be verified." : (error.message || "Message authorization failed."),
+    });
+  }
+  if (!canSendMessages(verified.roles)) {
+    return json(403, { error: "Only active registered interns, mentors, and board members can send messages." });
+  }
 
   let payload;
   try {
@@ -57,8 +64,8 @@ exports.handler = async function handler(event) {
   const targetField = clean(payload.targetField, 160);
   const targetProject = clean(payload.targetProject, 500);
   const message = clean(payload.message, 2000);
-  const senderEmail = clean(firebaseUser.email, 240);
-  const senderName = clean(firebaseUser.displayName, 160) || senderEmail || "Signed-in Skilf user";
+  const senderEmail = clean(verified.decodedToken.email, 240);
+  const senderName = clean(verified.decodedToken.name, 160) || senderEmail || "Signed-in Skilf user";
 
   if (!message) return json(400, { error: "Message is required." });
   if (!RESEND_API_KEY) {
@@ -70,7 +77,7 @@ exports.handler = async function handler(event) {
   const subject = `Skilf message for ${targetName}`;
   const text = [
     `From: ${senderName}${senderEmail ? ` <${senderEmail}>` : ""}`,
-    `Firebase UID: ${firebaseUser.localId || ""}`,
+    `Firebase UID: ${verified.decodedToken.uid || ""}`,
     `Target type: ${targetType}`,
     `Target name: ${targetName}`,
     targetField ? `Target field: ${targetField}` : "",

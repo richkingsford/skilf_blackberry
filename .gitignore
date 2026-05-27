@@ -1,7 +1,14 @@
 node_modules/
 test-results/
 regression-artifacts/
+artifacts/
 .netlify/
 .claude/
+.secrets/
+
+.env*
+!.env.example
 
 *.log
+firebase-debug.log
+.serve.pid

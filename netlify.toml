@@ -4,9 +4,33 @@ publish = "."
 [functions]
 directory = "netlify/functions"
 
+[context.production.environment]
+SKILF_ALLOW_WRITES = "true"
+
+[context.deploy-preview.environment]
+SKILF_ALLOW_WRITES = "false"
+
+[context.branch-deploy.environment]
+SKILF_ALLOW_WRITES = "false"
+
 [[redirects]]
 from = "/interns"
 to = "/interns.html"
+status = 200
+
+[[redirects]]
+from = "/mentor-dashboard"
+to = "/mentor-dashboard.html"
+status = 200
+
+[[redirects]]
+from = "/board-member-dashboard"
+to = "/board-member-dashboard.html"
+status = 200
+
+[[redirects]]
+from = "/intern-dashboard"
+to = "/intern-dashboard.html"
 status = 200
 
 [[headers]]

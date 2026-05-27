@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$root = 'C:/dev/skilf'
+$root = Split-Path $PSScriptRoot -Parent
 $ensureScriptPath = Join-Path $root 'tests/ensure-regression-gallery-server.ps1'
 $runRegressionPath = Join-Path $root 'tests/run-regression.ps1'
 $captureScriptPath = Join-Path $root 'tests/capture-regression-screenshot.js'

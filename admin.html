@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1117;
+      --panel: #121b26;
+      --panel-2: #172332;
+      --ink: #e8edf3;
+      --muted: #9fb2c7;
+      --line: #2a3a4e;
+      --gold: #d4a94b;
+      --danger: #ff7979;
+      --ok: #70dca0;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+    }
+
+    main {
+      width: min(1120px, 94vw);
+      margin: 44px auto 82px;
+    }
+
+    .admin-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+    }
+
+    .kicker {
+      display: block;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 7px 0 0;
+      color: var(--ink);
+      font-size: clamp(2rem, 4vw, 3.45rem);
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .admin-head p,
+    .gate p,
+    .policy-strip p,
+    .result p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .admin-head p {
+      max-width: 520px;
+    }
+
+    .gate,
+    .admin-tool,
+    .policy-strip,
+    .result {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .gate {
+      padding: 22px;
+    }
+
+    .gate h2,
+    .policy-strip h2,
+    .admin-panel h2,
+    .result h2 {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 1.16rem;
+      letter-spacing: 0;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 18px;
+    }
+
+    .admin-tool {
+      padding: 22px;
+    }
+
+    .admin-panel + .admin-panel {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    input[type="email"],
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      margin-top: 8px;
+      border: 1px solid rgba(143, 163, 186, 0.52);
+      border-radius: 8px;
+      padding: 11px 12px;
+      background: #0f1721;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      min-height: 102px;
+      resize: vertical;
+    }
+
+    fieldset {
+      margin: 16px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    legend {
+      padding: 0 6px;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      border: 1px solid rgba(143, 163, 186, 0.25);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .check-row input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+    }
+
+    .suspend-row {
+      margin-top: 16px;
+      border-color: rgba(255, 121, 121, 0.45);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .admin-btn {
+      min-height: 40px;
+      border: 1px solid rgba(143, 163, 186, 0.52);
+      border-radius: 8px;
+      padding: 10px 14px;
+      background: var(--panel-2);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .admin-btn.primary {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #0b1117;
+    }
+
+    .admin-btn.danger {
+      border-color: rgba(255, 121, 121, 0.72);
+      color: #ffd7d7;
+    }
+
+    .admin-btn:hover {
+      filter: brightness(1.08);
+    }
+
+    .admin-btn[disabled] {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    .policy-strip {
+      padding: 18px;
+    }
+
+    .policy-strip + .policy-strip {
+      margin-top: 14px;
+    }
+
+    .policy-strip strong {
+      color: var(--ink);
+    }
+
+    .result {
+      margin-top: 18px;
+      padding: 18px;
+    }
+
+    .result dl {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 8px 14px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .result dt {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .status-line {
+      min-height: 22px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .status-line.ok { color: var(--ok); }
+    .status-line.error { color: var(--danger); }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 760px) {
+      .admin-head {
+        display: block;
+      }
+
+      .admin-head p {
+        margin-top: 14px;
+      }
+
+      .admin-grid,
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="admin-head">
+      <div>
+        <span class="kicker">Admin</span>
+        <h1>Permissions and account safety</h1>
+      </div>
+      <p>Look up a user by email, grant or remove approved Skilf roles, and suspend suspected-spam accounts while preserving an audit trail.</p>
+    </section>
+
+    <section class="gate" data-admin-gate>
+      <h2>Checking access</h2>
+      <p data-admin-gate-copy>Confirming admin authority from your signed-in Skilf account.</p>
+      <div class="button-row">
+        <button class="admin-btn primary" type="button" data-admin-sign-in hidden>Sign in as admin</button>
+      </div>
+    </section>
+
+    <section class="admin-grid" data-admin-console hidden>
+      <form class="admin-tool" data-admin-form>
+        <section class="admin-panel">
+          <h2>User lookup</h2>
+          <label>Email address
+            <input type="email" data-admin-email autocomplete="email" placeholder="person@example.com" required>
+          </label>
+          <div class="button-row">
+            <button class="admin-btn" type="button" data-admin-action="lookup">Look up</button>
+          </div>
+        </section>
+
+        <section class="admin-panel">
+          <h2>Permissions</h2>
+          <fieldset>
+            <legend>Approved roles</legend>
+            <div class="role-grid">
+              <label class="check-row"><input type="checkbox" value="admin" data-admin-role> Admin</label>
+              <label class="check-row"><input type="checkbox" value="intern" data-admin-role> Intern</label>
+              <label class="check-row"><input type="checkbox" value="board-member" data-admin-role> Board member</label>
+              <label class="check-row"><input type="checkbox" value="mentor" data-admin-role> Mentor</label>
+            </div>
+          </fieldset>
+
+          <label class="check-row suspend-row"><input type="checkbox" data-admin-suspended> Suspend account and disable sign-in</label>
+          <label style="margin-top:14px;">Reason or review note
+            <textarea data-admin-reason placeholder="Spam pattern, impersonation concern, reported abuse, or reinstatement note"></textarea>
+          </label>
+
+          <div class="button-row">
+            <button class="admin-btn primary" type="button" data-admin-action="save">Save permissions</button>
+            <button class="admin-btn danger" type="button" data-admin-action="suspend">Suspend account</button>
+            <button class="admin-btn" type="button" data-admin-action="reinstate">Reinstate account</button>
+          </div>
+          <p class="status-line" data-admin-status></p>
+        </section>
+      </form>
+
+      <aside>
+        <section class="policy-strip">
+          <h2>Messaging rule</h2>
+          <p><strong>Only active registered interns, mentors, and board members can send messages.</strong> Admin alone is not treated as a sender role unless that account also has one of those registered roles.</p>
+        </section>
+        <section class="policy-strip">
+          <h2>Suspension rule</h2>
+          <p>Suspension disables sign-in, removes active role claims, blocks message and dashboard authority, preserves review notes, and records who made the change.</p>
+        </section>
+        <section class="result" data-admin-result hidden></section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="skilf-firebase.js"></script>
+  <script type="module">
+    const gate = document.querySelector("[data-admin-gate]");
+    const gateCopy = document.querySelector("[data-admin-gate-copy]");
+    const signIn = document.querySelector("[data-admin-sign-in]");
+    const consoleRoot = document.querySelector("[data-admin-console]");
+    const emailInput = document.querySelector("[data-admin-email]");
+    const roleInputs = [...document.querySelectorAll("[data-admin-role]")];
+    const suspendedInput = document.querySelector("[data-admin-suspended]");
+    const reasonInput = document.querySelector("[data-admin-reason]");
+    const status = document.querySelector("[data-admin-status]");
+    const result = document.querySelector("[data-admin-result]");
+    const buttons = [...document.querySelectorAll("[data-admin-action]")];
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      }[char]));
+    }
+
+    function setStatus(message, tone = "") {
+      status.textContent = message || "";
+      status.className = `status-line ${tone}`.trim();
+    }
+
+    function setBusy(isBusy) {
+      for (const button of buttons) button.disabled = isBusy;
+    }
+
+    function selectedRoles() {
+      return roleInputs.filter((input) => input.checked).map((input) => input.value);
+    }
+
+    function applyRoles(roles = []) {
+      const selected = new Set(roles);
+      for (const input of roleInputs) input.checked = selected.has(input.value);
+    }
+
+    function renderResult(user) {
+      result.hidden = false;
+      result.innerHTML = `
+        <h2>Current account</h2>
+        <dl>
+          <dt>Email</dt><dd>${escapeHtml(user.email)}</dd>
+          <dt>UID</dt><dd>${escapeHtml(user.uid)}</dd>
+          <dt>Status</dt><dd>${user.suspended || user.disabled ? "Suspended" : "Active"}</dd>
+          <dt>Roles</dt><dd>${escapeHtml((user.roles || []).join(", ") || "None")}</dd>
+          <dt>Reason</dt><dd>${escapeHtml(user.suspendedReason || "None")}</dd>
+        </dl>
+      `;
+    }
+
+    function waitForFirebase() {
+      return new Promise((resolve) => {
+        const started = Date.now();
+        const timer = window.setInterval(() => {
+          if (window.skilfFirebase || Date.now() - started > 8000) {
+            window.clearInterval(timer);
+            resolve(window.skilfFirebase || null);
+          }
+        }, 80);
+      });
+    }
+
+    async function refreshAccess() {
+      const skilf = await waitForFirebase();
+      if (!skilf || !skilf.ready) {
+        gate.hidden = false;
+        consoleRoot.hidden = true;
+        gate.querySelector("h2").textContent = "Firebase setup needed";
+        gateCopy.textContent = "Admin tools require Firebase Authentication to be configured.";
+        signIn.hidden = true;
+        return;
+      }
+
+      if (!skilf.user) {
+        gate.hidden = false;
+        consoleRoot.hidden = true;
+        gate.querySelector("h2").textContent = "Admin sign-in required";
+        gateCopy.textContent = "Sign in with the admin Google account to manage Skilf permissions.";
+        signIn.hidden = false;
+        return;
+      }
+
+      await skilf.syncUserProfile(skilf.user).catch(() => null);
+      if (!skilf.isAdmin) {
+        gate.hidden = false;
+        consoleRoot.hidden = true;
+        gate.querySelector("h2").textContent = "Admin access only";
+        gateCopy.textContent = "This account is not approved to manage Skilf permissions.";
+        signIn.hidden = true;
+        return;
+      }
+
+      gate.hidden = true;
+      consoleRoot.hidden = false;
+    }
+
+    async function callAdmin(payload) {
+      const skilf = window.skilfFirebase;
+      const token = await skilf.getIdToken(true);
+      const response = await fetch("/.netlify/functions/admin-set-user-roles", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || `Admin request failed (${response.status}).`);
+      return data;
+    }
+
+    async function lookupUser() {
+      const email = emailInput.value.trim();
+      if (!email) throw new Error("Enter an email address first.");
+      const data = await callAdmin({ email, lookupOnly: true });
+      applyRoles(data.user.roles || []);
+      suspendedInput.checked = Boolean(data.user.suspended || data.user.disabled);
+      reasonInput.value = data.user.suspendedReason || "";
+      renderResult(data.user);
+      return data.user;
+    }
+
+    async function saveUser(action) {
+      const email = emailInput.value.trim();
+      if (!email) throw new Error("Enter an email address first.");
+      if (action === "suspend") suspendedInput.checked = true;
+      if (action === "reinstate") suspendedInput.checked = false;
+      if (suspendedInput.checked && !reasonInput.value.trim()) throw new Error("Add a reason before suspending an account.");
+      const data = await callAdmin({
+        email,
+        roles: selectedRoles(),
+        suspended: suspendedInput.checked,
+        reason: reasonInput.value.trim(),
+      });
+      renderResult(data.user);
+      return data.user;
+    }
+
+    document.addEventListener("click", async (event) => {
+      if (event.target.closest("[data-admin-sign-in]")) {
+        await window.skilfFirebase.requireSignIn("Sign in as admin to continue.");
+        await refreshAccess();
+        return;
+      }
+
+      const actionButton = event.target.closest("[data-admin-action]");
+      if (!actionButton) return;
+      const action = actionButton.dataset.adminAction;
+      setBusy(true);
+      setStatus(action === "lookup" ? "Looking up account..." : "Saving account policy...");
+      try {
+        const user = action === "lookup" ? await lookupUser() : await saveUser(action);
+        setStatus(`${user.email} is ${user.suspended || user.disabled ? "suspended" : "active"}.`, "ok");
+      } catch (error) {
+        setStatus(error.message || "Admin update failed.", "error");
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    refreshAccess();
+  </script>
+</body>
+</html>

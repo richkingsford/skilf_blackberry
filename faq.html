@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <style>
+    :root { color-scheme: dark; --ink:#e8edf3; --ink-soft:#8fa3ba; --gold:#d4a94b; --line:#2a3a4e; --bg:#0b1117; --panel:#151f2d; }
+    body { margin:0; min-height:100vh; background:radial-gradient(circle at 12% 14%,rgba(212,169,75,0.11),transparent 34%),radial-gradient(circle at 92% 84%,rgba(85,211,196,0.09),transparent 34%),var(--bg); color:var(--ink); font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif; }
+    main { width:min(900px,92vw); margin:52px auto 78px; }
+    h1 { margin:0 0 12px; color:var(--gold); font-size:clamp(2.2rem,5vw,3.7rem); letter-spacing:0; }
+    .lead { margin:0 0 28px; color:var(--ink-soft); line-height:1.58; font-size:1.05rem; max-width:720px; }
+    .faq-list { display:grid; gap:12px; }
+    details { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#1b2a3d); padding:0; overflow:hidden; }
+    summary { cursor:pointer; padding:16px 18px; color:var(--ink); font-size:1rem; font-weight:900; list-style:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:"+"; float:right; color:var(--gold); font-weight:900; }
+    details[open] summary::after { content:"-"; }
+    details p { margin:0; padding:0 18px 18px; color:var(--ink-soft); line-height:1.58; }
+    .cta { display:inline-flex; margin-top:28px; border-radius:8px; padding:12px 16px; background:var(--gold); color:var(--bg); text-decoration:none; font-weight:900; }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>FAQ</h1>
+    <p class="lead">Straight answers for interns, mentors, board members, and companies trying to understand how Skilf works.</p>
+    <section class="faq-list" aria-label="Frequently asked questions">
+      <details open>
+        <summary>What is a Skilf?</summary>
+        <p>A Skilf is proof that someone can defend a real project or skill in front of people who understand the work. It is earned through evidence, check-ins, and Demo Day review.</p>
+      </details>
+      <details>
+        <summary>Why do you call candidates interns?</summary>
+        <p>We use intern for anyone pursuing a Skilf. Some already work with an organization, and some are working on their own startup or project until a stronger internship appears.</p>
+      </details>
+      <details>
+        <summary>How do monthly check-ins work?</summary>
+        <p>Interns progress through four monthly check-ins. Each check-in is a short expert review that tests evidence, surfaces weak spots, and helps the intern decide what to improve before Demo Day.</p>
+      </details>
+      <details>
+        <summary>What happens at Demo Day?</summary>
+        <p>The intern demonstrates the work, answers expert questions, and receives a pass/fail decision from board members. Passing means the evidence was strong enough to earn the Skilf.</p>
+      </details>
+      <details>
+        <summary>Can small companies hire or mentor interns?</summary>
+        <p>Yes. We especially encourage small companies, including one-person companies, to collaborate with interns. Sending a message from an intern card is the easiest way to begin.</p>
+      </details>
+      <details>
+        <summary>How do board members get paid?</summary>
+        <p>Board members may volunteer or be paid. Monthly check-ins use a flat fee per 15-minute visit. Demo Day fees are flat per appearance and negotiated when a board member is hired.</p>
+      </details>
+      <details>
+        <summary>Do check-ins require video?</summary>
+        <p>The live check-in can happen by phone or Zoom, and cameras can be on or off. The official review artifact is always one public YouTube video, 30-60 seconds long, posted within 24 hours before the review.</p>
+      </details>
+      <details>
+        <summary>How do I start?</summary>
+        <p>Use Get Started in the top navigation or the application form to choose a role: intern, mentor, board member, hiring partner, scholarship requester, or feedback sender.</p>
+      </details>
+    </section>
+    <a class="cta" href="apply.html">Get Started</a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

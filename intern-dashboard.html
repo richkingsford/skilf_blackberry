@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Dashboard - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-dashboard-role="intern" data-checkin-credits="2" data-giveaway-credits="1">
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="dash-hero">
+      <div>
+        <span class="kicker">Intern home</span>
+        <h1>Spend credits carefully. Earn Demo Day honestly.</h1>
+        <p class="lead">Schedule check-ins, watch your credits, give one monthly credit to another intern, and unlock mentor status after passing 2 check-ins. Demo Day scheduling unlocks only after you pass monthly check-in #4.</p>
+        <div class="actions">
+          <a class="cta primary" href="#schedule">Schedule a check-in</a>
+          <a class="cta" href="intern-policies.html">Intern policies</a>
+        </div>
+      </div>
+      <img src="assets/student-skilf-journey.png" alt="Intern path from check-ins to Demo Day">
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Credit wallet</h2>
+        <p>Credits are spent when you schedule a check-in. Demo Day is paid separately unless a sponsor covers it.</p>
+      </div>
+      <div class="countdown-grid">
+        <article class="countdown"><strong>Your check-in credits</strong><span class="big" data-credit-display="checkin">2 available</span><p>Use one instead of paying $100 for a monthly check-in.</p></article>
+        <article class="countdown"><strong>Give-away credit</strong><span class="big" data-credit-display="giveaway">1 monthly</span><p>Every intern gets one credit each month to give another intern.</p></article>
+        <article class="countdown"><strong>Next credit refresh</strong><span class="big">12 days</span><p>A little monthly lift for the next hard checkpoint.</p></article>
+      </div>
+    </section>
+
+    <section class="section success-carousel" aria-labelledby="success-tips-title" data-success-carousel>
+      <div class="section-head">
+        <span class="kicker">Tips for success</span>
+        <h2 id="success-tips-title">Sharper proof before every check-in</h2>
+        <p>Specific tools, specific moves, and evidence that survives review.</p>
+      </div>
+      <div class="tip-carousel-shell">
+        <button class="tip-nav" type="button" data-tip-dir="-1" aria-label="Previous tip">&lsaquo;</button>
+        <div class="tip-window" aria-live="polite">
+          <div class="tip-track" data-success-track></div>
+        </div>
+        <button class="tip-nav" type="button" data-tip-dir="1" aria-label="Next tip">&rsaquo;</button>
+      </div>
+      <div class="tip-carousel-footer">
+        <span class="tip-count" data-tip-count>1 / 20</span>
+        <div class="tip-dots" data-tip-dots aria-label="Choose a success tip"></div>
+      </div>
+    </section>
+
+    <section class="section two-col" id="schedule">
+      <article class="card">
+        <h2>Schedule a check-in</h2>
+        <p>Use Calendly to schedule your next monthly check-in. If you spend a credit, it is spent when the meeting is scheduled.</p>
+        <a class="cta primary" href="https://calendly.com/richkingsford/30m?utm_source=skilf&utm_campaign=intern-check-in" target="_blank" rel="noopener">Monthly check-in</a>
+        <button class="dash-btn" type="button" data-action="schedule-check-in">Spend one credit</button>
+      </article>
+      <article class="card locked">
+        <h2>Schedule Demo Day</h2>
+        <p>Locked until check-in #4 passes. The moment your fourth gate clears, Demo Day scheduling becomes available.</p>
+        <a class="cta" href="intern-policies.html#demo-day-gate">Why locked?</a>
+      </article>
+    </section>
+
+    <section class="section two-col">
+      <article class="card">
+        <h2>Give a credit away</h2>
+        <p>Your monthly give-away credit can help another intern pay for a check-in. Use it generously; it does not change the standard.</p>
+        <input class="search-input" type="search" data-intern-search placeholder="Search another intern">
+        <section class="intern-results" data-intern-results aria-label="Interns who can receive a credit"></section>
+        <button class="dash-btn" type="button" data-action="give-intern-credit">Give credit</button>
+      </article>
+      <article class="card">
+        <h2>Mentor unlock</h2>
+        <p>After passing 2 check-ins, an intern can become a mentor and receive 2 credits per month to donate. This is how the ladder starts building itself.</p>
+        <span class="credit-pill">2/4 check-ins passed</span>
+        <button class="dash-btn primary" type="button" data-action="become-mentor">Request mentor unlock</button>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2>Your current gates</h2>
+      <div class="dash-grid">
+        <article class="mini-card"><strong>Check-in #1</strong><p>Passed. Evidence log accepted.</p></article>
+        <article class="mini-card"><strong>Check-in #2</strong><p>Passed. Mentor unlock now available.</p></article>
+        <article class="mini-card"><strong>Check-in #3</strong><p>Scheduled. Bring public video proof.</p></article>
+      </div>
+      <p class="status-line" data-dashboard-status></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { loadInterns, filterInterns, internCard, wireDashboardActions } from "./dashboard-utils.js";
+    const results = document.querySelector("[data-intern-results]");
+    const search = document.querySelector("[data-intern-search]");
+    const successTrack = document.querySelector("[data-success-track]");
+    const tipDots = document.querySelector("[data-tip-dots]");
+    const tipCount = document.querySelector("[data-tip-count]");
+    let interns = [];
+    let currentTip = 0;
+    const SUCCESS_TIPS = [
+      {
+        tool: "YouTube",
+        title: "Make one public 45-second proof video",
+        body: "Use one public YouTube video between 30 and 60 seconds. Show the working artifact, one hard failure or limit, and the specific proof a reviewer should challenge.",
+        alt: "Kenyan woman preparing a single public YouTube proof video before a check-in",
+        skin: "#7b4b36",
+        hair: "#211713",
+        shirt: "#73b8ff",
+        accent: "#d4a94b",
+        bg: "#142538",
+        hairStyle: "braids",
+        object: "video"
+      },
+      {
+        tool: "ChatGPT",
+        title: "Turn the rubric into reviewer questions",
+        body: "Paste the check-in rubric and your project summary, then ask for 10 skeptical questions. Convert every weak answer into a task before you meet a mentor.",
+        alt: "Japanese man practicing skeptical reviewer questions with ChatGPT",
+        skin: "#d7a27a",
+        hair: "#191716",
+        shirt: "#7be0b1",
+        accent: "#9c83ff",
+        bg: "#12261f",
+        hairStyle: "short",
+        object: "chat"
+      },
+      {
+        tool: "Claude",
+        title: "Use long context to find contradictions",
+        body: "Drop in your README, evidence log, and defense script. Ask Claude to list inconsistent claims, missing dates, and places where your demo promises more than it proves.",
+        alt: "Mexican woman comparing project notes with Claude before a defense",
+        skin: "#b56f46",
+        hair: "#2b1712",
+        shirt: "#ff8c73",
+        accent: "#73b8ff",
+        bg: "#2a1f32",
+        hairStyle: "long",
+        object: "document"
+      },
+      {
+        tool: "Snagit",
+        title: "Capture short proof clips with annotations",
+        body: "Record a 30-second screen capture for each claim. Use callouts, cursor highlight, and date stamps so reviewers can see exactly what changed since the last check-in.",
+        alt: "Indian man annotating a Snagit screen recording for project evidence",
+        skin: "#9a6246",
+        hair: "#21130f",
+        shirt: "#d4a94b",
+        accent: "#7be0b1",
+        bg: "#1b2636",
+        hairStyle: "wave",
+        object: "record"
+      },
+      {
+        tool: "Tinkercad",
+        title: "Prototype the physical part before buying parts",
+        body: "Model the rough 3D shape, circuit, or mechanism in Tinkercad first. Export a screenshot or STL and list what the prototype proves and what it does not prove.",
+        alt: "Syrian woman in a hijab building a Tinkercad prototype",
+        skin: "#c3865d",
+        hair: "#384a64",
+        shirt: "#73b8ff",
+        accent: "#ff8c73",
+        bg: "#17233b",
+        hairStyle: "hijab",
+        object: "cube"
+      },
+      {
+        tool: "Google Docs",
+        title: "Send a one-page proof memo before review",
+        body: "Use four headings: claim, evidence link, known weakness, next test. Share it 24 hours before the check-in so feedback starts at the hard part.",
+        alt: "Black American man writing a Google Docs proof memo for a mentor",
+        skin: "#5a3328",
+        hair: "#111",
+        shirt: "#9c83ff",
+        accent: "#d4a94b",
+        bg: "#1d2534",
+        hairStyle: "curls",
+        object: "doc"
+      },
+      {
+        tool: "Google Sheets",
+        title: "Track experiments like a reviewer will audit them",
+        body: "Make columns for date, hypothesis, input, result, score, evidence link, and next test. Chart the score column so improvement is visible, not asserted.",
+        alt: "Filipina woman charting experiment scores in Google Sheets",
+        skin: "#c08258",
+        hair: "#1f1713",
+        shirt: "#7be0b1",
+        accent: "#73b8ff",
+        bg: "#0f2530",
+        hairStyle: "bob",
+        object: "chart"
+      },
+      {
+        tool: "Python",
+        title: "Use Python even if you are not a programmer",
+        body: "Open Google Colab, paste a CSV, and ask Python to clean duplicates, calculate averages, and chart before/after results. Ask an AI tool to explain each line before you reuse it.",
+        alt: "Brazilian man using Python in a notebook to chart project results",
+        skin: "#8f553a",
+        hair: "#22150f",
+        shirt: "#73b8ff",
+        accent: "#7be0b1",
+        bg: "#13283b",
+        hairStyle: "short",
+        object: "code"
+      },
+      {
+        tool: "VS Code",
+        title: "Use VS Code with AI extensions",
+        body: "In VS Code, use GitHub Copilot, Continue, or another AI extension to explain a file, generate a test, and find risky logic. Do not accept code you cannot defend line by line.",
+        alt: "Polish woman using VS Code and AI extensions to review project code",
+        skin: "#efbf96",
+        hair: "#6d3f25",
+        shirt: "#9c83ff",
+        accent: "#d4a94b",
+        bg: "#121d31",
+        hairStyle: "bun",
+        object: "terminal"
+      },
+      {
+        tool: "Paint.NET",
+        title: "Annotate screenshots instead of dumping raw images",
+        body: "Crop tightly, circle the changed area, add an arrow, and blur private data. Export one clean PNG per claim so reviewers do not hunt for the point.",
+        alt: "Ghanaian woman editing annotated screenshots in Paint.NET",
+        skin: "#4f2c22",
+        hair: "#17110e",
+        shirt: "#ff8c73",
+        accent: "#73b8ff",
+        bg: "#251f2d",
+        hairStyle: "headwrap",
+        object: "paint"
+      },
+      {
+        tool: "AI images/videos",
+        title: "Separate storyboards from evidence",
+        body: "Use AI-generated images or video to pitch the intended user experience, then label them as concept art. Never use synthetic media as proof that the product works.",
+        alt: "Korean man labeling AI-generated storyboard frames as concept art",
+        skin: "#d19a72",
+        hair: "#141211",
+        shirt: "#d4a94b",
+        accent: "#ff8c73",
+        bg: "#2b1d2e",
+        hairStyle: "short",
+        object: "frames"
+      },
+      {
+        tool: "Slack",
+        title: "Post weekly updates in a fixed format",
+        body: "Use one Slack thread per week: shipped, blocked, next, evidence links, and one precise ask. Mentors respond faster when the question is narrow.",
+        alt: "Moroccan woman posting a structured Slack update to her mentor",
+        skin: "#b87952",
+        hair: "#2d1812",
+        shirt: "#7be0b1",
+        accent: "#9c83ff",
+        bg: "#142632",
+        hairStyle: "long",
+        object: "chat"
+      },
+      {
+        tool: "OBS Studio",
+        title: "Record a raw walkthrough before editing",
+        body: "Capture screen, voice, terminal output, and the running project in one take. Keep the raw OBS file so edited clips can be checked against the original.",
+        alt: "Vietnamese man recording a raw OBS Studio walkthrough",
+        skin: "#c78b64",
+        hair: "#1f1612",
+        shirt: "#73b8ff",
+        accent: "#7be0b1",
+        bg: "#10212f",
+        hairStyle: "wave",
+        object: "camera"
+      },
+      {
+        tool: "GitHub",
+        title: "Link every fix to a visible issue",
+        body: "Create an issue for each failed rubric item. Close it with the commit, pull request, screenshot, and test result so your progress has a traceable chain.",
+        alt: "Nigerian woman organizing GitHub issues for failed rubric items",
+        skin: "#5f3627",
+        hair: "#15100d",
+        shirt: "#9c83ff",
+        accent: "#d4a94b",
+        bg: "#171f31",
+        hairStyle: "curls",
+        object: "kanban"
+      },
+      {
+        tool: "Google Drive",
+        title: "Use folders that match the check-in sequence",
+        body: "Create Check-in 01, Check-in 02, and Demo Day folders. Use filenames like 2026-05-26-demo-failure-case.mp4 so evidence is sortable months later.",
+        alt: "Turkish man organizing Google Drive folders for monthly check-ins",
+        skin: "#bd7a55",
+        hair: "#231611",
+        shirt: "#ff8c73",
+        accent: "#73b8ff",
+        bg: "#182535",
+        hairStyle: "short",
+        object: "folder"
+      },
+      {
+        tool: "Figma",
+        title: "Wireframe the next test before building it",
+        body: "Sketch the user flow, mark the riskiest assumption, and attach one screenshot from the real build. A wireframe is planning evidence, not product evidence.",
+        alt: "Colombian woman marking risky assumptions on a Figma wireframe",
+        skin: "#a86645",
+        hair: "#2c1711",
+        shirt: "#7be0b1",
+        accent: "#d4a94b",
+        bg: "#202335",
+        hairStyle: "bob",
+        object: "layout"
+      },
+      {
+        tool: "Loom",
+        title: "Practice a five-minute defense and read the transcript",
+        body: "Record your defense in Loom, export the transcript, and highlight every place you say maybe, basically, or it should. Replace those moments with evidence links.",
+        alt: "Palestinian man reviewing a Loom defense transcript",
+        skin: "#c58a61",
+        hair: "#201510",
+        shirt: "#d4a94b",
+        accent: "#9c83ff",
+        bg: "#2a2134",
+        hairStyle: "short",
+        object: "transcript"
+      },
+      {
+        tool: "Google Colab",
+        title: "Make data experiments reproducible",
+        body: "Keep imports, dataset link, fixed random seed, model settings, and chart output in one notebook. A reviewer should be able to rerun it without guessing.",
+        alt: "Chinese woman making a Google Colab experiment reproducible",
+        skin: "#d9a77f",
+        hair: "#171313",
+        shirt: "#73b8ff",
+        accent: "#ff8c73",
+        bg: "#13263b",
+        hairStyle: "long",
+        object: "notebook"
+      },
+      {
+        tool: "Google Calendar",
+        title: "Schedule proof work before the check-in date",
+        body: "Block two sessions: one for building and one for packaging evidence. Add reminders 72 and 24 hours before the monthly check-in so proof is ready before the meeting.",
+        alt: "Native American woman blocking evidence work in Google Calendar",
+        skin: "#9b5c3f",
+        hair: "#20130e",
+        shirt: "#9c83ff",
+        accent: "#7be0b1",
+        bg: "#172530",
+        hairStyle: "braids",
+        object: "calendar"
+      },
+      {
+        tool: "Notion or Trello",
+        title: "Run a rubric board with a limit of three active tasks",
+        body: "Make columns for rubric gaps, doing, evidence ready, and reviewed. Keep only three cards in doing so the week ends with proof, not 12 half-started fixes.",
+        alt: "German man moving rubric tasks across a Notion or Trello board",
+        skin: "#efc29f",
+        hair: "#7a4a2a",
+        shirt: "#7be0b1",
+        accent: "#73b8ff",
+        bg: "#112331",
+        hairStyle: "wave",
+        object: "board"
+      }
+    ];
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      }[char]));
+    }
+
+    function tipObjectSvg(tip) {
+      const objects = {
+        video: '<rect x="398" y="98" width="124" height="78" rx="14" fill="#111a25" stroke="#73b8ff" stroke-width="4"/><polygon points="446,120 446,154 478,137" fill="#d4a94b"/><rect x="412" y="192" width="92" height="10" rx="5" fill="#73b8ff"/>',
+        chat: '<rect x="390" y="86" width="148" height="96" rx="18" fill="#111a25" stroke="#9c83ff" stroke-width="4"/><circle cx="426" cy="126" r="8" fill="#7be0b1"/><circle cx="464" cy="126" r="8" fill="#d4a94b"/><circle cx="502" cy="126" r="8" fill="#ff8c73"/><path d="M430 182l-22 24v-24" fill="#111a25" stroke="#9c83ff" stroke-width="4"/>',
+        document: '<rect x="394" y="72" width="118" height="150" rx="10" fill="#f0f4fb"/><path d="M488 72v36h24" fill="#dbe7f5"/><rect x="414" y="122" width="72" height="8" rx="4" fill="#73b8ff"/><rect x="414" y="145" width="84" height="8" rx="4" fill="#9c83ff"/><rect x="414" y="168" width="58" height="8" rx="4" fill="#d4a94b"/>',
+        record: '<rect x="390" y="88" width="152" height="104" rx="16" fill="#111a25" stroke="#7be0b1" stroke-width="4"/><circle cx="424" cy="122" r="13" fill="#ff8c73"/><rect x="456" y="112" width="56" height="20" rx="10" fill="#d4a94b"/><path d="M416 162h82" stroke="#73b8ff" stroke-width="8" stroke-linecap="round"/>',
+        cube: '<path d="M462 78l70 38-70 40-70-40z" fill="#73b8ff"/><path d="M392 116l70 40v82l-70-42z" fill="#1f8cc8"/><path d="M532 116l-70 40v82l70-42z" fill="#7be0b1"/><path d="M462 156v82" stroke="#0b1117" stroke-width="4"/>',
+        doc: '<rect x="392" y="70" width="142" height="154" rx="12" fill="#f6f1e5"/><rect x="414" y="98" width="88" height="9" rx="5" fill="#d4a94b"/><rect x="414" y="124" width="96" height="9" rx="5" fill="#73b8ff"/><rect x="414" y="150" width="72" height="9" rx="5" fill="#7be0b1"/><rect x="414" y="176" width="84" height="9" rx="5" fill="#9c83ff"/>',
+        chart: '<rect x="390" y="82" width="150" height="116" rx="16" fill="#101a24" stroke="#7be0b1" stroke-width="4"/><rect x="418" y="150" width="18" height="28" rx="5" fill="#73b8ff"/><rect x="458" y="126" width="18" height="52" rx="5" fill="#d4a94b"/><rect x="498" y="104" width="18" height="74" rx="5" fill="#ff8c73"/><path d="M410 184h116" stroke="#8fa3ba" stroke-width="4"/>',
+        code: '<rect x="390" y="82" width="154" height="118" rx="16" fill="#0e1723" stroke="#73b8ff" stroke-width="4"/><path d="M430 126l-24 22 24 22M504 126l24 22-24 22" stroke="#7be0b1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M472 118l-22 62" stroke="#d4a94b" stroke-width="8" stroke-linecap="round"/>',
+        terminal: '<rect x="390" y="82" width="154" height="118" rx="16" fill="#0b1117" stroke="#9c83ff" stroke-width="4"/><path d="M418 126l24 22-24 22" stroke="#73b8ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M462 170h48" stroke="#d4a94b" stroke-width="7" stroke-linecap="round"/>',
+        paint: '<rect x="392" y="82" width="150" height="116" rx="16" fill="#f7f7fb"/><circle cx="428" cy="122" r="14" fill="#73b8ff"/><circle cx="466" cy="112" r="14" fill="#ff8c73"/><circle cx="500" cy="140" r="14" fill="#7be0b1"/><path d="M418 176c35-34 74-23 104-58" stroke="#d4a94b" stroke-width="10" stroke-linecap="round"/>',
+        frames: '<rect x="386" y="88" width="76" height="58" rx="12" fill="#101a24" stroke="#73b8ff" stroke-width="4"/><rect x="478" y="88" width="76" height="58" rx="12" fill="#101a24" stroke="#ff8c73" stroke-width="4"/><rect x="432" y="164" width="76" height="58" rx="12" fill="#101a24" stroke="#d4a94b" stroke-width="4"/><path d="M406 128l18-20 18 20M498 128l18-20 18 20M452 204l18-20 18 20" stroke="#7be0b1" stroke-width="5" fill="none"/>',
+        camera: '<rect x="394" y="94" width="142" height="98" rx="16" fill="#111a25" stroke="#7be0b1" stroke-width="4"/><circle cx="464" cy="143" r="30" fill="#73b8ff"/><circle cx="464" cy="143" r="15" fill="#0b1117"/><rect x="418" y="76" width="58" height="24" rx="8" fill="#d4a94b"/>',
+        kanban: '<rect x="386" y="74" width="158" height="150" rx="14" fill="#111a25" stroke="#9c83ff" stroke-width="4"/><rect x="404" y="102" width="34" height="82" rx="7" fill="#73b8ff"/><rect x="454" y="102" width="34" height="56" rx="7" fill="#d4a94b"/><rect x="504" y="102" width="22" height="102" rx="7" fill="#7be0b1"/>',
+        folder: '<path d="M386 112h64l16 22h82v86H386z" fill="#d4a94b"/><path d="M386 134h162v86H386z" fill="#73b8ff"/><rect x="410" y="160" width="98" height="10" rx="5" fill="#0b1117" opacity=".28"/>',
+        layout: '<rect x="390" y="78" width="150" height="132" rx="16" fill="#f5f0e6"/><rect x="412" y="102" width="46" height="42" rx="8" fill="#73b8ff"/><rect x="476" y="102" width="42" height="14" rx="7" fill="#9c83ff"/><rect x="476" y="130" width="42" height="14" rx="7" fill="#d4a94b"/><rect x="412" y="162" width="106" height="22" rx="9" fill="#7be0b1"/>',
+        transcript: '<rect x="390" y="78" width="150" height="140" rx="16" fill="#f7f4ed"/><rect x="414" y="106" width="82" height="8" rx="4" fill="#9c83ff"/><rect x="414" y="130" width="104" height="8" rx="4" fill="#d4a94b"/><rect x="414" y="154" width="94" height="8" rx="4" fill="#73b8ff"/><path d="M414 190h60" stroke="#ff8c73" stroke-width="10" stroke-linecap="round"/>',
+        notebook: '<rect x="386" y="82" width="158" height="130" rx="16" fill="#111a25" stroke="#73b8ff" stroke-width="4"/><path d="M414 132h32M414 158h58M488 118c28 26 4 56 36 76" stroke="#7be0b1" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="520" cy="194" r="8" fill="#d4a94b"/>',
+        calendar: '<rect x="392" y="82" width="148" height="132" rx="16" fill="#f7f4ed"/><rect x="392" y="82" width="148" height="36" rx="16" fill="#73b8ff"/><rect x="416" y="136" width="28" height="24" rx="6" fill="#d4a94b"/><rect x="456" y="136" width="28" height="24" rx="6" fill="#7be0b1"/><rect x="496" y="170" width="28" height="24" rx="6" fill="#ff8c73"/>',
+        board: '<rect x="386" y="78" width="158" height="148" rx="16" fill="#101a24" stroke="#7be0b1" stroke-width="4"/><rect x="404" y="104" width="34" height="94" rx="7" fill="#73b8ff"/><rect x="456" y="104" width="34" height="56" rx="7" fill="#d4a94b"/><rect x="508" y="104" width="18" height="74" rx="7" fill="#ff8c73"/>'
+      };
+      return objects[tip.object] || objects.document;
+    }
+
+    function tipHairSvg(tip) {
+      if (tip.hairStyle === "hijab") return `<path d="M186 88c54-2 88 37 80 94l-8 62H146l-10-62c-9-58 2-91 50-94z" fill="${tip.hair}"/>`;
+      if (tip.hairStyle === "headwrap") return `<path d="M142 116c20-46 98-56 128 0l-18 34H158z" fill="${tip.hair}"/><path d="M178 88l54 28-84 2z" fill="${tip.accent}"/>`;
+      if (tip.hairStyle === "curls") return `<circle cx="158" cy="122" r="24" fill="${tip.hair}"/><circle cx="184" cy="96" r="26" fill="${tip.hair}"/><circle cx="220" cy="96" r="26" fill="${tip.hair}"/><circle cx="250" cy="122" r="24" fill="${tip.hair}"/>`;
+      if (tip.hairStyle === "braids") return `<path d="M148 122c6-43 92-58 116 1l-18 26H164z" fill="${tip.hair}"/><path d="M156 146c-22 52-8 98 10 132M248 146c22 52 8 98-10 132" stroke="${tip.hair}" stroke-width="14" stroke-linecap="round"/>`;
+      if (tip.hairStyle === "long") return `<path d="M140 130c4-58 124-66 132 0l-18 116H158z" fill="${tip.hair}"/>`;
+      if (tip.hairStyle === "bob") return `<path d="M142 126c8-58 120-60 128 0v70H142z" fill="${tip.hair}"/>`;
+      if (tip.hairStyle === "bun") return `<circle cx="206" cy="82" r="24" fill="${tip.hair}"/><path d="M146 124c8-50 112-56 122 0l-20 34H166z" fill="${tip.hair}"/>`;
+      if (tip.hairStyle === "wave") return `<path d="M146 124c10-52 110-60 124 0-28-12-72 16-110 4z" fill="${tip.hair}"/>`;
+      return `<path d="M150 120c10-46 104-48 116 0l-18 28H166z" fill="${tip.hair}"/>`;
+    }
+
+    function tipLayout(index) {
+      const layouts = [
+        { person: "translate(0 0)", object: "translate(0 0)", rail: "M74 318h494" },
+        { person: "translate(252 8) scale(.96)", object: "translate(-292 12) scale(1.04)", rail: "M82 314h496" },
+        { person: "translate(116 -6) scale(1.04)", object: "translate(-120 96) scale(.72)", rail: "M108 326h424" },
+        { person: "translate(-30 20) scale(.9)", object: "translate(42 -16) scale(1.16)", rail: "M62 320h508" },
+        { person: "translate(292 26) scale(.78)", object: "translate(-304 -18) scale(1.02)", rail: "M86 310h468" },
+        { person: "translate(120 24) scale(.84)", object: "translate(-142 -26) scale(.94)", rail: "M120 332h392" },
+        { person: "translate(24 -8) scale(1.08)", object: "translate(-18 116) scale(.7)", rail: "M82 336h476" },
+        { person: "translate(226 -2) scale(.92)", object: "translate(-262 62) scale(.86)", rail: "M96 324h450" }
+      ];
+      return layouts[index % layouts.length];
+    }
+
+    function tipSceneSvg(tip, index) {
+      const scenes = [
+        `<rect x="58" y="54" width="206" height="116" rx="18" fill="#0b1117" opacity=".36"/><path d="M78 94h166M78 132h120" stroke="${tip.accent}" stroke-width="8" stroke-linecap="round" opacity=".55"/><circle cx="552" cy="72" r="28" fill="${tip.accent}" opacity=".22"/>`,
+        `<rect x="66" y="56" width="160" height="18" rx="9" fill="${tip.accent}" opacity=".45"/><rect x="82" y="94" width="50" height="62" rx="10" fill="#0b1117" opacity=".35"/><rect x="148" y="94" width="70" height="28" rx="8" fill="${tip.shirt}" opacity=".5"/><path d="M500 44v210" stroke="${tip.accent}" stroke-width="5" opacity=".22"/>`,
+        `<rect x="52" y="46" width="236" height="124" rx="18" fill="#f7f4ed" opacity=".92"/><path d="M80 78h172M80 112h112M80 144h146" stroke="#0b1117" stroke-width="8" stroke-linecap="round" opacity=".26"/><circle cx="536" cy="70" r="18" fill="${tip.shirt}" opacity=".42"/>`,
+        `<path d="M64 68h224M64 110h224M64 152h224M108 44v144M178 44v144M248 44v144" stroke="${tip.accent}" stroke-width="4" opacity=".3"/><circle cx="112" cy="110" r="10" fill="${tip.shirt}" opacity=".8"/><circle cx="248" cy="68" r="10" fill="${tip.accent}" opacity=".8"/>`,
+        `<rect x="78" y="48" width="56" height="152" rx="28" fill="${tip.accent}" opacity=".18"/><rect x="506" y="48" width="56" height="152" rx="28" fill="${tip.shirt}" opacity=".18"/><path d="M106 88l120 74M534 88l-112 74" stroke="#f7f4ed" stroke-width="4" opacity=".2"/>`,
+        `<rect x="58" y="52" width="214" height="132" rx="16" fill="#0b1117" opacity=".28"/><rect x="82" y="76" width="54" height="42" rx="8" fill="${tip.accent}" opacity=".72"/><rect x="152" y="76" width="74" height="28" rx="8" fill="${tip.shirt}" opacity=".68"/><rect x="112" y="134" width="104" height="26" rx="8" fill="#f7f4ed" opacity=".7"/>`,
+        `<path d="M48 182c54-88 142-124 246-108" stroke="${tip.accent}" stroke-width="7" stroke-linecap="round" opacity=".28" fill="none"/><path d="M522 56c-54 38-72 82-50 138" stroke="${tip.shirt}" stroke-width="8" stroke-linecap="round" opacity=".3" fill="none"/><circle cx="154" cy="84" r="14" fill="${tip.accent}" opacity=".7"/>`,
+        `<rect x="62" y="52" width="198" height="136" rx="18" fill="#f7f4ed" opacity=".88"/><rect x="62" y="52" width="198" height="34" rx="18" fill="${tip.shirt}" opacity=".72"/><rect x="90" y="106" width="32" height="24" rx="6" fill="${tip.accent}" opacity=".86"/><rect x="140" y="140" width="32" height="24" rx="6" fill="${tip.accent}" opacity=".48"/><rect x="190" y="106" width="32" height="24" rx="6" fill="${tip.shirt}" opacity=".48"/>`
+      ];
+      return scenes[index % scenes.length];
+    }
+
+    function tipPersonSvg(tip, index) {
+      const leftArm = index % 3 === 0 ? "M166 224c-34 28-52 58-58 98" : index % 3 === 1 ? "M166 224c-42 12-66 32-88 68" : "M166 224c-20 38-24 68-18 104";
+      const rightArm = index % 4 === 0 ? "M246 224c42 20 68 48 82 90" : index % 4 === 1 ? "M246 224c48 6 82 22 112 54" : index % 4 === 2 ? "M246 224c20 34 22 66 12 104" : "M246 224c38 30 58 58 62 94";
+      return `
+        ${tipHairSvg(tip)}
+        <circle cx="204" cy="140" r="50" fill="${tip.skin}"/>
+        <circle cx="186" cy="136" r="5" fill="#161616"/>
+        <circle cx="224" cy="136" r="5" fill="#161616"/>
+        <path d="M188 164c16 13 34 13 48 0" stroke="#3a1f19" stroke-width="6" stroke-linecap="round" fill="none" opacity=".62"/>
+        <path d="M136 312c12-74 38-108 70-108s58 34 70 108z" fill="${tip.shirt}"/>
+        <path d="${leftArm}M246 224c0 0 0 0 0 0${rightArm}" stroke="${tip.skin}" stroke-width="18" stroke-linecap="round" fill="none"/>
+        <circle cx="${index % 3 === 1 ? 78 : 108}" cy="${index % 3 === 1 ? 292 : 322}" r="12" fill="${tip.skin}"/>
+        <circle cx="${index % 4 === 1 ? 358 : 328}" cy="${index % 4 === 1 ? 278 : 314}" r="12" fill="${tip.skin}"/>
+        <path d="M146 312h126" stroke="#0b1117" stroke-width="12" stroke-linecap="round" opacity=".25"/>
+      `;
+    }
+
+    function tipArtDataUri(tip, index) {
+      const layout = tipLayout(index);
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img">
+        <defs>
+          <linearGradient id="bg${index}" x1="0" x2="1" y1="0" y2="1">
+            <stop stop-color="${tip.bg}"/>
+            <stop offset="1" stop-color="#0b1117"/>
+          </linearGradient>
+          <radialGradient id="glow${index}" cx=".74" cy=".28" r=".52">
+            <stop stop-color="${tip.accent}" stop-opacity=".38"/>
+            <stop offset="1" stop-color="${tip.accent}" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="640" height="420" rx="28" fill="url(#bg${index})"/>
+        <rect width="640" height="420" rx="28" fill="url(#glow${index})"/>
+        ${tipSceneSvg(tip, index)}
+        <path d="${index % 2 === 0 ? "M52 328c110-54 204-42 314-14 85 22 148 14 222-28v134H52z" : "M42 304c88 34 184 32 284 0 116-38 188-16 266 30v86H42z"}" fill="#0b1117" opacity=".28"/>
+        <circle cx="${90 + (index % 5) * 18}" cy="${74 + (index % 4) * 10}" r="${22 + (index % 3) * 7}" fill="${tip.accent}" opacity=".25"/>
+        <rect x="84" y="${index % 3 === 0 ? 292 : 300}" width="${index % 4 === 0 ? 472 : 428}" height="40" rx="20" fill="#0b1117" opacity=".42"/>
+        <g transform="${layout.object}">${tipObjectSvg(tip)}</g>
+        <g transform="${layout.person}">${tipPersonSvg(tip, index)}</g>
+        <path d="${layout.rail}" stroke="${tip.accent}" stroke-width="16" stroke-linecap="round" opacity=".58"/>
+      </svg>`;
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    function renderSuccessTips() {
+      if (!successTrack || !tipDots) return;
+      successTrack.innerHTML = SUCCESS_TIPS.map((tip, index) => `
+        <article class="tip-card" data-success-slide data-tip-index="${index}">
+          <div class="tip-art">
+            <img src="assets/intern-success-tip-${String(index + 1).padStart(2, "0")}.png" alt="${escapeHtml(tip.alt)}">
+          </div>
+          <div class="tip-copy">
+            <span class="tip-tool">${escapeHtml(tip.tool)}</span>
+            <h3>${escapeHtml(tip.title)}</h3>
+            <p>${escapeHtml(tip.body)}</p>
+          </div>
+        </article>
+      `).join("");
+      tipDots.innerHTML = SUCCESS_TIPS.map((tip, index) => `<button type="button" data-tip-dot="${index}" aria-label="${escapeHtml(tip.tool)} tip"></button>`).join("");
+      updateTipCarousel(0);
+    }
+
+    function updateTipCarousel(index) {
+      if (!successTrack) return;
+      currentTip = (index + SUCCESS_TIPS.length) % SUCCESS_TIPS.length;
+      successTrack.style.transform = `translateX(-${currentTip * 100}%)`;
+      if (tipCount) tipCount.textContent = `${currentTip + 1} / ${SUCCESS_TIPS.length}`;
+      for (const dot of tipDots.querySelectorAll("[data-tip-dot]")) {
+        const isCurrent = Number(dot.dataset.tipDot) === currentTip;
+        dot.classList.toggle("active", isCurrent);
+        dot.setAttribute("aria-current", isCurrent ? "true" : "false");
+      }
+    }
+
+    function render() {
+      results.innerHTML = filterInterns(interns, search.value).slice(0, 3).map((intern) => internCard(intern)).join("");
+    }
+    renderSuccessTips();
+    loadInterns().then((items) => {
+      interns = items;
+      render();
+    });
+    search.addEventListener("input", render);
+    document.addEventListener("click", (event) => {
+      const nav = event.target.closest("[data-tip-dir]");
+      if (nav) {
+        updateTipCarousel(currentTip + Number(nav.dataset.tipDir || 0));
+        return;
+      }
+      const dot = event.target.closest("[data-tip-dot]");
+      if (dot) updateTipCarousel(Number(dot.dataset.tipDot || 0));
+    });
+    wireDashboardActions();
+  </script>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+Product backlog
+===============
+
+Parked ideas that are interesting but not active.
+
+TICKET PRODUCT-BACKLOG-001: Explore Skilf as assertion validation / BS detector
+Status: parked
+Type: Product strategy
+Source note: "person1 requests you validate this assertion"
+Why parked: Rich likes the idea, but reputation points are the active next enhancement.
+Acceptance when reopened:
+- Write a one-page concept.
+- Identify target users and why they would participate.
+- Decide whether this is a separate product, later feature, or distraction.

@@ -179,6 +179,112 @@
       background: var(--card-bg); color: var(--ink); font-family: inherit; font-size: 0.84rem; cursor: pointer;
     }
     .auth-btn:hover { border-color: #4a6a8a; }
+    .clarity-strip {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin: 26px 0 58px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--line);
+    }
+    .clarity-cell {
+      min-height: 118px;
+      padding: 14px;
+      background: rgba(20, 30, 43, 0.92);
+    }
+    .clarity-cell.ai-cell {
+      background:
+        linear-gradient(135deg, rgba(85, 211, 196, 0.16), rgba(255, 140, 115, 0.1)),
+        rgba(20, 30, 43, 0.94);
+    }
+    .clarity-cell strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 0.86rem;
+      line-height: 1.2;
+    }
+    .clarity-cell span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 0.79rem;
+      line-height: 1.42;
+    }
+    .proof-checker {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.78fr);
+      gap: 18px;
+      align-items: stretch;
+      margin: -28px 0 66px;
+      padding: 18px;
+      border: 1px solid rgba(212, 169, 75, 0.34);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(212, 169, 75, 0.14), rgba(85, 211, 196, 0.08)), rgba(20, 30, 43, 0.92);
+      box-shadow: 0 18px 42px rgb(0 0 0 / 28%);
+    }
+    .proof-checker h2 { margin: 0 0 8px; font-size: 1.2rem; letter-spacing: 0; }
+    .proof-checker p { margin: 0; color: var(--ink-soft); line-height: 1.48; font-size: 0.92rem; }
+    .proof-form { display: grid; gap: 10px; align-content: start; }
+    .proof-label { color: var(--ink-soft); font-size: 0.86rem; font-weight: 850; }
+    .proof-code-row { display: grid; grid-template-columns: minmax(92px, 128px) 1fr; gap: 8px; }
+    .proof-code-input {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 12px 11px;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .proof-code-input:focus { outline: none; border-color: rgba(212, 169, 75, 0.72); }
+    .proof-check-btn {
+      border: 0;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--bg);
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      padding: 0 14px;
+    }
+    .proof-check-btn:hover { opacity: 0.88; }
+    .proof-sample-link {
+      width: fit-content;
+      color: var(--gold);
+      font-size: 0.84rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .proof-sample-link:hover { text-decoration: underline; }
+    .proof-result {
+      display: grid;
+      gap: 8px;
+      grid-column: 2;
+      min-height: 164px;
+      border: 1px solid rgba(42, 58, 78, 0.9);
+      border-radius: 8px;
+      background: rgba(11, 17, 23, 0.48);
+      padding: 14px;
+    }
+    .proof-result strong { color: var(--ink); font-size: 0.92rem; }
+    .proof-status {
+      width: fit-content;
+      border-radius: 999px;
+      background: rgba(85, 211, 196, 0.16);
+      color: #8be3d8;
+      padding: 4px 9px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .proof-status.missing { background: rgba(255, 140, 115, 0.14); color: #ffb49e; }
+    .proof-result ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.84rem; line-height: 1.45; }
     .showcase { display: grid; gap: 30px; margin: 28px 0 60px; }
     .robotics-showcase { margin-top: 72px; }
     .vr-showcase { margin-top: 128px; }
@@ -211,13 +317,31 @@
       background: rgba(212, 169, 75, 0.12);
       color: #fff;
     }
+    .home-final-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 34px 0 60px;
+    }
+    .home-final-actions .cta {
+      min-width: 170px;
+      padding: 12px 18px;
+      font-size: 1rem;
+    }
     @media (max-width: 820px) {
       .cards, .showcase-panel, .showcase-panel:nth-child(even) { grid-template-columns: 1fr; }
       .showcase-panel:nth-child(even) .showcase-media { order: 0; }
+      .clarity-strip { grid-template-columns: 1fr 1fr; }
+      .clarity-cell.ai-cell { grid-column: 1 / -1; }
+      .proof-checker { grid-template-columns: 1fr; margin-top: -28px; }
+      .proof-result { grid-column: auto; }
       .showcase { margin-bottom: 44px; }
       .cta { width: 100%; box-sizing: border-box; }
       .toolbar { flex-wrap: nowrap; }
       .search-input { min-width: 0; }
+      .proof-code-row { grid-template-columns: 1fr; }
+      .proof-check-btn { min-height: 44px; }
     }
   </style>
 </head>
@@ -230,7 +354,7 @@
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns">Interns</a>
-        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -245,35 +369,129 @@
               <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
             </span>
           </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
           <span class="site-auth-status" data-auth-status hidden></span>
         </span>
       </nav>
     </div>
   </header>
   <main>
-    <p class="subtitle">Earn a skilf and prove you’re the city’s foremost expert in
+    <p class="subtitle">Earn a Skilf by proving real work in
       <span class="ticker-wrap"><span class="ticker-track" id="ticker"></span></span></p>
+    <section class="clarity-strip" aria-label="Skilf role and evidence guide">
+      <div class="clarity-cell ai-cell">
+        <strong>One technical standard. No soft tiers.</strong>
+        <span>Every Skilf project must be strong enough to support a post-high-school full-time job in a technically rigorous industry. The accepted review artifact is one public YouTube video, 30-60 seconds long, that shows what you built, what changed, what failed, and what you can defend.</span>
+      </div>
+      <div class="clarity-cell">
+        <strong>Intern</strong>
+        <span>Anyone pursuing a Skilf through a real project, monthly check-ins, and Demo Day.</span>
+      </div>
+      <div class="clarity-cell">
+        <strong>Mentor</strong>
+        <span>A working expert who helps an intern scope, practice, and improve the project.</span>
+      </div>
+      <div class="clarity-cell">
+        <strong>Board member</strong>
+        <span>A reviewer who challenges the evidence and makes pass/fail calls.</span>
+      </div>
+      <div class="clarity-cell">
+        <strong>Hiring partner</strong>
+        <span>A company or team looking for visible skill before polished credentials.</span>
+      </div>
+    </section>
+    <section class="proof-checker" id="claim-check" aria-labelledby="claim-check-heading">
+      <div>
+        <h2 id="claim-check-heading">Resume claim checker</h2>
+        <p>Paste or share a 4-letter Skilf code to confirm the evidence standard behind a resume claim. For now, the dummy code <strong>WORK</strong> shows the pattern: one public 30-60 second YouTube video, a defensible claim, and a clear reviewer prompt.</p>
+      </div>
+      <form class="proof-form" data-proof-form>
+        <label class="proof-label" for="proof-code">4-letter code</label>
+        <div class="proof-code-row">
+          <input class="proof-code-input" id="proof-code" name="code" maxlength="4" inputmode="text" autocomplete="off" spellcheck="false" value="WORK" aria-describedby="proof-result">
+          <button class="proof-check-btn" type="submit">Confirm</button>
+        </div>
+        <a class="proof-sample-link" href="?code=WORK#claim-check" data-proof-link>Try WORK from a shared link</a>
+      </form>
+      <div class="proof-result" id="proof-result" data-proof-result aria-live="polite">
+        <span class="proof-status">Ready</span>
+        <strong>WORK validates a working-project claim.</strong>
+        <p>Evidence required: one public YouTube video, 30-60 seconds long, showing the artifact working and one honest limitation.</p>
+      </div>
+    </section>
+    <script>
+      {
+        const records={
+          WORK:{
+            title:'WORK validates a working-project claim.',
+            status:'Confirmed',
+            body:'Evidence required: one public YouTube video, 30-60 seconds long, showing the artifact working and one honest limitation.',
+            points:['Claim: built a working technical artifact.','Reviewer prompt: explain what changed, what failed, and what can be defended.','Artifact rule: one public YouTube link is enough to start the review.']
+          }
+        };
+        const form=document.querySelector('[data-proof-form]');
+        const input=document.getElementById('proof-code');
+        const result=document.querySelector('[data-proof-result]');
+        function cleanCode(value){
+          return String(value||'').replace(/[^a-z]/gi,'').slice(0,4).toUpperCase();
+        }
+        function showProof(code,fromLink=false){
+          const record=records[code];
+          if(record){
+            result.innerHTML=`<span class="proof-status">${fromLink?'Confirmed from link':record.status}</span><strong>${record.title}</strong><p>${record.body}</p><ul>${record.points.map(point=>`<li>${point}</li>`).join('')}</ul>`;
+            return;
+          }
+          result.innerHTML=`<span class="proof-status missing">Not found</span><strong>${code||'Code'} is not wired yet.</strong><p>Use the dummy code WORK for now. Future 4-letter codes can map resume claims to the exact public YouTube evidence reviewers should inspect.</p>`;
+        }
+        input.addEventListener('input',event=>{
+          const code=cleanCode(event.target.value);
+          event.target.value=code;
+        });
+        form.addEventListener('submit',event=>{
+          event.preventDefault();
+          const code=cleanCode(input.value);
+          input.value=code;
+          showProof(code);
+          if(code)history.replaceState(null,'',`${location.pathname}?code=${encodeURIComponent(code)}#claim-check`);
+        });
+        const urlCode=cleanCode(new URLSearchParams(location.search).get('code'));
+        if(urlCode){
+          input.value=urlCode;
+          showProof(urlCode,true);
+        }
+      }
+    </script>
     <section class="showcase robotics-showcase" aria-label="Robotics demo example">
       <article class="showcase-panel">
         <div class="showcase-media">
           <img src="assets/home-robotics-defense.png" alt="Student presenting a robotics prototype to a Demo Day panel" decoding="async">
         </div>
         <div>
-          <h2 class="showcase-title">Earn a Skilf by proving the work.</h2>
-          <p class="showcase-copy">Bring a working project to Demo Day, answer expert questions, and leave with proof companies can trust when they need to know what you can actually do.</p>
+          <h2 class="showcase-title">Build honest evidence. Earn a Skilf.</h2>
+          <p class="showcase-copy">Bring a working project to Demo Day, answer expert questions, and leave with proof that can support a full-time technical job conversation.</p>
           <div class="showcase-actions" aria-label="Skilf action links">
-            <a class="showcase-action" href="find-partner.html">Skilf Ideas</a>
-            <a class="showcase-action" href="board-dashboard.html">Join the Board</a>
-            <a class="showcase-action" href="monetize.html">Become a mentor</a>
+            <a class="showcase-action" href="find-partner.html">Explore project ideas</a>
+            <a class="showcase-action" href="apply.html#board-member">Join reviewer board</a>
+            <a class="showcase-action" href="apply.html#mentor">Offer mentorship</a>
           </div>
         </div>
       </article>
     </section>
-    <h2 class="section-title" id="hire">Hire proven Skilf interns</h2>
-    <p class="tagline">We call someone pursuing a Skilf an intern. Skilfs are reputable because they are earned through expert-reviewed Demo Day proof, so paid or unpaid roles start with evidence.</p>
+    <h2 class="section-title" id="hire">Hire for proof, not pedigree</h2>
+    <p class="tagline">Skilf interns are people building toward expert-reviewed evidence. Hiring partners and mentors can search by project, skill, region, or Skilf ID before starting a conversation.</p>
     <div class="toolbar" id="expert-toolbar">
-      <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or skilf ID…" autocomplete="off" aria-controls="expert-tree" aria-expanded="false">
+      <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or skilf ID…" autocomplete="off" aria-controls="expert-tree">
       <button class="tree-btn" type="button" data-tree="expert-tree" aria-label="Open skill filters" aria-controls="expert-tree" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M7 12h10M10 19h4"></path></svg>
       </button>
@@ -282,7 +500,24 @@
     <section class="cards" id="experts" aria-label="experts"></section>
     <script>
       {
-        const subjects=["Anesthesiology","Dentistry","Materials Science","Computational Biology","Power Systems Engineering","Robotics","Climate Informatics","Quantum Hardware"];
+        const subjects=[
+          "AI",
+          "Computer Vision",
+          "Foundation Models",
+          "Robotics",
+          "Drones",
+          "Embedded",
+          "Semiconductor Design",
+          "Quantum Hardware",
+          "Materials Science",
+          "Renewable Energy Systems",
+          "Climate Informatics",
+          "Computational Biology",
+          "Genomics",
+          "Drug Discovery",
+          "Astrophysics",
+          "Water Quality"
+        ];
         const track=document.getElementById('ticker');
         const total=subjects.length;
         const items=[subjects[1],subjects[0],...subjects.slice().reverse(),subjects[total-1],subjects[total-2]];
@@ -305,7 +540,7 @@
       }
     </script>
     <script>
-      const msgOptions=["Would you be interested in paid-work on my project?","Would you be interested in working on my project as a sweat-equity cofounder?","Are you open to experienced collaborators joining you in this effort?","Are you open to inexperienced collaborators joining you in this effort?"];
+      const msgOptions=["I want to learn more about this project.","I can mentor this project.","I may have an internship or hiring lead.","I want to discuss a collaboration."];
       function closeSendPrompts(){
         document.querySelectorAll('.send-login-prompt').forEach(prompt=>prompt.remove());
       }
@@ -317,7 +552,7 @@
         prompt.className='send-login-prompt';
         prompt.setAttribute('role','dialog');
         prompt.setAttribute('aria-label','Sign in required');
-        prompt.innerHTML='<p>Sign in with Google to send this message.</p><div class="send-login-actions"><button class="send-login-cancel" type="button">Cancel</button><button class="send-login-submit" type="button">Sign in</button></div>';
+        prompt.innerHTML='<p>Sign in with Google. Only registered mentors, interns, and board members can send messages.</p><div class="send-login-actions"><button class="send-login-cancel" type="button">Cancel</button><button class="send-login-submit" type="button">Sign in</button></div>';
         prompt.querySelector('.send-login-cancel').addEventListener('click',event=>{
           event.stopPropagation();
           prompt.remove();
@@ -367,7 +602,7 @@
           console.error('Message send failed.',error);
           const status=document.querySelector('[data-auth-status]');
           if(status){
-            status.textContent='Could not send yet. Try again in a moment.';
+            status.textContent=error.message||'Could not send yet. Try again in a moment.';
             status.hidden=false;
           }
           send.textContent=send.dataset.originalText||'Send';
@@ -378,7 +613,7 @@
         const idx=defaultIdx%msgOptions.length;
         return `<div class="msg-row">
           <ul class="msg-menu">${msgOptions.map(m=>`<li>${m}</li>`).join('')}</ul>
-          <textarea class="msg-input" rows="1">${msgOptions[idx]}</textarea>
+          <textarea class="msg-input" rows="1" aria-label="Message to this Skilf contact">${msgOptions[idx]}</textarea>
           <button class="msg-arrow" aria-label="Pick a message"><svg width="10" height="6"><path d="M0 0l5 6 5-6z" fill="#8fa3ba"/></svg></button>
           <button class="send-btn">Send</button>
         </div>`;
@@ -485,10 +720,8 @@
       }
       function setSkillBrowserOpen(toolbar,open){
         const tree=toolbar.querySelector('.tree-drop');
-        const input=toolbar.querySelector('.search-input');
         const button=toolbar.querySelector('.tree-btn');
         tree.classList.toggle('open',open);
-        input.setAttribute('aria-expanded',String(open));
         button.setAttribute('aria-expanded',String(open));
       }
       function closeOtherSkillBrowsers(toolbar){
@@ -624,31 +857,30 @@
           <img src="assets/home-vr-app-defense.png" alt="Student defending a VR app prototype during Demo Day" loading="lazy" decoding="async">
         </div>
         <div>
-          <h2 class="showcase-title">Turn your project into evidence companies can trust</h2>
+          <h2 class="showcase-title">Turn a project into evidence</h2>
           <p class="showcase-copy">Demonstrate your app, model, user feedback, and the uncomfortable failures. Demo Day turns a claim into a visible skill.</p>
           <div class="showcase-actions" aria-label="Ways to join Skilf">
-            <a class="showcase-action" href="apply.html?role=intern">Become an intern</a>
+            <a class="showcase-action" href="apply.html?role=intern">Join intern waitlist</a>
             <a class="showcase-action" href="find-partner.html">Find a partner</a>
             <a class="showcase-action" href="defense-day.html">Explore Demo Day</a>
           </div>
         </div>
       </article>
     </section>
-    <div style="text-align:center;margin:48px 0;">
-      <a class="cta" href="apply.html#scholarship" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Apply for a scholarship</a>
-    </div>
     <h2 class="section-title" id="find-partner">Find a partner</h2>
-    <p style="margin:0 0 16px;color:var(--ink-soft);font-size:0.92rem;">These people are still working on their first skilf. They're hungry for employers, mentors, and partners (in that order 😉)</p>
+    <p style="margin:0 0 16px;color:var(--ink-soft);font-size:0.92rem;">These interns are still building their first Skilf. They need mentors, hiring partners, and serious collaborators who can help turn project claims into visible evidence.</p>
     <div class="toolbar" id="partner-toolbar">
-      <input class="search-input" id="partner-search" type="text" placeholder="Search partners by name, project, or skill…" autocomplete="off" aria-controls="partner-tree" aria-expanded="false">
+      <input class="search-input" id="partner-search" type="text" placeholder="Search partners by name, project, or skill…" autocomplete="off" aria-controls="partner-tree">
       <button class="tree-btn" type="button" data-tree="partner-tree" aria-label="Open skill filters" aria-controls="partner-tree" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M7 12h10M10 19h4"></path></svg>
       </button>
       <div class="tree-drop" id="partner-tree" aria-label="Partner skill filters"></div>
     </div>
     <section class="cards" id="partners" aria-label="partners"></section>
-    <div style="text-align:center;margin:28px 0 6px;">
-      <a class="cta" href="monetize.html" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Hire or mentor an intern</a>
+    <div class="home-final-actions" aria-label="Skilf pathways">
+      <a class="cta" href="apply.html#intern">Join intern waitlist</a>
+      <a class="cta" href="apply.html#mentor" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Offer mentorship</a>
+      <a class="cta" href="apply.html#hire" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Hire or host interns</a>
     </div>
     <script>
       initSkillToolbar('partner-toolbar');
@@ -688,18 +920,25 @@
         });
       }
     </script>
-    <div style="text-align:center;margin:56px 0 24px;">
-      <a class="cta" href="apply.html">Begin your own Skilf adventure<br><span style="font-size:0.72em;font-weight:400;">$500/Demo Day</span></a>
-    </div>
   </main>
-  <script type="module" src="skilf-firebase.js"></script>
-  <footer style="position:relative;z-index:1;border-top:1px solid var(--line);padding:24px 0;text-align:center;">
-    <a href="defense-day.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Prepare for Demo Day</a>
-    <a href="student-dashboard.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Student dashboard</a>
-    <a href="board-dashboard.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Board Members</a>
-    <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Mentors</a>
-    <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Become a board member</a>
-    <a href="monetize.html" style="color:var(--gold);font-size:0.88rem;margin:0 12px;text-decoration:none;">Volunteer/Donate. Change a life.</a>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
   </footer>
+  <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
     .split img { width:100%; display:block; border-radius:8px; border:1px solid var(--line); }
     h2 { margin:0 0 10px; color:var(--gold); font-size:1.35rem; }
     ul { margin:12px 0 0; padding-left:19px; line-height:1.55; }
-    .cta { display:inline-block; margin-top:24px; padding:12px 18px; border-radius:8px; background:var(--gold); color:#fff; text-decoration:none; font-weight:700; }
+    .cta { display:inline-block; margin-top:24px; padding:12px 18px; border-radius:8px; background:var(--gold); color:#07111f; text-decoration:none; font-weight:700; }
     @media (max-width:860px){ .tiers{grid-template-columns:1fr 1fr;} .split{grid-template-columns:1fr;} }
     @media (max-width:560px){ .tiers{grid-template-columns:1fr;} }
   </style>
@@ -36,7 +36,7 @@
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns">Interns</a>
-        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html" aria-current="page">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -51,7 +51,18 @@
               <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
             </span>
           </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
           <span class="site-auth-status" data-auth-status hidden></span>
         </span>
       </nav>
@@ -59,7 +70,7 @@
   </header>
   <main>
     <h1>Monetize Your Expertise</h1>
-    <p class="subtitle">Serve on Demo Day panels, mentor apprentices, and help candidates turn rough ability into credible, marketable proof.</p>
+    <p class="subtitle">Serve on Demo Day panels, mentor interns, and help candidates turn rough ability into credible, marketable proof.</p>
     <img class="hero" src="assets/advisor-skill-growth.png" alt="Advisor helping a learner turn project work into marketable skills">
 
     <section class="tiers" aria-label="Panelist fee ladder">
@@ -80,9 +91,27 @@
         </ul>
         <a class="cta" href="apply.html?kind=panelist">Join the panelist pool</a>
       </div>
-      <img src="assets/board-mentee-map-no-pointing.png" alt="Advisor view of apprentices and upcoming Demo Days">
+      <img src="assets/board-mentee-map-no-pointing.png" alt="Advisor view of interns and upcoming Demo Days">
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
   <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

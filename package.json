@@ -7,11 +7,23 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:pw && npm run test:rules && npm run test:ps1",
+    "test:pw": "npx playwright test",
+    "test:rules": "node scripts/run-firestore-rules-tests.js",
+    "test:ps1": "powershell -ExecutionPolicy Bypass -File tests/title-page.test.ps1 && powershell -ExecutionPolicy Bypass -File tests/experts.test.ps1 && powershell -ExecutionPolicy Bypass -File tests/regression-runtime.test.ps1",
     "serve:workspace": "serve . -l 3999 --no-clipboard",
     "firebase:login": "npx firebase-tools login",
     "firebase:deploy-db": "npx firebase-tools deploy --only firestore:rules,firestore:indexes --project skilf-9f736",
-    "firebase:deploy-rules": "npx firebase-tools deploy --only firestore:rules --project skilf-9f736"
+    "firebase:deploy-rules": "npx firebase-tools deploy --only firestore:rules --project skilf-9f736",
+    "firebase:bootstrap-rich": "node scripts/bootstrap-rich-authority.js",
+    "production:env-check": "node scripts/check-production-env.js",
+    "production:env-check:payments": "node scripts/check-production-env.js --include-payments",
+    "production:admin-token": "node scripts/generate-admin-token.js",
+    "production:email-smoke": "node scripts/send-email-smoke.js",
+    "production:message-smoke": "node scripts/send-production-message-smoke.js",
+    "production:smoke": "node scripts/run-production-smoke.js",
+    "production:set-email-env": "node scripts/set-email-env.js",
+    "production:deploy": "node scripts/deploy-production-clean.js"
   },
   "repository": {
     "type": "git",
@@ -26,8 +38,16 @@
   },
   "homepage": "https://github.com/richkingsford/skilf_blackberry#readme",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@firebase/rules-unit-testing": "^5.0.1",
     "@playwright/test": "^1.58.2",
+    "ffmpeg-static": "^5.3.0",
+    "firebase": "^12.13.0",
     "firebase-tools": "^15.18.0",
     "serve": "^14.2.6"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.10.0",
+    "stripe": "^22.1.1"
   }
 }

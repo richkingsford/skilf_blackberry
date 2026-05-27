@@ -2,111 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=intern-dashboard.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Dashboard - Skilf</title>
+  <title>Intern Dashboard - Skilf</title>
+  <link rel="canonical" href="intern-dashboard.html">
   <link rel="stylesheet" href="site-nav.css">
-  <style>
-    :root { color-scheme: dark; --ink:#e8edf3; --ink-soft:#8fa3ba; --gold:#d4a94b; --line:#2a3a4e; --bg:#0b1117; --panel:#151f2d; --teal:#55d3c4; --coral:#ff8c73; --violet:#9c83ff; }
-    body { margin:0; font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif; background:radial-gradient(circle at 10% 10%,rgba(85,211,196,0.12),transparent 30%),radial-gradient(circle at 90% 20%,rgba(255,140,115,0.10),transparent 34%),var(--bg); color:var(--ink); }
-    main { width:min(1160px,94vw); margin:30px auto 70px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-    .brand { color:var(--gold); text-decoration:none; font-size:1.7rem; font-weight:800; letter-spacing:0.04em; }
-    .nav { display:flex; gap:10px; flex-wrap:wrap; }
-    .nav a, .auth-btn { color:var(--ink); text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:8px 11px; background:var(--panel); font:inherit; cursor:pointer; }
-    .auth-strip { display:flex; gap:10px; align-items:center; justify-content:flex-end; margin:18px 0; color:var(--ink-soft); font-size:0.84rem; }
-    .hero { display:grid; grid-template-columns:0.9fr 1.1fr; gap:24px; align-items:center; margin-top:18px; }
-    h1 { margin:0 0 10px; font-size:clamp(2.2rem,5vw,4.2rem); color:var(--gold); }
-    .lead { color:var(--ink-soft); line-height:1.5; font-size:1.05rem; }
-    .hero img, .panel-img { width:100%; display:block; border-radius:8px; border:1px solid var(--line); box-shadow:0 18px 38px rgb(0 0 0/30%); }
-    .status-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:16px; margin:28px 0; }
-    .card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#1b2a3d); padding:18px; }
-    .meter { height:12px; border-radius:999px; background:#22344a; overflow:hidden; margin:12px 0; }
-    .meter span { display:block; height:100%; width:68%; background:linear-gradient(90deg,var(--teal),var(--gold)); }
-    h2 { margin:0 0 12px; color:var(--gold); font-size:1.25rem; }
-    .steps { display:grid; gap:10px; }
-    .step { display:flex; gap:10px; align-items:flex-start; color:var(--ink-soft); }
-    .dot { width:12px; height:12px; margin-top:5px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 4px rgba(85,211,196,0.12); flex:0 0 auto; }
-    .dot.hot { background:var(--coral); box-shadow:0 0 0 4px rgba(255,140,115,0.14); }
-    .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
-    .tile { border-radius:8px; padding:16px; background:#102338; border:1px solid var(--line); }
-    .tile strong { display:block; color:var(--ink); margin-bottom:6px; }
-    .tile p { margin:0; color:var(--ink-soft); line-height:1.45; font-size:0.92rem; }
-    .split { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; align-items:center; }
-    @media (max-width:860px){ .hero,.status-grid,.split{grid-template-columns:1fr;} .tiles{grid-template-columns:1fr;} .auth-strip{justify-content:flex-start;flex-wrap:wrap;} }
-  </style>
 </head>
 <body>
-  <header class="site-nav">
-    <div class="site-nav-inner">
-      <a class="site-brand" href="index.html" aria-label="Skilf home">
-        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
-        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
-      </a>
-      <nav class="site-links" aria-label="Primary navigation">
+  <main style="width:min(760px,92vw);margin:64px auto;font-family:'Segoe UI Variable','Aptos',sans-serif;">
+    <h1>Intern Dashboard</h1>
+    <p><a href="intern-dashboard.html">Continue to the Intern Dashboard</a></p>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
         <a href="interns">Interns</a>
-        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
-        <span class="site-auth" data-auth-ui>
-          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
-          <span class="site-auth-menu-wrap" data-auth-profile hidden>
-            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
-              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
-              <span class="site-auth-initial" data-auth-initial hidden></span>
-              <span class="site-auth-name" data-auth-name></span>
-            </button>
-            <span class="site-auth-menu" data-auth-menu hidden role="menu">
-              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
-            </span>
-          </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
-          <span class="site-auth-status" data-auth-status hidden></span>
-        </span>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
       </nav>
     </div>
-  </header>
-  <main>
-    <section class="hero">
-      <div>
-        <h1>Your Skilf Status</h1>
-        <p class="lead">Track the project, mentor practice, and Demo Day readiness signals that move you from candidate to credentialed expert.</p>
-      </div>
-      <img src="assets/student-skilf-journey.png" alt="Student journey from project build to earned skilf credential">
-    </section>
-
-    <section class="status-grid">
-      <article class="card">
-        <h2>Current Status: Demo-Ready Sprint</h2>
-        <p class="lead">You are close. Your next proof point is a smooth 15-minute demo with one live change request.</p>
-        <div class="meter" aria-label="68 percent complete"><span></span></div>
-        <div class="steps">
-          <div class="step"><span class="dot"></span><div><strong>Project proof:</strong> Working end-to-end, needs a cleaner failure story.</div></div>
-          <div class="step"><span class="dot"></span><div><strong>AI mentor log:</strong> 14 of 20 hours recorded.</div></div>
-          <div class="step"><span class="dot hot"></span><div><strong>Next step:</strong> Book a harsh mock panel this week.</div></div>
-        </div>
-      </article>
-      <article class="card">
-        <h2>Upcoming</h2>
-        <div class="steps">
-          <div class="step"><span class="dot"></span><div>Mentor check-in<br><small>Tuesday, 4:00 PM</small></div></div>
-          <div class="step"><span class="dot hot"></span><div>Mock Demo Day<br><small>Friday, 10:30 AM</small></div></div>
-          <div class="step"><span class="dot"></span><div>Panel scheduling opens<br><small>After mentor signoff</small></div></div>
-        </div>
-      </article>
-    </section>
-
-    <section class="split">
-      <img class="panel-img" src="assets/demo-day-ai-practice.png" alt="AI mentor practice loop">
-      <div class="card">
-        <h2>Demo Day Hints</h2>
-        <div class="tiles">
-          <div class="tile"><strong>Say the trade-off</strong><p>Every choice has a cost. Name it before the panel does.</p></div>
-          <div class="tile"><strong>Show the rough edge</strong><p>A known flaw plus a plan beats a polished dodge.</p></div>
-          <div class="tile"><strong>Think out loud</strong><p>The panel grades reasoning, not just the final answer.</p></div>
-        </div>
-      </div>
-    </section>
-  </main>
+  </footer>
   <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

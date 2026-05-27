@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentor Dashboard - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-dashboard-role="mentor" data-mentor-credits="2">
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="dash-hero">
+      <div>
+        <span class="kicker">Mentor home</span>
+        <h1>Help two interns clear a real checkpoint</h1>
+        <p class="lead">Mentors get 2 monthly check-in credits to donate to 2 separate interns. Each credit can remove a $100 obstacle, but it never guarantees a pass. The work still has to clear the rubric.</p>
+        <div class="actions">
+          <a class="cta primary" href="#find-interns">Find interns</a>
+          <a class="cta" href="intern-policies.html">Intern policies</a>
+        </div>
+      </div>
+      <img src="assets/intern-cta-mentor.png" alt="Mentor dashboard guiding an intern toward Demo Day">
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Your monthly credits</h2>
+        <p>Two fresh chances to make the month feel lighter for someone doing hard work.</p>
+      </div>
+      <div class="countdown-grid">
+        <article class="countdown">
+          <strong>Credit one</strong>
+          <span class="big">Ready now</span>
+          <p>Donate it to an intern who needs a monthly check-in.</p>
+        </article>
+        <article class="countdown">
+          <strong>Credit two</strong>
+          <span class="big">Ready now</span>
+          <p>Two different interns, two very real $100 boosts.</p>
+        </article>
+        <article class="countdown">
+          <strong>Next refresh</strong>
+          <span class="big" data-credit-countdown>12 days</span>
+          <p>New credits arrive every month, so generosity has a rhythm.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="find-interns">
+      <div class="section-head">
+        <h2>Search interns</h2>
+        <p>Find someone whose project fits your experience, offer to mentor them, donate one credit, or use their Calendly link to schedule the right next conversation.</p>
+      </div>
+      <div class="toolbar">
+        <input class="search-input" type="search" data-intern-search placeholder="Search interns, projects, regions, or skills" autocomplete="off">
+        <span class="credit-pill" data-credit-display="mentor">2 mentor credits available</span>
+      </div>
+      <section class="intern-results" data-intern-results aria-label="Intern search results"></section>
+      <p class="status-line" data-dashboard-status></p>
+    </section>
+
+    <section class="section two-col">
+      <article class="card">
+        <h2>Your interns</h2>
+        <div class="relationship-list">
+          <div class="relationship">
+            <div><strong>Ava Chen</strong><p>Computer Vision. Next check-in due in 13 days.</p></div>
+            <a class="cta" href="https://calendly.com/richkingsford/30m?utm_source=skilf&utm_content=int-001&utm_campaign=check-in" target="_blank" rel="noopener">Calendly</a>
+          </div>
+          <div class="relationship">
+            <div><strong>Milo Nair</strong><p>Medical NLP. Using one mentor credit this month.</p></div>
+            <a class="cta" href="https://calendly.com/richkingsford/30m?utm_source=skilf&utm_content=int-002&utm_campaign=check-in" target="_blank" rel="noopener">Calendly</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Report a problem</h2>
+        <p>Use this when an intern misses meetings, stops communicating, violates evidence policies, or appears suspended.</p>
+        <select class="dash-select" data-problem-intern aria-label="Choose intern">
+          <option>Ava Chen</option>
+          <option>Milo Nair</option>
+        </select>
+        <textarea class="dash-textarea" placeholder="What happened?"></textarea>
+        <button class="dash-btn" type="button" data-action="report-problem">Report problem</button>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2>Relationship boundaries</h2>
+      <ul class="policy-list">
+        <li>Intern/mentor relationships expire if the intern is more than 30 days late for a required check-in.</li>
+        <li>Relationships also expire if the intern is suspended under Skilf policies.</li>
+        <li>A donated credit lowers cost, not standards. The intern still has to pass the check-in.</li>
+        <li>Review the standalone <a href="intern-policies.html">Intern policies</a> page before making exceptions.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { loadInterns, filterInterns, internCard, wireDashboardActions } from "./dashboard-utils.js";
+    const results = document.querySelector("[data-intern-results]");
+    const search = document.querySelector("[data-intern-search]");
+    let interns = [];
+    function render() {
+      results.innerHTML = filterInterns(interns, search.value).slice(0, 9).map((intern) => internCard(intern, { mentorActions: true })).join("");
+    }
+    loadInterns().then((items) => {
+      interns = items;
+      render();
+    });
+    search.addEventListener("input", render);
+    wireDashboardActions();
+  </script>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

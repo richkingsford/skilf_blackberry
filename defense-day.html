@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Defense Day - Skilf</title>
+  <title>Demo Day - Skilf</title>
   <link rel="stylesheet" href="site-nav.css">
   <style>
     :root { color-scheme: light; --ink:#11233b; --ink-soft:#3f5877; --gold:#9d7b35; --line:#d7dde6; --panel:#fff; --mint:#dff7eb; --sky:#e6f0ff; --coral:#ffe8df; }
@@ -16,16 +16,48 @@
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:24px 0 44px; }
     .card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#f8fbff); padding:18px; box-shadow:0 10px 22px rgb(17 35 59/8%); }
     .card strong { display:block; color:var(--gold); margin-bottom:6px; }
-    .card p, .visual p { margin:0; color:var(--ink-soft); line-height:1.5; font-size:0.94rem; }
+    .card p, .visual p, .section p, .policy-card p, .rubric-card p { margin:0; color:var(--ink-soft); line-height:1.5; font-size:0.94rem; }
     .visual { display:grid; grid-template-columns:1.2fr 0.8fr; gap:22px; align-items:center; margin:46px 0; }
     .visual:nth-of-type(even) { grid-template-columns:0.8fr 1.2fr; }
     .visual:nth-of-type(even) img { order:2; }
     h2 { margin:0 0 10px; color:var(--gold); font-size:1.35rem; }
     ul { margin:12px 0 0; padding-left:19px; color:var(--ink); line-height:1.55; }
+    .section { margin:58px 0; }
+    .section-head { max-width:760px; margin-bottom:18px; }
+    .mistake-chart { display:grid; gap:10px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,#fff,#f3f7fc); padding:18px; box-shadow:0 14px 32px rgb(17 35 59/10%); }
+    .mistake-row { display:grid; grid-template-columns:minmax(190px,1fr) minmax(220px,1.55fr) 46px; gap:12px; align-items:center; }
+    .mistake-name { font-weight:800; color:var(--ink); font-size:0.9rem; }
+    .mistake-bar { height:14px; border-radius:999px; background:#e8eef6; overflow:hidden; box-shadow:inset 0 1px 2px rgb(17 35 59/12%); }
+    .mistake-fill { display:block; width:var(--value); height:100%; border-radius:999px; background:linear-gradient(90deg,#d0a84d,#6aa4dc); }
+    .mistake-stat { color:var(--ink-soft); font-size:0.86rem; font-weight:850; text-align:right; }
+    .rubric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+    .rubric-card { border:1px solid var(--line); border-radius:8px; background:var(--panel); padding:16px; box-shadow:0 10px 22px rgb(17 35 59/7%); }
+    .rubric-card strong { display:block; color:var(--ink); margin-bottom:5px; }
+    .score-pill { display:inline-flex; margin-bottom:10px; border-radius:999px; background:var(--sky); color:#2e5b91; padding:4px 8px; font-size:0.76rem; font-weight:900; }
+    .policy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:18px; }
+    .policy-card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#f8fbff); padding:18px; box-shadow:0 10px 22px rgb(17 35 59/8%); }
+    .policy-card strong { display:block; color:var(--gold); margin-bottom:7px; font-size:1rem; }
+    .note-box { border:1px solid rgba(157,123,53,0.34); border-radius:8px; background:#fff8e7; padding:18px; }
+    .roadmap { margin-top:26px; }
+    .roadmap h3 { margin:0 0 6px; color:var(--ink); font-size:1.12rem; }
+    .roadmap-intro { margin:0 0 16px; color:var(--ink-soft); line-height:1.45; font-size:0.92rem; }
+    .roadmap-lanes { display:grid; gap:14px; }
+    .roadmap-card { border:1px solid rgba(157,123,53,0.28); border-radius:8px; background:#fff; padding:14px; box-shadow:0 10px 22px rgb(17 35 59/7%); }
+    .roadmap-card header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+    .roadmap-card strong { color:var(--ink); font-size:0.98rem; }
+    .roadmap-cost { flex:0 0 auto; border-radius:999px; background:#f5ead0; color:#795d24; padding:4px 9px; font-size:0.78rem; font-weight:900; }
+    .timeline-track { position:relative; display:grid; grid-template-columns:repeat(var(--steps), minmax(0,1fr)); gap:0; }
+    .timeline-track::before { content:""; position:absolute; top:12px; left:calc(50% / var(--steps)); right:calc(50% / var(--steps)); height:3px; border-radius:999px; background:linear-gradient(90deg,#d0a84d,#6aa4dc,#48aa8f); }
+    .timeline-step { position:relative; min-height:54px; padding:30px 6px 0; color:var(--ink-soft); font-size:0.78rem; font-weight:850; line-height:1.15; text-align:center; }
+    .timeline-step::before { content:""; position:absolute; top:4px; left:50%; transform:translateX(-50%); width:17px; height:17px; border-radius:50%; border:3px solid #fff; background:var(--gold); box-shadow:0 0 0 2px rgba(157,123,53,0.32); z-index:1; }
+    .timeline-step.credit::before { background:#48aa8f; box-shadow:0 0 0 2px rgba(72,170,143,0.32); }
+    .timeline-step.delay::before { background:#dd7a5d; box-shadow:0 0 0 2px rgba(221,122,93,0.32); }
+    .timeline-step.review::before { background:#6aa4dc; box-shadow:0 0 0 2px rgba(106,164,220,0.32); }
     .cta-row { margin-top:44px; display:flex; gap:12px; flex-wrap:wrap; }
-    .cta { display:inline-block; padding:12px 18px; border-radius:8px; background:var(--gold); color:#fff; text-decoration:none; font-weight:700; }
+    .cta { display:inline-block; padding:12px 18px; border-radius:8px; background:var(--gold); color:#07111f; text-decoration:none; font-weight:700; }
     .cta.secondary { background:transparent; color:var(--gold); border:1px solid var(--gold); }
-    @media (max-width:760px){ .grid,.visual,.visual:nth-of-type(even){grid-template-columns:1fr;} .visual:nth-of-type(even) img{order:0;} }
+    @media (max-width:900px){ .rubric-grid{grid-template-columns:repeat(2,1fr);} .policy-grid{grid-template-columns:1fr 1fr;} .roadmap-card header{align-items:flex-start; flex-direction:column;} .timeline-track{overflow-x:auto; padding-bottom:4px;} .timeline-step{min-width:118px;} }
+    @media (max-width:760px){ .grid,.visual,.visual:nth-of-type(even){grid-template-columns:1fr;} .visual:nth-of-type(even) img{order:0;} .mistake-row{grid-template-columns:1fr;} .mistake-stat{text-align:left;} .rubric-grid,.policy-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -37,7 +69,7 @@
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns">Interns</a>
-        <a href="defense-day.html" aria-current="page">$500/Demo Day</a>
+        <a href="defense-day.html" aria-current="page">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -52,15 +84,26 @@
               <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
             </span>
           </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
           <span class="site-auth-status" data-auth-status hidden></span>
         </span>
       </nav>
     </div>
   </header>
   <main>
-    <h1>Defense Day</h1>
-    <p class="subtitle">A live adversarial demo defense where candidates show real work, answer expert questions, and prove what they can do under pressure.</p>
+    <h1>Demo Day</h1>
+    <p class="subtitle">A live Demo Day review where interns show real work, answer expert questions, and prove the work is strong enough for a post-high-school full-time job in a technically rigorous industry.</p>
     <img class="hero-img" src="assets/demo-day-panel-rubric.png" alt="Visual rubric showing a working project, reasoning under pressure, and honest knowledge boundaries">
 
     <section class="grid" aria-label="Defense Day snapshot">
@@ -72,8 +115,8 @@
     <section class="visual">
       <img src="assets/demo-day-ai-practice.png" alt="Student practicing Demo Day questions with an AI mentor">
       <div>
-        <h2>Practice With An AI Mentor</h2>
-        <p>Before scheduling, students should log at least 20 hours of AI mentor practice. Use it to rehearse hard questions, trace failures, and explain the project from scratch.</p>
+        <h2>Practice with an AI mentor</h2>
+        <p>AI is welcome. Fake proof is not. Skilf cares about honest evidence, sound judgment, working results, and whether the intern can defend the work under expert pressure. There is one rigor level: job-ready technical proof.</p>
         <ul>
           <li>Ask for skeptical review.</li>
           <li>Practice live constraint changes.</li>
@@ -103,11 +146,218 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="common-mistakes">
+      <div class="section-head">
+        <h2 id="common-mistakes">Common mistakes</h2>
+        <p>Not every intern passes every checkpoint, and not every intern passes Demo Day. Most failures are ordinary, fixable problems: the project is not ready, the evidence is thin, or the intern cannot yet explain the hard trade-offs. These placeholder frequencies show how often mistakes appear among delayed or failed attempts.</p>
+      </div>
+      <div class="mistake-chart" aria-label="Common Demo Day and check-in mistake frequencies">
+        <div class="mistake-row"><span class="mistake-name">Unreliable live demo</span><span class="mistake-bar"><span class="mistake-fill" style="--value:42%"></span></span><span class="mistake-stat">42%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Weak evidence log</span><span class="mistake-bar"><span class="mistake-fill" style="--value:39%"></span></span><span class="mistake-stat">39%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Cannot explain trade-offs</span><span class="mistake-bar"><span class="mistake-fill" style="--value:36%"></span></span><span class="mistake-stat">36%</span></div>
+        <div class="mistake-row"><span class="mistake-name">No user or stakeholder feedback</span><span class="mistake-bar"><span class="mistake-fill" style="--value:33%"></span></span><span class="mistake-stat">33%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Scope too large</span><span class="mistake-bar"><span class="mistake-fill" style="--value:31%"></span></span><span class="mistake-stat">31%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Metrics do not match the claim</span><span class="mistake-bar"><span class="mistake-fill" style="--value:29%"></span></span><span class="mistake-stat">29%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Over-rehearsed pitch, under-tested project</span><span class="mistake-bar"><span class="mistake-fill" style="--value:27%"></span></span><span class="mistake-stat">27%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Missing failure analysis</span><span class="mistake-bar"><span class="mistake-fill" style="--value:25%"></span></span><span class="mistake-stat">25%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Poor source or data hygiene</span><span class="mistake-bar"><span class="mistake-fill" style="--value:23%"></span></span><span class="mistake-stat">23%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Cannot reproduce the result</span><span class="mistake-bar"><span class="mistake-fill" style="--value:21%"></span></span><span class="mistake-stat">21%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Safety or ethics not addressed</span><span class="mistake-bar"><span class="mistake-fill" style="--value:19%"></span></span><span class="mistake-stat">19%</span></div>
+        <div class="mistake-row"><span class="mistake-name">No clear next experiment</span><span class="mistake-bar"><span class="mistake-fill" style="--value:18%"></span></span><span class="mistake-stat">18%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Dependency on hidden helper work</span><span class="mistake-bar"><span class="mistake-fill" style="--value:16%"></span></span><span class="mistake-stat">16%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Weak fundamentals under questions</span><span class="mistake-bar"><span class="mistake-fill" style="--value:14%"></span></span><span class="mistake-stat">14%</span></div>
+        <div class="mistake-row"><span class="mistake-name">Poor time management</span><span class="mistake-bar"><span class="mistake-fill" style="--value:12%"></span></span><span class="mistake-stat">12%</span></div>
+      </div>
+    </section>
+
+    <section class="section note-box" aria-labelledby="fail-four">
+      <h2 id="fail-four">If you fail monthly check-in #4</h2>
+      <p>Check-in #4 is the final gate before Demo Day. If you fail it, payment rules change only in one important way: we require a passing check-in before greenlighting Demo Day, and every additional check-in meeting still costs $100 or one monthly check-in credit. For each check-in or Demo Day review, the only accepted evidence, presentation, and artifact format is a single public YouTube video between 30 and 60 seconds. Interns may ask third parties, such as a professor, employer, or domain expert, to evaluate the work for coaching, but Skilf's review artifact remains that one video. Interns may also request one free, one-time audit from the Skilf organization. These academic policies protect interns by preventing repeated paid attempts before evidence is ready, and they protect mentors, reviewers, and employers by requiring a clear passing record before Skilf represents the work as credential-worthy.</p>
+      <div class="roadmap" aria-label="Possible check-in and Demo Day timelines">
+        <h3>You control the timeline, with Skilf boundaries</h3>
+        <p class="roadmap-intro">Skilf paths can be fast, slow, sponsored, interrupted, self-funded, employer-backed, or repaired after a miss. These examples show how pass/fail outcomes, cash, credits, sponsorship, and time delays can change the journey without weakening the standard.</p>
+        <div class="roadmap-lanes">
+          <article class="roadmap-card">
+            <header><strong>Best case: sponsored</strong><span class="roadmap-cost">$0 out of pocket</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step">Project proof ready</span>
+              <span class="timeline-step credit">Pass: credit used</span>
+              <span class="timeline-step credit">Pass: sponsor paid</span>
+              <span class="timeline-step credit">Pass: credit used</span>
+              <span class="timeline-step credit">Pass: sponsor paid</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Straight four-check path</strong><span class="roadmap-cost">$500 cash</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step">Start project proof</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Mentor-backed sprint</strong><span class="roadmap-cost">$300 cash + 2 credits</span></header>
+            <div class="timeline-track" style="--steps:5">
+              <span class="timeline-step">Mentor joins early</span>
+              <span class="timeline-step credit">Pass: credit used</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step credit">Pass: credit used</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Company-sponsored intern</strong><span class="roadmap-cost">Employer pays $500</span></header>
+            <div class="timeline-track" style="--steps:5">
+              <span class="timeline-step">Employer scope chosen</span>
+              <span class="timeline-step credit">Pass: employer paid</span>
+              <span class="timeline-step credit">Pass: employer paid</span>
+              <span class="timeline-step credit">Pass: employer paid</span>
+              <span class="timeline-step">Demo Day interview</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Fourth-gate repair</strong><span class="roadmap-cost">$600 + 1 month</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step delay">Fail: fourth gate</span>
+              <span class="timeline-step review">Pass: retake paid</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Slow research path</strong><span class="roadmap-cost">$400 + 1 credit</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step">Literature map posted</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step credit">Pass: credit used</span>
+              <span class="timeline-step">Data review passed</span>
+              <span class="timeline-step">Final check passed</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Delay gets expensive</strong><span class="roadmap-cost">$500 + credit lost</span></header>
+            <div class="timeline-track" style="--steps:5">
+              <span class="timeline-step">Pass: credit used</span>
+              <span class="timeline-step delay">Delay exceeds boundary</span>
+              <span class="timeline-step delay">Credit expires unused</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Demo Day delayed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Early struggle, recovered</strong><span class="roadmap-cost">$700 + 2 months</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step delay">Fail: first check</span>
+              <span class="timeline-step">Pass: retake paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Pass: cash paid</span>
+              <span class="timeline-step">Demo Day passed</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Three-fail soft wall</strong><span class="roadmap-cost">$800 + 6 months</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step delay">Fail: first check</span>
+              <span class="timeline-step delay">Fail: second check</span>
+              <span class="timeline-step delay">Fail: third check</span>
+              <span class="timeline-step delay">Six-month wait</span>
+              <span class="timeline-step">Portfolio rebuilt</span>
+              <span class="timeline-step review">Fresh check scheduled</span>
+            </div>
+          </article>
+          <article class="roadmap-card">
+            <header><strong>Six-fail hard wall</strong><span class="roadmap-cost">$1,100+ + 1 year</span></header>
+            <div class="timeline-track" style="--steps:6">
+              <span class="timeline-step delay">Multiple checks fail</span>
+              <span class="timeline-step delay">Costs keep rising</span>
+              <span class="timeline-step delay">Sixth failure lands</span>
+              <span class="timeline-step delay">One-year wall begins</span>
+              <span class="timeline-step">Portfolio rebuilt slowly</span>
+              <span class="timeline-step review">Return after waiting</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="rubric">
+      <div class="section-head">
+        <h2 id="rubric">Check-in rubric</h2>
+        <p>Each check-in is scored from 0-100% across the same core metrics. Demo Day is simply a bigger check-in with more pressure, more observers, and a stronger expectation that the project works. A 75% total score is the pass/fail cutoff.</p>
+      </div>
+      <div class="rubric-grid">
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>Working artifact</strong><p>The project runs, demonstrates the promised behavior, and the intern can explain the mechanism, constraints, and trade-offs.</p></article>
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>Evidence quality</strong><p>The single 30-60 second public YouTube video shows the strongest proof, names limits honestly, and can be defended under questions.</p></article>
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>Failure analysis</strong><p>The intern names what broke, what was learned, and what would be tried next.</p></article>
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>User or stakeholder signal</strong><p>The work has been exposed to someone besides the intern, and that feedback changed the project.</p></article>
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>Safety and ethics</strong><p>Risks, privacy, bias, reliability, or domain-specific safety concerns are identified honestly.</p></article>
+        <article class="rubric-card"><span class="score-pill">0-100%</span><strong>Readiness for next step</strong><p>The intern has a credible plan for deployment, improvement, hiring conversation, or further study, and can answer skeptical next-step questions.</p></article>
+      </div>
+    </section>
+
+    <section class="section note-box" aria-labelledby="struggle">
+      <h2 id="struggle">It's ok to make mistakes</h2>
+      <p>Interns control the cadence, but boundaries are important: every monthly check-in or Demo Day can be delayed up to 30 days without consequence; after that, the consequence is minus one check-in credit. After 3 failed check-ins, there is a soft wall: the intern must wait 6 months before the next check-in so they can improve their project portfolio. After 6 failed check-ins, there is a 1 year wall before another check-in. This protects interns from spending money before the evidence is ready, protects mentors and reviewers from repeated low-signal meetings, and protects Skilf's reputation so a passed credential remains meaningful to employers.</p>
+    </section>
+
+    <section class="section" aria-labelledby="counterfeit-evidence">
+      <div class="section-head">
+        <h2 id="counterfeit-evidence">Counterfeit evidence</h2>
+        <p>Counterfeit evidence is anything that makes the project look more real, more tested, or more personally built than it actually is. The easiest way to avoid this perception is one public YouTube video. Skilf accepts exactly one presentation artifact per check-in or Demo Day: a public YouTube video, 30-60 seconds long, posted within 24 hours before the review. Your voice should walk reviewers through the work, with webcam on for 100% of it, plus screen sharing and live footage.</p>
+      </div>
+      <div class="policy-grid">
+        <article class="policy-card"><strong>What it looks like</strong><p>Polished screenshots with no working demo, cherry-picked metrics, unverifiable testimonials, hidden helper work, copied code without attribution, AI-generated explanations the intern cannot defend, or a video that avoids the hard part of the project.</p></article>
+        <article class="policy-card"><strong>How to avoid the perception</strong><p>Post one public YouTube video, keep it 30-60 seconds, show the hard part, credit outside help, and say plainly what is prototype, borrowed, simulated, or unfinished.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="more-rules">
+      <div class="section-head">
+        <h2 id="more-rules">More rules that matter</h2>
+      </div>
+      <div class="policy-grid">
+        <article class="policy-card"><strong>What to bring</strong><p>Bring one public YouTube link posted within the required window. The 30-60 second video should show your voice narration, webcam, screen share, live footage, working project, the strongest proof, known failure cases, and what changed since the last check-in.</p></article>
+        <article class="policy-card"><strong>Who evaluates the work</strong><p>Monthly check-ins use one qualified reviewer. Demo Day usually uses a broader panel so the pass/fail decision does not depend on one person's taste.</p></article>
+        <article class="policy-card"><strong>How retakes work</strong><p>A failed monthly check-in or Demo Day does not erase progress. The intern receives focused feedback, fixes the project, and schedules a later check-in or Demo Day when ready.</p></article>
+        <article class="policy-card"><strong>How outside context helps</strong><p>Letters, professor comments, employer reviews, GitHub history, and user interviews can guide coaching, but they are not accepted as the official review artifact. Skilf reviews one public YouTube video.</p></article>
+        <article class="policy-card"><strong>What employers should read</strong><p>A passed Skilf should tell employers what the intern built, what evidence was reviewed, what questions were asked, and where the intern still has room to grow.</p></article>
+        <article class="policy-card"><strong>When to delay Demo Day</strong><p>Interns control the cadence, but boundaries are important. Delay if the demo only works once, if the intern cannot explain the core mechanism, or if the evidence is mostly promises. Any monthly check-in or Demo Day can be delayed up to 30 days without consequence; after that, the consequence is minus one check-in credit.</p></article>
+        <article class="policy-card"><strong>What mentors can credit</strong><p>Mentors may use monthly check-in credits to reduce the intern's cost, but credits do not guarantee a pass. The work still has to clear the rubric.</p></article>
+        <article class="policy-card"><strong>How we protect fairness</strong><p>Reviewers should challenge the evidence, not the intern's confidence, accent, background, or presentation style. Useful pressure is specific, technical, and respectful.</p></article>
+      </div>
+    </section>
+
     <div class="cta-row">
-      <a class="cta" href="apply.html">Begin your Skilf adventure</a>
-      <a class="cta secondary" href="student-dashboard.html">Preview student dashboard</a>
+      <a class="cta" href="interns#hire-interns">Find a partner</a>
+      <a class="cta secondary" href="apply.html#intern">Start my Skilf project</a>
     </div>
   </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
   <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>

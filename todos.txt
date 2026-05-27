@@ -1,0 +1,329 @@
+Skilf production-readiness checklist
+====================================
+
+Goal: get Skilf from strong alpha to trustworthy public production for real users, real payments, role authority, credits, and Demo Day decisions.
+
+Current readiness estimate
+--------------------------
+[ ] Treat the current site as private alpha / founder-led pilot until the items below are complete.
+
+Next recommended batch
+----------------------
+- Start REPUTATION-001 to define reputation points for interns and mentors.
+
+1. Secrets and hosting
+----------------------
+[ ] Deferred to payment batch: add Stripe production/test environment variables to Netlify:
+    STRIPE_SECRET_KEY
+    STRIPE_WEBHOOK_SECRET
+
+2. Rich board authority
+-----------------------
+[ ] Sign out and sign back in as richkingsford@gmail.com so Firebase ID token refreshes.
+[ ] Confirm Rich is redirected to `board-member-dashboard.html` after sign-in.
+
+3. Firestore production rules
+-----------------------------
+[ ] Decide whether `richkingsford@gmail.com` owner-email authority should remain forever or be replaced entirely by custom claims.
+
+4. Server-side role management
+------------------------------
+[ ] Add role audit viewer for `roleAudit`.
+[ ] Add a policy for who may grant board-member authority.
+[ ] Confirm user role changes require a token refresh before taking effect.
+
+5. Credit ledger and accounting
+-------------------------------
+[ ] Treat `creditLedger` as the source of truth.
+[ ] Add an admin reconciliation page for credits.
+[ ] Add a way to manually grant, revoke, or correct credits with audit logs.
+[ ] Add idempotency protection for webhook/ledger events.
+[ ] Decide whether sponsored credits go into a pool or directly to a named intern.
+
+6. Stripe payments
+------------------
+[ ] Create Stripe products/prices or confirm dynamic Checkout pricing is acceptable.
+[ ] Configure Stripe webhook endpoint:
+    /.netlify/functions/stripe-webhook
+[ ] Confirm each paid Checkout creates/updates a Firestore `payments` record.
+[ ] Confirm failed/cancelled checkout leaves a traceable status.
+[ ] Add a refund/cancellation policy page or FAQ entry.
+[ ] Add refund handling in Stripe webhook.
+[ ] Add receipt language for program fees vs donations.
+[ ] Ask a nonprofit/accounting advisor whether sponsored credits are donations, program revenue, or something else.
+[ ] Apply for any nonprofit Stripe discount only after legal/nonprofit status is ready.
+
+7. Calendly scheduling
+----------------------
+[ ] Confirm the Calendly event has the right duration, timezone behavior, buffer, and availability.
+[ ] Add required intake questions in Calendly:
+    intern name
+    Skilf/project ID
+    check-in number
+    whether paying with credit or cash
+    one public YouTube video link, 30-60 seconds long
+[ ] Decide whether Demo Day should use a separate Calendly event type.
+[ ] Decide whether mentors/board members each need personal scheduling links.
+[ ] Add a post-booking process that reconciles Calendly bookings with credits/payments.
+[ ] Prevent or flag bookings that do not have a matching credit/payment.
+
+8. Dashboard completeness
+-------------------------
+[ ] Replace sample intern relationships with real Firestore-backed data.
+[ ] Replace mock credit counts with live `creditAccounts` reads.
+[ ] Show current mentor credits, intern credits, and give-away credits from Firestore.
+[ ] Show monthly reset date from server data.
+[ ] Add loading, error, and empty states for dashboard data.
+[ ] Add "report problem" records to an admin review queue.
+[ ] Add status labels for pending, reviewed, resolved, suspended.
+[ ] Add board pass/fail notes and score capture to server records.
+[ ] Add board-only decision history.
+
+9. Intern data model
+---------------------
+[ ] Decide whether `prospectivePartners.json` remains static or moves to Firestore.
+[ ] Add stable intern IDs and project IDs for real users.
+[ ] Add Calendly, credit, payment, mentor relationship, and check-in status fields.
+[ ] Add suspended/active status.
+[ ] Add monthly check-in due dates.
+[ ] Add Demo Day eligibility state.
+[ ] Add public/private profile boundaries.
+[ ] Add moderation path for public intern/project data.
+
+10. Forms and emails
+--------------------
+[ ] Decide whether Netlify Forms remains primary intake or Firestore becomes primary.
+[ ] Add server-side email notifications for application form submissions.
+[ ] Confirm feedback submissions clearly go to Skilf organization only.
+[ ] Add spam protection to public forms.
+[ ] Add rate limiting or abuse handling for messages.
+[ ] Verify Resend sender domain.
+[ ] Replace `onboarding@resend.dev` with a verified Skilf domain sender.
+
+11. Legal, privacy, and policy
+------------------------------
+[ ] Have a lawyer or qualified advisor review:
+    privacy policy
+    refund policy
+    intern policies
+    Demo Day pass/fail language
+    use of one public YouTube video as the accepted review artifact
+    mentor/board liability
+    payment/donation language
+[ ] Add Terms of Service.
+[ ] Add refund policy.
+[ ] Add contact/support policy.
+[ ] Add explicit consent language for the public YouTube evidence video and evidence review.
+[ ] Add child/minor policy if interns could be under 18.
+[ ] Add data deletion/access process.
+[ ] Add nonprofit/payment disclaimer language once entity status is known.
+
+12. Security and abuse resistance
+---------------------------------
+[ ] Add server-side rate limiting for:
+    messages
+    dashboard actions
+    role admin endpoint
+    payment creation
+[ ] Lock `admin-set-user-roles` behind a strong token and consider IP restrictions.
+[ ] Rotate all secrets before public launch.
+[ ] Confirm no secret keys are committed.
+[ ] Run `npm audit` and decide whether to accept or remediate transitive Firebase Admin advisories.
+[ ] Add a security contact address.
+[ ] Add logging for all server functions.
+[ ] Add alerting for failed webhooks and suspicious role/credit activity.
+
+13. Observability
+-----------------
+[ ] Add Netlify function logs review workflow.
+[ ] Add Stripe webhook failure monitoring.
+[ ] Add Firebase usage/quota monitoring.
+[ ] Add simple analytics events for:
+    sign-in
+    form submissions
+    send message
+    credit spend/donate
+    checkout started/completed
+    pass/fail action
+[ ] Add an admin dashboard for unresolved reports, failed payments, and failed webhooks.
+
+14. Launch operations
+---------------------
+[ ] Create a small pilot group:
+    Rich as board member
+    1 mentor
+    1 intern
+    1 hiring partner
+[ ] Run one controlled live payment.
+[ ] Confirm refund path works.
+[ ] Confirm manual credit correction works.
+[ ] Confirm role revocation works.
+[ ] Freeze policy text before public launch.
+[ ] Create a launch-day rollback plan.
+[ ] Create a support inbox/process.
+
+15. Final go/no-go
+------------------
+[ ] Firestore rules deployed.
+[ ] Netlify env vars configured.
+[ ] Rich custom claims bootstrapped or owner-email authority intentionally retained.
+[ ] Stripe webhook verified in production.
+[ ] Legal/policy review complete.
+[ ] Admin operations are documented.
+[ ] Rollback plan exists.
+
+Production is 100% only when every item in section 15 is checked.
+
+
+
+
+16. Prioritized outstanding tickets
+-----------------------------------
+These are the raw idea notes converted into usable tickets. Higher in this list means higher priority. Ticket IDs are stable references, not priority numbers.
+
+Cash-related work is postponed until the payment/legal/accounting batch reopens.
+
+Next cool product enhancement: REPUTATION-001, because reputation points give interns and mentors a visible reason to keep contributing without reopening cash-related work.
+
+TICKET REPUTATION-001: Design reputation points
+Status: open
+Type: Product experiment
+Source note: Reputation points for interns and mentors.
+Acceptance:
+- Define how interns earn points.
+- Define how mentors earn points.
+- Decide whether points are public, private, spendable, or purely reputation.
+
+TICKET GROWTH-002: Share MVP with warm partners and advisors
+Status: open
+Type: Growth
+Source notes: prospective partners, church contacts, Dev Pipeline, Boy Scouts of America, Gary, March 18 follow-up.
+Acceptance:
+- Create a target list with name, contact, relationship, and ask.
+- Follow up on the March 18 email thread.
+- Reach out to Dev Pipeline about Demo Defense.
+- Pitch a youth/student version to Boy Scouts of America or a similar youth organization.
+- Decide whether Gary is a useful advisor, mentor, or intro source.
+
+TICKET RESEARCH-002: Review existing Google Doc notes
+Status: open
+Type: Research
+Source link: https://docs.google.com/document/d/1Nn_7MAMW434kxBYvwRKx85Mgkyg_y9lvEQLACgU0Qc4/edit?tab=t.0#heading=h.hhootja9oupe
+Acceptance:
+- Read the document.
+- Extract product decisions, copy ideas, and policy risks into tickets.
+- Mark obsolete items as closed or parked.
+
+TICKET FEEDBACK-001: Process Chuck feedback
+Status: open
+Type: Research / feedback
+Acceptance:
+- Locate Chuck's feedback.
+- Convert actionable items into tickets.
+- Mark non-actionable feedback as noted.
+
+Postponed cash-related tickets
+------------------------------
+
+TICKET FUNDING-001: Design project and intern funding
+Status: postponed - cash-related
+Type: Product / fundraising
+Source notes: fund projects/interns, crowdsourced scholarships, crowd support, investors, funders.
+Acceptance:
+- Decide whether people fund a specific intern, a project, or a general scholarship pool.
+- Define what public supporters see.
+- Define what the intern sees.
+- Define how funds convert to check-in credits, Demo Day help, stipend, or scholarship.
+- Do not implement payments until the Stripe/payment batch is reopened.
+
+TICKET BETA-001: Pay beta testers with stipends
+Status: postponed - cash-related
+Type: Operations
+Acceptance:
+- Define who qualifies as a beta tester.
+- Define stipend amount, payment method, and expected work.
+- Define whether beta testers are interns, mentors, reviewers, or outside usability testers.
+- Add budget and approval owner.
+
+TICKET CREDITS-001: Revisit credit and demerit economics
+Status: postponed - cash-related
+Type: Program economics
+Source notes: fail check-in loses one credit, board/mentor monthly credits, demerits increase fees, punishment fees go to nonprofit.
+Acceptance:
+- Model current credit rules versus proposed demerit rules.
+- Decide whether failing a check-in costs an extra credit or only consumes the scheduled credit.
+- Decide whether demerits should increase future fees.
+- Decide whether any penalty money must go to a trusted nonprofit.
+- Update Intern Policies only after legal/accounting review.
+
+TICKET CREDITS-002: Explore low upfront deposits toward Demo Day
+Status: postponed - cash-related
+Type: Program economics
+Source note: $10 submitted with plan and each checkpoint goes into Demo Day account.
+Acceptance:
+- Decide whether deposits simplify or complicate checkout/accounting.
+- Decide whether deposits are refundable, transferable, or scholarship-eligible.
+- Do not implement until payment batch is active.
+
+TICKET PROGRAM-003: Add pre-acceptance quality gate
+Status: postponed - cash-related
+Type: Program policy
+Source note: Candidates must pass a test before Skilf accepts their $100.
+Acceptance:
+- Define the pre-acceptance test.
+- Define pass/fail criteria.
+- Explain whether this prevents wasted paid check-ins.
+- Update application flow if adopted.
+
+TICKET SCHOLARSHIP-001: Free Demo Day month for college students
+Status: postponed - cash-related
+Type: Campaign
+Acceptance:
+- Define eligible students and the free month.
+- Decide whether professor sponsorship is required.
+- Decide who funds reviewer time.
+- Add landing-page copy only after program rules are clear.
+
+TICKET SPONSOR-001: Professor-sponsored free Skilf service
+Status: postponed - cash-related
+Type: Partnerships
+Source note: Free service to any student whose professor is their sponsor.
+Acceptance:
+- Define professor sponsor responsibilities.
+- Define whether the professor can serve as mentor, validator, or funding sponsor.
+- Draft outreach copy for professors.
+
+18. Raw idea inbox, converted above
+-----------------------------------
+Raw notes were converted into tickets above and kept below temporarily for traceability.
+5/25/26, 3:38 PM Tasks
+https://mail.google.com/mail/u/0/#inbox 1/3
+Promote that all college students get a demo day for free, during x month
+The more demerits you earn, the more you pay. But these punishment fees go to a trusted non profit.
+Some pages are text heavy. Replace these with visuals.
+Candidates must first pass a test before we'll accept their $100
+What if the money you paid started low but then got higher depending on how many demerits you had.
+Every demerit increases the fee by 10%.
+Might Gary be interested in Skilf?
+https://docs.google.com/document/d/1Nn_7MAMW434kxBYvwRKx85Mgkyg_y9lvEQLACgU0Qc4/edit?
+tab=t.0#heading=h.hhootja9oupe
+Combine honest interns with Skilf
+I love the first line: "My skilf says I'm the world's foremost expert on..." (a bit of transparent hyperbole never hurt anyone)
+Right after that you should be VERY clear about the audience. Something like:
+No college or wrong degree? Earn a skilf credential here and get connected with prospective employers.
+Hire someone with a skilf. Get connected with prospective employees with talent, skill and grit.
+A skilf is awarded only after you survive Demo Day ($100 each) — an adversarial demo defense with an expert review
+panel.
+--
+Language is important here:
+1. Decide on the terms you want to use for employee and employer and stick with them. This will help guide people to the
+right panel of partners.
+2. Look at the drop-down messages in the panel of people. Web pages are confusing about "you" and "me" because a
+label is sometimes phrased as the user talking to the page and sometimes vice versa. Best to avoid this trap by using
+clear, unambiguous terms.
+Chuck feedback
+Skilf. Free service to any student whose professor is their sponsor
+5/25/26, 3:38 PM Tasks
+https://mail.google.com/mail/u/0/#inbox 2/3
+Add a waitlist
+Add call to action button called become a board member. Just a Google form for now is fine

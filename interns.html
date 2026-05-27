@@ -144,6 +144,26 @@
       font: inherit;
       line-height: 1;
     }
+    .hire-search {
+      scroll-margin-top: 96px;
+      margin-top: 18px;
+    }
+    .hire-search-copy {
+      max-width: 780px;
+      margin: 0 0 16px;
+    }
+    .hire-search-copy h2 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+      line-height: 1.14;
+    }
+    .hire-search-copy p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+      line-height: 1.58;
+    }
     .tree-drop {
       display: none;
       position: absolute;
@@ -280,6 +300,20 @@
       cursor: pointer;
     }
     .tag:hover { border-color: rgba(85, 211, 196, 0.5); color: var(--ink); }
+    .calendly-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      border: 1px solid rgba(85, 211, 196, 0.38);
+      border-radius: 8px;
+      padding: 7px 9px;
+      color: var(--mint);
+      background: rgba(85, 211, 196, 0.08);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
     .msg-row { position: relative; display: flex; flex-wrap: wrap; margin-top: 2px; padding-top: 2px; z-index: 1; }
     .msg-row.menu-open { z-index: 120; }
     .msg-row.expanded .msg-input { order: -1; width: 100%; flex: 0 0 100%; border-right: 1px solid var(--line); border-radius: 8px 8px 0 0; min-height: 4.4em; }
@@ -408,26 +442,75 @@
     .intern-cta-row {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 42px 0 0;
+      flex-wrap: nowrap;
+      gap: 16px;
+      margin: 76px 0 0;
       padding-bottom: 6px;
     }
     .intern-cta {
+      box-sizing: border-box;
       border: 1px solid rgba(212, 169, 75, 0.52);
       border-radius: 8px;
       background: rgba(212, 169, 75, 0.1);
       color: var(--gold);
       padding: 12px 16px;
+      min-width: 180px;
+      text-align: center;
       text-decoration: none;
       font-size: 0.92rem;
       font-weight: 900;
     }
     .intern-cta:hover { border-color: rgba(212, 169, 75, 0.84); background: rgba(212, 169, 75, 0.16); }
+    .intern-cta-sections {
+      display: grid;
+      gap: 34px;
+      margin: 42px auto 56px;
+      width: min(920px, 100%);
+    }
+    .intern-cta-panel {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.74fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+      padding: 12px 0;
+    }
+    .intern-cta-panel:nth-child(even) .intern-cta-image {
+      order: 2;
+    }
+    .intern-cta-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 7px;
+      background: #101821;
+      box-shadow: 0 16px 34px rgb(0 0 0 / 24%);
+    }
+    .intern-cta-copy { padding: 8px 8px 8px 0; }
+    .intern-cta-title {
+      margin: 0 0 9px;
+      color: var(--ink);
+      font-size: clamp(1.2rem, 2vw, 1.62rem);
+      line-height: 1.12;
+    }
+    .intern-cta-text {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      font-size: 0.94rem;
+    }
+    .panel-cta {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 16px;
+      background: rgba(212, 169, 75, 0.14);
+    }
     @media (max-width: 960px) {
       .hero,
       .mentor-intro { grid-template-columns: 1fr; }
       .intern-grid { grid-template-columns: repeat(2, 1fr); }
+      .intern-cta-panel { grid-template-columns: 1fr; }
+      .intern-cta-panel:nth-child(even) .intern-cta-image { order: 0; }
+      .intern-cta-copy { padding: 2px 2px 4px; }
     }
     @media (max-width: 640px) {
       main { margin-top: 28px; }
@@ -437,6 +520,9 @@
       .tool-btn { flex: 0 0 auto; }
       .filter-btn { flex: 0 0 44px; }
       .registration-actions { grid-template-columns: 1fr; }
+      .intern-cta-row { align-items: stretch; flex-direction: column; }
+      .intern-cta { text-align: center; }
+      .panel-cta { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -449,7 +535,7 @@
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns" aria-current="page">Interns</a>
-        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -464,7 +550,18 @@
               <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
             </span>
           </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
           <span class="site-auth-status" data-auth-status hidden></span>
         </span>
       </nav>
@@ -474,7 +571,7 @@
     <section class="hero">
       <div>
         <h1>Interns</h1>
-        <p class="lead">Every Skilf intern already has an internship — some are even working for themselves on their own startup.</p>
+        <p class="lead">A Skilf intern is anyone earning a Skilf through real project evidence. There are no lighter project tiers: the rigor level is always enough to support a post-high-school full-time job in a technically rigorous industry, and each review accepts one public YouTube video between 30 and 60 seconds.</p>
       </div>
       <div class="stats" aria-label="Intern explorer stats">
         <div class="stat"><strong data-intern-count>0</strong><span>intern project ideas</span></div>
@@ -486,32 +583,82 @@
     <section class="mentor-intro" aria-labelledby="mentor-intern-heading">
       <img src="assets/interns-mentor-hero.png" alt="Professional mentor helping an intern refine a prototype project" loading="eager" decoding="async">
       <div class="mentor-copy">
-        <h2 id="mentor-intern-heading">Hire or mentor an intern.</h2>
-        <p>Any professional, startup, mature organization, or independent expert can help an intern do more credible work. A paid or unpaid role with an experienced professional gives their evidence more weight and gives you an early look at motivated talent.</p>
+        <h2 id="mentor-intern-heading">Mentor a Skilf intern</h2>
+        <p>Any professional, startup, established organization, or independent expert can help an intern do more credible work. A real role with an experienced person gives the evidence more weight and gives you an early look at motivated talent.</p>
       </div>
     </section>
 
-    <div class="toolbar" id="intern-toolbar">
-      <input class="search-input" id="intern-search" type="search" placeholder="Search interns, projects, regions, or skills" autocomplete="off" aria-controls="intern-tree" aria-expanded="false">
-      <button class="tool-btn filter-btn" type="button" data-tree-toggle aria-label="Open skill filters" aria-controls="intern-tree" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 5h16M7 12h10M10 19h4"></path>
-        </svg>
-      </button>
-      <button class="tool-btn" type="button" data-clear-search>Clear</button>
-      <span class="active-filter" data-active-filter><span data-active-filter-text></span><button type="button" aria-label="Clear skill filter">x</button></span>
-      <div class="tree-drop" id="intern-tree" aria-label="Skill filters"></div>
-    </div>
+    <section class="hire-search" id="hire-interns" aria-labelledby="hire-interns-heading">
+      <div class="hire-search-copy">
+        <h2 id="hire-interns-heading">Find Skilf interns</h2>
+        <p>Small teams, including one-person companies, can collaborate with interns before credentials become polished resumes. The easiest way to start is to send a message from an intern card.</p>
+      </div>
+      <div class="toolbar" id="intern-toolbar">
+        <input class="search-input" id="intern-search" type="search" placeholder="Search interns, projects, regions, or skills" autocomplete="off" aria-controls="intern-tree">
+        <button class="tool-btn filter-btn" type="button" data-tree-toggle aria-label="Open skill filters" aria-controls="intern-tree" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 5h16M7 12h10M10 19h4"></path>
+          </svg>
+        </button>
+        <button class="tool-btn" type="button" data-clear-search>Clear</button>
+        <span class="active-filter" data-active-filter><span data-active-filter-text></span><button type="button" aria-label="Clear skill filter">x</button></span>
+        <div class="tree-drop" id="intern-tree" aria-label="Skill filters"></div>
+      </div>
 
-    <section class="intern-grid" id="interns" aria-label="Intern project ideas"></section>
-    <button class="more-bar" type="button" data-more-interns hidden><span data-more-count></span> more</button>
-    <p class="empty" data-empty>No intern projects match this filter yet.</p>
+      <section class="intern-grid" id="interns" aria-label="Intern project ideas"></section>
+      <button class="more-bar" type="button" data-more-interns hidden><span data-more-count></span> more</button>
+      <p class="empty" data-empty>No intern projects match this filter yet.</p>
+    </section>
     <section class="intern-cta-row" aria-label="Intern actions">
-      <a class="intern-cta" href="apply.html#intern">Become an Intern</a>
-      <a class="intern-cta" href="apply.html#mentor">Mentor an Intern</a>
-      <a class="intern-cta" href="apply.html#hire">Hire an Intern</a>
+      <a class="intern-cta" href="apply.html#intern">Join intern waitlist</a>
+      <a class="intern-cta" href="apply.html#mentor">Offer mentorship</a>
+      <a class="intern-cta" href="#hire-interns">Hire or host interns</a>
+    </section>
+    <section class="intern-cta-sections" aria-label="Ways to join Skilf">
+      <article class="intern-cta-panel">
+        <img class="intern-cta-image" src="assets/intern-cta-become.png" alt="A project path moving through monthly checkpoints toward Demo Day">
+        <div class="intern-cta-copy">
+          <h2 class="intern-cta-title">Four check-ins, then Demo Day</h2>
+          <p class="intern-cta-text">Interns move through monthly check-ins before proving their skill at Demo Day. Each review uses one public 30-60 second YouTube video as the official artifact.</p>
+          <a class="intern-cta panel-cta" href="apply.html#intern">Join intern waitlist</a>
+        </div>
+      </article>
+      <article class="intern-cta-panel">
+        <img class="intern-cta-image" src="assets/intern-cta-mentor.png" alt="A glowing mentor dashboard guiding project milestones toward Demo Day">
+        <div class="intern-cta-copy">
+          <h2 class="intern-cta-title">Change an intern's life</h2>
+          <p class="intern-cta-text">Your advice can focus the project, sharpen the defense, and remove real friction. Good mentorship helps interns turn scattered effort into evidence reviewers can trust.</p>
+          <a class="intern-cta panel-cta" href="apply.html#mentor">Offer mentorship</a>
+        </div>
+      </article>
+      <article class="intern-cta-panel">
+        <img class="intern-cta-image" src="assets/intern-cta-hire.png" alt="Project evidence cards crossing a glowing bridge into a company workspace">
+        <div class="intern-cta-copy">
+          <h2 class="intern-cta-title">Give talent a serious arena</h2>
+          <p class="intern-cta-text">Offer real work with real constraints. The intern gets credible evidence, and you get an early look at motivated skill.</p>
+          <a class="intern-cta panel-cta" href="#hire-interns">Hire or host interns</a>
+        </div>
+      </article>
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
   <script>
     const state = {
       interns: [],
@@ -553,6 +700,18 @@
       return normalize(value).replace(/\s+/g, "-");
     }
 
+    const CALENDLY_CHECK_IN_URL = "https://calendly.com/richkingsford/30m";
+
+    function calendlyLink(intern) {
+      const params = new URLSearchParams({
+        hide_gdpr_banner: "1",
+        utm_source: "skilf",
+        utm_content: slugify(intern.internId || intern.partnerId || intern.name),
+        utm_campaign: "check-in",
+      });
+      return `${CALENDLY_CHECK_IN_URL}?${params.toString()}`;
+    }
+
     function buildSkillList(tree) {
       const list = [];
       Object.entries(tree).forEach(([category, value]) => {
@@ -568,12 +727,11 @@
     }
 
     const messageOptions = [
-      "Would you be interested in paid-work on my project?",
-      "Would you be interested in working on my project as a sweat-equity cofounder?",
-      "Are you open to experienced collaborators joining you in this effort?",
-      "Are you open to inexperienced collaborators joining you in this effort?"
+      "I would like to learn more about this project.",
+      "I can offer mentorship on this project.",
+      "I may have a hiring opportunity for this intern.",
+      "I would like to discuss a collaboration."
     ];
-
     function searchableTags(intern) {
       return [...(intern.tags || []), ...(intern.searchTags || [])];
     }
@@ -624,7 +782,7 @@
       const backdrop = document.createElement("div");
       backdrop.className = "registration-backdrop";
       backdrop.innerHTML = `<div class="registration-modal" role="dialog" aria-modal="true" aria-labelledby="registration-modal-title">
-        <h2 id="registration-modal-title">Register to send messages.</h2>
+        <h2 id="registration-modal-title">Register to send messages</h2>
         <p>Only registered mentors, interns, and board members can send messages. Choose your role and we will take you to the right form.</p>
         <div class="registration-actions">
           <a href="apply.html#mentor">Mentor</a>
@@ -694,7 +852,7 @@
       const index = defaultIndex % messageOptions.length;
       return `<div class="msg-row">
         <ul class="msg-menu">${messageOptions.map((message) => `<li>${escapeHtml(message)}</li>`).join("")}</ul>
-        <textarea class="msg-input" rows="1">${escapeHtml(messageOptions[index])}</textarea>
+        <textarea class="msg-input" rows="1" aria-label="Message to this intern">${escapeHtml(messageOptions[index])}</textarea>
         <button class="msg-arrow" type="button" aria-label="Pick a message"><svg width="10" height="6" aria-hidden="true"><path d="M0 0l5 6 5-6z" fill="#8fa3ba"/></svg></button>
         <button class="send-btn" type="button">Send</button>
       </div>`;
@@ -720,6 +878,7 @@
             <p class="project">${escapeHtml(intern.project)}</p>
             <p class="region">${escapeHtml(intern.region)}</p>
             <div class="tags">${tags}</div>
+            <a class="calendly-link" href="${escapeHtml(calendlyLink(intern))}" target="_blank" rel="noopener">Monthly check-in</a>
             ${msgWidget(index)}
           </div>
         </article>`;
@@ -775,7 +934,6 @@
       const input = document.getElementById("intern-search");
       const toggle = document.querySelector("[data-tree-toggle]");
       tree.classList.toggle("open", open);
-      input.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-expanded", String(open));
     }
 

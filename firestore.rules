@@ -6,6 +6,32 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function ownerEmail() {
+      return "richkingsford@gmail.com";
+    }
+
+    function isRichOwner() {
+      return isSignedIn()
+        && request.auth.token.email == ownerEmail()
+        && request.auth.token.email_verified == true
+        && request.auth.token.suspended != true;
+    }
+
+    function hasClaimRole(role) {
+      return isSignedIn()
+        && request.auth.token.suspended != true
+        && request.auth.token.roles is list
+        && request.auth.token.roles.hasAny([role]);
+    }
+
+    function hasRole(role) {
+      return isRichOwner() || hasClaimRole(role);
+    }
+
+    function hasAnyRegisteredAuthority() {
+      return hasRole("board-member") || hasRole("mentor") || hasRole("intern");
+    }
+
     function ownsCreatedDoc() {
       return isSignedIn()
         && request.resource.data.authUid == request.auth.uid
@@ -18,52 +44,96 @@ service cloud.firestore {
 
     function validRegisteredRoles(roles) {
       return roles is list
-        && roles.hasOnly(["board-member", "mentor", "intern"]);
+        && roles.hasOnly(["admin", "board-member", "mentor", "intern"]);
+    }
+
+    function validRequestedRoles(roles) {
+      return roles is list
+        && roles.hasOnly(["intern", "scholarship", "board-member", "mentor", "hire", "feedback"]);
+    }
+
+    function profileRolesMatchAuthority(roles) {
+      return validRegisteredRoles(roles)
+        && (!roles.hasAny(["admin"]) || hasRole("admin"))
+        && (!roles.hasAny(["board-member"]) || hasRole("board-member"))
+        && (!roles.hasAny(["mentor"]) || hasRole("mentor"))
+        && (!roles.hasAny(["intern"]) || hasRole("intern"));
+    }
+
+    function userProfileKeys() {
+      return [
+        "uid",
+        "email",
+        "displayName",
+        "photoURL",
+        "roles",
+        "suspendedRoles",
+        "requestedRoles",
+        "primaryRole",
+        "isRegistered",
+        "status",
+        "suspended",
+        "suspendedReason",
+        "suspendedAt",
+        "suspendedByEmail",
+        "suspendedByUid",
+        "reinstatedAt",
+        "reinstatedByEmail",
+        "reinstatedByUid",
+        "authoritySource",
+        "source",
+        "createdAt",
+        "updatedAt"
+      ];
+    }
+
+    function userProfileEditableKeys() {
+      return [
+        "uid",
+        "email",
+        "displayName",
+        "photoURL",
+        "roles",
+        "requestedRoles",
+        "primaryRole",
+        "isRegistered",
+        "authoritySource",
+        "source",
+        "createdAt",
+        "updatedAt"
+      ];
     }
 
     function validUserProfile(userId) {
       return ownsProfile(userId)
-        && request.resource.data.keys().hasOnly([
-          "uid",
-          "email",
-          "displayName",
-          "photoURL",
-          "roles",
-          "primaryRole",
-          "isRegistered",
-          "source",
-          "createdAt",
-          "updatedAt"
-        ])
+        && request.resource.data.keys().hasOnly(userProfileKeys())
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.email is string
-        && validRegisteredRoles(request.resource.data.roles)
-        && request.resource.data.primaryRole in ["", "board-member", "mentor", "intern"]
-        && request.resource.data.isRegistered is bool;
-    }
-
-    function isRegisteredSender() {
-      return isSignedIn()
-        && exists(/databases/$(database)/documents/userProfiles/$(request.auth.uid))
-        && get(/databases/$(database)/documents/userProfiles/$(request.auth.uid)).data.roles is list
-        && get(/databases/$(database)/documents/userProfiles/$(request.auth.uid)).data.roles.hasAny(["board-member", "mentor", "intern"]);
+        && profileRolesMatchAuthority(request.resource.data.roles)
+        && validRequestedRoles(request.resource.data.requestedRoles)
+        && request.resource.data.primaryRole in ["", "admin", "board-member", "mentor", "intern"]
+        && request.resource.data.isRegistered is bool
+        && request.resource.data.authoritySource in ["custom-claims", "owner-email", "none"];
     }
 
     match /userProfiles/{userId} {
       allow read: if ownsProfile(userId);
-      allow create, update: if validUserProfile(userId);
+      allow create: if validUserProfile(userId)
+        && request.resource.data.keys().hasOnly(userProfileEditableKeys());
+      allow update: if validUserProfile(userId)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(userProfileEditableKeys());
       allow delete: if false;
     }
 
     match /people/{personId} {
       allow create: if ownsCreatedDoc()
         && request.resource.data.email is string
-        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor", "hire"];
+        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor", "hire", "feedback"];
       allow read, update, delete: if false;
     }
 
     match /messages/{messageId} {
-      allow create: if isRegisteredSender()
+      allow create: if hasAnyRegisteredAuthority()
         && ownsCreatedDoc()
         && request.resource.data.targetType in ["expert", "partner", "intern"]
         && request.resource.data.targetName is string
@@ -71,6 +141,32 @@ service cloud.firestore {
         && request.resource.data.message.size() > 0
         && request.resource.data.message.size() <= 2000;
       allow read, update, delete: if false;
+    }
+
+    match /dashboardActions/{actionId} {
+      allow read, create, update, delete: if false;
+    }
+
+    match /creditAccounts/{userId} {
+      allow read: if ownsProfile(userId);
+      allow create, update, delete: if false;
+    }
+
+    match /payments/{paymentId} {
+      allow read: if isSignedIn() && resource.data.authUid == request.auth.uid;
+      allow create, update, delete: if false;
+    }
+
+    match /creditLedger/{entryId} {
+      allow read, create, update, delete: if false;
+    }
+
+    match /creditPools/{poolId} {
+      allow read, create, update, delete: if false;
+    }
+
+    match /roleAudit/{entryId} {
+      allow read, create, update, delete: if false;
     }
   }
 }

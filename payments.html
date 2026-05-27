@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payments - Skilf</title>
+  <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="index.html" aria-label="Skilf home">
+        <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+      </a>
+      <nav class="site-links" aria-label="Primary navigation">
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <span class="site-auth" data-auth-ui>
+          <button class="site-auth-btn" type="button" data-auth-action="sign-in">Sign in</button>
+          <span class="site-auth-menu-wrap" data-auth-profile hidden>
+            <button class="site-auth-profile" type="button" data-auth-action="profile-menu" aria-haspopup="menu" aria-expanded="false">
+              <img class="site-auth-avatar" data-auth-avatar alt="" hidden>
+              <span class="site-auth-initial" data-auth-initial hidden></span>
+              <span class="site-auth-name" data-auth-name></span>
+            </button>
+            <span class="site-auth-menu" data-auth-menu hidden role="menu">
+              <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
+            </span>
+          </span>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
+          <span class="site-auth-status" data-auth-status hidden></span>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="dash-hero">
+      <div>
+        <span class="kicker">Payment infrastructure</span>
+        <h1>Pay for check-ins, Demo Day, or sponsorships</h1>
+        <p class="lead">Skilf should use Stripe Checkout for paid check-ins and Demo Day fees, with separate donation flows for tax-deductible gifts once nonprofit status and Stripe nonprofit pricing are approved.</p>
+      </div>
+      <div class="card">
+        <h2>Recommended setup</h2>
+        <p>Stripe Checkout is low-maintenance, works well with Netlify Functions, and keeps payment data out of our codebase.</p>
+      </div>
+    </section>
+
+    <section class="section dash-grid">
+      <article class="card">
+        <span class="kicker">Check-in</span>
+        <h2>$100 monthly check-in</h2>
+        <p>Use when an intern has no available credit or needs an extra review.</p>
+        <button class="dash-btn primary" type="button" data-payment-kind="check-in">Pay check-in</button>
+      </article>
+      <article class="card">
+        <span class="kicker">Demo Day</span>
+        <h2>$500 Demo Day</h2>
+        <p>Use only after the intern passes monthly check-in #4.</p>
+        <button class="dash-btn primary" type="button" data-payment-kind="demo-day">Pay Demo Day</button>
+      </article>
+      <article class="card">
+        <span class="kicker">Sponsor</span>
+        <h2>Donate a check-in</h2>
+        <p>Support an intern by funding one check-in credit. Donations may need separate tax handling.</p>
+        <button class="dash-btn primary" type="button" data-payment-kind="sponsor-credit">Sponsor credit</button>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2>Nonprofit note</h2>
+      <p>Payment fees depend on legal status, transaction type, and processor approval. Treat check-ins and Demo Day as program fees. Treat gifts and scholarships as donations only when the organization and receipt language are ready.</p>
+      <p class="status-line" data-payment-status></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("click", async (event) => {
+      const button = event.target.closest("[data-payment-kind]");
+      if (!button) return;
+      const status = document.querySelector("[data-payment-status]");
+      button.disabled = true;
+      if (status) status.textContent = "Opening secure checkout...";
+      try {
+        const auth = window.skilfFirebase;
+        const kind = button.dataset.paymentKind;
+        let token = "";
+        if (kind !== "sponsor-credit" && auth && auth.requireSignIn) {
+          const user = await auth.requireSignIn("Sign in before paying for a check-in or Demo Day.");
+          if (!user) throw new Error("Sign in before paying for a check-in or Demo Day.");
+        }
+        if (auth && auth.getIdToken && auth.user) {
+          token = await auth.getIdToken(true);
+        }
+        const response = await fetch("/.netlify/functions/create-checkout-session", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
+          body: JSON.stringify({ kind }),
+        });
+        const data = await response.json();
+        if (!response.ok || !data.url) throw new Error(data.error || "Checkout is not configured yet.");
+        location.href = data.url;
+      } catch (error) {
+        if (status) status.textContent = error.message || "Checkout is not configured yet.";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+  <script type="module" src="skilf-firebase.js"></script>
+</body>
+</html>

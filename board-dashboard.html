@@ -3,40 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Board Dashboard - Skilf</title>
+  <title>Board Members - Skilf</title>
   <link rel="stylesheet" href="site-nav.css">
   <style>
     :root { color-scheme: dark; --ink:#e8edf3; --ink-soft:#8fa3ba; --gold:#d4a94b; --line:#2a3a4e; --bg:#0b1117; --panel:#151f2d; --mint:#7be0b1; --coral:#ff8c73; --blue:#73b8ff; }
     body { margin:0; font-family:"Segoe UI Variable","Aptos","Trebuchet MS",sans-serif; background:radial-gradient(circle at 12% 12%,rgba(123,224,177,0.12),transparent 30%),radial-gradient(circle at 86% 18%,rgba(255,140,115,0.10),transparent 34%),var(--bg); color:var(--ink); }
-    main { width:min(1180px,94vw); margin:30px auto 70px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-    .brand { color:var(--gold); text-decoration:none; font-size:1.7rem; font-weight:800; letter-spacing:0.04em; }
-    .nav { display:flex; gap:10px; flex-wrap:wrap; }
-    .nav a, .auth-btn { color:var(--ink); text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:8px 11px; background:var(--panel); font:inherit; cursor:pointer; }
-    .auth-strip { display:flex; gap:10px; align-items:center; justify-content:flex-end; margin:18px 0; color:var(--ink-soft); font-size:0.84rem; }
-    .hero { display:grid; grid-template-columns:0.9fr 1.1fr; gap:24px; align-items:center; margin-top:18px; }
-    h1 { margin:0 0 10px; font-size:clamp(2.2rem,5vw,4.2rem); color:var(--gold); }
-    .lead { color:var(--ink-soft); line-height:1.5; font-size:1.05rem; }
-    .hero img, .visual img { width:100%; display:block; border-radius:8px; border:1px solid var(--line); box-shadow:0 18px 38px rgb(0 0 0/30%); }
-    .columns { display:grid; grid-template-columns:1.15fr 0.85fr; gap:18px; margin-top:28px; }
+    main { width:min(1180px,94vw); margin:48px auto 96px; }
+    .hero { display:grid; grid-template-columns:minmax(0,0.88fr) minmax(380px,1.12fr); gap:28px; align-items:center; }
+    h1 { margin:0 0 12px; font-size:clamp(2.35rem,5vw,4.35rem); color:var(--gold); letter-spacing:0; }
+    .lead { margin:0; color:var(--ink-soft); line-height:1.58; font-size:1.08rem; max-width:680px; }
+    .hero img, .visual-img { width:100%; display:block; border-radius:8px; border:1px solid var(--line); box-shadow:0 18px 38px rgb(0 0 0/30%); }
+    .actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:26px; }
+    .cta { display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(212,169,75,0.58); border-radius:8px; padding:12px 18px; color:var(--gold); background:rgba(212,169,75,0.1); text-decoration:none; font-weight:900; font-size:0.92rem; }
+    .cta.primary { background:var(--gold); color:var(--bg); border-color:var(--gold); }
+    .section { margin:72px 0; }
+    .section-head { max-width:780px; margin-bottom:22px; }
+    h2 { margin:0 0 10px; color:var(--gold); font-size:clamp(1.45rem,3vw,2.1rem); letter-spacing:0; }
+    .section-head p, .card p, .payment p, .timeline p, .policy-card p, .note-box p { margin:0; color:var(--ink-soft); line-height:1.55; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
     .card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#1b2a3d); padding:18px; }
-    h2 { margin:0 0 12px; color:var(--gold); font-size:1.25rem; }
-    table { width:100%; border-collapse:collapse; }
-    th, td { padding:11px 8px; border-bottom:1px solid var(--line); text-align:left; font-size:0.92rem; }
-    th { color:var(--ink-soft); font-weight:600; }
-    .pill { display:inline-block; border-radius:999px; padding:4px 8px; background:#22344a; color:var(--ink); font-size:0.78rem; }
-    .pill.ready { background:rgba(123,224,177,0.18); color:var(--mint); }
-    .pill.watch { background:rgba(255,140,115,0.16); color:var(--coral); }
-    .events { display:grid; gap:10px; }
-    .event { padding:12px; border:1px solid var(--line); border-radius:8px; background:#102338; }
-    .event strong { display:block; }
-    .event span { color:var(--ink-soft); font-size:0.86rem; }
-    .visual { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; align-items:center; }
-    .hints { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
-    .hint { background:#102338; border:1px solid var(--line); border-radius:8px; padding:14px; }
-    .hint strong { display:block; color:var(--ink); margin-bottom:6px; }
-    .hint p { margin:0; color:var(--ink-soft); line-height:1.45; font-size:0.9rem; }
-    @media (max-width:900px){ .hero,.columns,.visual{grid-template-columns:1fr;} .hints{grid-template-columns:1fr;} .auth-strip{justify-content:flex-start;flex-wrap:wrap;} }
+    .card strong { display:block; margin-bottom:8px; color:var(--ink); font-size:1.02rem; }
+    .card span { display:inline-flex; margin-bottom:10px; border-radius:999px; padding:5px 8px; background:rgba(115,184,255,0.12); color:var(--blue); font-size:0.76rem; font-weight:900; }
+    .experience { display:grid; grid-template-columns:0.95fr 1.05fr; gap:22px; align-items:center; }
+    .timeline { display:grid; gap:12px; }
+    .step { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; }
+    .step b { width:34px; height:34px; display:inline-grid; place-items:center; border-radius:50%; background:rgba(212,169,75,0.16); color:var(--gold); }
+    .payment { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .payment-card { border:1px solid rgba(123,224,177,0.32); border-radius:8px; background:rgba(16,35,56,0.78); padding:18px; }
+    .payment-card strong { display:block; margin-bottom:6px; color:var(--mint); font-size:1.04rem; }
+    .policy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .policy-card { border:1px solid var(--line); border-radius:8px; background:linear-gradient(160deg,var(--panel),#1b2a3d); padding:18px; box-shadow:0 12px 28px rgb(0 0 0/18%); }
+    .policy-card strong { display:block; margin-bottom:7px; color:var(--ink); font-size:1.02rem; }
+    .policy-card em { color:var(--mint); font-style:normal; font-weight:900; }
+    .rubric-row { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+    .rubric-pill { border:1px solid rgba(115,184,255,0.24); border-radius:8px; background:rgba(115,184,255,0.08); padding:12px; color:var(--ink); font-size:0.82rem; font-weight:900; line-height:1.25; text-align:center; }
+    .note-box { border:1px solid rgba(212,169,75,0.34); border-radius:8px; background:rgba(212,169,75,0.08); padding:20px; }
+    .demo-table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:8px; }
+    th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; font-size:0.92rem; }
+    th { color:var(--ink-soft); font-weight:800; }
+    .pill { display:inline-block; border-radius:999px; padding:4px 8px; background:#22344a; color:var(--ink); font-size:0.78rem; font-weight:850; }
+    .pill.pass { background:rgba(123,224,177,0.18); color:var(--mint); }
+    .pill.fail { background:rgba(255,140,115,0.16); color:var(--coral); }
+    .final-cta { margin:86px 0 0; border:1px solid rgba(212,169,75,0.36); border-radius:8px; background:linear-gradient(135deg,rgba(212,169,75,0.14),rgba(123,224,177,0.08)); padding:28px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:center; }
+    .final-cta p { margin:0; color:var(--ink-soft); line-height:1.55; }
+    @media (max-width:1000px){ .rubric-row{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:900px){ .hero,.experience,.payment,.policy-grid,.final-cta{grid-template-columns:1fr;} .cards{grid-template-columns:1fr;} }
+    @media (max-width:640px){ main{margin-top:32px;} .section{margin:58px 0;} .rubric-row{grid-template-columns:1fr 1fr;} }
   </style>
 </head>
 <body>
@@ -48,7 +60,7 @@
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns">Interns</a>
-        <a href="defense-day.html">$500/Demo Day</a>
+        <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html" aria-current="page">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -63,57 +75,152 @@
               <button class="site-auth-menu-btn" type="button" data-auth-action="sign-out" role="menuitem">Log out</button>
             </span>
           </span>
-          <a class="site-nav-cta" href="apply.html">Begin a Skilf</a>
+          <details class="site-adventure">
+            <summary class="site-nav-cta">Get Started</summary>
+            <div class="site-adventure-menu" role="menu">
+              <span class="site-adventure-label">Choose a path</span>
+              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#scholarship">Request support</a>
+              <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
+              <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#feedback">Send feedback</a>
+            </div>
+          </details>
           <span class="site-auth-status" data-auth-status hidden></span>
         </span>
       </nav>
     </div>
   </header>
+
   <main>
     <section class="hero">
       <div>
-        <h1>Board Dashboard</h1>
-        <p class="lead">The Skilf board is where experts coach apprentices, test their evidence, and decide who passes Demo Day.</p>
+        <h1>Board Members</h1>
+        <p class="lead">Experienced builders can join the Skilf board as paid or volunteer reviewers, challenge interns during monthly check-ins, and make the pass/fail calls that give each Skilf its credibility. The work is evidence-first, policy-bound, and designed to protect interns, reviewers, employers, and Skilf's reputation.</p>
+        <div class="actions">
+          <a class="cta primary" href="apply.html#board-member">Join reviewer board</a>
+          <a class="cta" href="apply.html#mentor">Offer mentorship</a>
+          <a class="cta" href="apply.html#scholarship">Sponsor an intern</a>
+        </div>
       </div>
-      <img src="assets/board-mentee-map-no-pointing.png" alt="Board member dashboard showing apprentices and upcoming Demo Days">
+      <img src="assets/board-mentee-map-no-pointing.png" alt="Board member dashboard showing interns and upcoming Demo Days">
     </section>
 
-    <section class="columns">
-      <article class="card">
-        <h2>Mentees And Apprentices</h2>
-        <table>
-          <thead><tr><th>Name</th><th>Skilf Area</th><th>Status</th><th>Next Move</th></tr></thead>
-          <tbody>
-            <tr><td>Ava Chen</td><td>Computer Vision</td><td><span class="pill ready">Ready</span></td><td>Mock panel</td></tr>
-            <tr><td>Jonas Eriksson</td><td>Energy Systems</td><td><span class="pill">Building</span></td><td>Scope demo</td></tr>
-            <tr><td>Priya Nair</td><td>Biomedical NLP</td><td><span class="pill watch">Stuck</span></td><td>Debug story</td></tr>
-            <tr><td>Lucas Moreau</td><td>Robotics</td><td><span class="pill">Practicing</span></td><td>AI mentor log</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <aside class="card">
-        <h2>Upcoming Demo Days</h2>
-        <div class="events">
-          <div class="event"><strong>Friday, 10:30 AM</strong><span>Ava Chen - Computer Vision</span></div>
-          <div class="event"><strong>May 24, 2:00 PM</strong><span>Lucas Moreau - Robotics</span></div>
-          <div class="event"><strong>June 3, 11:00 AM</strong><span>Open panel slot</span></div>
-        </div>
-      </aside>
+    <section class="section">
+      <div class="section-head">
+        <h2>What board members do</h2>
+        <p>You are not there to rubber-stamp a pitch. You help interns face the kind of expert scrutiny that makes a Skilf worth trusting, while using the same boundaries described on Demo Day.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><span>Monthly check-ins</span><strong>Ask sharper questions</strong><p>Spend 15 minutes with an intern, review public evidence, score the work, and pass or fail the check-in with a clear next step.</p></article>
+        <article class="card"><span>Demo Day</span><strong>Protect the credential</strong><p>Watch the live defense, test claims, and decide whether the work clears the 75% pass/fail cutoff.</p></article>
+        <article class="card"><span>Good cause</span><strong>Change a trajectory</strong><p>Your judgment can turn scattered effort into a credential, a job conversation, or a more serious internship.</p></article>
+      </div>
     </section>
 
-    <section class="visual">
-      <img src="assets/advisor-skill-growth.png" alt="Advisor helping an apprentice build marketable skills">
-      <div class="card">
-        <h2>Good Advisor Hints</h2>
-        <div class="hints">
-          <div class="hint"><strong>Make it smaller</strong><p>Inexperienced learners need a shippable slice, not a giant dream.</p></div>
-          <div class="hint"><strong>Ask for evidence</strong><p>Push every claim toward a demo, log, user, test, or artifact.</p></div>
-          <div class="hint"><strong>Name the market</strong><p>Connect each skill to jobs, clients, workflows, and buying pain.</p></div>
+    <section class="section">
+      <div class="section-head">
+        <h2>Use the same evidence standard</h2>
+        <p>Board members should expect interns to show real work, honest failures, and one public YouTube video. The goal is to review the evidence, not charisma.</p>
+      </div>
+      <div class="policy-grid">
+        <article class="policy-card"><strong>Public YouTube evidence</strong><p>The official evidence, presentation, and artifact format is one public YouTube video, 30-60 seconds long, posted within 24 hours before the check-in or Demo Day.</p></article>
+        <article class="policy-card"><strong>Voice, webcam, screen, work</strong><p>The intern's voice should walk through that one video, with webcam on for 100% of it, plus screen sharing and live footage of the project.</p></article>
+        <article class="policy-card"><strong>Counterfeit evidence watch</strong><p>Watch for polished claims with no working demo, hidden helper work, copied code without attribution, or AI-generated explanations the intern cannot defend.</p></article>
+        <article class="policy-card"><strong>Useful pressure</strong><p>Challenge evidence, assumptions, and trade-offs. Do not grade accent, background, confidence, or presentation polish as a substitute for skill.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Score the same six signals</h2>
+        <p>Every check-in is scored from 0-100% across the same core metrics. Demo Day is a bigger check-in with more pressure and a broader audience. <strong>75%</strong> is the pass/fail cutoff.</p>
+      </div>
+      <div class="rubric-row" aria-label="Board member review rubric">
+        <span class="rubric-pill">Working artifact</span>
+        <span class="rubric-pill">Evidence quality</span>
+        <span class="rubric-pill">Failure analysis</span>
+        <span class="rubric-pill">Stakeholder signal</span>
+        <span class="rubric-pill">Safety and ethics</span>
+        <span class="rubric-pill">Readiness next step</span>
+      </div>
+    </section>
+
+    <section class="section experience">
+      <img class="visual-img" src="assets/advisor-skill-growth.png" alt="Advisor helping an apprentice build marketable skills">
+      <div>
+        <div class="section-head">
+          <h2>A taste of the work</h2>
+          <p>Board service is intentionally lightweight, direct, and evidence-first.</p>
         </div>
+        <div class="timeline">
+          <div class="step"><b>1</b><p><strong>Choose a domain.</strong> Tell us where you can evaluate real work: robotics, AI, healthcare, design, operations, or another practical specialty.</p></div>
+          <div class="step"><b>2</b><p><strong>Take a check-in.</strong> Meet by phone or Zoom. Cameras on or off is fine for the meeting, but the official artifact still needs one public YouTube video with voice, screen share, webcam, and live footage.</p></div>
+          <div class="step"><b>3</b><p><strong>Join Demo Day.</strong> When a candidate is ready, serve on a panel and make a clear pass/fail decision with other experts.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Payment and volunteer options</h2>
+        <p>Some experts volunteer. Some are hired. Both paths help interns get serious feedback from people who know what real work looks like. Compensation details come after fit, availability, and scope are clear.</p>
+      </div>
+      <div class="payment">
+        <article class="payment-card"><strong>Monthly check-ins</strong><p>Flat fee per 15-minute check-in visit. Phone call or Zoom is fine, and cameras can be on or off. Every extra check-in still costs the intern $100 or one qualified check-in credit.</p></article>
+        <article class="payment-card"><strong>Demo Day panels</strong><p>Flat fee per Demo Day appearance, negotiated when you are hired for a panel or specialty track. Demo Day should happen only after a passing fourth check-in.</p></article>
+      </div>
+    </section>
+
+    <section class="section note-box">
+      <h2>Boundaries protect everyone</h2>
+      <p>Interns control their cadence, but any monthly check-in or Demo Day can only be delayed up to 30 days without consequence; after that, the consequence is minus one check-in credit. After 3 failed check-ins, the intern waits 6 months before the next check-in. After 6 failed check-ins, the wall is 1 year. These boundaries protect interns from spending before evidence is ready, protect reviewers from repeated low-signal meetings, and protect employers from trusting a credential too early.</p>
+    </section>
+
+    <section class="section card">
+      <h2>Example board view</h2>
+      <table class="demo-table">
+        <thead><tr><th>Intern</th><th>Skilf area</th><th>Board signal</th><th>Next decision</th></tr></thead>
+        <tbody>
+          <tr><td>Ava Chen</td><td>Computer Vision</td><td><span class="pill pass">82% pass</span></td><td>Invite to Demo Day</td></tr>
+          <tr><td>Jonas Eriksson</td><td>Energy Systems</td><td><span class="pill">68% revise</span></td><td>15m retake check-in</td></tr>
+          <tr><td>Priya Nair</td><td>Biomedical NLP</td><td><span class="pill fail">61% fail</span></td><td>Revise public video evidence</td></tr>
+          <tr><td>Lucas Moreau</td><td>Robotics</td><td><span class="pill">Credit available</span></td><td>Mentor-sponsored check-in</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="final-cta">
+      <div>
+        <h2>Bring your standards to the board</h2>
+        <p>Volunteer, accept paid check-ins, sponsor intern credits, or help us build a stronger expert panel in your field. You can be generous without weakening the standard.</p>
+      </div>
+      <div class="actions">
+        <a class="cta primary" href="apply.html#board-member">Join reviewer board</a>
+        <a class="cta" href="apply.html#scholarship">Donate a check-in</a>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-footer-brand" href="index.html">Skilf</a>
+        <p class="site-footer-note">Defend your skill with evidence.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="interns">Interns</a>
+        <a href="defense-day.html">Demo Day</a>
+        <a href="board-dashboard.html">Board Members</a>
+        <a href="monetize.html">Mentors</a>
+        <a href="find-partner.html">Find a Partner</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
   <script type="module" src="skilf-firebase.js"></script>
 </body>
 </html>
