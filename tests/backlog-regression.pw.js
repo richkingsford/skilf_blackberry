@@ -100,35 +100,44 @@ test.describe('Backlog regression', () => {
     await expect(page.getByRole('link', { name: 'Apply for a scholarship' })).toHaveCount(0);
   });
 
-  test('homepage defines roles and technical rigor standard plainly', async ({ page }) => {
-    const clarity = page.locator('.clarity-strip');
-    await expect(clarity).toBeVisible();
-    await expect(clarity.getByText('One technical standard. No soft tiers.')).toBeVisible();
-    await expect(clarity.getByText('post-high-school full-time job')).toBeVisible();
-    await expect(clarity.getByText('one public YouTube video, 30-60 seconds long')).toBeVisible();
-    await expect(clarity.getByText('Intern', { exact: true })).toBeVisible();
-    await expect(clarity.getByText('Anyone pursuing a Skilf')).toBeVisible();
-    await expect(clarity.getByText('Mentor', { exact: true })).toBeVisible();
-    await expect(clarity.getByText('Board member', { exact: true })).toBeVisible();
-    await expect(clarity.getByText('Hiring partner', { exact: true })).toBeVisible();
+  test('homepage omits the top role table', async ({ page }) => {
+    await expect(page.locator('.clarity-strip')).toHaveCount(0);
+    await expect(page.locator('.clarity-cell')).toHaveCount(0);
   });
 
   test('homepage has a 4-letter resume claim checker with URL preload', async ({ page }) => {
-    await page.goto('/?code=WORK#claim-check');
+    await page.goto('/index.html');
     const checker = page.locator('#claim-check');
+    const headerChecker = page.locator('.site-claim-check');
+    await expect(headerChecker.getByLabel('Claim checker code')).toHaveAttribute('placeholder', '4 letter code');
+    await expect(checker.locator('#proof-code')).toHaveAttribute('placeholder', '4 letter code');
+    await expect(checker).not.toContainText('WORK');
+    await expect(checker).not.toContainText('dummy code');
+    await expect(checker).not.toContainText('not wired yet');
+    await expect(checker.locator('#proof-result')).toBeHidden();
+    await expect(checker).not.toContainText('Enter a Skilf code to check a resume claim.');
+
+    await page.goto('/?code=ABCD#claim-check');
     await expect(checker).toBeVisible();
+    await expect(headerChecker.getByLabel('Claim checker code')).toHaveValue('ABCD');
     await expect(checker.getByRole('heading', { name: 'Resume claim checker' })).toBeVisible();
-    await expect(checker.locator('#proof-code')).toHaveValue('WORK');
-    await expect(checker.getByText('Confirmed from link')).toBeVisible();
-    await expect(checker.getByText('one public YouTube video, 30-60 seconds long')).toBeVisible();
-    await expect(checker.getByText('Artifact rule: one public YouTube link is enough to start the review.')).toBeVisible();
-    await expect(checker.getByRole('link', { name: 'Try WORK from a shared link' })).toHaveAttribute('href', '?code=WORK#claim-check');
+    await expect(checker.locator('#proof-code')).toHaveValue('ABCD');
+    await expect(checker.locator('#proof-result')).toBeVisible();
+    await expect(checker.getByText('Not verified')).toBeVisible();
+    await expect(checker.getByText('We could not verify ABCD.')).toBeVisible();
+    await expect(checker.getByRole('link', { name: /Try/ })).toHaveCount(0);
 
     await checker.locator('#proof-code').fill('NOPE');
     await checker.getByRole('button', { name: 'Confirm' }).click();
     await expect(checker.locator('#proof-code')).toHaveValue('NOPE');
-    await expect(checker.getByText('NOPE is not wired yet.')).toBeVisible();
+    await expect(checker.getByText('We could not verify NOPE.')).toBeVisible();
     await expect(page).toHaveURL(/code=NOPE#claim-check$/);
+
+    await headerChecker.getByLabel('Claim checker code').fill('SKLF');
+    await headerChecker.getByLabel('Claim checker code').press('Enter');
+    await expect(checker.locator('#proof-code')).toHaveValue('SKLF');
+    await expect(checker.getByText('We could not verify SKLF.')).toBeVisible();
+    await expect(page).toHaveURL(/code=SKLF#claim-check$/);
   });
 
   test('homepage ticker uses tech and science skilf types', async ({ page }) => {

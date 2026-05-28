@@ -19,6 +19,13 @@
   gap: 18px;
 }
 
+.site-brand-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
 .site-brand {
   display: inline-flex;
   align-items: center;
@@ -52,6 +59,58 @@
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.site-claim-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  border: 1px solid rgba(143, 163, 186, 0.34);
+  border-radius: 999px;
+  padding: 3px 4px 3px 10px;
+  background: rgba(255, 255, 255, 0.045);
+  box-sizing: border-box;
+}
+
+.site-claim-check:focus-within {
+  border-color: rgba(212, 169, 75, 0.58);
+  background: rgba(212, 169, 75, 0.08);
+}
+
+.site-claim-check label {
+  color: #9fb2c7;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-claim-input {
+  width: 96px;
+  min-width: 0;
+  border: 0;
+  border-left: 1px solid rgba(143, 163, 186, 0.22);
+  border-radius: 0 999px 999px 0;
+  padding: 4px 7px 4px 9px;
+  background: transparent;
+  color: #e8edf3;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.site-claim-input::placeholder {
+  color: #7f91a5;
+  letter-spacing: 0;
+  opacity: 1;
+  text-transform: none;
 }
 
 .site-links {
@@ -431,6 +490,11 @@
     padding: 12px 0;
   }
 
+  .site-brand-cluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .site-links {
     width: 100%;
     justify-content: flex-start;
@@ -485,6 +549,21 @@
 
   .site-brand-note {
     display: none;
+  }
+
+  .site-brand-cluster {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .site-claim-check {
+    flex: 0 1 auto;
+  }
+
+  .site-claim-check label {
+    max-width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .site-footer-inner {

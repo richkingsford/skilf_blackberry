@@ -1,0 +1,58 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+
+          cp ./*.html _site/
+          cp ./site-nav.css ./dashboard.css _site/
+          cp ./skilf-firebase.js ./firebase-config.js ./dashboard-utils.js _site/
+          cp ./experts.json ./prospectivePartners.json ./skill-tree.json _site/
+          cp "./profile icons.png" "./profile icons_one_column.png" _site/
+          cp -R ./assets _site/assets
+          touch _site/.nojekyll
+
+          for route in interns mentor-dashboard board-member-dashboard intern-dashboard; do
+            mkdir -p "_site/${route}"
+            cp "_site/${route}.html" "_site/${route}/index.html"
+          done
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
