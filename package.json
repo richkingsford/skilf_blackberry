@@ -10,7 +10,7 @@
     "test": "npm run test:pw && npm run test:rules && npm run test:ps1",
     "test:pw": "npx playwright test",
     "test:rules": "node scripts/run-firestore-rules-tests.js",
-    "test:ps1": "powershell -ExecutionPolicy Bypass -File tests/title-page.test.ps1 && powershell -ExecutionPolicy Bypass -File tests/experts.test.ps1 && powershell -ExecutionPolicy Bypass -File tests/regression-runtime.test.ps1",
+    "test:ps1": "node scripts/run-powershell-tests.js",
     "serve:workspace": "serve . -l 3999 --no-clipboard",
     "firebase:login": "npx firebase-tools login",
     "firebase:deploy-db": "npx firebase-tools deploy --only firestore:rules,firestore:indexes --project skilf-9f736",
