@@ -91,16 +91,15 @@ test.describe('Backlog regression', () => {
   test('homepage bottom pathway buttons are side by side', async ({ page }) => {
     const actions = page.locator('.home-final-actions');
     await expect(actions).toBeVisible();
-    await expect(actions.getByRole('link', { name: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
-    await expect(actions.getByRole('link', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
-    await expect(actions.getByRole('link', { name: 'Hire or host interns' })).toHaveAttribute('href', 'apply.html#hire');
-    await expect(actions.locator('.cta')).toHaveCount(3);
+    await expect(actions.getByRole('link', { name: /Begin your own Skilf adventure/ })).toHaveAttribute('href', 'apply.html');
+    await expect(actions.getByRole('link', { name: 'Hire or mentor an intern' })).toHaveAttribute('href', 'monetize.html');
+    await expect(actions.locator('.cta')).toHaveCount(2);
     await expect(actions).toHaveCSS('display', 'flex');
-    await expect(page.getByRole('link', { name: /Begin your own Skilf adventure/ })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'Apply for a scholarship' })).toHaveCount(0);
   });
 
-  test('homepage omits the top role table', async ({ page }) => {
+  test('homepage shows the updated job subtitle without the clarity table', async ({ page }) => {
+    await expect(page.locator('.subtitle')).toContainText('Get your first real tech job');
     await expect(page.locator('.clarity-strip')).toHaveCount(0);
     await expect(page.locator('.clarity-cell')).toHaveCount(0);
   });
@@ -165,13 +164,14 @@ test.describe('Backlog regression', () => {
     const nav = page.locator('.site-nav');
     await expect(nav).toBeVisible();
     await expect(nav.locator('.site-logo')).toHaveAttribute('src', 'assets/skilf-logo-solo-defense-refined.svg');
+    await expect(nav.locator('.site-brand-note')).toHaveText('Get your first real tech job');
     await expect(nav.getByRole('link', { name: 'Interns' })).toHaveAttribute('href', 'interns');
     await expect(nav.getByRole('link', { name: 'Hire', exact: true })).toHaveCount(0);
     await expect(nav.getByRole('link', { name: 'Demo Day' })).toHaveAttribute('href', 'defense-day.html');
     await expect(nav.getByRole('link', { name: 'Board Members' })).toHaveAttribute('href', 'board-dashboard.html');
     await expect(nav.getByRole('link', { name: 'Mentors' })).toHaveAttribute('href', 'monetize.html');
     const topAdventure = nav.locator('.site-adventure summary');
-    await expect(topAdventure).toHaveText('Get Started');
+    await expect(topAdventure).toHaveText('Begin a Skilf');
     await expect(topAdventure).toHaveCSS('padding-top', '9px');
     await expect(topAdventure).toHaveCSS('border-top-left-radius', '8px');
     await topAdventure.click();
@@ -182,6 +182,7 @@ test.describe('Backlog regression', () => {
     await expect(adventureMenu.getByRole('menuitem', { name: 'Join reviewer board' })).toHaveAttribute('href', 'apply.html#board-member');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Hire or host interns' })).toHaveAttribute('href', 'apply.html#hire');
+    await expect(adventureMenu.getByRole('menuitem', { name: 'Post entry-level project' })).toHaveAttribute('href', 'apply.html#company-project');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Send feedback' })).toHaveAttribute('href', 'apply.html#feedback');
     await expect(nav.getByRole('button', { name: 'Sign in' })).toBeVisible();
     await expect(nav.locator('[data-auth-profile]')).toBeHidden();
@@ -211,6 +212,8 @@ test.describe('Backlog regression', () => {
       const source = fs.readFileSync(path.join(root, file), 'utf8');
       const footer = source.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0] || "";
       expect(footer, `${file} should include the shared footer`).toContain('<footer class="site-footer">');
+      expect(footer, `${file} footer should use the job-focused brand note`).toContain('<p class="site-footer-note">Get your first real tech job</p>');
+      expect(footer, `${file} footer should not use the old brand note`).not.toContain('Defend your skill');
       for (const link of footerLinks) {
         expect(footer, `${file} footer should include ${link}`).toContain(link);
       }
@@ -233,11 +236,12 @@ test.describe('Backlog regression', () => {
       await expect(fixed.locator('.site-fixed-btn').first()).toHaveCSS('padding-top', '7.5px');
       await expect(fixed.locator('summary')).toHaveCSS('min-width', '150px');
       await expect(fixed.getByRole('link', { name: 'Send feedback' })).toHaveAttribute('href', 'apply.html#feedback');
-      await expect(fixed.locator('summary')).toHaveText('Get Started');
+      await expect(fixed.locator('summary')).toHaveText('Begin a Skilf');
       await fixed.locator('summary').click();
       await expect(fixed.locator('.site-adventure-label')).toHaveText('Choose a path');
       await expect(fixed.getByRole('menuitem', { name: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
       await expect(fixed.getByRole('menuitem', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
+      await expect(fixed.getByRole('menuitem', { name: 'Post entry-level project' })).toHaveAttribute('href', 'apply.html#company-project');
       await expect(fixed.getByRole('menuitem', { name: 'Send feedback' })).toHaveAttribute('href', 'apply.html#feedback');
     }
   });
@@ -326,11 +330,14 @@ test.describe('Backlog regression', () => {
     await page.goto('/apply.html');
     await expect(page.locator('form[name="skilf-application"][data-netlify="true"]')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Join the Skilf waitlist' })).toBeVisible();
-    await expect(page.locator('main > .lead')).toContainText('route interns, mentors, reviewer-board candidates, hiring partners');
-    await expect(page.locator('select[name="role"] option')).toHaveCount(6);
+    await expect(page.locator('main > .lead')).toContainText('Skilf is focused on tech careers');
+    await expect(page.locator('main > .lead')).toContainText('first real tech job offer');
+    await expect(page.locator('main > .lead')).toContainText('routes interns, mentors, reviewer-board candidates, hiring partners, company project prompts');
+    await expect(page.locator('select[name="role"] option')).toHaveCount(7);
     await expect(page.locator('select[name="role"] option[value="scholarship"]')).toHaveText('Request support');
     await expect(page.locator('select[name="role"] option[value="mentor"]')).toHaveText('Offer mentorship');
     await expect(page.locator('select[name="role"] option[value="hire"]')).toHaveText('Hire or host interns');
+    await expect(page.locator('select[name="role"] option[value="company-project"]')).toHaveText('Post entry-level project');
     await expect(page.locator('select[name="role"] option[value="feedback"]')).toHaveText('Send feedback');
     await expect(page.locator('input[name="phone"]')).toHaveCount(0);
     await expect(page.locator('input[name="organization"]')).toHaveCount(0);
@@ -359,6 +366,12 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('[data-project-label]')).toHaveText('What kind of internship or project work can you offer?');
     await expect(page.locator('[data-kind-input]')).toHaveValue('hire');
     await expect(page.locator('.submit-btn')).toHaveText('Talk about hiring');
+    await page.selectOption('[data-intent-select]', 'company-project');
+    await expect(page.locator('[data-project-label]')).toHaveText('What project would you like entry-level hires to be able to do?');
+    await expect(page.locator('[data-project-input]')).toHaveAttribute('placeholder', /Build a dashboard/);
+    await expect(page.locator('[data-intent-note]')).toContainText('entry-level work should look like');
+    await expect(page.locator('[data-kind-input]')).toHaveValue('company-project');
+    await expect(page.locator('.submit-btn')).toHaveText('Post project');
     await page.selectOption('[data-intent-select]', 'feedback');
     await expect(page.locator('[data-project-label]')).toHaveText('What feedback would you like to send to the Skilf organization?');
     await expect(page.locator('[data-intent-note]')).toContainText('goes directly to the Skilf organization');
@@ -367,8 +380,14 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('.submit-btn')).toHaveText('Send feedback');
     await page.goto('/apply.html#scholarship');
     await expect(page.locator('[data-intent-select]')).toHaveValue('scholarship');
+    await page.goto('/apply.html#mentor');
+    await expect(page.locator('[data-intent-select]')).toHaveValue('mentor');
     await page.goto('/apply.html#hire');
     await expect(page.locator('[data-intent-select]')).toHaveValue('hire');
+    await page.goto('/apply.html#company-project');
+    await expect(page.locator('[data-intent-select]')).toHaveValue('company-project');
+    await page.goto('/apply?kind=project');
+    await expect(page.locator('[data-intent-select]')).toHaveValue('company-project');
     await page.goto('/apply.html#feedback');
     await expect(page.locator('[data-intent-select]')).toHaveValue('feedback');
   });
@@ -376,7 +395,7 @@ test.describe('Backlog regression', () => {
   test('Interns page supports search, skill tree filtering, and thumbnails', async ({ page }) => {
     await page.goto('/interns');
     await expect(page.getByRole('heading', { name: 'Interns', exact: true })).toBeVisible();
-    await expect(page.locator('.lead')).toHaveText('A Skilf intern is anyone earning a Skilf through real project evidence. There are no lighter project tiers: the rigor level is always enough to support a post-high-school full-time job in a technically rigorous industry, and each review accepts one public YouTube video between 30 and 60 seconds.');
+    await expect(page.locator('.lead')).toHaveText('A Skilf intern is anyone earning a Skilf through real tech project evidence, with a clear mission: help you get your first real tech job offer. There are no lighter project tiers: the rigor level is always enough to support a post-high-school full-time job in a technically rigorous industry, and each review accepts one public YouTube video between 30 and 60 seconds.');
     await expect(page.getByRole('heading', { name: 'Mentor a Skilf intern' })).toBeVisible();
     await expect(page.locator('img[src="assets/interns-mentor-hero.png"]')).toBeVisible();
     await expect(page.getByText('A Skilf intern is anyone earning a Skilf')).toHaveCount(1);
@@ -555,7 +574,7 @@ test.describe('Backlog regression', () => {
     expect(rulesSource).toContain('match /dashboardActions/{actionId}');
     expect(rulesSource).toContain('allow read, create, update, delete: if false;');
     expect(rulesSource).toContain('hasAnyRegisteredAuthority()');
-    expect(rulesSource).toContain('"intern", "scholarship", "board-member", "mentor", "hire", "feedback"');
+    expect(rulesSource).toContain('"intern", "scholarship", "board-member", "mentor", "hire", "company-project", "feedback"');
     expect(schemaSource).toContain('`userProfiles`');
     expect(schemaSource).toContain('`richkingsford@gmail.com` has admin, board-member, mentor, and intern authority');
     expect(schemaSource).toContain('suspendedRoles');
@@ -732,7 +751,7 @@ test.describe('Backlog regression', () => {
   test('Find a partner section has 6 cards', async ({ page }) => {
     await expect(page.locator('.section-title', { hasText: 'Find a partner' })).toBeVisible();
     await expect(page.locator('#partners .card')).toHaveCount(6);
-    await expect(page.locator('.home-final-actions').getByRole('link', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
+    await expect(page.locator('.home-final-actions').getByRole('link', { name: 'Hire or mentor an intern' })).toHaveAttribute('href', 'monetize.html');
   });
 
   test('initial partner cards use the first 6 partner fixture records', async ({ page }) => {
@@ -809,28 +828,27 @@ test.describe('Backlog regression', () => {
 
   // --- More space between grids ---
   test('section title has significant top margin for grid spacing', async ({ page }) => {
-    const mt = await page.getByRole('heading', { name: 'Hire for proof, not pedigree' }).evaluate(el => getComputedStyle(el).marginTop);
+    const mt = await page.getByRole('heading', { name: 'Hire proven Skilf interns' }).evaluate(el => getComputedStyle(el).marginTop);
     expect(parseInt(mt)).toBeGreaterThanOrEqual(40);
   });
 
   test('homepage showcases robotics and VR demo images', async ({ page }) => {
     await expect(page.locator('.showcase-panel')).toHaveCount(2);
-    await expect(page.getByRole('heading', { name: 'Build honest evidence. Earn a Skilf.' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Earn a Skilf by proving the work.' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Turn a project into evidence' })).toBeVisible();
     await expect(page.getByText('Robotics Skilf')).toHaveCount(0);
     await expect(page.getByText('VR App Skilf')).toHaveCount(0);
     const roboticsActions = page.locator('.robotics-showcase .showcase-actions');
-    await expect(roboticsActions.getByRole('link', { name: 'Explore project ideas' })).toHaveAttribute('href', 'find-partner.html');
-    await expect(roboticsActions.getByRole('link', { name: 'Join reviewer board', exact: true })).toHaveAttribute('href', 'apply.html#board-member');
-    await expect(roboticsActions.getByRole('link', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
+    await expect(roboticsActions.getByRole('link', { name: 'Skilf Ideas' })).toHaveAttribute('href', 'find-partner.html');
+    await expect(roboticsActions.getByRole('link', { name: 'Join the Board', exact: true })).toHaveAttribute('href', 'board-dashboard.html');
+    await expect(roboticsActions.getByRole('link', { name: 'Become a mentor' })).toHaveAttribute('href', 'monetize.html');
     await expect(page.getByRole('link', { name: 'Live app flow' })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'User testing' })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'Design defense' })).toHaveCount(0);
     const vrActions = page.locator('.vr-showcase .showcase-actions');
-    await expect(vrActions.getByRole('link', { name: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html?role=intern');
+    await expect(vrActions.getByRole('link', { name: 'Become an intern' })).toHaveAttribute('href', 'apply.html?role=intern');
     await expect(vrActions.getByRole('link', { name: 'Find a partner' })).toHaveAttribute('href', 'find-partner.html');
     await expect(page.getByRole('link', { name: 'Mentor interns' })).toHaveCount(0);
-    await expect(page.getByRole('link', { name: 'Join the board', exact: true })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'Explore Demo Day' })).toHaveAttribute('href', 'defense-day.html');
 
     await page.locator('img[src="assets/home-vr-app-defense.png"]').scrollIntoViewIfNeeded();
@@ -857,6 +875,7 @@ test.describe('Backlog regression', () => {
     await page.goto('/defense-day.html');
     await expect(page).toHaveTitle('Demo Day - Skilf');
     await expect(page.getByRole('heading', { name: 'Demo Day', level: 1 })).toBeVisible();
+    await expect(page.locator('.subtitle')).toContainText('first real tech job offer');
     await expect(page.getByText('AI is welcome. Fake proof is not.')).toBeVisible();
     await expect(page.getByText('honest evidence, sound judgment')).toBeVisible();
     await expect(page.getByText('The single 30-60 second public YouTube video shows the strongest proof')).toBeVisible();
@@ -973,12 +992,13 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('Mentor-sponsored check-in')).toBeVisible();
     await expect(page.getByRole('link', { name: 'Join reviewer board' }).first()).toHaveAttribute('href', 'apply.html#board-member');
     await expect(page.getByRole('link', { name: 'Join reviewer board', exact: true }).first()).toHaveAttribute('href', 'apply.html#board-member');
-    await expect(page.getByRole('link', { name: 'Donate a check-in' })).toHaveAttribute('href', 'apply.html#scholarship');
+    await expect(page.getByRole('link', { name: 'Donate a check-in' })).toHaveAttribute('href', 'apply.html#mentor');
   });
 
   test('FAQ and privacy pages are accessible destinations', async ({ page }) => {
     await page.goto('/faq.html');
     await expect(page.getByRole('heading', { name: 'FAQ', level: 1 })).toBeVisible();
+    await expect(page.locator('.lead')).toContainText('first real tech job offer');
     await expect(page.locator('.faq-list details')).toHaveCount(8);
     await expect(page.locator('.faq-list summary').first()).toHaveText('What is a Skilf?');
     await expect(page.getByText('It is earned through evidence, check-ins, and Demo Day review.')).toBeVisible();
@@ -1000,10 +1020,10 @@ test.describe('Backlog regression', () => {
   });
 
   // --- Top grid title and tagline ---
-  test('top grid titled "Hire for proof, not pedigree" with tagline', async ({ page }) => {
+  test('top grid titled "Hire proven Skilf interns" with tagline', async ({ page }) => {
     await expect(page.locator('h1.app-title')).toHaveCount(0);
-    await expect(page.locator('h2.section-title').first()).toHaveText('Hire for proof, not pedigree');
-    await expect(page.locator('.tagline')).toContainText('Hiring partners and mentors can search by project, skill, region, or Skilf ID');
+    await expect(page.locator('h2.section-title').first()).toHaveText('Hire proven Skilf interns');
+    await expect(page.locator('.tagline')).toContainText('We call someone pursuing a Skilf an intern.');
   });
 
   // --- 6 expert cards with region pills ---

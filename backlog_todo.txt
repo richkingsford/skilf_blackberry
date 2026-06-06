@@ -27,6 +27,9 @@
 [done] Rename "Schedule a skilf" to "Begin your own Skilf adventure", link to Google Form, remove "Post a skilf", move button to top-right at 40% larger size.
 [done] Add a subpage called monetize your expertise - describe how experts can increase their fee for defense days.
 [done] Build a sub page called defense day - lots of text about how every student must also have an AI mentor and practical advice on preparing for defense day.
+[done] Make it easy for a company to post a project they'd like to see in their entry level hires - added a company project form type to the existing application form.
+[done] Emphasize in 4-5 places that Skilf is focused on tech careers and our mission is to help you get your first real tech job offer.
+[done] Replace top and footer "Defend your skill" copy with "Get your first real tech job".
 [blocked] 2026-04-22: No actionable backlog item; all entries are `[done]`. Add one `[active-open-bug]` (or explicitly reprioritize) to continue.
 [done] Architecture: restore one canonical data contract for listings - replaced random in-browser listing generation with fixture-driven rendering from `experts.json` and `prospectivePartners.json`, normalized both fixtures to shared keys (`name`,`skill`,`project`,`tags`,`region`), and updated regression checks to assert the shared contract.
 [done] Architecture: unify the regression runtime around one served app path - replaced `python -m http.server` in `tests/ensure-regression-gallery-server.ps1` with Node `serve` from workspace root, made `tests/run-regression.ps1` bootstrap that same server and load app preview via `http://127.0.0.1:3999/index.html`, and aligned Playwright to shared `npm run serve:workspace` command.

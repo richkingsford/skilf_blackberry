@@ -37,6 +37,7 @@ const ADVENTURE_OPTIONS = [
   ["board-member", "Join reviewer board"],
   ["mentor", "Offer mentorship"],
   ["hire", "Hire or host interns"],
+  ["company-project", "Post entry-level project"],
   ["feedback", "Send feedback"],
 ];
 const state = {
@@ -487,7 +488,7 @@ function adventureMenuMarkup() {
 
 function wireAdventureChrome() {
   for (const summary of document.querySelectorAll(".site-adventure summary")) {
-    summary.textContent = "Get Started";
+    summary.textContent = "Begin a Skilf";
   }
 
   for (const menu of document.querySelectorAll(".site-adventure-menu")) {
@@ -502,7 +503,7 @@ function wireAdventureChrome() {
   fixedActions.innerHTML = `
     <a class="site-fixed-btn" href="apply.html#feedback">Send feedback</a>
     <details class="site-adventure site-fixed-adventure">
-      <summary class="site-nav-cta site-fixed-btn">Get Started</summary>
+      <summary class="site-nav-cta site-fixed-btn">Begin a Skilf</summary>
       <div class="site-adventure-menu" role="menu">
         ${adventureMenuMarkup()}
       </div>

@@ -1,4 +1,6 @@
 const fs = require("node:fs");
+const net = require("node:net");
+const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 
@@ -56,31 +58,84 @@ function pathWithJava(bin) {
   return `${dir}${path.delimiter}${process.env.PATH || ""}`;
 }
 
-const bin = javaBin();
-if (!bin) {
-  const message = "Firestore rules tests require a full Java runtime with the jdk.httpserver module for the Firebase emulator.";
-  if (process.env.CI) {
-    console.error(message);
-    process.exit(1);
-  }
-  console.log(`SKIP     ${message} Install Java or run in CI to enforce rules tests.`);
-  process.exit(0);
+function canListen(port) {
+  return new Promise((resolve) => {
+    const server = net.createServer();
+    server.once("error", () => resolve(false));
+    server.once("listening", () => server.close(() => resolve(true)));
+    server.listen(port, "127.0.0.1");
+  });
 }
 
-const firebaseBin = path.join(root, "node_modules", ".bin", process.platform === "win32" ? "firebase.cmd" : "firebase");
-const command = process.platform === "win32"
-  ? `"${firebaseBin}" emulators:exec --project skilf-9f736 --only firestore "node tests/firestore-rules.test.js"`
-  : `"${firebaseBin}" emulators:exec --project skilf-9f736 --only firestore "node tests/firestore-rules.test.js"`;
-const result = spawnSync(command, {
-  cwd: root,
-  stdio: "inherit",
-  shell: true,
-  env: {
-    ...process.env,
-    DEBUG: "",
-    PATH: pathWithJava(bin),
-  },
-});
+function randomFreePort() {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.once("error", reject);
+    server.once("listening", () => {
+      const port = server.address().port;
+      server.close(() => resolve(port));
+    });
+    server.listen(0, "127.0.0.1");
+  });
+}
 
-if (result.error) console.error(result.error.message || result.error);
-process.exit(result.status === null ? 1 : result.status);
+async function firestoreEmulatorPort() {
+  if (process.env.FIRESTORE_EMULATOR_PORT) return Number(process.env.FIRESTORE_EMULATOR_PORT);
+  for (const port of [8080, 18080, 18081, 18082, 18083]) {
+    if (await canListen(port)) return port;
+  }
+  return randomFreePort();
+}
+
+async function main() {
+  const bin = javaBin();
+  if (!bin) {
+    const message = "Firestore rules tests require a full Java runtime with the jdk.httpserver module for the Firebase emulator.";
+    if (process.env.CI) {
+      console.error(message);
+      process.exit(1);
+    }
+    console.log(`SKIP     ${message} Install Java or run in CI to enforce rules tests.`);
+    process.exit(0);
+  }
+
+  const port = await firestoreEmulatorPort();
+  const configPath = path.join(os.tmpdir(), `skilf-firebase-emulator-${process.pid}.json`);
+  fs.writeFileSync(configPath, JSON.stringify({
+    firestore: {
+      rules: path.join(root, "firestore.rules"),
+      indexes: path.join(root, "firestore.indexes.json"),
+    },
+    emulators: {
+      firestore: {
+        host: "127.0.0.1",
+        port,
+      },
+    },
+  }, null, 2));
+
+  const firebaseBin = path.join(root, "node_modules", ".bin", process.platform === "win32" ? "firebase.cmd" : "firebase");
+  const command = process.platform === "win32"
+    ? `"${firebaseBin}" emulators:exec --config "${configPath}" --project skilf-9f736 --only firestore "node tests/firestore-rules.test.js"`
+    : `"${firebaseBin}" emulators:exec --config "${configPath}" --project skilf-9f736 --only firestore "node tests/firestore-rules.test.js"`;
+  const result = spawnSync(command, {
+    cwd: root,
+    stdio: "inherit",
+    shell: true,
+    env: {
+      ...process.env,
+      DEBUG: "",
+      PATH: pathWithJava(bin),
+    },
+  });
+
+  fs.rmSync(configPath, { force: true });
+
+  if (result.error) console.error(result.error.message || result.error);
+  process.exit(result.status === null ? 1 : result.status);
+}
+
+main().catch((error) => {
+  console.error(error.message || error);
+  process.exit(1);
+});

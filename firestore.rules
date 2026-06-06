@@ -49,7 +49,7 @@ service cloud.firestore {
 
     function validRequestedRoles(roles) {
       return roles is list
-        && roles.hasOnly(["intern", "scholarship", "board-member", "mentor", "hire", "feedback"]);
+        && roles.hasOnly(["intern", "scholarship", "board-member", "mentor", "hire", "company-project", "feedback"]);
     }
 
     function profileRolesMatchAuthority(roles) {
@@ -128,7 +128,7 @@ service cloud.firestore {
     match /people/{personId} {
       allow create: if ownsCreatedDoc()
         && request.resource.data.email is string
-        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor", "hire", "feedback"];
+        && request.resource.data.role in ["intern", "scholarship", "board-member", "mentor", "hire", "company-project", "feedback"];
       allow read, update, delete: if false;
     }
 

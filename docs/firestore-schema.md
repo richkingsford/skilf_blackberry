@@ -10,7 +10,7 @@ Created when a signed-in user submits the application form.
 
 Fields:
 
-- `role`: `intern`, `scholarship`, `board-member`, `mentor`, `hire`, or `feedback`
+- `role`: `intern`, `scholarship`, `board-member`, `mentor`, `hire`, `company-project`, or `feedback`
 - `name`
 - `email`
 - `project`
@@ -23,7 +23,7 @@ Fields:
 
 Public clients may create documents only for their own authenticated user. Public clients cannot read, update, or delete documents.
 
-If the role is `intern`, `mentor`, or `board-member`, the app saves that intent as a requested role. It does not grant authority. Feedback submissions are organization-directed intake and are not sent to an intern, mentor, or board member.
+If the role is `intern`, `mentor`, or `board-member`, the app saves that intent as a requested role. It does not grant authority. Company project submissions are employer-directed prompts for entry-level proof projects. Feedback submissions are organization-directed intake and are not sent to an intern, mentor, or board member.
 
 ### `userProfiles`
 

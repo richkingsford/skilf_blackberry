@@ -94,7 +94,7 @@
     <div class="site-nav-inner">
       <a class="site-brand" href="index.html" aria-label="Skilf home">
         <img class="site-logo" src="assets/skilf-logo-solo-defense-refined.svg" alt="">
-        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Defend your skill</span></span>
+        <span><span class="site-wordmark">Skilf</span><span class="site-brand-note">Get your first real tech job</span></span>
       </a>
       <nav class="site-links" aria-label="Primary navigation">
         <a href="interns">Interns</a>
@@ -114,7 +114,7 @@
             </span>
           </span>
           <details class="site-adventure">
-            <summary class="site-nav-cta">Get Started</summary>
+            <summary class="site-nav-cta">Begin a Skilf</summary>
             <div class="site-adventure-menu" role="menu">
               <span class="site-adventure-label">Choose a path</span>
               <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
@@ -122,6 +122,7 @@
               <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
               <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
               <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#company-project">Post entry-level project</a>
               <a role="menuitem" href="apply.html#feedback">Send feedback</a>
             </div>
           </details>
@@ -132,7 +133,7 @@
   </header>
   <main>
     <h1>Join the Skilf waitlist</h1>
-    <p class="lead">Pick the path that fits you. Skilf uses this intake to route interns, mentors, reviewer-board candidates, hiring partners, support requests, and feedback.</p>
+    <p class="lead">Pick the path that fits you. Skilf is focused on tech careers, and our mission is to help interns turn proof into a first real tech job offer. This intake routes interns, mentors, reviewer-board candidates, hiring partners, company project prompts, support requests, and feedback.</p>
 
     <form name="skilf-application" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-skilf-application-form>
       <input type="hidden" name="form-name" value="skilf-application">
@@ -150,6 +151,7 @@
             <option value="board-member">Join reviewer board</option>
             <option value="mentor">Offer mentorship</option>
             <option value="hire">Hire or host interns</option>
+            <option value="company-project">Post entry-level project</option>
             <option value="feedback">Send feedback</option>
           </select>
         </label>
@@ -180,7 +182,7 @@
     <div class="site-footer-inner">
       <div>
         <a class="site-footer-brand" href="index.html">Skilf</a>
-        <p class="site-footer-note">Defend your skill with evidence.</p>
+        <p class="site-footer-note">Get your first real tech job</p>
       </div>
       <nav class="site-footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
@@ -227,6 +229,11 @@
         label: "What kind of internship or project work can you offer?",
         placeholder: "Example: We can host an internship for someone building analytics, robotics, or UX evidence toward Demo Day.",
       },
+      "company-project": {
+        note: "Company project prompts tell Skilf what real entry-level work should look like, so interns can build evidence around useful employer expectations.",
+        label: "What project would you like entry-level hires to be able to do?",
+        placeholder: "Example: Build a dashboard that imports CSV sales data, cleans it, and explains three trends to a nontechnical manager.",
+      },
       feedback: {
         note: "Your feedback goes directly to the Skilf organization. It is not sent to an intern, mentor, or board member.",
         label: "What feedback would you like to send to the Skilf organization?",
@@ -241,11 +248,11 @@
       projectLabel.textContent = copy[selected].label;
       projectInput.placeholder = copy[selected].placeholder;
       document.querySelector(".submit-btn").textContent =
-        selected === "intern" ? "Join waitlist" : selected === "scholarship" ? "Request support" : selected === "board-member" ? "Join reviewer board" : selected === "hire" ? "Talk about hiring" : selected === "feedback" ? "Send feedback" : "Offer mentorship";
+        selected === "intern" ? "Join waitlist" : selected === "scholarship" ? "Request support" : selected === "board-member" ? "Join reviewer board" : selected === "hire" ? "Talk about hiring" : selected === "company-project" ? "Post project" : selected === "feedback" ? "Send feedback" : "Offer mentorship";
     }
     const hashIntent = location.hash.replace(/^#/, "");
     const requested = params.get("role") || params.get("kind") || hashIntent;
-    const mapped = requested === "panelist" ? "board-member" : requested === "demo-day" ? "intern" : requested;
+    const mapped = requested === "panelist" ? "board-member" : requested === "demo-day" ? "intern" : requested === "project" ? "company-project" : requested;
     setIntent(mapped || "intern");
     intentSelect.addEventListener("change", () => setIntent(intentSelect.value));
   </script>

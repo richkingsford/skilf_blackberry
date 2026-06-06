@@ -66,6 +66,19 @@ function validMessage(uid) {
   };
 }
 
+function validApplication(uid, role = "intern") {
+  return {
+    authUid: uid,
+    authEmail: `${uid}@example.test`,
+    email: `${uid}@example.test`,
+    name: `QA ${uid}`,
+    role,
+    kind: role,
+    project: "Build a dashboard that turns messy CSV data into a useful manager summary.",
+    source: "rules-test",
+  };
+}
+
 async function seed(pathname, data) {
   await testEnv.withSecurityRulesDisabled(async (context) => {
     await setDoc(doc(context.firestore(), pathname), data);
@@ -98,6 +111,17 @@ test("unauthenticated visitors cannot write protected or intake collections", as
     role: "intern",
   }));
   await assertFails(setDoc(doc(anonDb(), "dashboardActions/anon"), { action: "pass-demo" }));
+});
+
+test("signed-in visitors can submit company project intake", async () => {
+  await assertSucceeds(setDoc(
+    doc(dbFor("project-poster"), "people/project-poster"),
+    validApplication("project-poster", "company-project"),
+  ));
+  await assertFails(setDoc(
+    doc(dbFor("invalid-project-poster"), "people/invalid-project-poster"),
+    validApplication("invalid-project-poster", "unknown"),
+  ));
 });
 
 test("only registered mentors, interns, and board members can create messages", async () => {

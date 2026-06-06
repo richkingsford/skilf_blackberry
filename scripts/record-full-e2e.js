@@ -251,11 +251,11 @@ async function clickBySelector(page, selector, label, options = {}) {
 }
 
 async function openTopAdventure(page) {
-  await clickBySelector(page, ".site-nav .site-adventure summary", "Open top Get Started menu");
+  await clickBySelector(page, ".site-nav .site-adventure summary", "Open top Begin a Skilf menu");
 }
 
 async function openFixedAdventure(page) {
-  await clickBySelector(page, "[data-fixed-actions] summary", "Open fixed Get Started menu");
+  await clickBySelector(page, "[data-fixed-actions] summary", "Open fixed Begin a Skilf menu");
 }
 
 async function exerciseGlobalChrome(page) {
@@ -490,11 +490,11 @@ async function exerciseStaticPages(page) {
     await gotoPage(page, target, `Static page sweep: ${target}`);
     const topCount = await page.locator(".site-nav .site-adventure summary").count();
     if (topCount) {
-      await clickBySelector(page, ".site-nav .site-adventure summary", `Open top Get Started on ${target}`, { afterDelay: 40 });
+      await clickBySelector(page, ".site-nav .site-adventure summary", `Open top Begin a Skilf on ${target}`, { afterDelay: 40 });
     }
     const fixedCount = await page.locator("[data-fixed-actions] summary").count();
     if (fixedCount) {
-      await clickBySelector(page, "[data-fixed-actions] summary", `Open fixed Get Started on ${target}`, { afterDelay: 40 });
+      await clickBySelector(page, "[data-fixed-actions] summary", `Open fixed Begin a Skilf on ${target}`, { afterDelay: 40 });
     }
   }
 

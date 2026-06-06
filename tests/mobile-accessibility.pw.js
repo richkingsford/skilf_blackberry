@@ -82,7 +82,8 @@ test.describe('Mobile viewport coverage', () => {
     await openLocalPage(page, '/index.html');
     await page.locator('.site-nav .site-adventure summary').click();
     await expect(page.locator('.site-nav .site-adventure-menu')).toBeVisible();
-    await expect(page.locator('.site-nav .site-adventure-menu a')).toHaveCount(6);
+    await expect(page.locator('.site-nav .site-adventure-menu a')).toHaveCount(7);
+    await expect(page.locator('.site-nav .site-adventure-menu a[href="apply.html#company-project"]')).toBeVisible();
 
     await page.locator('#experts .expert-card .msg-arrow').first().click();
     await expect(page.locator('#experts .expert-card .msg-menu').first()).toBeVisible();
