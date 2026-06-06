@@ -251,11 +251,11 @@ async function clickBySelector(page, selector, label, options = {}) {
 }
 
 async function openTopAdventure(page) {
-  await clickBySelector(page, ".site-nav .site-adventure summary", "Open top Begin a Skilf menu");
+  await clickBySelector(page, ".site-nav .site-adventure summary", "Open top Begin HighBar menu");
 }
 
 async function openFixedAdventure(page) {
-  await clickBySelector(page, "[data-fixed-actions] summary", "Open fixed Begin a Skilf menu");
+  await clickBySelector(page, "[data-fixed-actions] summary", "Open fixed Begin HighBar menu");
 }
 
 async function exerciseGlobalChrome(page) {
@@ -336,7 +336,7 @@ async function exerciseHome(page) {
   await page.fill("#search", "Zurich");
   await step(page, "Homepage expert search: region");
   await page.fill("#search", "SKL-003");
-  await step(page, "Homepage expert search: Skilf ID");
+  await step(page, "Homepage expert search: HighBar ID");
   await page.fill("#search", "");
   await clickSkillLeaves(page, "#search", '[data-tree="expert-tree"]', "#expert-tree", "Homepage expert skill filter");
 
@@ -490,11 +490,11 @@ async function exerciseStaticPages(page) {
     await gotoPage(page, target, `Static page sweep: ${target}`);
     const topCount = await page.locator(".site-nav .site-adventure summary").count();
     if (topCount) {
-      await clickBySelector(page, ".site-nav .site-adventure summary", `Open top Begin a Skilf on ${target}`, { afterDelay: 40 });
+      await clickBySelector(page, ".site-nav .site-adventure summary", `Open top Begin HighBar on ${target}`, { afterDelay: 40 });
     }
     const fixedCount = await page.locator("[data-fixed-actions] summary").count();
     if (fixedCount) {
-      await clickBySelector(page, "[data-fixed-actions] summary", `Open fixed Begin a Skilf on ${target}`, { afterDelay: 40 });
+      await clickBySelector(page, "[data-fixed-actions] summary", `Open fixed Begin HighBar on ${target}`, { afterDelay: 40 });
     }
   }
 
@@ -576,7 +576,7 @@ async function main() {
     await exercisePayments(page);
     await exerciseStaticPages(page);
     await gotoPage(page, "index.html", "Full e2e complete");
-    await step(page, "Full Skilf e2e complete: Rich as intern + mentor + board member", 1000);
+    await step(page, "Full HighBar e2e complete: Rich as intern + mentor + board member", 1000);
   } finally {
     coverage.finishedAt = new Date().toISOString();
     coverage.summary = {

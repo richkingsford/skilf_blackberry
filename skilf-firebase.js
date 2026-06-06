@@ -488,7 +488,7 @@ function adventureMenuMarkup() {
 
 function wireAdventureChrome() {
   for (const summary of document.querySelectorAll(".site-adventure summary")) {
-    summary.textContent = "Begin a Skilf";
+    summary.textContent = "Begin HighBar";
   }
 
   for (const menu of document.querySelectorAll(".site-adventure-menu")) {
@@ -503,7 +503,7 @@ function wireAdventureChrome() {
   fixedActions.innerHTML = `
     <a class="site-fixed-btn" href="apply.html#feedback">Send feedback</a>
     <details class="site-adventure site-fixed-adventure">
-      <summary class="site-nav-cta site-fixed-btn">Begin a Skilf</summary>
+      <summary class="site-nav-cta site-fixed-btn">Begin HighBar</summary>
       <div class="site-adventure-menu" role="menu">
         ${adventureMenuMarkup()}
       </div>

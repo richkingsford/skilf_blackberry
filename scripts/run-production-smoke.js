@@ -5,7 +5,7 @@ const dryRun = process.argv.includes("--dry-run");
 const liveMessage = process.argv.includes("--live-message");
 
 const publicChecks = [
-  { path: "/", text: "Skilf" },
+  { path: "/", text: "HighBar" },
   { path: "/interns.html", text: "intern" },
   { path: "/privacy.html", text: "Only active registered interns, mentors, and board members can send messages" },
   { path: "/admin.html", text: "Permissions and account safety" },
@@ -24,7 +24,7 @@ const manualChecks = [
 
 async function fetchPage(pathname) {
   const response = await fetch(`${siteUrl}${pathname}`, {
-    headers: { "User-Agent": "Skilf production smoke" },
+    headers: { "User-Agent": "HighBar production smoke" },
   });
   const body = await response.text();
   if (!response.ok) throw new Error(`${pathname} returned ${response.status}`);

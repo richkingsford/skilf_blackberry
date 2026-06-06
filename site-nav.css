@@ -401,6 +401,7 @@
   margin: 4px 0 0;
   color: #9fb2c7;
   font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .site-footer-links {
@@ -548,7 +549,10 @@
   }
 
   .site-brand-note {
-    display: none;
+    margin-top: 3px;
+    max-width: 132px;
+    font-size: 0.58rem;
+    line-height: 1.15;
   }
 
   .site-brand-cluster {
