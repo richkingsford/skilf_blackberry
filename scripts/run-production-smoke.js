@@ -7,8 +7,8 @@ const liveMessage = process.argv.includes("--live-message");
 const publicChecks = [
   { path: "/", text: "Skilf" },
   { path: "/interns.html", text: "intern" },
-  { path: "/privacy.html", text: "Only registered mentors, interns, and board members can send messages" },
-  { path: "/admin.html", text: "Govern roles and suspensions" },
+  { path: "/privacy.html", text: "Only active registered interns, mentors, and board members can send messages" },
+  { path: "/admin.html", text: "Permissions and account safety" },
 ];
 
 const manualChecks = [
