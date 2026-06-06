@@ -834,7 +834,7 @@ test.describe('Backlog regression', () => {
 
   test('homepage showcases robotics and VR demo images', async ({ page }) => {
     await expect(page.locator('.showcase-panel')).toHaveCount(2);
-    await expect(page.getByRole('heading', { name: 'Earn the Ring by proving the work.' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Earn your Silicone Ring by passing the high bar' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Turn a project into evidence' })).toBeVisible();
     await expect(page.getByText('Robotics Skilf')).toHaveCount(0);
     await expect(page.getByText('VR App Skilf')).toHaveCount(0);
