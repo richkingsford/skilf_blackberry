@@ -39,6 +39,7 @@ jobs:
           cp ./site-nav.css ./dashboard.css _site/
           cp ./skilf-firebase.js ./firebase-config.js ./dashboard-utils.js _site/
           cp ./experts.json ./prospectivePartners.json ./skill-tree.json _site/
+          cp ./CNAME _site/
           cp "./profile icons.png" "./profile icons_one_column.png" _site/
           cp -R ./assets _site/assets
           touch _site/.nojekyll
