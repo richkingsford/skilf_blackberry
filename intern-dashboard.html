@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intern Dashboard - HighBar</title>
+  <title>Applicant Dashboard - HighBar</title>
   <link rel="stylesheet" href="site-nav.css">
   <link rel="stylesheet" href="dashboard.css">
 </head>
@@ -15,8 +15,7 @@
         <span><span class="site-wordmark">HighBar</span><span class="site-brand-note">Get your first real tech job</span></span>
       </a>
       <nav class="site-links" aria-label="Primary navigation">
-        <a href="interns">Interns</a>
-        <a href="defense-day.html">Demo Day</a>
+        <a href="interns">Applicants</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -35,11 +34,11 @@
             <summary class="site-nav-cta">Begin HighBar</summary>
             <div class="site-adventure-menu" role="menu">
               <span class="site-adventure-label">Choose a path</span>
-              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#intern">Join applicant waitlist</a>
               <a role="menuitem" href="apply.html#scholarship">Request support</a>
               <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
               <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
-              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host applicants</a>
               <a role="menuitem" href="apply.html#company-project">Post entry-level project</a>
               <a role="menuitem" href="apply.html#feedback">Send feedback</a>
             </div>
@@ -53,15 +52,29 @@
   <main>
     <section class="dash-hero">
       <div>
-        <span class="kicker">Intern home</span>
+        <span class="kicker">Applicant home</span>
         <h1>Spend credits carefully. Earn Demo Day honestly.</h1>
-        <p class="lead">Schedule check-ins, watch your credits, give one monthly credit to another intern, and unlock mentor status after passing 2 check-ins. Demo Day scheduling unlocks only after you pass monthly check-in #4.</p>
+        <p class="lead">Schedule check-ins, watch your credits, give one monthly credit to another applicant, and unlock mentor status after passing 2 check-ins. Demo Day scheduling unlocks only after you pass monthly check-in #4.</p>
         <div class="actions">
           <a class="cta primary" href="#schedule">Schedule a check-in</a>
-          <a class="cta" href="intern-policies.html">Intern policies</a>
+          <a class="cta" href="intern-policies.html">Applicant policies</a>
         </div>
       </div>
-      <img src="assets/student-skilf-journey.png" alt="Intern path from check-ins to Demo Day">
+      <img src="assets/student-skilf-journey.png" alt="Applicant path from check-ins to Demo Day">
+    </section>
+
+    <section class="section journey-section" id="founder-journey" data-journey-root>
+      <div class="section-head">
+        <span class="kicker">Founder journey</span>
+        <h2>End-to-end checklist</h2>
+        <p>Track the proof path from application through board defense and employer outreach.</p>
+      </div>
+      <div class="journey-toolbar">
+        <strong data-journey-progress>0 of 16 complete</strong>
+        <button class="dash-btn" type="button" data-journey-refresh>Refresh</button>
+      </div>
+      <div class="journey-list" data-journey-list aria-live="polite"></div>
+      <p class="status-line" data-journey-status></p>
     </section>
 
     <section class="section">
@@ -71,7 +84,7 @@
       </div>
       <div class="countdown-grid">
         <article class="countdown"><strong>Your check-in credits</strong><span class="big" data-credit-display="checkin">2 available</span><p>Use one instead of paying $100 for a monthly check-in.</p></article>
-        <article class="countdown"><strong>Give-away credit</strong><span class="big" data-credit-display="giveaway">1 monthly</span><p>Every intern gets one credit each month to give another intern.</p></article>
+        <article class="countdown"><strong>Give-away credit</strong><span class="big" data-credit-display="giveaway">1 monthly</span><p>Every applicant gets one credit each month to give another applicant.</p></article>
         <article class="countdown"><strong>Next credit refresh</strong><span class="big">12 days</span><p>A little monthly lift for the next hard checkpoint.</p></article>
       </div>
     </section>
@@ -112,14 +125,14 @@
     <section class="section two-col">
       <article class="card">
         <h2>Give a credit away</h2>
-        <p>Your monthly give-away credit can help another intern pay for a check-in. Use it generously; it does not change the standard.</p>
-        <input class="search-input" type="search" data-intern-search placeholder="Search another intern">
-        <section class="intern-results" data-intern-results aria-label="Interns who can receive a credit"></section>
+        <p>Your monthly give-away credit can help another applicant pay for a check-in. Use it generously; it does not change the standard.</p>
+        <input class="search-input" type="search" data-intern-search placeholder="Search another applicant">
+        <section class="intern-results" data-intern-results aria-label="Applicants who can receive a credit"></section>
         <button class="dash-btn" type="button" data-action="give-intern-credit">Give credit</button>
       </article>
       <article class="card">
         <h2>Mentor unlock</h2>
-        <p>After passing 2 check-ins, an intern can become a mentor and receive 2 credits per month to donate. This is how the ladder starts building itself.</p>
+        <p>After passing 2 check-ins, an applicant can become a mentor and receive 2 credits per month to donate. This is how the ladder starts building itself.</p>
         <span class="credit-pill">2/4 check-ins passed</span>
         <button class="dash-btn primary" type="button" data-action="become-mentor">Request mentor unlock</button>
       </article>
@@ -144,7 +157,7 @@
       </div>
       <nav class="site-footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="interns">Interns</a>
+        <a href="interns">Applicants</a>
         <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
@@ -156,14 +169,117 @@
   </footer>
 
   <script type="module">
-    import { loadInterns, filterInterns, internCard, wireDashboardActions } from "./dashboard-utils.js";
+    import { loadApplicants, filterApplicants, internCard, wireDashboardActions } from "./dashboard-utils.js";
     const results = document.querySelector("[data-intern-results]");
     const search = document.querySelector("[data-intern-search]");
     const successTrack = document.querySelector("[data-success-track]");
     const tipDots = document.querySelector("[data-tip-dots]");
     const tipCount = document.querySelector("[data-tip-count]");
+    const journeyList = document.querySelector("[data-journey-list]");
+    const journeyProgress = document.querySelector("[data-journey-progress]");
+    const journeyStatus = document.querySelector("[data-journey-status]");
     let interns = [];
     let currentTip = 0;
+    let journeySteps = [];
+    let journeySaveTimer = 0;
+    const JOURNEY_STEPS = [
+      {
+        id: "submit-application",
+        title: "Submit application",
+        detail: "Done. You are now an applicant.",
+        defaultDone: true
+      },
+      {
+        id: "unpaid-internship-attempt",
+        title: "Make an honest attempt to win an unpaid internship",
+        detail: "Apply to at least 40 unpaid internships and keep the evidence list.",
+        defaultDone: false
+      },
+      {
+        id: "business-plan-company",
+        title: "Write a business plan and found your own company",
+        detail: "Name the company, the customer, the problem, and the first measurable proof.",
+        defaultDone: false
+      },
+      {
+        id: "board-approval-plan",
+        title: "Board approval for your 6-20 week plan",
+        detail: "Get the plan approved before the official build clock starts.",
+        defaultDone: false
+      },
+      {
+        id: "choose-founder-problem",
+        title: "Choose the problem you will be judged on",
+        detail: "Pick one painful problem and one target user narrow enough to prove progress.",
+        defaultDone: false
+      },
+      {
+        id: "draft-week-plan",
+        title: "Draft the weekly execution plan",
+        detail: "Break the 6-20 week plan into weekly deliverables, risks, and review evidence.",
+        defaultDone: false
+      },
+      {
+        id: "recruit-mentor",
+        title: "Recruit a mentor or reviewer",
+        detail: "Find one person who can challenge your claims before the board does.",
+        defaultDone: false
+      },
+      {
+        id: "build-first-proof",
+        title: "Build the first working proof",
+        detail: "Produce a real artifact, not a pitch deck: demo, prototype, workflow, customer test, or measured result.",
+        defaultDone: false
+      },
+      {
+        id: "publish-evidence-log",
+        title: "Publish a dated evidence log",
+        detail: "Keep links to applications, experiments, failures, demos, user feedback, and weekly outcomes.",
+        defaultDone: false
+      },
+      {
+        id: "check-in-one",
+        title: "Pass check-in #1",
+        detail: "Show the board what changed, what failed, and what the next proof must demonstrate.",
+        defaultDone: false
+      },
+      {
+        id: "check-in-two",
+        title: "Pass check-in #2",
+        detail: "Use reviewer feedback to tighten the evidence and unblock mentor status.",
+        defaultDone: false
+      },
+      {
+        id: "check-in-three",
+        title: "Pass check-in #3",
+        detail: "Show repeatable progress and expose the hardest remaining weakness.",
+        defaultDone: false
+      },
+      {
+        id: "check-in-four",
+        title: "Pass check-in #4",
+        detail: "Clear the Demo Day scheduling gate with enough proof to defend under challenge.",
+        defaultDone: false
+      },
+      {
+        id: "demo-day-readiness",
+        title: "Prepare Demo Day defense materials",
+        detail: "Package the build, evidence links, raw proof, and a five-minute defense script.",
+        defaultDone: false
+      },
+      {
+        id: "demo-day-defense",
+        title: "Complete Demo Day board defense",
+        detail: "Defend the work live and answer the board's strongest objections.",
+        defaultDone: false
+      },
+      {
+        id: "share-credential",
+        title: "Share the credential with employers",
+        detail: "Turn the earned proof into a concise employer-facing story and outreach list.",
+        defaultDone: false
+      }
+    ];
     const SUCCESS_TIPS = [
       {
         tool: "YouTube",
@@ -437,6 +553,92 @@
       }[char]));
     }
 
+    function normalizeJourneySteps(input = []) {
+      const incoming = Array.isArray(input)
+        ? new Map(input.map((step) => [String(step && step.id || ""), Boolean(step && step.done)]))
+        : new Map(Object.entries(input || {}).map(([id, done]) => [id, Boolean(done)]));
+      return JOURNEY_STEPS.map((step) => ({
+        ...step,
+        done: incoming.has(step.id) ? Boolean(incoming.get(step.id)) : Boolean(step.defaultDone)
+      }));
+    }
+
+    function setJourneyStatus(message, tone = "") {
+      if (!journeyStatus) return;
+      journeyStatus.textContent = message || "";
+      journeyStatus.className = `status-line ${tone}`.trim();
+    }
+
+    function renderJourney() {
+      if (!journeyList) return;
+      const complete = journeySteps.filter((step) => step.done).length;
+      if (journeyProgress) journeyProgress.textContent = `${complete} of ${journeySteps.length} complete`;
+      journeyList.innerHTML = journeySteps.map((step) => `
+        <label class="journey-item ${step.done ? "done" : ""}">
+          <input class="journey-check" type="checkbox" data-journey-step="${escapeHtml(step.id)}" ${step.done ? "checked" : ""}>
+          <span class="journey-copy">
+            <strong>${escapeHtml(step.title)}</strong>
+            <span>${escapeHtml(step.detail)}</span>
+          </span>
+        </label>
+      `).join("");
+    }
+
+    function waitForFirebase() {
+      return new Promise((resolve) => {
+        const started = Date.now();
+        const timer = window.setInterval(() => {
+          if (window.skilfFirebase || Date.now() - started > 8000) {
+            window.clearInterval(timer);
+            resolve(window.skilfFirebase || null);
+          }
+        }, 80);
+      });
+    }
+
+    async function loadJourney() {
+      journeySteps = normalizeJourneySteps();
+      renderJourney();
+      const skilf = await waitForFirebase();
+      if (!skilf || !skilf.ready || !skilf.user || !skilf.loadStudentJourney) {
+        setJourneyStatus("Sign in to save checklist progress in the database.");
+        return;
+      }
+      try {
+        setJourneyStatus("Loading saved checklist...");
+        const saved = await skilf.loadStudentJourney();
+        journeySteps = normalizeJourneySteps(saved && saved.steps);
+        renderJourney();
+        setJourneyStatus("Checklist loaded.", "ok");
+      } catch (error) {
+        setJourneyStatus(error.message || "Checklist could not be loaded.", "error");
+      }
+    }
+
+    function scheduleJourneySave() {
+      window.clearTimeout(journeySaveTimer);
+      journeySaveTimer = window.setTimeout(saveJourney, 220);
+    }
+
+    async function saveJourney() {
+      const skilf = window.skilfFirebase;
+      if (!skilf || !skilf.ready || !skilf.user || !skilf.saveStudentJourney) {
+        setJourneyStatus("Sign in to save checklist progress in the database.");
+        return;
+      }
+      try {
+        setJourneyStatus("Saving checklist...");
+        const saved = await skilf.saveStudentJourney(journeySteps.map((step) => ({ id: step.id, done: step.done })));
+        if (saved && saved.steps) {
+          journeySteps = normalizeJourneySteps(saved.steps);
+          renderJourney();
+        }
+        setJourneyStatus("Checklist saved.", "ok");
+      } catch (error) {
+        setJourneyStatus(error.message || "Checklist could not be saved.", "error");
+      }
+    }
+
     function tipObjectSvg(tip) {
       const objects = {
         video: '<rect x="398" y="98" width="124" height="78" rx="14" fill="#111a25" stroke="#73b8ff" stroke-width="4"/><polygon points="446,120 446,154 478,137" fill="#d4a94b"/><rect x="412" y="192" width="92" height="10" rx="5" fill="#73b8ff"/>',
@@ -576,15 +778,29 @@
     }
 
     function render() {
-      results.innerHTML = filterInterns(interns, search.value).slice(0, 3).map((intern) => internCard(intern)).join("");
+      results.innerHTML = filterApplicants(interns, search.value).slice(0, 3).map((intern) => internCard(intern)).join("");
     }
     renderSuccessTips();
-    loadInterns().then((items) => {
+    loadApplicants().then((items) => {
       interns = items;
       render();
     });
+    loadJourney();
     search.addEventListener("input", render);
+    if (journeyList) {
+      journeyList.addEventListener("change", (event) => {
+        const input = event.target.closest("[data-journey-step]");
+        if (!input) return;
+        journeySteps = journeySteps.map((step) => step.id === input.dataset.journeyStep ? { ...step, done: input.checked } : step);
+        renderJourney();
+        scheduleJourneySave();
+      });
+    }
     document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-journey-refresh]")) {
+        loadJourney();
+        return;
+      }
       const nav = event.target.closest("[data-tip-dir]");
       if (nav) {
         updateTipCarousel(currentTip + Number(nav.dataset.tipDir || 0));

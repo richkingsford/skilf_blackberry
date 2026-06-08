@@ -218,6 +218,69 @@ h3 {
   font-weight: 950;
 }
 
+.journey-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 34px 0;
+}
+
+.journey-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 14px;
+}
+
+.journey-toolbar strong {
+  color: var(--mint);
+  font-size: 1rem;
+}
+
+.journey-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.journey-item {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-height: 96px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: linear-gradient(160deg, rgba(21, 31, 45, 0.92), rgba(27, 42, 61, 0.82));
+}
+
+.journey-item.done {
+  border-color: rgba(123, 224, 177, 0.5);
+}
+
+.journey-check {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--mint);
+}
+
+.journey-copy strong {
+  display: block;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.journey-copy span {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  font-size: 0.92rem;
+}
+
 .success-carousel {
   position: relative;
 }
@@ -433,6 +496,14 @@ h3 {
   min-height: 1.3em;
 }
 
+.status-line.ok {
+  color: var(--mint);
+}
+
+.status-line.error {
+  color: var(--coral);
+}
+
 .policy-list {
   margin: 0;
   padding-left: 18px;
@@ -451,6 +522,7 @@ h3 {
   .dash-grid,
   .two-col,
   .countdown-grid,
+  .journey-list,
   .intern-results,
   .tip-card {
     grid-template-columns: 1fr;

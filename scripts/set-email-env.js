@@ -66,6 +66,12 @@ function hasFirebaseAdmin(env) {
 async function main() {
   const env = loadEnvFile(".env.local");
   const variables = [
+    { key: "WELCOME_EMAIL_PROVIDER", secret: false, required: false },
+    { key: "GMAIL_USER", secret: false, required: true },
+    { key: "GMAIL_APP_PASSWORD", secret: true, required: true },
+    { key: "GMAIL_FROM_EMAIL", secret: false, required: false },
+    { key: "WELCOME_FROM_EMAIL", secret: false, required: false },
+    { key: "WELCOME_REPLY_TO_EMAIL", secret: false, required: false },
     { key: "RESEND_API_KEY", secret: true, required: true },
     { key: "MESSAGE_TO_EMAIL", secret: false, required: true },
     { key: "MESSAGE_FROM_EMAIL", secret: false, required: true },

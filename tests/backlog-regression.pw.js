@@ -92,7 +92,7 @@ test.describe('Backlog regression', () => {
     const actions = page.locator('.home-final-actions');
     await expect(actions).toBeVisible();
     await expect(actions.getByRole('link', { name: /Begin your HighBar path/ })).toHaveAttribute('href', 'apply.html');
-    await expect(actions.getByRole('link', { name: 'Hire or mentor an intern' })).toHaveAttribute('href', 'monetize.html');
+    await expect(actions.getByRole('link', { name: 'Hire or mentor an applicant' })).toHaveAttribute('href', 'monetize.html');
     await expect(actions.locator('.cta')).toHaveCount(2);
     await expect(actions).toHaveCSS('display', 'flex');
     await expect(page.getByRole('link', { name: 'Apply for a scholarship' })).toHaveCount(0);
@@ -165,9 +165,9 @@ test.describe('Backlog regression', () => {
     await expect(nav).toBeVisible();
     await expect(nav.locator('.site-logo')).toHaveAttribute('src', 'assets/skilf-logo-solo-defense-refined.svg');
     await expect(nav.locator('.site-brand-note')).toHaveText('Get your first real tech job');
-    await expect(nav.getByRole('link', { name: 'Interns' })).toHaveAttribute('href', 'interns');
+    await expect(nav.getByRole('link', { name: 'Applicants' })).toHaveAttribute('href', 'interns');
     await expect(nav.getByRole('link', { name: 'Hire', exact: true })).toHaveCount(0);
-    await expect(nav.getByRole('link', { name: 'Demo Day' })).toHaveAttribute('href', 'defense-day.html');
+    await expect(nav.getByRole('link', { name: 'Demo Day' })).toHaveCount(0);
     await expect(nav.getByRole('link', { name: 'Board Members' })).toHaveAttribute('href', 'board-dashboard.html');
     await expect(nav.getByRole('link', { name: 'Mentors' })).toHaveAttribute('href', 'monetize.html');
     const topAdventure = nav.locator('.site-adventure summary');
@@ -177,11 +177,11 @@ test.describe('Backlog regression', () => {
     await topAdventure.click();
     const adventureMenu = nav.locator('.site-adventure-menu');
     await expect(adventureMenu.locator('.site-adventure-label')).toHaveText('Choose a path');
-    await expect(adventureMenu.getByRole('menuitem', { name: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
+    await expect(adventureMenu.getByRole('menuitem', { name: 'Join applicant waitlist' })).toHaveAttribute('href', 'apply.html#intern');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Request support' })).toHaveAttribute('href', 'apply.html#scholarship');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Join reviewer board' })).toHaveAttribute('href', 'apply.html#board-member');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
-    await expect(adventureMenu.getByRole('menuitem', { name: 'Hire or host interns' })).toHaveAttribute('href', 'apply.html#hire');
+    await expect(adventureMenu.getByRole('menuitem', { name: 'Hire or host applicants' })).toHaveAttribute('href', 'apply.html#hire');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Post entry-level project' })).toHaveAttribute('href', 'apply.html#company-project');
     await expect(adventureMenu.getByRole('menuitem', { name: 'Send feedback' })).toHaveAttribute('href', 'apply.html#feedback');
     await expect(nav.getByRole('button', { name: 'Sign in' })).toBeVisible();
@@ -239,7 +239,7 @@ test.describe('Backlog regression', () => {
       await expect(fixed.locator('summary')).toHaveText('Begin HighBar');
       await fixed.locator('summary').click();
       await expect(fixed.locator('.site-adventure-label')).toHaveText('Choose a path');
-      await expect(fixed.getByRole('menuitem', { name: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
+      await expect(fixed.getByRole('menuitem', { name: 'Join applicant waitlist' })).toHaveAttribute('href', 'apply.html#intern');
       await expect(fixed.getByRole('menuitem', { name: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
       await expect(fixed.getByRole('menuitem', { name: 'Post entry-level project' })).toHaveAttribute('href', 'apply.html#company-project');
       await expect(fixed.getByRole('menuitem', { name: 'Send feedback' })).toHaveAttribute('href', 'apply.html#feedback');
@@ -293,7 +293,7 @@ test.describe('Backlog regression', () => {
     await send.click();
     await expect(send).toHaveText('Send');
     await expect(card.locator('.send-login-prompt')).toBeVisible();
-    await expect(card.locator('.send-login-prompt')).toContainText('Sign in with Google. Only registered mentors, interns, and board members can send messages.');
+    await expect(card.locator('.send-login-prompt')).toContainText('Sign in with Google. Only registered mentors, applicants, and board members can send messages.');
     await expect.poll(() => page.evaluate(() => window.__signInRequests)).toBe(0);
     await card.locator('.send-login-submit').click();
     await expect.poll(() => page.evaluate(() => window.__signInRequests)).toBe(1);
@@ -326,17 +326,20 @@ test.describe('Backlog regression', () => {
     expect(messages[0].message.length).toBeGreaterThan(0);
   });
 
-  test('application form is available for Netlify capture', async ({ page }) => {
+  test('application form has a static-safe submission fallback', async ({ page }) => {
     await page.goto('/apply.html');
     await expect(page.locator('form[name="skilf-application"][data-netlify="true"]')).toBeVisible();
+    await expect(page.locator('form[name="skilf-application"]')).not.toHaveAttribute('action', /thanks\.html$/);
+    await expect(page.locator('form[name="skilf-application"]')).toHaveAttribute('data-function-action', '/.netlify/functions/submit-application');
+    await expect(page.locator('input[name="_next"]')).toHaveValue('https://firstrealtechjob.org/thanks.html');
     await expect(page.getByRole('heading', { name: 'Join the HighBar waitlist' })).toBeVisible();
     await expect(page.locator('main > .lead')).toContainText('HighBar is focused on tech careers');
     await expect(page.locator('main > .lead')).toContainText('first real tech job');
-    await expect(page.locator('main > .lead')).toContainText('routes interns, mentors, reviewer-board candidates, hiring partners, company project prompts');
+    await expect(page.locator('main > .lead')).toContainText('routes applicants, mentors, reviewer-board candidates, hiring partners, company project prompts');
     await expect(page.locator('select[name="role"] option')).toHaveCount(7);
     await expect(page.locator('select[name="role"] option[value="scholarship"]')).toHaveText('Request support');
     await expect(page.locator('select[name="role"] option[value="mentor"]')).toHaveText('Offer mentorship');
-    await expect(page.locator('select[name="role"] option[value="hire"]')).toHaveText('Hire or host interns');
+    await expect(page.locator('select[name="role"] option[value="hire"]')).toHaveText('Hire or host applicants');
     await expect(page.locator('select[name="role"] option[value="company-project"]')).toHaveText('Post entry-level project');
     await expect(page.locator('select[name="role"] option[value="feedback"]')).toHaveText('Send feedback');
     await expect(page.locator('input[name="phone"]')).toHaveCount(0);
@@ -348,15 +351,15 @@ test.describe('Backlog regression', () => {
   test('application form adapts to selected intent', async ({ page }) => {
     await page.goto('/apply.html');
     await expect(page.locator('[data-project-label]')).toHaveText('What do you want to build or prove?');
-    await expect(page.locator('[data-intent-note]')).toContainText('Intern means anyone pursuing the Ring');
+    await expect(page.locator('[data-intent-note]')).toContainText('Applicant means anyone pursuing the Ring');
     await expect(page.locator('[data-intent-note]')).toContainText('Join the waitlist');
     await page.selectOption('[data-intent-select]', 'board-member');
     await expect(page.locator('[data-project-label]')).toHaveText('What expertise can you use to evaluate Demo Day work?');
     await expect(page.locator('[data-intent-note]')).toContainText('make pass/fail calls');
     await expect(page.locator('[data-kind-input]')).toHaveValue('board-member');
     await page.selectOption('[data-intent-select]', 'mentor');
-    await expect(page.locator('[data-project-label]')).toHaveText('How would you like to mentor interns?');
-    await expect(page.locator('[data-intent-note]')).toContainText('Mentors help interns');
+    await expect(page.locator('[data-project-label]')).toHaveText('How would you like to mentor applicants?');
+    await expect(page.locator('[data-intent-note]')).toContainText('Mentors help applicants');
     await expect(page.locator('.submit-btn')).toHaveText('Offer mentorship');
     await page.selectOption('[data-intent-select]', 'scholarship');
     await expect(page.locator('[data-project-label]')).toHaveText('What would support help you build or prove?');
@@ -375,7 +378,7 @@ test.describe('Backlog regression', () => {
     await page.selectOption('[data-intent-select]', 'feedback');
     await expect(page.locator('[data-project-label]')).toHaveText('What feedback would you like to send to the HighBar organization?');
     await expect(page.locator('[data-intent-note]')).toContainText('goes directly to the HighBar organization');
-    await expect(page.locator('[data-intent-note]')).toContainText('not sent to an intern, mentor, or board member');
+    await expect(page.locator('[data-intent-note]')).toContainText('not sent to an applicant, mentor, or board member');
     await expect(page.locator('[data-kind-input]')).toHaveValue('feedback');
     await expect(page.locator('.submit-btn')).toHaveText('Send feedback');
     await page.goto('/apply.html#scholarship');
@@ -392,18 +395,18 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('[data-intent-select]')).toHaveValue('feedback');
   });
 
-  test('Interns page supports search, skill tree filtering, and thumbnails', async ({ page }) => {
+  test('Applicants page supports search, skill tree filtering, and thumbnails', async ({ page }) => {
     await page.goto('/interns');
-    await expect(page.getByRole('heading', { name: 'Interns', exact: true })).toBeVisible();
-    await expect(page.locator('.lead')).toHaveText('A HighBar intern is anyone earning the Ring through real tech project evidence, with a clear mission: help you get your first real tech job. There are no lighter project tiers: the rigor level is always enough to support a post-high-school full-time job in a technically rigorous industry, and each review accepts one public YouTube video between 30 and 60 seconds.');
-    await expect(page.getByRole('heading', { name: 'Mentor a HighBar intern' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Applicants', exact: true })).toBeVisible();
+    await expect(page.locator('.lead')).toHaveText('A HighBar applicant is anyone earning the Ring through real tech project evidence, with a clear mission: help you get your first real tech job. There are no lighter project tiers: the rigor level is always enough to support a post-high-school full-time job in a technically rigorous industry, and each review accepts one public YouTube video between 30 and 60 seconds.');
+    await expect(page.getByRole('heading', { name: 'Mentor a HighBar applicant' })).toBeVisible();
     await expect(page.locator('img[src="assets/interns-mentor-hero.png"]')).toBeVisible();
-    await expect(page.getByText('A HighBar intern is anyone earning the Ring')).toHaveCount(1);
+    await expect(page.getByText('A HighBar applicant is anyone earning the Ring')).toHaveCount(1);
     await expect(page.getByText('A real role with an experienced person')).toBeVisible();
     await expect(page.locator('[data-visual-count]')).toHaveText('66');
-    await expect(page.getByRole('heading', { name: 'Find HighBar interns' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Find HighBar applicants' })).toBeVisible();
     await expect(page.getByText('including one-person companies')).toBeVisible();
-    await expect(page.getByText('send a message from an intern card')).toBeVisible();
+    await expect(page.getByText('send a message from an applicant card')).toBeVisible();
     await expect(page.locator('.intern-cta-sections')).toBeVisible();
     await expect(page.locator('.intern-cta-row')).toHaveCSS('flex-wrap', 'nowrap');
     await expect(page.locator('.intern-cta-row')).toHaveCSS('margin-top', '76px');
@@ -418,10 +421,10 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('.intern-cta-panel img[src="assets/intern-cta-hire.png"]')).toBeVisible();
     await expect(page.locator('.intern-cta-panel .panel-cta')).toHaveCount(3);
     await expect(page.getByRole('heading', { name: 'Four check-ins, then Demo Day' })).toBeVisible();
-    await expect(page.getByText('Interns move through monthly check-ins')).toBeVisible();
+    await expect(page.getByText('Applicants move through monthly check-ins')).toBeVisible();
     await expect(page.getByText('one public 30-60 second YouTube video as the official artifact')).toBeVisible();
-    await expect(page.getByRole('heading', { name: "Change an intern's life" })).toBeVisible();
-    await expect(page.getByText('Good mentorship helps interns')).toBeVisible();
+    await expect(page.getByRole('heading', { name: "Change an applicant's life" })).toBeVisible();
+    await expect(page.getByText('Good mentorship helps applicants')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Give talent a serious arena' })).toBeVisible();
     const h2Texts = await page.locator('h2').allTextContents();
     expect(h2Texts.filter((text) => text.trim().endsWith('.'))).toEqual([]);
@@ -463,16 +466,16 @@ test.describe('Backlog regression', () => {
     const homepageMessageOptions = [
       'I would like to learn more about this project.',
       'I can offer mentorship on this project.',
-      'I may have a hiring opportunity for this intern.',
+      'I may have a hiring opportunity for this applicant.',
       'I would like to discuss a collaboration.',
     ];
-    const firstInternCard = page.locator('#interns .intern-card').first();
-    await expect(firstInternCard.locator('.msg-input')).toHaveValue(homepageMessageOptions[0]);
-    await firstInternCard.locator('.msg-arrow').click();
-    await expect(firstInternCard).toHaveClass(/menu-open/);
-    await expect(firstInternCard.locator('.msg-menu li')).toHaveText(homepageMessageOptions);
+    const firstApplicantCard = page.locator('#interns .intern-card').first();
+    await expect(firstApplicantCard.locator('.msg-input')).toHaveValue(homepageMessageOptions[0]);
+    await firstApplicantCard.locator('.msg-arrow').click();
+    await expect(firstApplicantCard).toHaveClass(/menu-open/);
+    await expect(firstApplicantCard.locator('.msg-menu li')).toHaveText(homepageMessageOptions);
     await page.keyboard.press('Escape');
-    await expect(firstInternCard).not.toHaveClass(/menu-open/);
+    await expect(firstApplicantCard).not.toHaveClass(/menu-open/);
     await page.locator('[data-more-interns]').click();
     await expect(page.locator('#interns .intern-card')).toHaveCount(264);
     await expect(page.locator('[data-more-interns]')).toBeHidden();
@@ -495,15 +498,15 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('[data-active-filter]')).toContainText('NLP');
     await expect(page.locator('#interns .intern-card')).toHaveCount(6);
     await expect(page.locator('[data-more-interns]')).toHaveText('6 more');
-    await expect(page.locator('.intern-cta-row a', { hasText: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
+    await expect(page.locator('.intern-cta-row a', { hasText: 'Join applicant waitlist' })).toHaveAttribute('href', 'apply.html#intern');
     await expect(page.locator('.intern-cta-row a', { hasText: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
-    await expect(page.locator('.intern-cta-row a', { hasText: 'Hire or host interns' })).toHaveAttribute('href', '#hire-interns');
-    await expect(page.locator('.intern-cta-panel .panel-cta', { hasText: 'Join intern waitlist' })).toHaveAttribute('href', 'apply.html#intern');
+    await expect(page.locator('.intern-cta-row a', { hasText: 'Hire or host applicants' })).toHaveAttribute('href', '#hire-interns');
+    await expect(page.locator('.intern-cta-panel .panel-cta', { hasText: 'Join applicant waitlist' })).toHaveAttribute('href', 'apply.html#intern');
     await expect(page.locator('.intern-cta-panel .panel-cta', { hasText: 'Offer mentorship' })).toHaveAttribute('href', 'apply.html#mentor');
-    await expect(page.locator('.intern-cta-panel .panel-cta', { hasText: 'Hire or host interns' })).toHaveAttribute('href', '#hire-interns');
+    await expect(page.locator('.intern-cta-panel .panel-cta', { hasText: 'Hire or host applicants' })).toHaveAttribute('href', '#hire-interns');
   });
 
-  test('Interns page send widgets require sign-in and save intern payloads', async ({ page }) => {
+  test('Applicants page send widgets require sign-in and save intern payloads', async ({ page }) => {
     await page.goto('/interns');
     await expect(page.locator('#interns .intern-card').first()).toBeVisible();
 
@@ -527,9 +530,9 @@ test.describe('Backlog regression', () => {
     await page.keyboard.press('Escape');
     await send.click();
     await expect(page.locator('.registration-modal')).toBeVisible();
-    await expect(page.locator('.registration-modal')).toContainText('Only registered mentors, interns, and board members can send messages.');
+    await expect(page.locator('.registration-modal')).toContainText('Only registered mentors, applicants, and board members can send messages.');
     await expect(page.locator('.registration-modal a', { hasText: 'Mentor' })).toHaveAttribute('href', 'apply.html#mentor');
-    await expect(page.locator('.registration-modal a', { hasText: 'Intern' })).toHaveAttribute('href', 'apply.html#intern');
+    await expect(page.locator('.registration-modal a', { hasText: 'Applicant' })).toHaveAttribute('href', 'apply.html#intern');
     await expect(page.locator('.registration-modal a', { hasText: 'Board Member' })).toHaveAttribute('href', 'apply.html#board-member');
     await expect.poll(() => page.evaluate(() => window.__signInRequests)).toBe(0);
 
@@ -610,7 +613,7 @@ test.describe('Backlog regression', () => {
     expect(adminSource).toContain('value="admin"');
     expect(adminSource).toContain('value="board-member"');
     expect(adminSource).toContain('data-admin-suspended');
-    expect(adminSource).toContain('Only active registered interns, mentors, and board members can send messages.');
+    expect(adminSource).toContain('Only active registered applicants, mentors, and board members can send messages.');
     expect(roleFunction).toContain('authorizeAdmin');
     expect(roleFunction).toContain('lookupOnly');
     expect(roleFunction).toContain('disabled: suspended');
@@ -645,7 +648,7 @@ test.describe('Backlog regression', () => {
 
   test('mentor, board, and intern dashboards expose role workflows', async ({ page }) => {
     await page.goto('/mentor-dashboard.html');
-    await expect(page.getByRole('heading', { name: 'Help two interns clear a real checkpoint' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Help two applicants clear a real checkpoint' })).toBeVisible();
     await expect(page.getByText('2 monthly check-in credits')).toBeVisible();
     await expect(page.getByText('2 mentor credits available')).toBeVisible();
     await expect(page.locator('[data-intern-results] .intern-card')).toHaveCount(9);
@@ -653,7 +656,7 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('[data-action="donate-credit"]').first()).toHaveText('Donate credit');
     await expect(page.getByRole('heading', { name: 'Relationship boundaries' })).toBeVisible();
     await expect(page.getByText('more than 30 days late')).toBeVisible();
-    await expect(page.locator('.actions').getByRole('link', { name: 'Intern policies' })).toHaveAttribute('href', 'intern-policies.html');
+    await expect(page.locator('.actions').getByRole('link', { name: 'Applicant policies' })).toHaveAttribute('href', 'intern-policies.html');
 
     await page.goto('/board-member-dashboard.html');
     await expect(page.getByRole('heading', { name: 'Review, mentor, and protect Demo Day' })).toBeVisible();
@@ -666,7 +669,7 @@ test.describe('Backlog regression', () => {
     await page.goto('/intern-dashboard.html');
     await expect(page.getByRole('heading', { name: 'Spend credits carefully. Earn Demo Day honestly.' })).toBeVisible();
     await expect(page.getByText('Credits are spent when you schedule a check-in')).toBeVisible();
-    await expect(page.getByText('Every intern gets one credit each month')).toBeVisible();
+    await expect(page.getByText('Every applicant gets one credit each month')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Sharper proof before every check-in' })).toBeVisible();
     await expect(page.locator('[data-success-slide]')).toHaveCount(20);
     await expect(page.getByText('Make one public 45-second proof video')).toBeVisible();
@@ -696,12 +699,12 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('[data-action="become-mentor"]')).toHaveText('Request mentor unlock');
   });
 
-  test('intern policies and payments pages document new operations', async ({ page }) => {
+  test('applicant policies and payments pages document new operations', async ({ page }) => {
     await page.goto('/intern-policies.html');
-    await expect(page.getByRole('heading', { name: 'Intern Policies', level: 1 })).toBeVisible();
-    await expect(page.getByText('Every intern receives 1 monthly credit')).toBeVisible();
-    await expect(page.getByText('An intern can request mentor status after passing 2 monthly check-ins')).toBeVisible();
-    await expect(page.getByText('Intern/mentor relationships expire')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Applicant Policies', level: 1 })).toBeVisible();
+    await expect(page.getByText('Every applicant receives 1 monthly credit')).toBeVisible();
+    await expect(page.getByText('An applicant can request mentor status after passing 2 monthly check-ins')).toBeVisible();
+    await expect(page.getByText('Applicant/mentor relationships expire')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Evidence video' })).toBeVisible();
     await expect(page.getByText('exactly one official evidence, presentation, and artifact format')).toBeVisible();
     await expect(page.getByText('30-60 seconds long')).toBeVisible();
@@ -751,7 +754,7 @@ test.describe('Backlog regression', () => {
   test('Find a partner section has 6 cards', async ({ page }) => {
     await expect(page.locator('.section-title', { hasText: 'Find a partner' })).toBeVisible();
     await expect(page.locator('#partners .card')).toHaveCount(6);
-    await expect(page.locator('.home-final-actions').getByRole('link', { name: 'Hire or mentor an intern' })).toHaveAttribute('href', 'monetize.html');
+    await expect(page.locator('.home-final-actions').getByRole('link', { name: 'Hire or mentor an applicant' })).toHaveAttribute('href', 'monetize.html');
   });
 
   test('initial partner cards use the first 6 partner fixture records', async ({ page }) => {
@@ -828,7 +831,7 @@ test.describe('Backlog regression', () => {
 
   // --- More space between grids ---
   test('section title has significant top margin for grid spacing', async ({ page }) => {
-    const mt = await page.getByRole('heading', { name: 'Hire proven HighBar interns' }).evaluate(el => getComputedStyle(el).marginTop);
+    const mt = await page.getByRole('heading', { name: 'Hire proven HighBar applicants' }).evaluate(el => getComputedStyle(el).marginTop);
     expect(parseInt(mt)).toBeGreaterThanOrEqual(40);
   });
 
@@ -846,9 +849,9 @@ test.describe('Backlog regression', () => {
     await expect(page.getByRole('link', { name: 'User testing' })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'Design defense' })).toHaveCount(0);
     const vrActions = page.locator('.vr-showcase .showcase-actions');
-    await expect(vrActions.getByRole('link', { name: 'Become an intern' })).toHaveAttribute('href', 'apply.html?role=intern');
+    await expect(vrActions.getByRole('link', { name: 'Become an applicant' })).toHaveAttribute('href', 'apply.html?role=intern');
     await expect(vrActions.getByRole('link', { name: 'Find a partner' })).toHaveAttribute('href', 'find-partner.html');
-    await expect(page.getByRole('link', { name: 'Mentor interns' })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Mentor applicants' })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'Explore Demo Day' })).toHaveAttribute('href', 'defense-day.html');
 
     await page.locator('img[src="assets/home-vr-app-defense.png"]').scrollIntoViewIfNeeded();
@@ -861,7 +864,7 @@ test.describe('Backlog regression', () => {
     const functionSource = fs.readFileSync(path.join(__dirname, '..', 'netlify', 'functions', 'send-message.js'), 'utf8');
     expect(functionSource).toContain('richkingsford@gmail.com');
     expect(functionSource).toContain('requireUser');
-    expect(functionSource).toContain('Only active registered interns, mentors, and board members can send messages.');
+    expect(functionSource).toContain('Only active registered applicants, mentors, and board members can send messages.');
     expect(functionSource).toContain('api.resend.com/emails');
   });
 
@@ -881,7 +884,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('The single 30-60 second public YouTube video shows the strongest proof')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Common mistakes' })).toBeVisible();
     await expect(page.locator('.mistake-row')).toHaveCount(15);
-    await expect(page.getByText('Not every intern passes every checkpoint')).toBeVisible();
+    await expect(page.getByText('Not every applicant passes every checkpoint')).toBeVisible();
     await expect(page.getByText('Unreliable live demo')).toBeVisible();
     await expect(page.getByText('42%')).toBeVisible();
 
@@ -891,7 +894,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('only accepted evidence, presentation, and artifact format is a single public YouTube video')).toBeVisible();
     await expect(page.getByText('between 30 and 60 seconds')).toBeVisible();
     await expect(page.getByText('one free, one-time audit')).toBeVisible();
-    await expect(page.getByText('protect interns by preventing repeated paid attempts')).toBeVisible();
+    await expect(page.getByText('protect applicants by preventing repeated paid attempts')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'You control the timeline, with HighBar boundaries' })).toBeVisible();
     await expect(page.getByText('pass/fail outcomes, cash, credits, sponsorship')).toBeVisible();
     await expect(page.locator('.roadmap-card')).toHaveCount(10);
@@ -900,7 +903,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('$0 out of pocket')).toBeVisible();
     await expect(page.getByText('Straight four-check path')).toBeVisible();
     await expect(page.getByText('Mentor-backed sprint')).toBeVisible();
-    await expect(page.getByText('Company-sponsored intern')).toBeVisible();
+    await expect(page.getByText('Company-sponsored applicant')).toBeVisible();
     await expect(page.getByText('Fourth-gate repair')).toBeVisible();
     await expect(page.getByText('Delay gets expensive')).toBeVisible();
     await expect(page.getByText('Three-fail soft wall')).toBeVisible();
@@ -936,7 +939,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('webcam on for 100%')).toBeVisible();
     await expect(page.getByText('screen sharing and live footage')).toBeVisible();
     await expect(page.getByText('copied code without attribution')).toBeVisible();
-    await expect(page.getByText('AI-generated explanations the intern cannot defend')).toBeVisible();
+    await expect(page.getByText('AI-generated explanations the applicant cannot defend')).toBeVisible();
     await expect(page.getByText('Post one public YouTube video')).toBeVisible();
     await expect(page.getByText('credit outside help')).toBeVisible();
     await expect(page.getByText('what is prototype, borrowed, simulated, or unfinished')).toBeVisible();
@@ -958,16 +961,16 @@ test.describe('Backlog regression', () => {
     await expect(page.getByRole('heading', { name: 'Board Dashboard' })).toHaveCount(0);
     await expect(page.locator('.lead')).toContainText('paid or volunteer reviewers');
     await expect(page.locator('.lead')).toContainText('pass/fail calls');
-    await expect(page.locator('.lead')).toContainText('protect interns, reviewers, employers');
+    await expect(page.locator('.lead')).toContainText('protect applicants, reviewers, employers');
     await expect(page.locator('.section').first()).toHaveCSS('margin-top', '72px');
     await expect(page.getByRole('heading', { name: 'What board members do' })).toBeVisible();
-    await expect(page.getByText('Spend 15 minutes with an intern')).toBeVisible();
+    await expect(page.getByText('Spend 15 minutes with an applicant')).toBeVisible();
     await expect(page.getByText('pass or fail the check-in')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Use the same evidence standard' })).toBeVisible();
     await expect(page.getByText('one public YouTube video, 30-60 seconds long')).toBeVisible();
     await expect(page.getByText('posted within 24 hours before the check-in or Demo Day')).toBeVisible();
     await expect(page.getByText('webcam on for 100%')).toBeVisible();
-    await expect(page.getByText('AI-generated explanations the intern cannot defend')).toBeVisible();
+    await expect(page.getByText('AI-generated explanations the applicant cannot defend')).toBeVisible();
     await expect(page.getByText('Do not grade accent, background, confidence')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Score the same six signals' })).toBeVisible();
     await expect(page.locator('.rubric-pill')).toHaveCount(6);
@@ -977,7 +980,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByText('Flat fee per 15-minute check-in visit')).toBeVisible();
     await expect(page.getByText('Phone call or Zoom is fine')).toBeVisible();
     await expect(page.getByText('cameras can be on or off')).toBeVisible();
-    await expect(page.getByText('Every extra check-in still costs the intern $100 or one qualified check-in credit')).toBeVisible();
+    await expect(page.getByText('Every extra check-in still costs the applicant $100 or one qualified check-in credit')).toBeVisible();
     await expect(page.getByText('Flat fee per Demo Day appearance')).toBeVisible();
     await expect(page.getByText('negotiated when you are hired')).toBeVisible();
     await expect(page.getByText('only after a passing fourth check-in')).toBeVisible();
@@ -1001,9 +1004,9 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('.lead')).toContainText('first real tech job');
     await expect(page.locator('.faq-list details')).toHaveCount(8);
     await expect(page.locator('.faq-list summary').first()).toHaveText('What is HighBar?');
-    await expect(page.getByText('HighBar is the proof-first service where interns clear a serious technical standard, earn the Ring, and show employers evidence they can trust.')).toBeVisible();
+    await expect(page.getByText('HighBar is the proof-first service where applicants clear a serious technical standard, earn the Ring, and show employers evidence they can trust.')).toBeVisible();
     await page.locator('.faq-list details').nth(1).evaluate((el) => el.setAttribute('open', ''));
-    await expect(page.getByText('We use intern for anyone pursuing the Ring.')).toBeVisible();
+    await expect(page.getByText('We use applicant for anyone pursuing the Ring.')).toBeVisible();
 
     await page.goto('/privacy.html');
     await expect(page.getByRole('heading', { name: 'Privacy Policy', level: 1 })).toBeVisible();
@@ -1011,7 +1014,7 @@ test.describe('Backlog regression', () => {
     await expect(page.getByRole('heading', { name: 'What we collect' })).toBeVisible();
     await expect(page.getByText('official review artifact is one public YouTube video, 30-60 seconds long')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Message access' })).toBeVisible();
-    await expect(page.getByText('Only active registered interns, mentors, and board members can send messages through HighBar.')).toBeVisible();
+    await expect(page.getByText('Only active registered applicants, mentors, and board members can send messages through HighBar.')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Suspension and abuse review' })).toBeVisible();
     await expect(page.getByText('we may suspend or disable the account while we review it')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Your choices' })).toBeVisible();
@@ -1020,10 +1023,10 @@ test.describe('Backlog regression', () => {
   });
 
   // --- Top grid title and tagline ---
-  test('top grid titled "Hire proven HighBar interns" with tagline', async ({ page }) => {
+  test('top grid titled "Hire proven HighBar applicants" with tagline', async ({ page }) => {
     await expect(page.locator('h1.app-title')).toHaveCount(0);
-    await expect(page.locator('h2.section-title').first()).toHaveText('Hire proven HighBar interns');
-    await expect(page.locator('.tagline')).toContainText('We call someone pursuing the Ring an intern.');
+    await expect(page.locator('h2.section-title').first()).toHaveText('Hire proven HighBar applicants');
+    await expect(page.locator('.tagline')).toContainText('We call someone pursuing the Ring an applicant.');
   });
 
   // --- 6 expert cards with region pills ---

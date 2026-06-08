@@ -49,7 +49,7 @@ exports.handler = async function handler(event) {
     });
   }
   if (!canSendMessages(verified.roles)) {
-    return json(403, { error: "Only active registered interns, mentors, and board members can send messages." });
+    return json(403, { error: "Only active registered applicants, mentors, and board members can send messages." });
   }
 
   let payload;

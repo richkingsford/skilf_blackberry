@@ -63,12 +63,13 @@
       background: rgba(255,255,255,0.05); padding: 4px 9px; color: var(--ink-soft); font-size: 0.72rem; font-weight: 600;
     }
     .region { margin-top: 10px; display: inline-block; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.05); padding: 5px 10px; color: var(--ink-soft); font-size: 0.76rem; font-weight: 600; }
-    .msg-row { position: relative; display: flex; flex-wrap: wrap; margin-top: auto; padding-top: 12px; }
+    .msg-row { position: relative; z-index: 100; display: flex; flex-wrap: wrap; margin-top: auto; padding-top: 12px; }
     .msg-row.expanded { }
     .msg-row.expanded .msg-input { order: -1; width: 100%; flex: 0 0 100%; border-right: 1px solid var(--line); border-radius: 8px 8px 0 0; min-height: 4.4em; }
     .msg-row.expanded .msg-arrow { border-radius: 0 0 0 8px; border-left: 1px solid var(--line); }
     .msg-row.expanded .send-btn { border-radius: 0 0 8px 0; }
     .msg-input {
+      position: relative; z-index: 1; scroll-margin-block: 160px;
       flex: 1; padding: 5px 10px;
       border: 1px solid var(--line); border-right: none;
       border-radius: 8px 0 0 8px;
@@ -78,11 +79,13 @@
     }
     .msg-input:focus { border-color: #4a6a8a; }
     .msg-arrow {
+      position: relative; z-index: 1; scroll-margin-block: 160px;
       width: 34px; border: 1px solid var(--line); border-left: none; border-right: none;
       border-radius: 0; background: #1a2636; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
     }
     .send-btn {
+      position: relative; z-index: 1;
       padding: 7px 14px; border: none;
       border-radius: 0 8px 8px 0;
       background: var(--gold); color: var(--bg); font-size: 0.82rem; font-weight: 600;
@@ -324,8 +327,7 @@
         </form>
       </div>
       <nav class="site-links" aria-label="Primary navigation">
-        <a href="interns">Interns</a>
-        <a href="defense-day.html">Demo Day</a>
+        <a href="interns">Applicants</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -344,11 +346,11 @@
             <summary class="site-nav-cta">Begin HighBar</summary>
             <div class="site-adventure-menu" role="menu">
               <span class="site-adventure-label">Choose a path</span>
-              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#intern">Join applicant waitlist</a>
               <a role="menuitem" href="apply.html#scholarship">Request support</a>
               <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
               <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
-              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host applicants</a>
               <a role="menuitem" href="apply.html#company-project">Post entry-level project</a>
               <a role="menuitem" href="apply.html#feedback">Send feedback</a>
             </div>
@@ -380,7 +382,7 @@
     <section class="proof-checker" id="claim-check" aria-labelledby="claim-check-heading">
       <div>
         <h2 id="claim-check-heading">Resume claim checker</h2>
-        <p>Paste or share a 4-letter HighBar code to confirm the evidence standard behind a resume claim.</p>
+        <p>If you're looking at a resume that claims to have received a Silicone Ring from HighBar, you can enter the 4-letter code here to validate the claim and learn more about the applicant's Demo Day, project, and review board.</p>
       </div>
       <form class="proof-form" data-proof-form>
         <label class="proof-label" for="proof-code">4-letter code</label>
@@ -453,8 +455,8 @@
         }
       }
     </script>
-    <h2 class="section-title" id="hire">Hire proven HighBar interns</h2>
-    <p class="tagline">We call someone pursuing the Ring an intern. HighBar credentials are reputable because they are earned through expert-reviewed Demo Day proof, so paid or unpaid roles start with evidence.</p>
+    <h2 class="section-title" id="hire">Hire proven HighBar applicants</h2>
+    <p class="tagline">We call someone pursuing the Ring an applicant. HighBar credentials are reputable because they are earned through expert-reviewed Demo Day proof, so paid or unpaid roles start with evidence.</p>
     <div class="toolbar" id="expert-toolbar">
       <input class="search-input" id="search" type="text" placeholder="Search by name, region, skill, or HighBar ID…" autocomplete="off" aria-controls="expert-tree">
       <button class="tree-btn" type="button" data-tree="expert-tree" aria-label="Open skill filters" aria-controls="expert-tree" aria-expanded="false">
@@ -505,7 +507,7 @@
       }
     </script>
     <script>
-      const msgOptions=["I want to learn more about this project.","I can mentor this project.","I may have an internship or hiring lead.","I want to discuss a collaboration."];
+      const msgOptions=["I want to learn more about this project.","I can mentor this project.","I may have an applicant opportunity or hiring lead.","I want to discuss a collaboration."];
       function closeSendPrompts(){
         document.querySelectorAll('.send-login-prompt').forEach(prompt=>prompt.remove());
       }
@@ -517,7 +519,7 @@
         prompt.className='send-login-prompt';
         prompt.setAttribute('role','dialog');
         prompt.setAttribute('aria-label','Sign in required');
-        prompt.innerHTML='<p>Sign in with Google. Only registered mentors, interns, and board members can send messages.</p><div class="send-login-actions"><button class="send-login-cancel" type="button">Cancel</button><button class="send-login-submit" type="button">Sign in</button></div>';
+        prompt.innerHTML='<p>Sign in with Google. Only registered mentors, applicants, and board members can send messages.</p><div class="send-login-actions"><button class="send-login-cancel" type="button">Cancel</button><button class="send-login-submit" type="button">Sign in</button></div>';
         prompt.querySelector('.send-login-cancel').addEventListener('click',event=>{
           event.stopPropagation();
           prompt.remove();
@@ -825,7 +827,7 @@
           <h2 class="showcase-title">Turn a project into evidence</h2>
           <p class="showcase-copy">Demonstrate your app, model, user feedback, and the uncomfortable failures. Demo Day turns a claim into a visible skill.</p>
           <div class="showcase-actions" aria-label="Ways to join HighBar">
-            <a class="showcase-action" href="apply.html?role=intern">Become an intern</a>
+            <a class="showcase-action" href="apply.html?role=intern">Become an applicant</a>
             <a class="showcase-action" href="find-partner.html">Find a partner</a>
             <a class="showcase-action" href="defense-day.html">Explore Demo Day</a>
           </div>
@@ -844,7 +846,7 @@
     <section class="cards" id="partners" aria-label="partners"></section>
     <div class="home-final-actions" aria-label="HighBar pathways">
       <a class="cta" href="apply.html">Begin your HighBar path<br><span style="font-size:0.72em;font-weight:400;">$500/Demo Day</span></a>
-      <a class="cta" href="monetize.html" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Hire or mentor an intern</a>
+      <a class="cta" href="monetize.html" style="background:transparent;border:2px solid var(--gold);color:var(--gold);">Hire or mentor an applicant</a>
     </div>
     <script>
       initSkillToolbar('partner-toolbar');
@@ -893,7 +895,7 @@
       </div>
       <nav class="site-footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="interns">Interns</a>
+        <a href="interns">Applicants</a>
         <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>

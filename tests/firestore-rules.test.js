@@ -61,7 +61,7 @@ function validMessage(uid) {
     authUid: uid,
     authEmail: `${uid}@example.test`,
     targetType: "intern",
-    targetName: "QA Intern",
+    targetName: "QA Applicant",
     message: "This is a rules-test message.",
   };
 }
@@ -124,7 +124,7 @@ test("signed-in visitors can submit company project intake", async () => {
   ));
 });
 
-test("only registered mentors, interns, and board members can create messages", async () => {
+test("only registered mentors, applicants, and board members can create messages", async () => {
   await assertFails(setDoc(doc(dbFor("signed-no-role"), "messages/no-role"), validMessage("signed-no-role")));
   await assertFails(setDoc(doc(dbFor("admin-only", ["admin"]), "messages/admin-only"), validMessage("admin-only")));
 
@@ -168,7 +168,7 @@ test("users can read and edit only their own safe profile fields", async () => {
   await assertSucceeds(getDoc(doc(dbFor("intern-a", ["intern"]), "userProfiles/intern-a")));
   await assertFails(getDoc(doc(dbFor("intern-a", ["intern"]), "userProfiles/intern-b")));
   await assertSucceeds(updateDoc(doc(dbFor("intern-a", ["intern"]), "userProfiles/intern-a"), {
-    displayName: "Updated Intern",
+    displayName: "Updated Applicant",
     updatedAt: "rules-test-update",
   }));
   await assertFails(updateDoc(doc(dbFor("intern-a", ["intern"]), "userProfiles/intern-a"), {

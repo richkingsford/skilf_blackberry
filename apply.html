@@ -97,8 +97,7 @@
         <span><span class="site-wordmark">HighBar</span><span class="site-brand-note">Get your first real tech job</span></span>
       </a>
       <nav class="site-links" aria-label="Primary navigation">
-        <a href="interns">Interns</a>
-        <a href="defense-day.html">Demo Day</a>
+        <a href="interns">Applicants</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -117,11 +116,11 @@
             <summary class="site-nav-cta">Begin HighBar</summary>
             <div class="site-adventure-menu" role="menu">
               <span class="site-adventure-label">Choose a path</span>
-              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#intern">Join applicant waitlist</a>
               <a role="menuitem" href="apply.html#scholarship">Request support</a>
               <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
               <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
-              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host applicants</a>
               <a role="menuitem" href="apply.html#company-project">Post entry-level project</a>
               <a role="menuitem" href="apply.html#feedback">Send feedback</a>
             </div>
@@ -133,11 +132,15 @@
   </header>
   <main>
     <h1>Join the HighBar waitlist</h1>
-    <p class="lead">Pick the path that fits you. HighBar is focused on tech careers, and our mission is to help interns turn proof into a first real tech job. This intake routes interns, mentors, reviewer-board candidates, hiring partners, company project prompts, support requests, and feedback.</p>
+    <p class="lead">Pick the path that fits you. HighBar is focused on tech careers, and our mission is to help applicants turn proof into a first real tech job. This intake routes applicants, mentors, reviewer-board candidates, hiring partners, company project prompts, support requests, and feedback.</p>
 
-    <form name="skilf-application" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-skilf-application-form>
+    <form name="skilf-application" method="POST" action="https://formsubmit.co/richkingsford@gmail.com" data-function-action="/.netlify/functions/submit-application" data-success-url="thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-skilf-application-form>
       <input type="hidden" name="form-name" value="skilf-application">
       <input type="hidden" name="recipient" value="richkingsford@gmail.com">
+      <input type="hidden" name="_subject" value="New HighBar application">
+      <input type="hidden" name="_next" value="https://firstrealtechjob.org/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
       <input type="hidden" name="kind" data-kind-input value="intern">
       <label class="hidden">Do not fill this out <input name="bot-field"></label>
 
@@ -146,11 +149,11 @@
         <label class="wide">
           Choose a path
           <select name="role" data-intent-select required>
-            <option value="intern">Join intern waitlist</option>
+            <option value="intern">Join applicant waitlist</option>
             <option value="scholarship">Request support</option>
             <option value="board-member">Join reviewer board</option>
             <option value="mentor">Offer mentorship</option>
-            <option value="hire">Hire or host interns</option>
+            <option value="hire">Hire or host applicants</option>
             <option value="company-project">Post entry-level project</option>
             <option value="feedback">Send feedback</option>
           </select>
@@ -186,7 +189,7 @@
       </div>
       <nav class="site-footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="interns">Interns</a>
+        <a href="interns">Applicants</a>
         <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
@@ -205,7 +208,7 @@
     const projectInput = document.querySelector("[data-project-input]");
     const copy = {
       intern: {
-        note: "Intern means anyone pursuing the Ring. Join the waitlist with the project you want to build, prove, or defend.",
+        note: "Applicant means anyone pursuing the Ring. Join the waitlist with the project you want to build, prove, or defend.",
         label: "What do you want to build or prove?",
         placeholder: "Example: I want to build a robotics prototype and prove I can work with sensors, control systems, and test data.",
       },
@@ -220,22 +223,22 @@
         placeholder: "Example: I can review robotics, embedded systems, and whether a candidate can explain trade-offs under pressure.",
       },
       mentor: {
-        note: "Mentors help interns scope projects, practice, use tools wisely, and prepare honest evidence.",
-        label: "How would you like to mentor interns?",
-        placeholder: "Example: I can meet weekly with interns working on product design, user testing, and prototype storytelling.",
+        note: "Mentors help applicants scope projects, practice, use tools wisely, and prepare honest evidence.",
+        label: "How would you like to mentor applicants?",
+        placeholder: "Example: I can meet weekly with applicants working on product design, user testing, and prototype storytelling.",
       },
       hire: {
-        note: "Hiring partners give interns credible constraints, useful feedback, and a serious place to prove skill.",
+        note: "Hiring partners give applicants credible constraints, useful feedback, and a serious place to prove skill.",
         label: "What kind of internship or project work can you offer?",
-        placeholder: "Example: We can host an internship for someone building analytics, robotics, or UX evidence toward Demo Day.",
+        placeholder: "Example: We can host a project or applicant opportunity for someone building analytics, robotics, or UX evidence toward Demo Day.",
       },
       "company-project": {
-        note: "Company project prompts tell HighBar what real entry-level work should look like, so interns can build evidence around useful employer expectations.",
+        note: "Company project prompts tell HighBar what real entry-level work should look like, so applicants can build evidence around useful employer expectations.",
         label: "What project would you like entry-level hires to be able to do?",
         placeholder: "Example: Build a dashboard that imports CSV sales data, cleans it, and explains three trends to a nontechnical manager.",
       },
       feedback: {
-        note: "Your feedback goes directly to the HighBar organization. It is not sent to an intern, mentor, or board member.",
+        note: "Your feedback goes directly to the HighBar organization. It is not sent to an applicant, mentor, or board member.",
         label: "What feedback would you like to send to the HighBar organization?",
         placeholder: "Example: I found a confusing page, have an idea for Demo Day, or want to suggest a better way for HighBar to work.",
       },

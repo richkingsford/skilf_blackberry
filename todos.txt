@@ -79,7 +79,7 @@ Next recommended batch
 [ ] Add board pass/fail notes and score capture to server records.
 [ ] Add board-only decision history.
 
-9. Intern data model
+9. Applicant data model
 ---------------------
 [ ] Decide whether `prospectivePartners.json` remains static or moves to Firestore.
 [ ] Add stable intern IDs and project IDs for real users.
@@ -105,7 +105,7 @@ Next recommended batch
 [ ] Have a lawyer or qualified advisor review:
     privacy policy
     refund policy
-    intern policies
+    applicant policies
     Demo Day pass/fail language
     use of one public YouTube video as the accepted review artifact
     mentor/board liability
@@ -222,6 +222,26 @@ Acceptance:
 - Convert actionable items into tickets.
 - Mark non-actionable feedback as noted.
 
+TICKET TERMINOLOGY-001: Align local wording with production source of truth
+Status: done
+Type: Copy/content
+Source note: Initial note said to use entrepreneur unless there is a true internship. Follow-up clarified that https://firstrealtechjob.org/ has the correct wording.
+Acceptance:
+- Production currently uses Applicants, Join applicant waitlist, and Hire or host applicants.
+- Local public copy stays aligned with production wording.
+- Revisit entrepreneur terminology only if the production source of truth changes.
+
+TICKET FOUNDER-001: Register first founder and add applicant journey
+Status: implemented - Richard registered and welcome email sent
+Type: Product / admin / onboarding
+Source note: First founder is Richard Brooks <rmanbrooks@gmail.com>. New applicants need the HighBar welcome email, and students need a database-backed checklist they can check/uncheck.
+Acceptance:
+- Add an admin shortcut for registering founder applicants by name/email.
+- Send the "Welcome to HighBar (hbar for short)" email to new applicants.
+- Persist a comprehensive student portal journey checklist in Firestore.
+- Register Richard Brooks in Firestore.
+- Send Richard's welcome email from Rich's Gmail account.
+
 Postponed cash-related tickets
 ------------------------------
 
@@ -232,7 +252,7 @@ Source notes: fund projects/interns, crowdsourced scholarships, crowd support, i
 Acceptance:
 - Decide whether people fund a specific intern, a project, or a general scholarship pool.
 - Define what public supporters see.
-- Define what the intern sees.
+- Define what the applicant sees.
 - Define how funds convert to check-in credits, Demo Day help, stipend, or scholarship.
 - Do not implement payments until the Stripe/payment batch is reopened.
 
@@ -242,7 +262,7 @@ Type: Operations
 Acceptance:
 - Define who qualifies as a beta tester.
 - Define stipend amount, payment method, and expected work.
-- Define whether beta testers are interns, mentors, reviewers, or outside usability testers.
+- Define whether beta testers are applicants, mentors, reviewers, or outside usability testers.
 - Add budget and approval owner.
 
 TICKET CREDITS-001: Revisit credit and demerit economics
@@ -254,7 +274,7 @@ Acceptance:
 - Decide whether failing a check-in costs an extra credit or only consumes the scheduled credit.
 - Decide whether demerits should increase future fees.
 - Decide whether any penalty money must go to a trusted nonprofit.
-- Update Intern Policies only after legal/accounting review.
+- Update Applicant Policies only after legal/accounting review.
 
 TICKET CREDITS-002: Explore low upfront deposits toward Demo Day
 Status: postponed - cash-related

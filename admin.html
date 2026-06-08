@@ -119,6 +119,7 @@
     }
 
     input[type="email"],
+    input[type="text"],
     textarea {
       box-sizing: border-box;
       width: 100%;
@@ -291,8 +292,7 @@
         <span><span class="site-wordmark">HighBar</span><span class="site-brand-note">Get your first real tech job</span></span>
       </a>
       <nav class="site-links" aria-label="Primary navigation">
-        <a href="interns">Interns</a>
-        <a href="defense-day.html">Demo Day</a>
+        <a href="interns">Applicants</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
         <span class="site-auth" data-auth-ui>
@@ -311,11 +311,11 @@
             <summary class="site-nav-cta">Begin HighBar</summary>
             <div class="site-adventure-menu" role="menu">
               <span class="site-adventure-label">Choose a path</span>
-              <a role="menuitem" href="apply.html#intern">Join intern waitlist</a>
+              <a role="menuitem" href="apply.html#intern">Join applicant waitlist</a>
               <a role="menuitem" href="apply.html#scholarship">Request support</a>
               <a role="menuitem" href="apply.html#board-member">Join reviewer board</a>
               <a role="menuitem" href="apply.html#mentor">Offer mentorship</a>
-              <a role="menuitem" href="apply.html#hire">Hire or host interns</a>
+              <a role="menuitem" href="apply.html#hire">Hire or host applicants</a>
               <a role="menuitem" href="apply.html#company-project">Post entry-level project</a>
               <a role="menuitem" href="apply.html#feedback">Send feedback</a>
             </div>
@@ -356,12 +356,29 @@
         </section>
 
         <section class="admin-panel">
+          <h2>Register founder</h2>
+          <label>Founder name
+            <input type="text" data-founder-name autocomplete="name" placeholder="Richard Brooks">
+          </label>
+          <label style="margin-top:14px;">Founder email
+            <input type="email" data-founder-email autocomplete="email" placeholder="founder@example.com">
+          </label>
+          <label style="margin-top:14px;">Founder note
+            <textarea data-founder-note placeholder="How they joined, what they are building, or any review context"></textarea>
+          </label>
+          <div class="button-row">
+            <button class="admin-btn primary" type="button" data-admin-action="register-founder">Register founder</button>
+          </div>
+          <p class="status-line" data-founder-status></p>
+        </section>
+
+        <section class="admin-panel">
           <h2>Permissions</h2>
           <fieldset>
             <legend>Approved roles</legend>
             <div class="role-grid">
               <label class="check-row"><input type="checkbox" value="admin" data-admin-role> Admin</label>
-              <label class="check-row"><input type="checkbox" value="intern" data-admin-role> Intern</label>
+              <label class="check-row"><input type="checkbox" value="intern" data-admin-role> Applicant</label>
               <label class="check-row"><input type="checkbox" value="board-member" data-admin-role> Board member</label>
               <label class="check-row"><input type="checkbox" value="mentor" data-admin-role> Mentor</label>
             </div>
@@ -384,7 +401,7 @@
       <aside>
         <section class="policy-strip">
           <h2>Messaging rule</h2>
-          <p><strong>Only active registered interns, mentors, and board members can send messages.</strong> Admin alone is not treated as a sender role unless that account also has one of those registered roles.</p>
+          <p><strong>Only active registered applicants, mentors, and board members can send messages.</strong> Admin alone is not treated as a sender role unless that account also has one of those registered roles.</p>
         </section>
         <section class="policy-strip">
           <h2>Suspension rule</h2>
@@ -403,7 +420,7 @@
       </div>
       <nav class="site-footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="interns">Interns</a>
+        <a href="interns">Applicants</a>
         <a href="defense-day.html">Demo Day</a>
         <a href="board-dashboard.html">Board Members</a>
         <a href="monetize.html">Mentors</a>
@@ -421,6 +438,10 @@
     const signIn = document.querySelector("[data-admin-sign-in]");
     const consoleRoot = document.querySelector("[data-admin-console]");
     const emailInput = document.querySelector("[data-admin-email]");
+    const founderNameInput = document.querySelector("[data-founder-name]");
+    const founderEmailInput = document.querySelector("[data-founder-email]");
+    const founderNoteInput = document.querySelector("[data-founder-note]");
+    const founderStatus = document.querySelector("[data-founder-status]");
     const roleInputs = [...document.querySelectorAll("[data-admin-role]")];
     const suspendedInput = document.querySelector("[data-admin-suspended]");
     const reasonInput = document.querySelector("[data-admin-reason]");
@@ -441,6 +462,11 @@
     function setStatus(message, tone = "") {
       status.textContent = message || "";
       status.className = `status-line ${tone}`.trim();
+    }
+
+    function setFounderStatus(message, tone = "") {
+      founderStatus.textContent = message || "";
+      founderStatus.className = `status-line ${tone}`.trim();
     }
 
     function setBusy(isBusy) {
@@ -516,10 +542,10 @@
       consoleRoot.hidden = false;
     }
 
-    async function callAdmin(payload) {
+    async function callFunction(endpoint, payload) {
       const skilf = window.skilfFirebase;
       const token = await skilf.getIdToken(true);
-      const response = await fetch("/.netlify/functions/admin-set-user-roles", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -530,6 +556,10 @@
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || `Admin request failed (${response.status}).`);
       return data;
+    }
+
+    async function callAdmin(payload) {
+      return callFunction("/.netlify/functions/admin-set-user-roles", payload);
     }
 
     async function lookupUser() {
@@ -559,6 +589,28 @@
       return data.user;
     }
 
+    async function registerFounder() {
+      const name = founderNameInput.value.trim();
+      const email = founderEmailInput.value.trim();
+      const note = founderNoteInput.value.trim();
+      if (!name) throw new Error("Enter the founder's name first.");
+      if (!email) throw new Error("Enter the founder's email first.");
+      const data = await callFunction("/.netlify/functions/register-founder", { name, email, note });
+      const founder = data.founder || {};
+      result.hidden = false;
+      result.innerHTML = `
+        <h2>Registered founder</h2>
+        <dl>
+          <dt>Name</dt><dd>${escapeHtml(founder.name || name)}</dd>
+          <dt>Email</dt><dd>${escapeHtml(founder.email || email)}</dd>
+          <dt>Status</dt><dd>${escapeHtml(founder.status || "applicant")}</dd>
+          <dt>Auth user</dt><dd>${data.authUserFound ? "Found and granted applicant access" : "Not signed in yet"}</dd>
+          <dt>Welcome</dt><dd>${data.welcomeEmail && data.welcomeEmail.sent ? "Sent" : `Not sent (${escapeHtml(data.welcomeEmail && data.welcomeEmail.reason || "unknown")})`}</dd>
+        </dl>
+      `;
+      return data;
+    }
+
     document.addEventListener("click", async (event) => {
       if (event.target.closest("[data-admin-sign-in]")) {
         await window.skilfFirebase.requireSignIn("Sign in as admin to continue.");
@@ -570,11 +622,20 @@
       if (!actionButton) return;
       const action = actionButton.dataset.adminAction;
       setBusy(true);
-      setStatus(action === "lookup" ? "Looking up account..." : "Saving account policy...");
+      setStatus(action === "lookup" ? "Looking up account..." : action === "register-founder" ? "Registering founder..." : "Saving account policy...");
+      if (action === "register-founder") setFounderStatus("Registering founder...");
       try {
-        const user = action === "lookup" ? await lookupUser() : await saveUser(action);
-        setStatus(`${user.email} is ${user.suspended || user.disabled ? "suspended" : "active"}.`, "ok");
+        if (action === "register-founder") {
+          const data = await registerFounder();
+          const email = data.founder && data.founder.email ? data.founder.email : founderEmailInput.value.trim();
+          setFounderStatus(`${email} is registered as an applicant founder.`, "ok");
+          setStatus("Founder registration saved.", "ok");
+        } else {
+          const user = action === "lookup" ? await lookupUser() : await saveUser(action);
+          setStatus(`${user.email} is ${user.suspended || user.disabled ? "suspended" : "active"}.`, "ok");
+        }
       } catch (error) {
+        if (action === "register-founder") setFounderStatus(error.message || "Founder registration failed.", "error");
         setStatus(error.message || "Admin update failed.", "error");
       } finally {
         setBusy(false);

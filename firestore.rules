@@ -49,7 +49,7 @@ service cloud.firestore {
 
     function validRequestedRoles(roles) {
       return roles is list
-        && roles.hasOnly(["intern", "scholarship", "board-member", "mentor", "hire", "company-project", "feedback"]);
+        && roles.hasOnly(["applicant", "founder", "intern", "scholarship", "board-member", "mentor", "hire", "company-project", "feedback"]);
     }
 
     function profileRolesMatchAuthority(roles) {
@@ -81,6 +81,9 @@ service cloud.firestore {
         "reinstatedByEmail",
         "reinstatedByUid",
         "authoritySource",
+        "applicant",
+        "founderApplicant",
+        "applicantType",
         "source",
         "createdAt",
         "updatedAt"
@@ -113,7 +116,7 @@ service cloud.firestore {
         && validRequestedRoles(request.resource.data.requestedRoles)
         && request.resource.data.primaryRole in ["", "admin", "board-member", "mentor", "intern"]
         && request.resource.data.isRegistered is bool
-        && request.resource.data.authoritySource in ["custom-claims", "owner-email", "none"];
+        && request.resource.data.authoritySource in ["custom-claims", "owner-email", "registered-founder", "none"];
     }
 
     match /userProfiles/{userId} {

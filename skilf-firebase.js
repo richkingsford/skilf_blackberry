@@ -27,16 +27,16 @@ const OWNER_EMAIL = "richkingsford@gmail.com";
 const OWNER_ROLES = ["admin", "board-member", "mentor", "intern"];
 const ADMIN_LINKS = [
   ["admin.html", "Admin"],
-  ["intern-dashboard.html", "Intern Dashboard"],
+  ["intern-dashboard.html", "Applicant Dashboard"],
   ["board-member-dashboard.html", "Board Dashboard"],
   ["mentor-dashboard.html", "Mentor Dashboard"],
 ];
 const ADVENTURE_OPTIONS = [
-  ["intern", "Join intern waitlist"],
+  ["intern", "Join applicant waitlist"],
   ["scholarship", "Request support"],
   ["board-member", "Join reviewer board"],
   ["mentor", "Offer mentorship"],
-  ["hire", "Hire or host interns"],
+  ["hire", "Hire or host applicants"],
   ["company-project", "Post entry-level project"],
   ["feedback", "Send feedback"],
 ];
@@ -180,8 +180,34 @@ function authoritySourceFor(user, roles, tokenResult = null) {
   return "none";
 }
 
+async function syncUserProfileWithServer(user, requestedRole = "") {
+  const token = await getIdToken(user, true);
+  const response = await fetch("/.netlify/functions/sync-user-profile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ requestedRole }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "Server profile sync failed.");
+  if (data.claimsUpdated) await getIdTokenResult(user, true).catch(() => null);
+  if (data.profile) {
+    applyProfileData(data.profile);
+    return state.profile;
+  }
+  return null;
+}
+
 async function syncUserProfile(user = state.user, requestedRole = "") {
   if (!state.ready || !user) return null;
+  const serverProfile = await syncUserProfileWithServer(user, requestedRole).catch((error) => {
+    console.warn("Server profile sync unavailable; using browser profile fallback.", error);
+    return null;
+  });
+  if (serverProfile) return serverProfile;
+
   const profileRef = doc(state.db, "userProfiles", user.uid);
   const existing = await getDoc(profileRef).catch(() => null);
   const existingData = existing && existing.exists() ? existing.data() : {};
@@ -336,13 +362,49 @@ async function savePersonApplication(form) {
   return docRef;
 }
 
+function applicationPayloadFrom(form) {
+  const data = Object.fromEntries(new FormData(form).entries());
+  return {
+    "form-name": data["form-name"] || form.getAttribute("name") || "skilf-application",
+    "bot-field": data["bot-field"] || "",
+    kind: data.kind || data.role || "intern",
+    role: data.role || data.kind || "intern",
+    name: data.name || "",
+    email: data.email || "",
+    project: data.project || "",
+    message: data.message || "",
+  };
+}
+
+async function submitApplication(form) {
+  assertWritesAllowed();
+  const user = state.user || (state.auth ? state.auth.currentUser : null);
+  const token = user ? await getIdToken(user, true) : "";
+  const payload = applicationPayloadFrom(form);
+  const endpoint = form.dataset.functionAction || "/.netlify/functions/submit-application";
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data.error || `Application submit failed (${response.status}).`);
+  }
+  if (user) await syncUserProfile(user, payload.role).catch((error) => console.error("User role sync failed.", error));
+  return data;
+}
+
 async function saveCardMessage(payload) {
   const user = state.user || (state.auth ? state.auth.currentUser : null);
   if (!state.ready || !user) return null;
   assertWritesAllowed();
   await syncUserProfile(user);
   if (!hasRegisteredMessageRole()) {
-    throw new Error("Only registered mentors, interns, and board members can send messages.");
+    throw new Error("Only registered mentors, applicants, and board members can send messages.");
   }
   const message = {
     targetType: payload.targetType || "expert",
@@ -367,7 +429,7 @@ async function saveDashboardAction(payload) {
   assertWritesAllowed();
   await syncUserProfile(user);
   if (!hasRegisteredMessageRole()) {
-    throw new Error("Only registered mentors, interns, and board members can use dashboards.");
+    throw new Error("Only registered mentors, applicants, and board members can use dashboards.");
   }
   const token = await getIdToken(user, true);
   const response = await fetch("/.netlify/functions/record-dashboard-action", {
@@ -417,6 +479,39 @@ async function sendMessageEmail(payload, user) {
   return response.json().catch(() => ({ ok: true }));
 }
 
+async function loadStudentJourney() {
+  const user = state.user || (state.auth ? state.auth.currentUser : null);
+  if (!state.ready || !user) return null;
+  const token = await getIdToken(user, true);
+  const response = await fetch("/.netlify/functions/student-journey", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "Journey could not be loaded.");
+  return data.journey || null;
+}
+
+async function saveStudentJourney(steps) {
+  const user = state.user || (state.auth ? state.auth.currentUser : null);
+  if (!state.ready || !user) return null;
+  assertWritesAllowed();
+  const token = await getIdToken(user, true);
+  const response = await fetch("/.netlify/functions/student-journey", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ steps }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "Journey could not be saved.");
+  return data.journey || null;
+}
+
 async function getCurrentIdToken(forceRefresh = false) {
   const user = state.user || (state.auth ? state.auth.currentUser : null);
   if (!user) return "";
@@ -428,7 +523,6 @@ function wireApplicationForm() {
   if (!form) return;
 
   form.addEventListener("submit", async (event) => {
-    if (!state.ready || !state.user) return;
     event.preventDefault();
     const submit = form.querySelector("[type='submit']");
     const originalText = submit ? submit.textContent : "";
@@ -437,12 +531,33 @@ function wireApplicationForm() {
       submit.textContent = "Sending...";
     }
     try {
-      await savePersonApplication(form);
+      await submitApplication(form);
+      window.location.assign(form.dataset.successUrl || "thanks.html");
+      return;
     } catch (error) {
-      console.error("Firebase save failed; continuing with Netlify form submit.", error);
+      console.error("Application function failed; using static fallback if available.", error);
+      if (state.ready && state.user) {
+        try {
+          await savePersonApplication(form);
+        } catch (firebaseError) {
+          console.error("Firebase fallback save failed.", firebaseError);
+        }
+      }
+      const fallbackAction = form.getAttribute("action") || "";
+      if (fallbackAction && !/thanks\.html$/i.test(fallbackAction)) {
+        HTMLFormElement.prototype.submit.call(form);
+        return;
+      }
+      const status = document.querySelector("[data-auth-status]");
+      if (status) {
+        status.textContent = error.message || "Application could not be sent. Please try again.";
+        status.hidden = false;
+      }
     }
-    if (submit) submit.textContent = originalText;
-    HTMLFormElement.prototype.submit.call(form);
+    if (submit) {
+      submit.textContent = originalText;
+      submit.disabled = false;
+    }
   });
 }
 
@@ -563,6 +678,9 @@ window.skilfFirebase = {
   saveCardMessage,
   saveDashboardAction,
   savePersonApplication,
+  submitApplication,
+  loadStudentJourney,
+  saveStudentJourney,
   getIdToken: getCurrentIdToken,
   writesAllowedInThisDeployment,
 };

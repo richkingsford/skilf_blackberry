@@ -26,11 +26,12 @@ function buttonCoverage(button) {
   if (button.dataAdminAction || button.dataAdminSignIn) return 'admin-function';
   if (button.dataPaymentKind) return 'payment-function';
   if (button.dataAction) return `dashboard-action:${button.dataAction}`;
+  if (button.dataJourneyRefresh !== null) return 'journey-refresh';
   if (button.dataTipDir) return 'success-carousel-nav';
   if (button.dataTipDot) return 'success-carousel-dot';
   if (button.dataTree || button.dataTreeToggle !== null) return 'skill-filter-toggle';
   if (button.dataClearSearch !== null) return 'clear-search';
-  if (button.dataMoreInterns !== null) return 'more-interns';
+  if (button.dataMoreApplicants !== null) return 'more-interns';
   if (button.className.includes('msg-arrow')) return 'message-template-menu';
   if (button.className.includes('send-btn')) return 'message-send';
   if (button.className.includes('tag')) return 'tag-filter';
@@ -78,8 +79,47 @@ async function installSafeMocks(page) {
           headers: { 'Content-Type': 'application/json' },
         });
       }
+      if (url.includes('/.netlify/functions/register-founder')) {
+        return new Response(JSON.stringify({
+          ok: true,
+          founder: {
+            id: 'richard-brooks',
+            name: 'Richard Brooks',
+            email: 'rmanbrooks@gmail.com',
+            status: 'applicant',
+            steps: [],
+          },
+          authUserFound: false,
+          welcomeEmail: { sent: true, id: 'qa-welcome' },
+        }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
       if (url.includes('/.netlify/functions/record-dashboard-action')) {
         return new Response(JSON.stringify({ ok: true, actionId: 'qa-action' }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      if (url.includes('/.netlify/functions/submit-application')) {
+        return new Response(JSON.stringify({ ok: true, applicationId: 'qa-application', welcomeEmail: { sent: true } }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      if (url.includes('/.netlify/functions/student-journey')) {
+        return new Response(JSON.stringify({
+          ok: true,
+          journey: {
+            email: 'richkingsford@gmail.com',
+            name: 'Rich QA',
+            status: 'applicant',
+            steps: [
+              { id: 'submit-application', title: 'Submit application', detail: 'Done. You are now an applicant.', done: true },
+            ],
+          },
+        }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
         });
@@ -115,6 +155,14 @@ async function installFirebaseMock(page, roles = ['admin', 'board-member', 'ment
       saveCardMessage: async () => ({ id: 'qa-message' }),
       saveDashboardAction: async () => ({ ok: true }),
       savePersonApplication: async () => ({ id: 'qa-application' }),
+      submitApplication: async () => ({ id: 'qa-application' }),
+      loadStudentJourney: async () => ({
+        steps: [
+          { id: 'submit-application', done: true },
+          { id: 'unpaid-internship-attempt', done: false },
+        ],
+      }),
+      saveStudentJourney: async (steps) => ({ steps }),
       getIdToken: async () => 'qa-token',
       writesAllowedInThisDeployment: () => true,
     };
@@ -191,12 +239,13 @@ test.describe('Full page surface', () => {
         dataAdminSignIn: button.hasAttribute('data-admin-sign-in'),
         dataPaymentKind: button.dataset.paymentKind || '',
         dataAction: button.dataset.action || '',
+        dataJourneyRefresh: button.hasAttribute('data-journey-refresh') ? '' : null,
         dataTipDir: button.dataset.tipDir || '',
         dataTipDot: button.dataset.tipDot || '',
         dataTree: button.dataset.tree || '',
         dataTreeToggle: button.hasAttribute('data-tree-toggle') ? '' : null,
         dataClearSearch: button.hasAttribute('data-clear-search') ? '' : null,
-        dataMoreInterns: button.hasAttribute('data-more-interns') ? '' : null,
+        dataMoreApplicants: button.hasAttribute('data-more-interns') ? '' : null,
         outer: button.outerHTML.slice(0, 180),
       })));
       for (const button of buttons) {

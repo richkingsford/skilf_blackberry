@@ -261,7 +261,7 @@ async function openFixedAdventure(page) {
 async function exerciseGlobalChrome(page) {
   await gotoPage(page, "index.html", "global chrome baseline");
   await openTopAdventure(page);
-  await clickBySelector(page, '.site-nav .site-adventure-menu a[href="apply.html#intern"]', "Top menu option: Join intern waitlist");
+  await clickBySelector(page, '.site-nav .site-adventure-menu a[href="apply.html#intern"]', "Top menu option: Join applicant waitlist");
   await gotoPage(page, "index.html", "global chrome top menu remaining");
   for (const hash of ADVENTURE_HASHES.slice(1)) {
     await openTopAdventure(page);
@@ -369,26 +369,26 @@ async function exerciseHome(page) {
   }
 }
 
-async function exerciseInterns(page) {
-  await gotoPage(page, "interns", "Interns public page");
+async function exerciseApplicants(page) {
+  await gotoPage(page, "interns", "Applicants public page");
   await page.fill("#intern-search", "NLP");
-  await step(page, "Interns search: NLP");
+  await step(page, "Applicants search: NLP");
   await page.fill("#intern-search", "");
-  await clickSkillLeaves(page, "#intern-search", "[data-tree-toggle]", "#intern-tree", "Interns skill filter");
+  await clickSkillLeaves(page, "#intern-search", "[data-tree-toggle]", "#intern-tree", "Applicants skill filter");
 
-  await gotoPage(page, "interns", "Interns expand all");
-  await clickBySelector(page, "[data-more-interns]", "Expand all 264 intern cards", { afterDelay: 300 });
-  await exerciseMessageWidget(page, "#interns .intern-card", "Intern card message widget");
+  await gotoPage(page, "interns", "Applicants expand all");
+  await clickBySelector(page, "[data-more-interns]", "Expand all 264 applicant cards", { afterDelay: 300 });
+  await exerciseMessageWidget(page, "#interns .intern-card", "Applicant card message widget");
   await mockNoAuth(page);
-  await clickLocator(page, page.locator("#interns .intern-card").first().locator(".send-btn"), "Signed-out send attempt on intern card");
+  await clickLocator(page, page.locator("#interns .intern-card").first().locator(".send-btn"), "Signed-out send attempt on applicant card");
   await clickBySelector(page, ".registration-close", "Dismiss registered-role modal");
 
   for (const roleKey of ["intern", "mentor", "board", "rich"]) {
-    await gotoPage(page, "interns", `Interns send as ${roleKey}`, roleKey);
-    await clickLocator(page, page.locator("#interns .intern-card").first().locator(".send-btn"), `Send intern message as ${roleKey}`);
+    await gotoPage(page, "interns", `Applicants send as ${roleKey}`, roleKey);
+    await clickLocator(page, page.locator("#interns .intern-card").first().locator(".send-btn"), `Send applicant message as ${roleKey}`);
   }
 
-  await gotoPage(page, "interns", "Intern CTAs");
+  await gotoPage(page, "interns", "Applicant CTAs");
   for (const selector of [
     '.intern-cta-row a[href="apply.html#intern"]',
     '.intern-cta-row a[href="apply.html#mentor"]',
@@ -397,7 +397,7 @@ async function exerciseInterns(page) {
     '.intern-cta-panel .panel-cta[href="apply.html#mentor"]',
     '.intern-cta-panel .panel-cta[href="#hire-interns"]',
   ]) {
-    await clickBySelector(page, selector, `Interns CTA: ${selector}`, { afterDelay: 120 });
+    await clickBySelector(page, selector, `Applicants CTA: ${selector}`, { afterDelay: 120 });
     if (!page.url().includes("/interns")) await gotoPage(page, "interns", `return after ${selector}`);
   }
 }
@@ -451,7 +451,7 @@ async function exerciseDashboards(page) {
   await page.fill("[data-intern-search]", "robotics");
   await step(page, "Mentor dashboard search: robotics");
   await page.fill("[data-intern-search]", "");
-  await clickLocator(page, page.locator('[data-action="offer-mentor"]').first(), "Mentor offers to mentor first intern");
+  await clickLocator(page, page.locator('[data-action="offer-mentor"]').first(), "Mentor offers to mentor first applicant");
   await clickLocator(page, page.locator('[data-action="donate-credit"]').first(), "Mentor donates credit one");
   await pause(920);
   await clickLocator(page, page.locator('[data-action="donate-credit"]').nth(1), "Mentor donates credit two");
@@ -465,13 +465,13 @@ async function exerciseDashboards(page) {
   await clickBySelector(page, '[data-action="report-problem"]', "Board reports a problem");
   await clickLocator(page, page.locator('[data-action="donate-credit"]').first(), "Board uses mentor credit tool");
 
-  await gotoPage(page, "intern-dashboard.html", "Intern dashboard as intern", "intern");
-  await clickBySelector(page, '[data-action="schedule-check-in"]', "Intern spends first check-in credit");
+  await gotoPage(page, "intern-dashboard.html", "Applicant dashboard as intern", "intern");
+  await clickBySelector(page, '[data-action="schedule-check-in"]', "Applicant spends first check-in credit");
   await pause(920);
-  await clickBySelector(page, '[data-action="schedule-check-in"]', "Intern spends second check-in credit");
-  await clickBySelector(page, '[data-action="give-intern-credit"]', "Intern gives away monthly credit");
-  await clickBySelector(page, '[data-action="become-mentor"]', "Intern requests mentor unlock");
-  await clickBySelector(page, 'a[href="intern-policies.html#demo-day-gate"]', "Intern opens Demo Day locked policy link");
+  await clickBySelector(page, '[data-action="schedule-check-in"]', "Applicant spends second check-in credit");
+  await clickBySelector(page, '[data-action="give-intern-credit"]', "Applicant gives away monthly credit");
+  await clickBySelector(page, '[data-action="become-mentor"]', "Applicant requests mentor unlock");
+  await clickBySelector(page, 'a[href="intern-policies.html#demo-day-gate"]', "Applicant opens Demo Day locked policy link");
 
   await gotoPage(page, "board-member-dashboard.html", "Rich all-role dashboard", "rich");
   await clickBySelector(page, '[data-action="pass-demo"]', "Rich all-role pass Demo Day");
@@ -569,7 +569,7 @@ async function main() {
   try {
     await exerciseGlobalChrome(page);
     await exerciseHome(page);
-    await exerciseInterns(page);
+    await exerciseApplicants(page);
     await exerciseApply(page);
     await exerciseFaq(page);
     await exerciseDashboards(page);

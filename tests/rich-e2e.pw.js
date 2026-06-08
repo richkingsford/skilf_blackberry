@@ -65,7 +65,7 @@ test.describe('Rich single-user role e2e', () => {
     expect(schemaSource).toContain('`richkingsford@gmail.com` has admin, board-member, mentor, and intern authority');
   });
 
-  test('Rich can send an intern card message as a registered all-role user', async ({ page }) => {
+  test('Rich can send an applicant card message as a registered all-role user', async ({ page }) => {
     await page.goto('/interns');
     await expect(page.locator('#interns .intern-card').first()).toBeVisible();
     await actAsRich(page);

@@ -6,7 +6,7 @@ This repo treats Firestore as an intake database for the public site, plus serve
 
 ### `people`
 
-Created when a signed-in user submits the application form.
+Created when a user submits the application form through `netlify/functions/submit-application.js`, or when an admin registers a founder through `netlify/functions/register-founder.js`.
 
 Fields:
 
@@ -16,14 +16,55 @@ Fields:
 - `project`
 - `message`
 - `kind`
-- `source`: `skilf-site`
-- `authUid`: Firebase Auth user ID
-- `authEmail`: Firebase Auth user email
+- `source`: `highbar-application-function`, `admin-register-founder`, or legacy `skilf-site`
+- `authUid`: Firebase Auth user ID when known
+- `authEmail`: Firebase Auth user email when known
+- `status`: `applicant` for new applicant records
+- `founder`: `true` for founder applicants registered from admin tooling
 - `createdAt`: server timestamp
 
 Public clients may create documents only for their own authenticated user. Public clients cannot read, update, or delete documents.
 
-If the role is `intern`, `mentor`, or `board-member`, the app saves that intent as a requested role. It does not grant authority. Company project submissions are employer-directed prompts for entry-level proof projects. Feedback submissions are organization-directed intake and are not sent to an intern, mentor, or board member.
+If the role is `intern`, `mentor`, or `board-member`, the app saves that intent as a requested role. It does not grant authority. Company project submissions are employer-directed prompts for entry-level proof projects. Feedback submissions are organization-directed intake and are not sent to an applicant, mentor, or board member.
+
+### `founders`
+
+Created or updated by `netlify/functions/register-founder.js` when an admin registers a founder applicant.
+
+Fields:
+
+- `id`: email-keyed document ID
+- `name`
+- `email`
+- `note`
+- `status`: `applicant`
+- `applicantType`: `founder`
+- `founder`: `true`
+- `authUid`: Firebase Auth user ID when that email already has an Auth user
+- `registeredByUid`, `registeredByEmail`
+- `source`: `admin-register-founder`
+- `createdAt`
+- `updatedAt`
+
+Public clients cannot read or write founder records directly.
+
+### `studentJourneys`
+
+Created by applicant submission, admin founder registration, or `netlify/functions/student-journey.js`.
+
+Fields:
+
+- `email`: normalized applicant email
+- `name`
+- `status`: usually `applicant`
+- `steps`: map of checklist step ID to checked state
+- `authUid`: signed-in Firebase Auth user ID when known
+- `applicationId`: applicant form record ID when created from the public application flow
+- `source`: `submit-application`, `admin-register-founder`, or `student-journey`
+- `createdAt`
+- `updatedAt`
+
+The student portal loads and saves this state through `student-journey`; direct client writes are not required.
 
 ### `userProfiles`
 
@@ -44,11 +85,14 @@ Fields:
 - `suspended`, `suspendedReason`, `suspendedAt`, `suspendedByEmail`, `suspendedByUid`
 - `reinstatedAt`, `reinstatedByEmail`, `reinstatedByUid`
 - `authoritySource`: `custom-claims`, `owner-email`, or `none`
+- `applicant`: `true` when the signed-in email has a student journey record
+- `founderApplicant`: `true` when the signed-in email has a founder record
+- `applicantType`: `founder`, `applicant`, or empty
 - `source`: `skilf-site`
 - `createdAt`: server timestamp
 - `updatedAt`: server timestamp
 
-`richkingsford@gmail.com` has admin, board-member, mentor, and intern authority when the Firebase ID token has that verified email, and can also be granted those custom claims with `npm run firebase:bootstrap-rich`. Public clients may read, create, or update only their own profile document, and Firestore rules reject any role that is not backed by custom claims or the verified owner email. Public clients cannot edit suspension fields that were set by admin tooling.
+`richkingsford@gmail.com` has admin, board-member, mentor, and intern authority when the Firebase ID token has that verified email, and can also be granted those custom claims with `npm run firebase:bootstrap-rich`. Registered founders are matched by email in `netlify/functions/sync-user-profile.js`; on first sign-in, the function binds their UID to the founder and journey records and grants the `intern` custom claim. Public clients may read, create, or update only their own profile document, and Firestore rules reject any role that is not backed by custom claims or the verified owner email. Public clients cannot edit suspension fields that were set by admin tooling.
 
 ### `messages`
 
@@ -99,7 +143,7 @@ Fields:
 - `roles`
 - `monthKey`
 - `mentorDonationCredits`: monthly credits mentors and board members may donate
-- `internGiveawayCredits`: monthly credit interns may give another intern
+- `internGiveawayCredits`: monthly credit applicants may give another applicant
 - `checkInCredits`: spendable check-in credits owned by the user
 - `createdAt`
 - `updatedAt`

@@ -46,6 +46,10 @@ function firebaseJsonLooksValid() {
   }
 }
 
+function gmailWelcomeConfigured() {
+  return hasValue("GMAIL_USER") && hasValue("GMAIL_APP_PASSWORD");
+}
+
 const checks = [
   {
     label: "Firebase Admin credentials",
@@ -63,7 +67,12 @@ const checks = [
     help: "Set ADMIN_ROLE_TOKEN. Generate one with npm run production:admin-token.",
   },
   {
-    label: "Resend API key",
+    label: "Gmail welcome sender",
+    ok: gmailWelcomeConfigured(),
+    help: "Set GMAIL_USER=richkingsford@gmail.com and GMAIL_APP_PASSWORD for applicant welcome emails.",
+  },
+  {
+    label: "Resend API key for message notifications",
     ok: hasValue("RESEND_API_KEY"),
     help: "Set RESEND_API_KEY after verifying the sender/domain.",
   },

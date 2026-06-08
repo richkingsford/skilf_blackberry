@@ -42,7 +42,7 @@ async function installFirebaseMock(page) {
 }
 
 test.describe('Performance smoke budgets', () => {
-  test('Interns page renders searchable cards and thumbnails within a local budget', async ({ page }) => {
+  test('Applicants page renders searchable cards and thumbnails within a local budget', async ({ page }) => {
     await installSafeMocks(page);
     const started = Date.now();
     await page.goto('/interns.html', { waitUntil: 'domcontentloaded' });
@@ -58,7 +58,7 @@ test.describe('Performance smoke budgets', () => {
       domNodes: document.querySelectorAll('*').length,
     }));
 
-    expect(elapsedMs, 'Interns page should render locally before the user wonders if it froze').toBeLessThan(6000);
+    expect(elapsedMs, 'Applicants page should render locally before the user wonders if it froze').toBeLessThan(6000);
     expect(metrics.cardCount).toBeGreaterThanOrEqual(6);
     expect(metrics.completeImages).toBeGreaterThanOrEqual(6);
     expect(metrics.resourceCount).toBeLessThan(90);

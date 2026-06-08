@@ -23,7 +23,7 @@ const CHECKOUT_ITEMS = {
   },
   "sponsor-credit": {
     name: "Sponsor one Skilf check-in credit",
-    description: "Funds one intern monthly check-in credit",
+    description: "Funds one applicant monthly check-in credit",
     amount: 10000,
     requiresSignIn: false,
   },

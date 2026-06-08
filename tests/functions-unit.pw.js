@@ -22,6 +22,10 @@ function createFirebaseMock(options = {}) {
   const authCalls = [];
   let docIndex = 0;
   const usersByEmail = new Map(Object.entries(options.usersByEmail || {}));
+  const usersByUid = new Map(Object.entries(options.usersByUid || {}));
+  for (const user of usersByEmail.values()) {
+    if (user && user.uid && !usersByUid.has(user.uid)) usersByUid.set(user.uid, user);
+  }
   const snapshots = options.snapshots || {};
   const verifiedUser = options.verifiedUser || {
     decodedToken: {
@@ -42,12 +46,19 @@ function createFirebaseMock(options = {}) {
     };
   }
 
+  function rememberSnapshot(collectionName, id, data, mergeOptions) {
+    if (!snapshots[collectionName]) snapshots[collectionName] = {};
+    const existing = snapshots[collectionName][id] || {};
+    snapshots[collectionName][id] = mergeOptions && mergeOptions.merge ? { ...existing, ...data } : data;
+  }
+
   function makeRef(collectionName, id) {
     const ref = {
       collectionName,
       id: id || `${collectionName}-${++docIndex}`,
       async set(data, mergeOptions) {
         writes.push({ mode: 'set', collectionName, id: ref.id, data, mergeOptions });
+        rememberSnapshot(collectionName, ref.id, data, mergeOptions);
       },
       async get() {
         return snapshotFor(ref);
@@ -66,6 +77,7 @@ function createFirebaseMock(options = {}) {
         async add(data) {
           const ref = makeRef(collectionName);
           writes.push({ mode: 'add', collectionName, id: ref.id, data });
+          rememberSnapshot(collectionName, ref.id, data);
           return ref;
         },
       };
@@ -77,6 +89,7 @@ function createFirebaseMock(options = {}) {
         },
         set(ref, data, mergeOptions) {
           writes.push({ mode: 'tx.set', collectionName: ref.collectionName, id: ref.id, data, mergeOptions });
+          rememberSnapshot(ref.collectionName, ref.id, data, mergeOptions);
         },
       };
       return callback(tx);
@@ -92,6 +105,16 @@ function createFirebaseMock(options = {}) {
     async getUserByEmail(email) {
       authCalls.push({ method: 'getUserByEmail', email });
       const user = usersByEmail.get(String(email).toLowerCase());
+      if (!user) {
+        const error = new Error('No user');
+        error.code = 'auth/user-not-found';
+        throw error;
+      }
+      return user;
+    },
+    async getUser(uid) {
+      authCalls.push({ method: 'getUser', uid });
+      const user = usersByUid.get(String(uid));
       if (!user) {
         const error = new Error('No user');
         error.code = 'auth/user-not-found';
@@ -217,22 +240,53 @@ function createStripeMock(options = {}) {
   return Stripe;
 }
 
-function loadHandler(functionName, { firebaseMock = createFirebaseMock(), stripeMock = null } = {}) {
+function createNodemailerMock() {
+  const sent = [];
+  return {
+    sent,
+    createTransport(config) {
+      return {
+        async sendMail(payload) {
+          sent.push({ config, payload });
+          return { messageId: 'gmail-message-qa' };
+        },
+      };
+    },
+  };
+}
+
+function loadHandler(functionName, { firebaseMock = createFirebaseMock(), stripeMock = null, nodemailerMock = null } = {}) {
   const filename = path.join(functionsDir, `${functionName}.js`);
   delete require.cache[require.resolve(filename)];
+  for (const helperName of ['_founder-journey.js', '_welcome-email.js']) {
+    const helperPath = path.join(functionsDir, helperName);
+    delete require.cache[require.resolve(helperPath)];
+  }
   const originalLoad = Module._load;
-  Module._load = function patchedLoad(request, parent, isMain) {
+  function patchedLoad(request, parent, isMain) {
     if (request === './_firebase-admin' && parent && parent.filename && parent.filename.startsWith(functionsDir)) {
       return firebaseMock;
     }
     if (request === 'stripe' && stripeMock) return stripeMock;
+    if (request === 'nodemailer' && nodemailerMock) return nodemailerMock;
     return originalLoad.call(this, request, parent, isMain);
-  };
+  }
+  Module._load = patchedLoad;
   try {
+    const loadedHandler = require(filename).handler;
     return {
-      handler: require(filename).handler,
+      handler: async (...args) => {
+        const runtimeLoad = Module._load;
+        Module._load = patchedLoad;
+        try {
+          return await loadedHandler(...args);
+        } finally {
+          Module._load = runtimeLoad;
+        }
+      },
       firebaseMock,
       stripeMock,
+      nodemailerMock,
     };
   } finally {
     Module._load = originalLoad;
@@ -342,7 +396,7 @@ test.describe('Netlify function unit coverage', () => {
     response = await board.handler(event('POST', {
       action: 'pass-demo',
       internId: 'INT-QA',
-      internName: 'Dummy Intern',
+      internName: 'Dummy Applicant',
       sourcePage: 'board-member-dashboard.html',
     }, { authorization: 'Bearer token' }));
 
@@ -375,7 +429,7 @@ test.describe('Netlify function unit coverage', () => {
     const response = await loaded.handler(event('POST', {
       action: 'donate-credit',
       internId: 'INT-QA',
-      internName: 'Dummy Intern',
+      internName: 'Dummy Applicant',
     }, { authorization: 'Bearer token' }));
 
     expect(response.statusCode).toBe(200);
@@ -435,6 +489,286 @@ test.describe('Netlify function unit coverage', () => {
       expect(response.statusCode).toBe(400);
       expect(parseJson(response).error).toContain('owner admin account');
     });
+  });
+
+  test('register-founder records founder, journey, role grant, and welcome email', async () => {
+    await withEnv({
+      ADMIN_ROLE_TOKEN: 'qa-admin-token',
+      RESEND_API_KEY: 're_qa',
+      MESSAGE_FROM_EMAIL: 'HighBar <sender@example.test>',
+      SKILF_ALLOW_WRITES: 'true',
+    }, async () => {
+      const sent = [];
+      const originalFetch = global.fetch;
+      global.fetch = async (url, init) => {
+        sent.push({ url, init });
+        return {
+          ok: true,
+          json: async () => ({ id: 'welcome-founder-qa' }),
+        };
+      };
+      try {
+        const firebaseMock = createFirebaseMock({
+          usersByEmail: {
+            'rmanbrooks@gmail.com': {
+              uid: 'richard-qa',
+              email: 'rmanbrooks@gmail.com',
+              displayName: 'Richard Brooks',
+              disabled: false,
+              customClaims: {},
+            },
+          },
+        });
+        const loaded = loadHandler('register-founder', { firebaseMock });
+        const response = await loaded.handler(event('POST', {
+          name: 'Richard Brooks',
+          email: 'rmanbrooks@gmail.com',
+          note: 'First founder',
+        }, { 'x-skilf-admin-token': 'qa-admin-token' }));
+
+        expect(response.statusCode).toBe(200);
+        const data = parseJson(response);
+        expect(data.founder.id).toBe('rmanbrooks_gmail_com');
+        expect(data.authUserFound).toBe(true);
+        expect(data.welcomeEmail.sent).toBe(true);
+        expect(firebaseMock._database.writes.some((write) => write.collectionName === 'founders' && write.id === 'rmanbrooks_gmail_com')).toBe(true);
+        expect(firebaseMock._database.writes.some((write) => write.collectionName === 'people' && write.id === 'founder_rmanbrooks_gmail_com')).toBe(true);
+        expect(firebaseMock._database.writes.some((write) => write.collectionName === 'studentJourneys' && write.id === 'rmanbrooks_gmail_com')).toBe(true);
+        expect(firebaseMock._authCalls.some((call) => call.method === 'setCustomUserClaims' && call.claims.intern === true)).toBe(true);
+      } finally {
+        global.fetch = originalFetch;
+      }
+
+      expect(sent).toHaveLength(1);
+      const resendBody = JSON.parse(sent[0].init.body);
+      expect(resendBody.to).toEqual(['rmanbrooks@gmail.com']);
+      expect(resendBody.subject).toBe('Welcome to HighBar (hbar for short)');
+      expect(resendBody.text).toContain('at least 40 applications');
+    });
+  });
+
+  test('submit-application writes applicant journey and sends welcome email', async () => {
+    await withEnv({
+      RESEND_API_KEY: 're_qa',
+      WELCOME_FROM_EMAIL: 'HighBar <welcome@example.test>',
+      SKILF_ALLOW_WRITES: 'true',
+    }, async () => {
+      const sent = [];
+      const originalFetch = global.fetch;
+      global.fetch = async (url, init) => {
+        sent.push({ url, init });
+        return {
+          ok: true,
+          json: async () => ({ id: 'welcome-application-qa' }),
+        };
+      };
+      try {
+        const firebaseMock = createFirebaseMock({
+          verifiedUser: {
+            decodedToken: {
+              uid: 'applicant-qa',
+              email: 'student@example.test',
+              name: 'Student QA',
+            },
+            roles: ['intern'],
+          },
+        });
+        const loaded = loadHandler('submit-application', { firebaseMock });
+        const response = await loaded.handler(event('POST', {
+          role: 'intern',
+          kind: 'intern',
+          name: 'Student QA',
+          email: 'student@example.test',
+          project: 'Founder proof plan',
+          message: 'Ready to apply.',
+        }, { authorization: 'Bearer token' }));
+
+        expect(response.statusCode).toBe(200);
+        const data = parseJson(response);
+        expect(data.ok).toBe(true);
+        expect(data.welcomeEmail.sent).toBe(true);
+        expect(firebaseMock._database.writes.some((write) => write.collectionName === 'people' && write.mode === 'add')).toBe(true);
+        const journeyWrite = firebaseMock._database.writes.find((write) => write.collectionName === 'studentJourneys');
+        expect(journeyWrite.id).toBe('student_example_test');
+        expect(journeyWrite.data.steps['submit-application']).toBe(true);
+      } finally {
+        global.fetch = originalFetch;
+      }
+
+      expect(sent).toHaveLength(1);
+      const resendBody = JSON.parse(sent[0].init.body);
+      expect(resendBody.from).toBe('HighBar <welcome@example.test>');
+      expect(resendBody.subject).toBe('Welcome to HighBar (hbar for short)');
+    });
+  });
+
+  test('submit-application redirects native browser form posts to thanks page', async () => {
+    await withEnv({
+      RESEND_API_KEY: 're_qa',
+      WELCOME_FROM_EMAIL: 'HighBar <welcome@example.test>',
+      SKILF_ALLOW_WRITES: 'true',
+    }, async () => {
+      const originalFetch = global.fetch;
+      global.fetch = async () => ({
+        ok: true,
+        json: async () => ({ id: 'welcome-native-form-qa' }),
+      });
+      try {
+        const firebaseMock = createFirebaseMock();
+        const loaded = loadHandler('submit-application', { firebaseMock });
+        const body = new URLSearchParams({
+          'form-name': 'skilf-application',
+          role: 'intern',
+          kind: 'intern',
+          name: 'Native Form QA',
+          email: 'native@example.test',
+          project: 'Static form fallback',
+          message: 'Posted by the browser.',
+        }).toString();
+        const response = await loaded.handler({
+          httpMethod: 'POST',
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+
+        expect(response.statusCode).toBe(303);
+        expect(response.headers.Location).toBe('/thanks.html');
+        expect(firebaseMock._database.writes.some((write) => write.collectionName === 'people' && write.mode === 'add')).toBe(true);
+      } finally {
+        global.fetch = originalFetch;
+      }
+    });
+  });
+
+  test('submit-application can send welcome email through Gmail SMTP', async () => {
+    await withEnv({
+      RESEND_API_KEY: undefined,
+      WELCOME_EMAIL_PROVIDER: 'gmail',
+      GMAIL_USER: 'richkingsford@gmail.com',
+      GMAIL_APP_PASSWORD: 'app-password-qa',
+      WELCOME_FROM_EMAIL: 'Rich Kingsford <richkingsford@gmail.com>',
+      SKILF_ALLOW_WRITES: 'true',
+    }, async () => {
+      const nodemailerMock = createNodemailerMock();
+      const loaded = loadHandler('submit-application', {
+        firebaseMock: createFirebaseMock(),
+        nodemailerMock,
+      });
+      const response = await loaded.handler(event('POST', {
+        role: 'intern',
+        kind: 'intern',
+        name: 'Student QA',
+        email: 'student@example.test',
+        project: 'Founder proof plan',
+        message: 'Ready to apply.',
+      }));
+
+      expect(response.statusCode).toBe(200);
+      const data = parseJson(response);
+      expect(data.welcomeEmail).toEqual({ sent: true, provider: 'gmail', id: 'gmail-message-qa' });
+      expect(nodemailerMock.sent).toHaveLength(1);
+      expect(nodemailerMock.sent[0].config.auth.user).toBe('richkingsford@gmail.com');
+      expect(nodemailerMock.sent[0].payload.from).toBe('Rich Kingsford <richkingsford@gmail.com>');
+      expect(nodemailerMock.sent[0].payload.to).toBe('student@example.test');
+    });
+  });
+
+  test('student-journey loads and persists signed-in checklist state', async () => {
+    await withEnv({ SKILF_ALLOW_WRITES: 'true' }, async () => {
+      const firebaseMock = createFirebaseMock({
+        verifiedUser: {
+          decodedToken: {
+            uid: 'student-qa',
+            email: 'student@example.test',
+            name: 'Student QA',
+          },
+          roles: ['intern'],
+        },
+        snapshots: {
+          studentJourneys: {
+            student_example_test: {
+              email: 'student@example.test',
+              name: 'Student QA',
+              status: 'applicant',
+              steps: {
+                'submit-application': true,
+                'unpaid-internship-attempt': false,
+              },
+            },
+          },
+        },
+      });
+      const loaded = loadHandler('student-journey', { firebaseMock });
+
+      let response = await loaded.handler(event('GET', undefined, { authorization: 'Bearer token' }));
+      expect(response.statusCode).toBe(200);
+      expect(parseJson(response).journey.completedCount).toBe(1);
+
+      response = await loaded.handler(event('POST', {
+        steps: [
+          { id: 'submit-application', done: true },
+          { id: 'unpaid-internship-attempt', done: true },
+        ],
+      }, { authorization: 'Bearer token' }));
+      expect(response.statusCode).toBe(200);
+      const saved = parseJson(response).journey;
+      expect(saved.completedCount).toBe(2);
+      const write = firebaseMock._database.writes.find((item) => item.collectionName === 'studentJourneys' && item.id === 'student_example_test');
+      expect(write.data.steps['unpaid-internship-attempt']).toBe(true);
+    });
+  });
+
+  test('sync-user-profile grants registered founder applicant access on first sign-in', async () => {
+    const firebaseMock = createFirebaseMock({
+      verifiedUser: {
+        decodedToken: {
+          uid: 'richard-uid',
+          email: 'rmanbrooks@gmail.com',
+          name: 'Richard Brooks',
+          email_verified: true,
+        },
+        roles: [],
+      },
+      usersByUid: {
+        'richard-uid': {
+          uid: 'richard-uid',
+          email: 'rmanbrooks@gmail.com',
+          displayName: 'Richard Brooks',
+          disabled: false,
+          customClaims: {},
+        },
+      },
+      snapshots: {
+        founders: {
+          rmanbrooks_gmail_com: {
+            name: 'Richard Brooks',
+            email: 'rmanbrooks@gmail.com',
+            status: 'applicant',
+            founder: true,
+          },
+        },
+        studentJourneys: {
+          rmanbrooks_gmail_com: {
+            name: 'Richard Brooks',
+            email: 'rmanbrooks@gmail.com',
+            status: 'applicant',
+          },
+        },
+      },
+    });
+    const loaded = loadHandler('sync-user-profile', { firebaseMock });
+    const response = await loaded.handler(event('POST', { requestedRole: 'intern' }, { authorization: 'Bearer token' }));
+
+    expect(response.statusCode).toBe(200);
+    const data = parseJson(response);
+    expect(data.profile.roles).toEqual(['intern']);
+    expect(data.profile.requestedRoles).toEqual(['intern', 'applicant', 'founder']);
+    expect(data.profile.founderApplicant).toBe(true);
+    expect(data.claimsUpdated).toBe(true);
+    expect(firebaseMock._authCalls.some((call) => call.method === 'setCustomUserClaims' && call.uid === 'richard-uid' && call.claims.intern === true)).toBe(true);
+    expect(firebaseMock._database.writes.some((write) => write.collectionName === 'userProfiles' && write.id === 'richard-uid' && write.data.applicantType === 'founder')).toBe(true);
+    expect(firebaseMock._database.writes.some((write) => write.collectionName === 'founders' && write.id === 'rmanbrooks_gmail_com' && write.data.authUid === 'richard-uid')).toBe(true);
+    expect(firebaseMock._database.writes.some((write) => write.collectionName === 'studentJourneys' && write.id === 'rmanbrooks_gmail_com' && write.data.authUid === 'richard-uid')).toBe(true);
   });
 
   test('create-checkout-session validates auth and builds sponsor checkout', async () => {

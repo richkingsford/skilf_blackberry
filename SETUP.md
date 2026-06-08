@@ -1,4 +1,4 @@
-# Skilf Deployment Setup
+# HighBar Deployment Setup
 
 ## Netlify form email
 
@@ -11,7 +11,7 @@ After deploying from GitHub:
 3. Add an email notification for `skilf-application`.
 4. Send notifications to `richkingsford@gmail.com`.
 
-Netlify captures the form without a custom backend. The recipient cannot be fully enforced from static HTML, so the email notification is the one dashboard step still required.
+The app now submits this form through `netlify/functions/submit-application.js` when a functions-capable deployment is available, so HighBar can write the applicant record, initialize the student journey checklist, and send the welcome email. The native static fallback posts to FormSubmit instead of `thanks.html`, because GitHub Pages/Cloudflare static hosting returns `405 Method Not Allowed` for POSTs to HTML files.
 
 ## Firebase Google login and Firestore
 
@@ -36,9 +36,9 @@ Netlify captures the form without a custom backend. The recipient cannot be full
 8. Run the site locally with `npm run serve:workspace` and open `http://localhost:3999/index.html`.
 9. Click Sign in. After Google sign-in succeeds, the nav should show your profile chip.
 
-The application form saves signed-in submissions to the `people` collection with `role` values of `intern`, `scholarship`, `board-member`, `mentor`, `hire`, or `feedback`. Netlify form capture still works if Firebase is not configured yet.
+The application form saves submissions to the `people` collection through the Netlify Function with `role` values of `intern`, `scholarship`, `board-member`, `mentor`, `hire`, or `feedback`. Netlify form capture still works if functions are not available yet.
 
-Signed-in users also get a private `userProfiles/{uid}` document with registered roles of `intern`, `mentor`, or `board-member`. Roles are now authority-backed by Firebase custom claims or the verified owner email rule for `richkingsford@gmail.com`; public form submissions only create requested roles. Homepage and interns-page card messages save to the `messages` collection only for users with registered authority. The structure is documented in `docs/firestore-schema.md`.
+Signed-in users also get a private `userProfiles/{uid}` document with registered roles of `intern`, `mentor`, or `board-member`. Roles are now authority-backed by Firebase custom claims or the verified owner email rule for `richkingsford@gmail.com`; public form submissions only create requested roles. Homepage and Applicants page card messages save to the `messages` collection only for users with registered authority. The structure is documented in `docs/firestore-schema.md`.
 
 Dashboard actions call `netlify/functions/record-dashboard-action.js`, which verifies the Firebase ID token with Firebase Admin, enforces role-specific authority, records `dashboardActions`, and updates the server-side credit ledger. `richkingsford@gmail.com` has admin, board-member, mentor, and intern authority by verified owner email and can be permanently granted those custom claims with `npm run firebase:bootstrap-rich`.
 
@@ -48,19 +48,28 @@ Payments use the `payments.html` page, `netlify/functions/create-checkout-sessio
 
 If sign-in says `This domain is not authorized in Firebase Authentication`, add the exact host you are using to Authorized domains. For local testing, `localhost` and `127.0.0.1` are different hosts.
 
-## Homepage card message email
+## Applicant and message email
+
+New applicants receive the `Welcome to HighBar (hbar for short)` email from `netlify/functions/submit-application.js`. Admin-created founders receive the same email from `netlify/functions/register-founder.js`. HighBar uses Gmail for the applicant welcome sender so the message can come from `richkingsford@gmail.com`.
 
 The card Send buttons call `netlify/functions/send-message.js` after Firebase saves the signed-in user's message. The function verifies the Firebase ID token server-side, requires an active registered `intern`, `mentor`, or `board-member` role, then emails the message to `richkingsford@gmail.com`.
 
 Required email values in `.env.local`:
 
 ```bash
+WELCOME_EMAIL_PROVIDER=gmail
+GMAIL_USER=richkingsford@gmail.com
+GMAIL_APP_PASSWORD=your_google_app_password
+GMAIL_FROM_EMAIL=Rich Kingsford <richkingsford@gmail.com>
+WELCOME_FROM_EMAIL=Rich Kingsford <richkingsford@gmail.com>
+WELCOME_REPLY_TO_EMAIL=richkingsford@gmail.com
+
 RESEND_API_KEY=your_resend_api_key
 MESSAGE_TO_EMAIL=richkingsford@gmail.com
-MESSAGE_FROM_EMAIL=Skilf <sender@your-verified-domain.example>
+MESSAGE_FROM_EMAIL=HighBar <sender@your-verified-domain.example>
 ```
 
-The sender in `MESSAGE_FROM_EMAIL` must be verified in Resend. For production, prefer a Skilf-owned verified domain or sender instead of Resend's onboarding sender. The same `.env.local` file also needs Firebase Admin, Firebase web API, `ADMIN_ROLE_TOKEN`, and `SKILF_ALLOW_WRITES` values because production email authorization is role-backed.
+For Gmail, create a Google app password for `richkingsford@gmail.com`; do not use the normal Google account password. The Resend sender address is still needed for signed-in card message notifications until those are moved to Gmail too. The same `.env.local` file also needs Firebase Admin, Firebase web API, `ADMIN_ROLE_TOKEN`, and `SKILF_ALLOW_WRITES` values because production email authorization is role-backed.
 
 Before pushing anything to Netlify, run:
 

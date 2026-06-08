@@ -1,4 +1,6 @@
-const { initializeApp, cert, getApps } = require("firebase-admin/app");
+const fs = require("fs");
+const path = require("path");
+const { initializeApp, applicationDefault, cert, getApps } = require("firebase-admin/app");
 const { getAuth } = require("firebase-admin/auth");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 
@@ -20,11 +22,28 @@ function serviceAccountFromEnv() {
   return null;
 }
 
+function projectIdFromConfig() {
+  if (process.env.FIREBASE_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT) {
+    return process.env.FIREBASE_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT;
+  }
+  try {
+    const configPath = path.join(__dirname, "..", "..", ".firebaserc");
+    const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+    return config.projects && config.projects.default ? config.projects.default : "";
+  } catch {
+    return "";
+  }
+}
+
 function adminApp() {
   if (getApps().length) return getApps()[0];
   const account = serviceAccountFromEnv();
   if (!account) {
-    throw new Error("Firebase Admin is not configured. Add FIREBASE_SERVICE_ACCOUNT_JSON or FIREBASE_PROJECT_ID/FIREBASE_CLIENT_EMAIL/FIREBASE_PRIVATE_KEY.");
+    const projectId = projectIdFromConfig();
+    if (!projectId) {
+      throw new Error("Firebase Admin is not configured. Add FIREBASE_SERVICE_ACCOUNT_JSON, split Firebase service account vars, or Google application-default credentials with a project ID.");
+    }
+    return initializeApp({ credential: applicationDefault(), projectId });
   }
   return initializeApp({ credential: cert(account) });
 }

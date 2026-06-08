@@ -29,9 +29,9 @@ export function calendlyLink(intern, type = "check-in") {
   return `${CALENDLY_CHECK_IN_URL}?${params.toString()}`;
 }
 
-export async function loadInterns() {
+export async function loadApplicants() {
   const response = await fetch("prospectivePartners.json");
-  if (!response.ok) throw new Error("Could not load interns.");
+  if (!response.ok) throw new Error("Could not load applicants.");
   const interns = await response.json();
   return interns.map((intern, index) => ({
     ...intern,
@@ -43,7 +43,7 @@ export async function loadInterns() {
   }));
 }
 
-export function filterInterns(interns, query) {
+export function filterApplicants(interns, query) {
   const needle = normalize(query);
   if (!needle) return interns;
   return interns.filter((intern) => normalize([
@@ -188,7 +188,7 @@ function dashboardMessage(action, payload) {
   if (action === "pass-demo") return "Demo Day pass decision recorded.";
   if (action === "fail-demo") return "Demo Day fail decision recorded with repair notes.";
   if (action === "schedule-check-in") return "Check-in scheduling started. Credits are spent when the meeting is scheduled.";
-  if (action === "give-intern-credit") return "Give-away credit marked for another intern.";
+  if (action === "give-intern-credit") return "Give-away credit marked for another applicant.";
   if (action === "become-mentor") return "Mentor unlock request saved.";
   return "Action saved.";
 }
