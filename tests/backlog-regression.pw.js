@@ -330,8 +330,12 @@ test.describe('Backlog regression', () => {
     await page.goto('/apply.html');
     await expect(page.locator('form[name="skilf-application"][data-netlify="true"]')).toBeVisible();
     await expect(page.locator('form[name="skilf-application"]')).not.toHaveAttribute('action', /thanks\.html$/);
+    await expect(page.locator('form[name="skilf-application"]')).not.toHaveAttribute('action', /richkingsford@gmail\.com$/);
+    await expect(page.locator('form[name="skilf-application"]')).toHaveAttribute('action', 'https://formsubmit.co/7d2b8c45bf43252b0e0dac22dca9ff85');
     await expect(page.locator('form[name="skilf-application"]')).toHaveAttribute('data-function-action', '/.netlify/functions/submit-application');
     await expect(page.locator('input[name="_next"]')).toHaveValue('https://firstrealtechjob.org/thanks.html');
+    await expect(page.locator('input[name="_url"]')).toHaveValue('https://firstrealtechjob.org/apply.html');
+    await expect(page.locator('input[name="recipient"]')).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Join the HighBar waitlist' })).toBeVisible();
     await expect(page.locator('main > .lead')).toContainText('HighBar is focused on tech careers');
     await expect(page.locator('main > .lead')).toContainText('first real tech job');
