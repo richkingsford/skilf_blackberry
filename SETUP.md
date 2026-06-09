@@ -50,7 +50,7 @@ If sign-in says `This domain is not authorized in Firebase Authentication`, add 
 
 ## Applicant and message email
 
-New applicants receive the `Welcome to HighBar (hbar for short)` email from `netlify/functions/submit-application.js`. Admin-created founders receive the same email from `netlify/functions/register-founder.js`. HighBar uses Gmail for the applicant welcome sender so the message can come from `richkingsford@gmail.com`.
+New applicants receive the `Welcome to HighBar (hbar for short)` email from `netlify/functions/submit-application.js`. Admin-created founders receive the same email from `netlify/functions/register-founder.js`. HighBar uses Gmail for the applicant welcome sender so the message can come from `richkingsford@gmail.com`. The GitHub Pages fallback uses FormSubmit's `_autoresponse` welcome message; keep reCAPTCHA enabled there because FormSubmit does not send autoresponses for forms that disable reCAPTCHA.
 
 The card Send buttons call `netlify/functions/send-message.js` after Firebase saves the signed-in user's message. The function verifies the Firebase ID token server-side, requires an active registered `intern`, `mentor`, or `board-member` role, then emails the message to `richkingsford@gmail.com`.
 

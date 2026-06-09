@@ -335,6 +335,9 @@ test.describe('Backlog regression', () => {
     await expect(page.locator('form[name="skilf-application"]')).toHaveAttribute('data-function-action', '/.netlify/functions/submit-application');
     await expect(page.locator('input[name="_next"]')).toHaveValue('https://firstrealtechjob.org/thanks.html');
     await expect(page.locator('input[name="_url"]')).toHaveValue('https://firstrealtechjob.org/apply.html');
+    await expect(page.locator('[name="_autoresponse"]')).toContainText('Welcome to HighBar (hbar for short)');
+    await expect(page.locator('[name="_autoresponse"]')).toContainText('You are now an applicant');
+    await expect(page.locator('input[name="_captcha"]')).toHaveCount(0);
     await expect(page.locator('input[name="recipient"]')).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Join the HighBar waitlist' })).toBeVisible();
     await expect(page.locator('main > .lead')).toContainText('HighBar is focused on tech careers');
