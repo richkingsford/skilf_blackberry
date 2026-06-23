@@ -134,7 +134,28 @@
     <h1>Join the HighBar waitlist</h1>
     <p class="lead">Pick the path that fits you. HighBar is focused on tech careers, and our mission is to help applicants turn proof into a first real tech job. This intake routes applicants, mentors, reviewer-board candidates, hiring partners, company project prompts, support requests, and feedback.</p>
 
-    <form data-skilf-application-form>
+    <form method="POST" action="https://formsubmit.co/7d2b8c45bf43252b0e0dac22dca9ff85" data-skilf-application-form>
+      <input type="hidden" name="_subject" value="New HighBar application">
+      <input type="hidden" name="_next" value="https://firstrealtechjob.org/thanks.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <textarea class="hidden" name="_autoresponse" readonly>Welcome to HighBar (hbar for short). You are now an applicant.
+
+The path is deliberately honest: try hard to win a real unpaid internship, and if the market still will not give you a fair shot, build the proof yourself as a founder.
+
+Your next steps:
+1. Make an honest attempt to win an unpaid internship. Aim for at least 40 applications and keep a simple evidence list.
+2. Write a business plan and found your own company.
+3. Prepare a 6-20 week plan for board approval.
+4. Use the student portal checklist to track each step as it becomes true.
+
+HighBar works because the evidence gets specific. Save links, dates, screenshots, demos, customer notes, and the failures that taught you something.
+
+Reply to Rich at richkingsford@gmail.com whenever you need help getting unstuck.
+
+Welcome aboard,
+Rich
+HighBar</textarea>
       <input type="hidden" name="kind" data-kind-input value="intern">
 
       <p class="intent-note" data-intent-note></p>
@@ -170,7 +191,6 @@
       </div>
 
       <div class="submit-row">
-        <span class="form-error" data-form-error hidden style="color:#e05a5a;font-size:0.9rem;"></span>
         <button class="submit-btn" type="submit">Send</button>
       </div>
     </form>
@@ -252,47 +272,6 @@
     const mapped = requested === "panelist" ? "board-member" : requested === "demo-day" ? "intern" : requested === "project" ? "company-project" : requested;
     setIntent(mapped || "intern");
     intentSelect.addEventListener("change", () => setIntent(intentSelect.value));
-  </script>
-  <script>
-    const appForm = document.querySelector("[data-skilf-application-form]");
-    const errorEl = document.querySelector("[data-form-error]");
-    const submitBtn = appForm.querySelector(".submit-btn");
-
-    appForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      errorEl.hidden = true;
-      submitBtn.disabled = true;
-      const prev = submitBtn.textContent;
-      submitBtn.textContent = "Sending…";
-
-      const fd = new FormData(appForm);
-      const payload = {
-        role: fd.get("role") || "",
-        name: fd.get("name") || "",
-        email: fd.get("email") || "",
-        project: fd.get("project") || "",
-        message: fd.get("message") || "",
-        kind: fd.get("kind") || "",
-      };
-
-      try {
-        const res = await fetch("/.netlify/functions/handle-application", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          const body = await res.json().catch(() => ({}));
-          throw new Error(body.error || `Server error ${res.status}`);
-        }
-        location.href = "thanks.html";
-      } catch (err) {
-        errorEl.textContent = err.message || "Something went wrong. Please try again.";
-        errorEl.hidden = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = prev;
-      }
-    });
   </script>
   <script type="module" src="skilf-firebase.js"></script>
 </body>
